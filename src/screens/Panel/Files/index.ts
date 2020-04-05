@@ -1,1 +1,1 @@
-export { default, FilesHeaderActions } from './FilesView';
+export { default } from './Files';

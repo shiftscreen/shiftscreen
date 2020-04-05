@@ -1,23 +1,12 @@
 import styled from 'styled-components';
 import { Colors } from 'constants/index';
+import { CaretDownOutlined } from '@ant-design/icons';
 
 export const Container = styled.div`
   color: ${Colors.grey};
-  font-size: 1.25rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  cursor: pointer;
 `;
 
-export const Title = styled.h2`
-  margin: 0;
-  font-weight: 600;
-`;
-
-export const ActionsWrapper = styled.div`
-  display: flex;
-  
-  & > * {
-    margin-left: 1rem;
-  }
+export const CaretDownIcon = styled(CaretDownOutlined)`
+  font-size: 1rem;
 `;

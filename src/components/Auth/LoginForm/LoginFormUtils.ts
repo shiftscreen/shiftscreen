@@ -1,13 +1,26 @@
 import * as Yup from 'yup';
-import { NewScreenInput } from 'types';
+import gql from 'graphql-tag';
+import { LoginInput } from 'types';
 
-export const initialValues: NewScreenInput = {
-  title: ''
+export const initialValues: LoginInput = {
+  email: '',
+  password: ''
 };
 
-export const AddScreenSchema = Yup.object<NewScreenInput>().shape({
-  title: Yup.string()
-    .min(1, 'Tytuł powinien zawierać minimum 1 znak')
-    .max(100, 'Tytuł powinien być nie dłuższy niż 100 znaków')
+export const LoginSchema = Yup.object<LoginInput>().shape({
+  email: Yup.string()
+    .email('W polu powinien znajdować się email')
+    .required('Pole jest wymagane'),
+  password: Yup.string()
     .required('Pole jest wymagane'),
 });
+
+export const LOGIN = gql`
+    mutation Login($data: LoginInput!) {
+        login(loginData: $data) {
+            tokenType
+            accessToken
+            expiresIn
+        }
+    }
+`;

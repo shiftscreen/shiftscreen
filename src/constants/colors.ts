@@ -1,23 +1,13 @@
-interface Colors {
-  whitePure: string;
-  blackPure: string;
-  white: string;
-  greyVeryLight: string;
-  greyLight: string;
-  grey: string;
-  greyDark: string;
-  yellow: string;
-}
+import { ColorsType } from 'types';
 
-const Colors: Colors = {
+const Colors: ColorsType = {
   whitePure: '#FFF',
   blackPure: '#000',
-  white: '#F4F4F4',
-  greyVeryLight: '#ECECEC',
-  greyLight: '#d9d9d9',
-  grey: '#2D313A',
-  greyDark: '#1F2027',
-  yellow: '#FECF00',
+  black: 'rgba(13, 7, 25, 0.85)',
+  grey: 'rgba(13, 7, 25, 0.75)',
+  teal: '#33ccff',
+  magenta: '#cc33ff',
+  violet: '#8249FB',
 };
 
 export default Colors;

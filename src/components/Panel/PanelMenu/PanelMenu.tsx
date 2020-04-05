@@ -6,18 +6,14 @@ import { ItemsList } from './PanelMenuUtils';
 
 interface Props {
   viewsConfig: PanelTypes.ViewsConfig;
-  onViewChange: PanelTypes.ViewChange;
 }
 
 const PanelMenu: React.FC<Props> = (props: Props) => {
-  const { viewsConfig, onViewChange } = props;
+  const { viewsConfig } = props;
 
   return (
     <Container>
-      <ItemsList
-        viewsConfig={viewsConfig}
-        onViewChange={onViewChange}
-      />
+      <ItemsList viewsConfig={viewsConfig} />
     </Container>
   );
 };

@@ -1,4 +1,4 @@
-import { EntityBase } from './base';
+import { EntityBase, ID } from './base';
 
 export interface File extends EntityBase {
   title: string;
@@ -9,5 +9,10 @@ export interface File extends EntityBase {
 
 export interface NewFileInput {
   title: string;
-  file: Blob | null;
+  file: Blob | undefined;
+}
+
+export interface UpdateFileInput {
+  id: ID;
+  title: string;
 }

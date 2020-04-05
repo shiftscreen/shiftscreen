@@ -1,9 +1,11 @@
 import React from 'react';
-import * as R from 'ramda';
+import { ModalProps } from 'antd/es/modal';
+import { UploadOutlined } from '@ant-design/icons';
 import { FormikProps } from 'formik';
 import { NewFileInput } from 'types';
 
-import FilesAddModalView from "./FilesAddModalView";
+import ModalFormik from 'shared/ModalFormik';
+import FileAddForm from './FileAddForm';
 
 interface Props {
   visible: boolean;
@@ -11,8 +13,7 @@ interface Props {
   onClose: () => void;
 }
 
-const FilesAddModal: React.FC<Props> = (props: Props) => {
-  const [confirmLoading, setConfirmLoading] = React.useState<boolean>(false);
+const FileAddModal: React.FC<Props> = (props: Props) => {
   const formikRef = React.useRef<FormikProps<NewFileInput>>();
   const {
     visible,
@@ -20,42 +21,33 @@ const FilesAddModal: React.FC<Props> = (props: Props) => {
     onClose,
   } = props;
 
-  const handleCancel = () => {
-    if (formikRef && formikRef.current) {
-      formikRef.current.resetForm();
-      onClose();
-    }
-  };
-
-  const handleOk = async () => {
-    if (formikRef && formikRef.current) {
-      const { validateForm } = formikRef.current;
-      const errors = await validateForm();
-
-      if (R.isEmpty(errors)) {
-        await formikRef.current.submitForm();
-        formikRef.current.resetForm();
-      }
-    }
-  };
-
   const handleSubmit = async (values: NewFileInput) => {
-    setConfirmLoading(true);
+    await new Promise(resolve => setTimeout(resolve, 1000));
     onCreate(values);
-    setTimeout(() => setConfirmLoading(false), 500);
     console.log(values)
   };
 
+  const modalProps: ModalProps = {
+    title: 'Dodaj nowy plik',
+    okText: 'Dodaj',
+    okButtonProps: {
+      icon: <UploadOutlined/>
+    }
+  };
+
   return (
-    <FilesAddModalView
+    <ModalFormik<NewFileInput>
       visible={visible}
-      confirmLoading={confirmLoading}
-      onOk={handleOk}
-      onCancel={handleCancel}
-      onSubmit={handleSubmit}
+      modalProps={modalProps}
+      onClose={onClose}
       formikRef={formikRef}
-    />
+    >
+      <FileAddForm
+        formikRef={formikRef}
+        onSubmit={handleSubmit}
+      />
+    </ModalFormik>
   )
 };
 
-export default FilesAddModal;
+export default FileAddModal;

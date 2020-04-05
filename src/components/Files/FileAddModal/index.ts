@@ -1,1 +1,1 @@
-export { default } from './FilesAddModalContainer';
+export { default } from './FileAddModalContainer';

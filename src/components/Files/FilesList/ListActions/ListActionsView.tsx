@@ -1,7 +1,7 @@
 import React from 'react';
 import { File } from 'types';
-import { Button, Popconfirm, Row, Col, Typography } from 'antd';
-import { DeleteOutlined, EditOutlined, LinkOutlined } from '@ant-design/icons';
+import { Button, Popconfirm, Row, Col, Typography, Tooltip, message } from 'antd';
+import { DeleteOutlined, LinkOutlined } from '@ant-design/icons';
 
 const { Text } = Typography;
 
@@ -15,9 +15,6 @@ const ListActions: React.FC<Props> = (props: Props) => {
   return (
     <Row justify="space-between" align="middle">
       <Col>
-        <EditAction file={file}/>
-      </Col>
-      <Col>
         <LinkAction file={file}/>
       </Col>
       <Col>
@@ -27,28 +24,40 @@ const ListActions: React.FC<Props> = (props: Props) => {
   );
 };
 
-const EditAction: React.FC<Props> = (props: Props) => {
-  const { file } = props;
-
-  return (
-    <Button
-      icon={<EditOutlined />}
-    />
-  );
-};
-
 const LinkAction: React.FC<Props> = (props: Props) => {
+  const [loading, setLoading] = React.useState<boolean>();
   const { file } = props;
 
+  const handleClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      message.success('Skopiowano link do schowka');
+    }, 200);
+  };
+
   return (
-    <Button
-      icon={<LinkOutlined />}
-    />
+    <Tooltip title="Skopiuj link do pliku">
+      <Button
+        icon={<LinkOutlined />}
+        loading={loading}
+        onClick={handleClick}
+      />
+    </Tooltip>
   );
 };
 
 const DeleteAction: React.FC<Props> = (props: Props) => {
+  const [loading, setLoading] = React.useState<boolean>();
   const { file } = props;
+
+  const handleConfirm = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      message.success(`Pomyślnie usunięto plik ${file.title}`);
+    }, 600);
+  };
 
   const title = (
     <Text>
@@ -61,15 +70,17 @@ const DeleteAction: React.FC<Props> = (props: Props) => {
   return (
     <Popconfirm
       title={title}
-      onConfirm={() => null}
-      onCancel={() => null}
+      onConfirm={handleConfirm}
+      icon={<DeleteOutlined/>}
       okText="Usuń"
+      okType="danger"
       cancelText="Nie"
       placement="topRight"
     >
       <Button
         danger
         icon={<DeleteOutlined />}
+        loading={loading}
       />
     </Popconfirm>
   );

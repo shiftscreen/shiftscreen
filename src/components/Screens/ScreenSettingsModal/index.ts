@@ -1,1 +1,1 @@
-export { default } from './ScreenAddModalContainer';
+export { default } from './ScreenSettingsModal';

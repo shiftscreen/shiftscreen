@@ -1,12 +1,12 @@
 import React from 'react';
-import {Formik, FormikProps} from 'formik';
+import { Formik, FormikProps } from 'formik';
 import { NewScreenInput } from 'types';
 
-import View from './ScreenAddFormView';
-import { initialValues, AddScreenSchema } from './ScreenAddFormUtils';
+import View from './FormView';
+import { initialValues, AddScreenSchema } from './FormUtils';
 
 interface Props {
-  formikRef: React.MutableRefObject<FormikProps<NewScreenInput> | undefined>
+  formikRef: React.Ref<FormikProps<NewScreenInput> | undefined>
   onSubmit(values: NewScreenInput): Promise<void>;
 }
 
@@ -21,11 +21,12 @@ const ScreenAddForm: React.FC<Props> = (props: Props) => {
       initialValues={initialValues}
       validationSchema={AddScreenSchema}
       onSubmit={onSubmit}
-      render={() => <View />}
 
-      // @ts-ignore invalid Formik typings
+      // @ts-ignore due to invalid Formik typings
       innerRef={formikRef}
-    />
+    >
+      <View />
+    </Formik>
   )
 };
 

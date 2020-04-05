@@ -1,1 +1,1 @@
-export { default } from './UserInfoView';
+export { default } from './Search';

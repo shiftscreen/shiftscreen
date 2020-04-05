@@ -1,5 +1,5 @@
 import React from 'react';
-import { PanelTypes } from 'types';
+import { User, PanelTypes } from 'types';
 
 import {
   Container,
@@ -11,15 +11,14 @@ import Menu from '../PanelMenu';
 
 interface Props {
   viewsConfig: PanelTypes.ViewsConfig;
-  onViewChange: PanelTypes.ViewChange;
 }
 
-const PanelSider: React.FC<Props> = ({ viewsConfig, onViewChange }: Props) => (
+const PanelSider: React.FC<Props> = ({ viewsConfig }: Props) => (
   <Container>
     <LogoWrapper>
-      <Logo color="white"/>
+      <Logo color="full"/>
     </LogoWrapper>
-    <Menu viewsConfig={viewsConfig} onViewChange={onViewChange}/>
+    <Menu viewsConfig={viewsConfig}/>
   </Container>
 );
 

@@ -1,13 +1,16 @@
 import React from 'react';
-import { ViewsConfig } from './PanelTypes';
+import { ViewsConfig, PanelPath } from './PanelTypes';
 
-import Screens, { ScreensHeaderActions } from './Screens';
-import Files, { FilesHeaderActions } from './Files';
+import { HeaderActions as ScreensHeaderActions } from 'components/Screens';
+import { HeaderActions as FilesHeaderActions } from 'components/Files';
+
+import Screens from './Screens';
+import Files from './Files';
 
 export const viewsConfig: ViewsConfig = [
   {
     index: 0,
-    path: '/panel/screens',
+    elementPathName: PanelPath.Screens,
     iconName: 'desktop',
     title: 'Ekrany',
     component: Screens,
@@ -15,7 +18,7 @@ export const viewsConfig: ViewsConfig = [
   },
   {
     index: 1,
-    path: '/panel/files',
+    elementPathName: PanelPath.Files,
     iconName: 'folder',
     title: 'Pliki',
     component: Files,
@@ -23,9 +26,9 @@ export const viewsConfig: ViewsConfig = [
   },
   {
     index: 2,
-    path: '/panel/modules',
+    elementPathName: PanelPath.Modules,
     iconName: 'th-large',
     title: 'Moduły',
-    component: Screens,
+    component: () => (<></>),
   }
 ];

@@ -3,7 +3,7 @@ import { IconName } from '@fortawesome/fontawesome-common-types';
 
 export interface View {
   index: number;
-  path: string;
+  elementPathName: string;
   iconName: IconName;
   title: string;
   headerActions?: React.ReactElement;
@@ -12,4 +12,8 @@ export interface View {
 
 export type ViewsConfig = View[];
 
-export type ViewChange = (index: number) => void;
+export enum PanelPath {
+  Screens = 'screens',
+  Files = 'files',
+  Modules = 'modules',
+}

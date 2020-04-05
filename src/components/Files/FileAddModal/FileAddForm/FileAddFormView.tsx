@@ -2,7 +2,7 @@ import React from 'react';
 import { Upload } from 'antd';
 import { Form, Input } from 'formik-antd';
 import { InboxOutlined } from '@ant-design/icons';
-import { RcFile, UploadChangeParam, UploadFile}  from 'antd/lib/upload/interface';
+import { RcFile, UploadChangeParam, UploadFile }  from 'antd/lib/upload/interface';
 
 const { Dragger } = Upload;
 
@@ -22,7 +22,9 @@ const FileAddForm: React.FC<Props> = (props: Props) => {
   } = props;
 
   return (
-    <Form>
+    <Form
+      name="file-add-form"
+    >
       <Form.Item name="title">
         <Input name="title" placeholder="Tytuł pliku" />
       </Form.Item>

@@ -4,21 +4,19 @@ import { PanelTypes } from 'types';
 
 import MenuItem from './MenuItem';
 
-interface ItemsListProps {
+interface Props {
   viewsConfig: PanelTypes.ViewsConfig;
-  onViewChange: PanelTypes.ViewChange;
 }
 
-export const ItemsList: React.FC<ItemsListProps> = (props: ItemsListProps) => {
-  const { viewsConfig, onViewChange } = props;
+export const ItemsList: React.FC<Props> = (props: Props) => {
+  const { viewsConfig } = props;
 
   const item = (view: PanelTypes.View): React.ReactElement => (
     <MenuItem
       key={view.index}
       iconname={view.iconName}
       title={view.title}
-      to={view.path}
-      onClick={() => onViewChange(view.index)}
+      to={`/panel/${view.elementPathName}`}
     />
   );
 

@@ -1,1 +1,1 @@
-export { default, ScreensHeaderActions } from './ScreensView';
+export { default } from './Screens';

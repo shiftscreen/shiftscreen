@@ -21,3 +21,8 @@ export enum Path {
   PanelElement = '/panel/:element?',
   NotFound = '*',
 }
+
+export interface ApiType {
+  token: string;
+  uri: string;
+}

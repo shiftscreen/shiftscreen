@@ -3,9 +3,9 @@ import * as R from 'ramda';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import { PathType, RedirectType } from 'types';
-import { Routes } from './constants';
+import { Routes } from '../../constants';
 
-const Router: React.FC = () => {
+const AppRouter: React.FC = () => {
   const { Paths, Redirects } = Routes;
 
   const toPathElement = (props: PathType) => (<Route {...props}/>);
@@ -24,4 +24,4 @@ const Router: React.FC = () => {
   );
 };
 
-export default Router;
+export default AppRouter;

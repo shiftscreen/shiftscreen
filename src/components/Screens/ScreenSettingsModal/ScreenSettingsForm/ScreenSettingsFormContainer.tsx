@@ -1,25 +1,31 @@
 import React from 'react';
 import { Formik, FormikProps } from 'formik';
-import { UpdateScreenInput } from 'types';
+import { Screen, UpdateScreenInput } from 'types';
 
-import View from './ScreenAddFormView';
-import { initialValues, AddScreenSchema } from './ScreenAddFormUtils';
+import View from './ScreenSettingsFormView';
+import { UpdateScreenSchema } from './ScreenSettingsFormUtils';
 
 interface Props {
+  screen: Screen;
   formikRef: React.Ref<FormikProps<UpdateScreenInput> | undefined>
   onSubmit(values: UpdateScreenInput): Promise<void>;
 }
 
-const ScreenAddForm: React.FC<Props> = (props: Props) => {
+const ScreenSettingsForm: React.FC<Props> = (props: Props) => {
   const {
+    screen,
     onSubmit,
     formikRef
   } = props;
 
+  const initialValues: UpdateScreenInput = {
+    title: screen.title
+  };
+
   return (
     <Formik<UpdateScreenInput>
       initialValues={initialValues}
-      validationSchema={AddScreenSchema}
+      validationSchema={UpdateScreenSchema}
       onSubmit={onSubmit}
 
       // @ts-ignore due to invalid Formik typings
@@ -30,4 +36,4 @@ const ScreenAddForm: React.FC<Props> = (props: Props) => {
   )
 };
 
-export default ScreenAddForm;
+export default ScreenSettingsForm;

@@ -3,9 +3,10 @@ import Logo from 'components/Logo';
 import { Colors } from 'constants/index';
 
 export const Container = styled.aside`
-  background: ${Colors.greyDark};
+  background: ${Colors.whitePure};
   width: 20rem;
   min-height: 100vh;
+  border-right: 1px solid #f0f0f0;
 `;
 
 export const LogoWrapper = styled.div`

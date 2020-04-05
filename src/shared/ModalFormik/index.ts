@@ -1,1 +1,1 @@
-export { default } from './ModalFormContainer';
+export { default } from './ModalFormik';

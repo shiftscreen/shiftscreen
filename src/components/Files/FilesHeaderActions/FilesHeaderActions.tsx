@@ -2,20 +2,21 @@ import React from 'react';
 import { Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
-import { Storage, List, AddModal } from 'components/Files';
+import { AddModal } from 'components/Files';
 
-const Files: React.FC = () => (
-  <>
-    <Storage />
-    <List />
-  </>
-);
-
-export const FilesHeaderActions: React.FC = () => {
+const FilesHeaderActions: React.FC = () => {
   const [visible, setVisible] = React.useState<boolean>(false);
 
   const handleClick = (): void => (
     setVisible(true)
+  );
+
+  const handleCreate = async (values: any) => {
+    setVisible(false);
+  };
+
+  const handleClose = () => (
+    setVisible(false)
   );
 
   return (
@@ -30,11 +31,11 @@ export const FilesHeaderActions: React.FC = () => {
       </Button>
       <AddModal
         visible={visible}
-        onCreate={async () => setVisible(false)}
-        onCancel={async () => setVisible(false)}
+        onCreate={handleCreate}
+        onClose={handleClose}
       />
     </>
   )
 };
 
-export default Files;
+export default FilesHeaderActions;

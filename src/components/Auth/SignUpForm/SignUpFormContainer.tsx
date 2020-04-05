@@ -2,10 +2,10 @@ import React from 'react';
 import { Formik } from 'formik';
 import { NewUserInput } from 'types';
 
-import View from './SignInFormView';
-import { initialValues, SignInSchema } from './SignInFormUtils';
+import View from './SignUpFormView';
+import { initialValues, SignUpSchema } from './SignUpFormUtils';
 
-const SignInForm: React.FC = () => {
+const SignUpForm: React.FC = () => {
   const handleSubmit = (values: NewUserInput) => {
     console.log(values)
   };
@@ -13,12 +13,11 @@ const SignInForm: React.FC = () => {
   return (
     <Formik<NewUserInput>
       initialValues={initialValues}
-      validationSchema={SignInSchema}
+      validationSchema={SignUpSchema}
       onSubmit={handleSubmit}
-    >
-      <View />
-    </Formik>
+      component={View}
+    />
   )
 };
 
-export default SignInForm;
+export default SignUpForm;

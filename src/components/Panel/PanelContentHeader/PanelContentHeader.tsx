@@ -4,14 +4,14 @@ import {
   Container,
   Title,
   ActionsWrapper
-} from './PanelHeaderStyle';
+} from './PanelContentHeaderStyle';
 
 interface Props {
   title: string;
   actions?: React.ReactElement;
 }
 
-const PanelHeader: React.FC<Props> = (props: Props) => {
+const PanelContentHeader: React.FC<Props> = (props: Props) => {
   const { title, actions } = props;
 
   return (
@@ -24,4 +24,4 @@ const PanelHeader: React.FC<Props> = (props: Props) => {
   );
 };
 
-export default PanelHeader;
+export default PanelContentHeader;

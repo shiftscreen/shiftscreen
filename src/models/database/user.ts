@@ -6,3 +6,10 @@ export interface User extends EntityBase {
   lastName: string;
 }
 
+export interface NewUserInput {
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  rulesAccepted: boolean;
+}

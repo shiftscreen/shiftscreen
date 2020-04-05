@@ -1,51 +1,53 @@
 import React from 'react';
 import * as R from 'ramda';
-import { Modal } from 'antd';
+import { Modal, Typography } from 'antd';
 import { ModalProps } from 'antd/es/modal';
 import { FormikProps } from 'formik';
+
+const { Text } = Typography;
 
 interface Props<T> {
   visible: boolean;
   modalProps: ModalProps;
-  formikRef: React.MutableRefObject<FormikProps<T>>;
+  formikRef: React.MutableRefObject<FormikProps<T> | undefined>;
   onClose: () => void;
+  children: JSX.Element;
 }
 
-const ModalFormik: React.FC<Props<any>> = <T extends Object>(props: Props<T>) => {
+const ModalFormik = <T extends Object>(props: Props<T>) => {
   const [confirmLoading, setConfirmLoading] = React.useState<boolean>(false);
   const {
     visible,
     modalProps,
     onClose,
     formikRef,
+    children,
   } = props;
-
-  const {
-    resetForm,
-    validateForm,
-    submitForm,
-    isSubmitting,
-  } = formikRef.current;
 
   const handleCancel = () => {
     if (formikRef && formikRef.current) {
-      resetForm();
+      formikRef.current.resetForm();
       onClose();
     }
   };
 
   const handleOk = async () => {
-    const errors = await validateForm();
+    if (formikRef && formikRef.current) {
+      const {
+        validateForm,
+        submitForm,
+        resetForm
+      } = formikRef.current;
+      const errors = await validateForm();
 
-    if (R.isEmpty(errors)) {
-      await submitForm();
-      resetForm();
+      if (R.isEmpty(errors)) {
+        setConfirmLoading(true);
+        await submitForm();
+        setConfirmLoading(false);
+        resetForm();
+      }
     }
   };
-
-  React.useEffect(() => {
-    setConfirmLoading(isSubmitting);
-  }, [isSubmitting]);
 
   const extendedModalProps: ModalProps = {
     visible,
@@ -55,7 +57,11 @@ const ModalFormik: React.FC<Props<any>> = <T extends Object>(props: Props<T>) =>
     ...modalProps,
   };
 
-  return <Modal {...extendedModalProps} />;
+  return (
+    <Modal {...extendedModalProps}>
+      {children}
+    </Modal>
+  );
 };
 
 export default ModalFormik;

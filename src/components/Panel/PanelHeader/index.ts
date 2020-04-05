@@ -1,1 +1,1 @@
-export { default } from './PanelHeaderView';
+export { default } from './PanelHeader';

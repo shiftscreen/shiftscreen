@@ -1,31 +1,31 @@
 import React from 'react';
-import { ViewsConfig, View, ViewChange } from './PanelTypes';
 
 import {
   Container,
   Inner,
   Content
 } from './PanelStyle';
+import { ViewsConfig, View } from './PanelTypes';
 
 import { Sider } from 'components/Panel';
-import { Header } from 'components/Panel';
+import { Header, ContentHeader } from 'components/Panel';
 
 interface Props {
   viewsConfig: ViewsConfig;
-  onViewChange: ViewChange;
   selectedView: View;
 }
 
 const Panel: React.FC<Props> = (props: Props) => {
-  const { viewsConfig, selectedView, onViewChange } = props;
+  const { viewsConfig, selectedView } = props;
   const PanelComponent = selectedView.component;
 
   return (
     <Container>
-      <Sider viewsConfig={viewsConfig} onViewChange={onViewChange}/>
+      <Sider viewsConfig={viewsConfig} />
       <Inner>
-        <Header title={selectedView.title} actions={selectedView.headerActions}/>
+        <Header />
         <Content>
+          <ContentHeader title={selectedView.title} actions={selectedView.headerActions} />
           <PanelComponent/>
         </Content>
       </Inner>

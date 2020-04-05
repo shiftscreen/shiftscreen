@@ -1,1 +1,1 @@
-export { default } from './LogoView';
+export { default } from './Logo';

@@ -9,5 +9,5 @@ export const AddScreenSchema = Yup.object<NewScreenInput>().shape({
   title: Yup.string()
     .min(1, 'Tytuł powinien zawierać minimum 1 znak')
     .max(100, 'Tytuł powinien być nie dłuższy niż 100 znaków')
-    .required('Tytuł jest wymagany'),
+    .required('Pole jest wymagane'),
 });

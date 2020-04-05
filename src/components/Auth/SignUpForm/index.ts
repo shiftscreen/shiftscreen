@@ -1,1 +1,1 @@
-export { default } from './SignInFormContainer';
+export { default } from './SignUpFormContainer';

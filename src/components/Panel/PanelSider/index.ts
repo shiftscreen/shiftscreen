@@ -1,1 +1,1 @@
-export { default } from './PanelSiderView';
+export { default } from './PanelSider';

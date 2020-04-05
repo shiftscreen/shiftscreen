@@ -1,33 +1,34 @@
 import React from 'react';
-import { Formik, FormikProps } from 'formik';
-import { NewScreenInput } from 'types';
+import { Formik } from 'formik';
+import { useMutation } from '@apollo/react-hooks';
+import { LoginInput } from 'types';
 
-import View from './ScreenAddFormView';
-import { initialValues, AddScreenSchema } from './ScreenAddFormUtils';
+import View from './LoginFormView';
+import { initialValues, LoginSchema, LOGIN } from './LoginFormUtils';
+import { LoginData, LoginVars } from './LoginFormTypes';
+import { handleCompleted, handleError } from './LoginFormOperations';
 
-interface Props {
-  formikRef: React.Ref<FormikProps<NewScreenInput> | undefined>
-  onSubmit(values: NewScreenInput): Promise<void>;
-}
+const LoginForm: React.FC = () => {
+  const [login, { data }] = useMutation<LoginData, LoginVars>(
+    LOGIN,
+    {
+      onCompleted: handleCompleted,
+      onError: handleError,
+    }
+  );
 
-const ScreenAddForm: React.FC<Props> = (props: Props) => {
-  const {
-    onSubmit,
-    formikRef
-  } = props;
+  const handleSubmit = async (values: LoginInput) => (
+    login({ variables: { data: values } })
+  );
 
   return (
-    <Formik<NewScreenInput>
+    <Formik<LoginInput>
       initialValues={initialValues}
-      validationSchema={AddScreenSchema}
-      onSubmit={onSubmit}
-
-      // @ts-ignore due to invalid Formik typings
-      innerRef={formikRef}
-    >
-      <View />
-    </Formik>
+      validationSchema={LoginSchema}
+      onSubmit={handleSubmit}
+      component={View}
+    />
   )
 };
 
-export default ScreenAddForm;
+export default LoginForm;
