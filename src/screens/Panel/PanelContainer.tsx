@@ -1,22 +1,17 @@
 import React from 'react';
 import * as R from 'ramda';
-import { withRouter, RouteComponentProps } from 'react-router';
+import { useParams } from 'react-router';
 
 import PanelView from './PanelView';
 import { viewsConfig } from './PanelConfig';
 import { View } from './PanelTypes';
 
-interface PathParams {
-  element: string
-}
+const Panel: React.FC = () => {
+  const { element } = useParams();
 
-type Props = RouteComponentProps<PathParams>;
-
-const Panel: React.FC<Props> = (props: Props) => {
-  const { match } = props;
   const getViewByMatch = (): View => {
     const matchedView = R.find<View>(
-      R.propEq('elementPathName', match.params.element)
+      R.propEq('elementPathName', element)
     )(viewsConfig);
 
     if (matchedView !== undefined) {
@@ -31,12 +26,14 @@ const Panel: React.FC<Props> = (props: Props) => {
 
   React.useEffect(() => (
     setSelectedView(getViewByMatch)
-  ), [match]);
+  ), [element]);
 
-  return PanelView({
-    viewsConfig,
-    selectedView
-  })
+  return (
+    <PanelView
+      viewsConfig={viewsConfig}
+      selectedView={selectedView}
+    />
+  )
 };
 
-export default withRouter(Panel);
+export default Panel;

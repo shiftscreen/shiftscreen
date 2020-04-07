@@ -26,7 +26,10 @@ export const Paths: PathType[] = [
   {
     path: Path.PanelElement,
     exact: true,
-    component: Panel,
+    component: () => Panel({}),
+    meta: {
+      protected: true,
+    }
   },
   {
     path: Path.NotFound,
@@ -45,3 +48,6 @@ export const Redirects: RedirectType[] = [
   }
 ];
 
+export {
+  Path,
+}

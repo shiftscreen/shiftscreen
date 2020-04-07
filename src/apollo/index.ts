@@ -29,3 +29,9 @@ export const client = new ApolloClient({
   cache,
   resolvers,
 });
+
+cache.writeData({
+  data: {
+    isLoggedIn: !!localStorage.getItem(Api.token),
+  },
+});

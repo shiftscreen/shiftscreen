@@ -1,24 +1,22 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { useMutation } from '@apollo/react-hooks';
 import { LoginInput } from 'types';
+import { useHistory } from 'react-router-dom';
 
 import View from './LoginFormView';
-import { initialValues, LoginSchema, LOGIN } from './LoginFormUtils';
-import { LoginData, LoginVars } from './LoginFormTypes';
+import { initialValues, LoginSchema } from './LoginFormUtils';
 import { handleCompleted, handleError } from './LoginFormOperations';
+import { useLoginMutation, LoginMutation } from 'generated/graphql';
 
 const LoginForm: React.FC = () => {
-  const [login, { data }] = useMutation<LoginData, LoginVars>(
-    LOGIN,
-    {
-      onCompleted: handleCompleted,
-      onError: handleError,
-    }
-  );
+  const history = useHistory();
+  const [login] = useLoginMutation({
+    onCompleted: (data: LoginMutation) => handleCompleted(data, history),
+    onError: handleError,
+  });
 
   const handleSubmit = async (values: LoginInput) => (
-    login({ variables: { data: values } })
+    login({ variables: { values } })
   );
 
   return (

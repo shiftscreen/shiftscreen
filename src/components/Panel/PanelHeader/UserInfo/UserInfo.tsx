@@ -1,21 +1,39 @@
 import React from 'react';
-import { Row, Col, Typography, Menu, Dropdown, Avatar, Button } from 'antd';
+import { Row, Col, Menu, Dropdown, Avatar, Button } from 'antd';
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import { Alert } from 'antd';
 
 import { Container, CaretDownIcon } from './UserInfoStyle';
+import { logout } from './UserInfoOperations';
+import { useViewerQuery } from 'generated/graphql';
 
 const UserInfo: React.FC = () => {
+  const { loading, error, data } = useViewerQuery();
+
+  const handleLogout = () => logout();
+
   const menu = (
     <Menu>
       <Menu.Item>
         <UserOutlined /> Profil
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item onClick={handleLogout}>
         <LogoutOutlined /> Wyloguj
       </Menu.Item>
     </Menu>
   );
 
+  if (loading) return null;
+
+  if (error || !data) return (
+    <Alert
+      message="Wystąpił błąd"
+      type="error"
+      showIcon
+    />
+  );
+
+  const viewer = data.viewer;
   return (
     <Dropdown overlay={menu} placement="bottomRight">
       <Container>
@@ -24,7 +42,7 @@ const UserInfo: React.FC = () => {
             <Avatar shape="square" icon={<UserOutlined />} />
           </Col>
           <Col>
-            Jan Kowalski <CaretDownIcon />
+            {viewer.firstName} {viewer.lastName} <CaretDownIcon />
           </Col>
         </Row>
       </Container>

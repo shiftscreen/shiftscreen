@@ -1,0 +1,11 @@
+query Viewer {
+    viewer {
+        id
+        createdAt
+        updatedAt
+        email
+        firstName
+        lastName
+        rulesAcceptedAt
+    }
+}

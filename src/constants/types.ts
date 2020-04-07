@@ -10,8 +10,15 @@ export interface ColorsType {
   violet: string;
 }
 
-export type PathType = RouteProps;
 export type RedirectType = RedirectProps;
+
+export interface PathType extends RouteProps {
+  meta?: PathMeta;
+}
+
+interface PathMeta {
+  protected: boolean;
+}
 
 export enum Path {
   Home = '/',

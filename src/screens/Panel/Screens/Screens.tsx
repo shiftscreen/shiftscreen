@@ -1,38 +1,15 @@
 import React from 'react';
-import { List, Card as AntdCard } from 'antd';
-
-import { Screen } from 'types';
-import { Card } from 'components/Screens';
+import { List, Card as AntdCard, Alert } from 'antd';
 import { ListGridType } from 'antd/es/list';
+import { useQuery } from '@apollo/react-hooks';
 
-const mockupData: Screen[] = [
-  {
-    id: "1",
-    createdAt: "2020-03-03T21:10:16.270Z",
-    updatedAt: "2020-03-03T21:10:16.270Z",
-    title: "Jeden",
-    isActive: true
-  },
-  {
-    id: "2",
-    createdAt: "2020-03-03T21:10:16.270Z",
-    updatedAt: "2020-03-03T21:10:16.270Z",
-    title: "Dwa",
-    isActive: true
-  },
-  {
-    id: "3",
-    createdAt: "2020-03-03T21:10:16.270Z",
-    updatedAt: "2020-03-03T21:10:16.270Z",
-    title: "Trzy",
-    isActive: false
-  }
-];
+import { Role } from 'types';
+import { Card } from 'components/Screens';
+import { VIEWER_ROLES } from './ScreensUtils';
+import { ViewerRolesData } from './ScreensTypes';
 
 const Screens: React.FC = () => {
-  const [loading, setLoading] = React.useState<boolean>(true);
-
-  setTimeout(() => setLoading(false), 500);
+  const { loading, data, error } = useQuery<ViewerRolesData>(VIEWER_ROLES);
 
   const grid: ListGridType = {
     gutter: 16,
@@ -40,7 +17,7 @@ const Screens: React.FC = () => {
     xl: 4,
   };
 
-  const skeleton = (
+  if (loading) return (
     <List
       grid={grid}
       dataSource={[1, 2]}
@@ -52,19 +29,28 @@ const Screens: React.FC = () => {
     />
   );
 
-  const list = (
-    <List<Screen>
+  if (error || !data) {
+    console.log(error);
+    return (
+      <Alert
+        message="Wystąpił błąd"
+        type="error"
+        showIcon
+      />
+    );
+  }
+
+  return (
+    <List<Role>
       grid={grid}
-      dataSource={mockupData}
-      renderItem={(screen: Screen) => (
-        <List.Item key={screen.id}>
-          <Card screen={screen} />
+      dataSource={data.viewer.roles}
+      renderItem={(role: Role) => (
+        <List.Item key={role.id}>
+          <Card role={role} />
         </List.Item>
       )}
     />
   );
-
-  return loading ? skeleton : list;
 };
 
 export default Screens;

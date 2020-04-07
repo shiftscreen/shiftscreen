@@ -3,24 +3,34 @@ import * as R from 'ramda';
 import { Dropdown, Menu, Typography, Modal, Button, Tooltip } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 
-import { Screen } from 'types';
+import { Role, RolePermission, Screen } from 'types';
 import { deactivateScreen, activateScreen, deleteScreen } from './CardActionsOperations';
-import {AddModal, SettingsModal} from 'components/Screens';
+import { AddModal, SettingsModal } from 'components/Screens';
 
 const { Text } = Typography;
 const { confirm } = Modal;
 
 interface Props {
-  screen: Screen
+  screen: Screen;
 }
 
-const CardActions = (screen: Screen): JSX.Element[] => {
+const CardActions = (role: Role): JSX.Element[] => {
+  const { screen } = role;
+  const isAdmin = role.permissionType === RolePermission.Admin;
 
-  return [
+  if (screen === undefined) return [];
+
+  const editorActions = [
+    <Edit key="edit" screen={screen} />,
+  ];
+
+  const adminActions = [
     <Settings key="settings" screen={screen} />,
     <Edit key="edit" screen={screen} />,
     <MoreActions key="more" screen={screen} />,
-  ]
+  ];
+
+  return isAdmin ? adminActions : editorActions;
 };
 
 const Settings: React.FC<Props> = (props: Props) => {

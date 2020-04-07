@@ -1,0 +1,7 @@
+mutation Login ($values: LoginInput!) {
+    login (loginData: $values) {
+        tokenType
+        accessToken
+        expiresIn
+    }
+}

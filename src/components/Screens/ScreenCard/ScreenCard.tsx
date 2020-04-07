@@ -1,7 +1,7 @@
 import React from 'react';
 import { Badge } from 'antd';
 
-import { Screen } from 'types';
+import { Role } from 'types';
 import {
   Image,
   Title,
@@ -13,13 +13,16 @@ import CardActions from './CardActions';
 const { Meta } = Card;
 
 interface Props {
-  screen: Screen
+  role: Role;
 }
 
 const ScreenCard: React.FC<Props> = (props: Props) => {
-  const { screen } = props;
+  const { role } = props;
+  const { screen } = role;
 
-  const actions = CardActions(screen);
+  if (screen === undefined) return null;
+
+  const actions = CardActions(role);
 
   const cover = (
     <Image src="https://i.imgur.com/wDfxXP5.png"/>

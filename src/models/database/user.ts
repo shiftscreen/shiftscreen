@@ -4,6 +4,7 @@ export interface User extends EntityBase {
   email: string;
   firstName: string;
   lastName: string;
+  rulesAcceptedAt: string;
 }
 
 export interface NewUserInput {
