@@ -13,6 +13,5 @@ export interface NewFileInput {
 }
 
 export interface UpdateFileInput {
-  id: ID;
-  title: string;
+  title?: string;
 }

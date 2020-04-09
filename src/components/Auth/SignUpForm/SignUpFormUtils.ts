@@ -1,5 +1,4 @@
 import * as Yup from 'yup';
-import gql from 'graphql-tag';
 import { NewUserInput } from 'types';
 
 export const initialValues: NewUserInput = {
@@ -28,18 +27,4 @@ export const SignUpSchema = Yup.object<NewUserInput>().shape({
   rulesAccepted: Yup.mixed()
     .oneOf([true], 'Musisz zaakceptować regulamin'),
 });
-
-export const ADD_USER = gql`
-    mutation AddUser($values: NewUserInput!) {
-        addUser(newUserData: $values) {
-            id
-            createdAt
-            updatedAt
-            email
-            firstName
-            lastName
-            rulesAcceptedAt
-        }
-    }
-`;
 

@@ -1,26 +1,21 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { NewUserInput } from 'types';
-import { useMutation } from '@apollo/react-hooks';
 import { Alert } from 'antd';
-import * as R from 'ramda';
 
 import View from './SignUpFormView';
-import { initialValues, SignUpSchema, ADD_USER } from './SignUpFormUtils';
-import { AddUserData, AddUserVars } from './SignUpFormTypes';
+import { initialValues, SignUpSchema } from './SignUpFormUtils';
+import { useAddUserMutation } from 'generated/graphql';
 import { handleError } from './SignUpFormOperations';
 
 const SignUpForm: React.FC = () => {
-  const [addUser, { data }] = useMutation<AddUserData, AddUserVars>(
-    ADD_USER,
-    {
-      onError: handleError,
-    }
-  );
+  const [addUser, { data }] = useAddUserMutation({
+    onError: handleError,
+  });
 
   const handleSubmit = async (values: NewUserInput) => {
     (values as any).confirmPassword = undefined;
-    return addUser({ variables: { values } });
+    await addUser({ variables: { values } });
   };
 
   return (

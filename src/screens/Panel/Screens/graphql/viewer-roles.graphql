@@ -1,0 +1,18 @@
+query ViewerRoles{
+    viewer {
+        id
+        roles {
+            id
+            createdAt
+            updatedAt
+            permissionType
+            screen {
+                id
+                createdAt
+                updatedAt
+                title
+                isActive
+            }
+        }
+    }
+}

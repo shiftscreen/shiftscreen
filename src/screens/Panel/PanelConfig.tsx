@@ -4,7 +4,7 @@ import { ViewsConfig, PanelPath } from './PanelTypes';
 import { HeaderActions as ScreensHeaderActions } from 'components/Screens';
 import { HeaderActions as FilesHeaderActions } from 'components/Files';
 
-import Screens from './Screens';
+import ScreensContainer from './Screens';
 import Files from './Files';
 
 export const viewsConfig: ViewsConfig = [
@@ -13,7 +13,7 @@ export const viewsConfig: ViewsConfig = [
     elementPathName: PanelPath.Screens,
     iconName: 'desktop',
     title: 'Ekrany',
-    component: Screens,
+    component: ScreensContainer,
     headerActions: <ScreensHeaderActions/>
   },
   {

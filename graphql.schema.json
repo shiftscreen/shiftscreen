@@ -1171,7 +1171,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "Float",
+                    "name": "Int",
                     "ofType": null
                   }
                 },
@@ -1216,7 +1216,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "Float",
+                    "name": "Int",
                     "ofType": null
                   }
                 },
@@ -1292,7 +1292,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "Float",
+                    "name": "Int",
                     "ofType": null
                   }
                 },
@@ -1323,7 +1323,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "Float",
+                    "name": "Int",
                     "ofType": null
                   }
                 },
@@ -1399,7 +1399,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "Float",
+                    "name": "Int",
                     "ofType": null
                   }
                 },
@@ -1430,7 +1430,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "Float",
+                    "name": "Int",
                     "ofType": null
                   }
                 },
@@ -1502,7 +1502,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "Float",
+                    "name": "Int",
                     "ofType": null
                   }
                 },
@@ -1529,7 +1529,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "Float",
+                    "name": "Int",
                     "ofType": null
                   }
                 },
@@ -1826,13 +1826,9 @@
             "name": "permissionType",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "PermissionType",
-                "ofType": null
-              }
+              "kind": "ENUM",
+              "name": "PermissionType",
+              "ofType": null
             },
             "defaultValue": null
           }
@@ -1932,13 +1928,9 @@
             "name": "durationMilliseconds",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "Float",
+              "ofType": null
             },
             "defaultValue": null
           },
@@ -1946,13 +1938,9 @@
             "name": "index",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "Float",
+              "ofType": null
             },
             "defaultValue": null
           },
@@ -1960,13 +1948,9 @@
             "name": "appId",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null
           },
@@ -1974,13 +1958,9 @@
             "name": "appConfig",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null
           }
@@ -2024,13 +2004,9 @@
             "name": "title",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null
           },
@@ -2038,13 +2014,9 @@
             "name": "isActive",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "defaultValue": null
           }
@@ -2102,13 +2074,9 @@
             "name": "title",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null
           }

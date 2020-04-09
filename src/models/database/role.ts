@@ -1,22 +1,22 @@
 import { EntityBase } from './base';
 import { Screen } from './screen';
-
-export enum RolePermission {
-  Admin = "ADMIN",
-  Editor = "EDITOR",
-}
+import { PermissionType } from 'generated/graphql';
 
 export interface Role extends EntityBase {
-  permissionType: RolePermission;
+  permissionType: PermissionType;
   screen?: Screen;
 }
 
 export interface NewRoleInput {
-  permissionType: RolePermission;
+  permissionType: PermissionType;
   userId: number;
   screenId: number;
 }
 
 export interface UpdateRoleInput {
-  permissionType: RolePermission;
+  permissionType?: PermissionType;
+}
+
+export {
+  PermissionType,
 }

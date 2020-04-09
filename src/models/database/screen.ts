@@ -10,5 +10,6 @@ export interface NewScreenInput {
 }
 
 export interface UpdateScreenInput {
-  title: string;
+  title?: string;
+  isActive?: boolean;
 }

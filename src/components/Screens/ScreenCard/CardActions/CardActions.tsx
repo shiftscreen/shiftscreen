@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import { Dropdown, Menu, Typography, Modal, Button, Tooltip } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 
-import { Role, RolePermission, Screen } from 'types';
+import { Role, PermissionType, Screen } from 'types';
 import { deactivateScreen, activateScreen, deleteScreen } from './CardActionsOperations';
 import { AddModal, SettingsModal } from 'components/Screens';
 
@@ -16,7 +16,7 @@ interface Props {
 
 const CardActions = (role: Role): JSX.Element[] => {
   const { screen } = role;
-  const isAdmin = role.permissionType === RolePermission.Admin;
+  const isAdmin = role.permissionType === PermissionType.Admin;
 
   if (screen === undefined) return [];
 

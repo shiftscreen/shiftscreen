@@ -3,13 +3,12 @@ import { ModalProps } from 'antd/es/modal';
 import { PlusOutlined } from '@ant-design/icons';
 import { FormikProps } from 'formik';
 import { NewScreenInput } from 'types';
-import { useMutation } from '@apollo/react-hooks';
 import { Alert } from 'antd';
 
+import { useAddScreenMutation, ViewerRolesDocument } from 'generated/graphql';
 import ModalFormik from 'shared/ModalFormik';
 import ScreenAddForm from './Form';
-import { ADD_SCREEN } from './ScreenAddModalUtils';
-import { AddScreenData, AddScreenVars } from './ScreenAddModalTypes';
+
 
 interface Props {
   visible: boolean;
@@ -21,11 +20,15 @@ const ScreenAddModal: React.FC<Props> = (props: Props) => {
   const formikRef = React.useRef<FormikProps<NewScreenInput>>();
   const {
     visible,
-    onCreate,
     onClose,
   } = props;
 
-  const [addScreen, { error }] = useMutation<AddScreenData, AddScreenVars>(ADD_SCREEN);
+  const [addScreen, { error }] = useAddScreenMutation({
+    onCompleted: onClose,
+    refetchQueries: [{
+      query: ViewerRolesDocument,
+    }]
+  });
 
   const handleSubmit = async (values: NewScreenInput) => {
     try {

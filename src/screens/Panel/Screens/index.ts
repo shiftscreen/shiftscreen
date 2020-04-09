@@ -1,1 +1,1 @@
-export { default } from './Screens';
+export { default } from './ScreensContainer';

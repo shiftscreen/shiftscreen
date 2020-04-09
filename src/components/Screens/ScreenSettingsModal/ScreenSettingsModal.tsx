@@ -3,9 +3,11 @@ import { ModalProps } from 'antd/es/modal';
 import { SaveOutlined } from '@ant-design/icons';
 import { FormikProps } from 'formik';
 import { Screen, UpdateScreenInput } from 'types';
+import { message } from 'antd';
 
 import ModalFormik from 'shared/ModalFormik';
 import ScreenSettingsForm from './ScreenSettingsForm';
+import { useUpdateScreenMutation } from 'generated/graphql';
 
 interface Props {
   screen: Screen;
@@ -23,10 +25,20 @@ const ScreenSettingsModal: React.FC<Props> = (props: Props) => {
     onClose,
   } = props;
 
+  const [updateScreen] = useUpdateScreenMutation();
+
   const handleSubmit = async (values: UpdateScreenInput) => {
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    onCreate(values);
-    console.log(values)
+    try {
+      await updateScreen({
+        variables: {
+          id: parseInt(screen.id, 10),
+          values
+        }
+      })
+    } catch (e) {
+      console.error(e);
+      message.error('Wystąpił błąd przy aktualizacji wyświetlacza');
+    }
   };
 
   const modalProps: ModalProps = {

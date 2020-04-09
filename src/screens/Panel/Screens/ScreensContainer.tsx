@@ -1,15 +1,14 @@
 import React from 'react';
 import { List, Card as AntdCard, Alert } from 'antd';
 import { ListGridType } from 'antd/es/list';
-import { useQuery } from '@apollo/react-hooks';
 
 import { Role } from 'types';
 import { Card } from 'components/Screens';
-import { VIEWER_ROLES } from './ScreensUtils';
-import { ViewerRolesData } from './ScreensTypes';
+import { useViewerRolesQuery } from 'generated/graphql';
 
-const Screens: React.FC = () => {
-  const { loading, data, error } = useQuery<ViewerRolesData>(VIEWER_ROLES);
+const ScreensContainer: React.FC = () => {
+  const { data, loading, error } = useViewerRolesQuery();
+  const roles: Role[] = data?.viewer?.roles || [];
 
   const grid: ListGridType = {
     gutter: 16,
@@ -30,7 +29,7 @@ const Screens: React.FC = () => {
   );
 
   if (error || !data) {
-    console.log(error);
+    console.error(error);
     return (
       <Alert
         message="Wystąpił błąd"
@@ -43,7 +42,7 @@ const Screens: React.FC = () => {
   return (
     <List<Role>
       grid={grid}
-      dataSource={data.viewer.roles}
+      dataSource={roles}
       renderItem={(role: Role) => (
         <List.Item key={role.id}>
           <Card role={role} />
@@ -53,4 +52,4 @@ const Screens: React.FC = () => {
   );
 };
 
-export default Screens;
+export default ScreensContainer;
