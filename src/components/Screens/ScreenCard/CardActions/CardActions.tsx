@@ -1,11 +1,14 @@
 import React from 'react';
 import * as R from 'ramda';
 import { Dropdown, Menu, Typography, Modal, Button, Tooltip } from 'antd';
-import { EditOutlined, EllipsisOutlined, SettingOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import {
+  EditOutlined,
+  EllipsisOutlined,
+  ExclamationCircleOutlined
+} from '@ant-design/icons';
 
 import { Role, PermissionType, Screen } from 'types';
 import { deactivateScreen, activateScreen, deleteScreen } from './CardActionsOperations';
-import { AddModal, SettingsModal } from 'components/Screens';
 
 const { Text } = Typography;
 const { confirm } = Modal;
@@ -25,45 +28,11 @@ const CardActions = (role: Role): JSX.Element[] => {
   ];
 
   const adminActions = [
-    <Settings key="settings" screen={screen} />,
     <Edit key="edit" screen={screen} />,
     <MoreActions key="more" screen={screen} />,
   ];
 
   return isAdmin ? adminActions : editorActions;
-};
-
-const Settings: React.FC<Props> = (props: Props) => {
-  const [visible, setVisible] = React.useState<boolean>(false);
-  const { screen } = props;
-
-  const handleClick = (): void => (
-    setVisible(true)
-  );
-
-  const handleCreate = async (values: any) => {
-    setVisible(false);
-  };
-
-  const handleClose = () => (
-    setVisible(false)
-  );
-
-  return (
-    <>
-      <Tooltip title="Ustawienia wyświetlacza">
-        <Button type="link" onClick={handleClick}>
-          <SettingOutlined />
-        </Button>
-      </Tooltip>
-      <SettingsModal
-        screen={screen}
-        visible={visible}
-        onCreate={handleCreate}
-        onClose={handleClose}
-      />
-    </>
-  )
 };
 
 const Edit: React.FC<Props> = (props: Props) => {

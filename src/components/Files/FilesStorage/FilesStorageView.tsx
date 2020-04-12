@@ -1,7 +1,8 @@
 import React from 'react';
 import { Typography, Progress } from 'antd';
-import { Colors } from 'constants/index';
+import fileSize from 'filesize';
 
+import { Colors } from 'constants/index';
 import {
   Card,
   Descriptions,
@@ -10,23 +11,33 @@ import {
 
 const { Text } = Typography;
 
-const FilesStorage: React.FC = () => {
-  const title = (
-    <Text strong>Twoja przestrzeń</Text>
-  );
+interface Props {
+  usedKilobytes: number;
+  maxKilobytes: number;
+}
+
+const FilesStorage: React.FC<Props> = (props: Props) => {
+  const { usedKilobytes, maxKilobytes } = props;
+
+  // KB to B
+  const usedInfo = fileSize(usedKilobytes * 1000);
+  const remainingInfo = fileSize((maxKilobytes - usedKilobytes) * 1000);
+  const percent = Math.round((usedKilobytes / maxKilobytes) * 100);
+
+  const title = (<Text strong>Twoja przestrzeń</Text>);
 
   return (
     <Card title={title}>
       <Descriptions bordered>
         <Descriptions.Item label="Zajęto" span={3}>
-          100 MB
+          {usedInfo}
         </Descriptions.Item>
         <Descriptions.Item label="Pozostało" span={3}>
-          600 MB
+          {remainingInfo}
         </Descriptions.Item>
       </Descriptions>
       <ProgressWrapper>
-        <Progress percent={14} strokeColor={Colors.violet} />
+        <Progress percent={percent} strokeColor={Colors.violet} />
       </ProgressWrapper>
     </Card>
   );

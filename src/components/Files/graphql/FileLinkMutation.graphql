@@ -1,0 +1,6 @@
+mutation FileLink($id: Int!) {
+    fileLink(id: $id) {
+        url
+        expiryTime
+    }
+}

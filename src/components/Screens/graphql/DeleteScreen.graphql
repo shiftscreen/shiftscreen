@@ -1,0 +1,3 @@
+mutation DeleteScreen($id: Int!) {
+    deleteScreen(id: $id)
+}

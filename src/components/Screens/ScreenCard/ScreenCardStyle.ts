@@ -1,15 +1,19 @@
 import styled from 'styled-components';
 import { Card as AntdCard } from 'antd';
+import { Colors } from 'constants/index';
 
-export const Card = styled(AntdCard)``;
+export const Card = styled(AntdCard)`
+  overflow: hidden;
+  
+  .ant-btn-link {
+    width: 75%;
+  }
+`;
 
-export const Image = styled.img`
+export const Cover = styled.div`
   width: 100%;
-  height: auto;
-  border-bottom: 1px solid #f0f0f0;
-  display: block;
-  padding-left: 1px;
-  padding-right: 1px;
+  height: 2rem;
+  background: ${Colors.teal};
 `;
 
 export const Title = styled.div`

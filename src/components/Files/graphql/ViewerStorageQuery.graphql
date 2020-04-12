@@ -1,0 +1,10 @@
+query ViewerStorage {
+    viewer {
+        id
+        storage {
+            id
+            maxKilobytes
+            usedKilobytes
+        }
+    }
+}

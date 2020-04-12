@@ -1,1 +1,1 @@
-export { default } from './FilesStorageView';
+export { default } from './FilesStorageContainer';

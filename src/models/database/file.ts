@@ -1,10 +1,10 @@
-import { EntityBase, ID } from './base';
+import { EntityBase } from './base';
 
 export interface File extends EntityBase {
   title: string;
   filename: string;
   mimeType: string;
-  sizeBytes: number;
+  sizeKilobytes: number;
 }
 
 export interface NewFileInput {

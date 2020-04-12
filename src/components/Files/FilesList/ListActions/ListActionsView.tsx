@@ -3,6 +3,15 @@ import { File } from 'types';
 import { Button, Popconfirm, Row, Col, Typography, Tooltip, message } from 'antd';
 import { DeleteOutlined, LinkOutlined } from '@ant-design/icons';
 
+import {
+  useFileLinkMutation,
+  FileLinkMutation,
+  useDeleteFileMutation,
+  ViewerFilesQuery,
+  ViewerFilesDocument,
+  ViewerStorageDocument,
+} from 'generated/graphql';
+
 const { Text } = Typography;
 
 interface Props {
@@ -25,16 +34,23 @@ const ListActions: React.FC<Props> = (props: Props) => {
 };
 
 const LinkAction: React.FC<Props> = (props: Props) => {
-  const [loading, setLoading] = React.useState<boolean>();
   const { file } = props;
 
-  const handleClick = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      message.success('Skopiowano link do schowka');
-    }, 200);
+  const handleClick = async () => (
+    await fileLink()
+  );
+
+  const handleCompleted = async (data: FileLinkMutation) => {
+    await navigator.clipboard.writeText(data.fileLink.url);
+    message.success('Skopiowano link do schowka');
   };
+
+  const [fileLink, { loading }] = useFileLinkMutation({
+    variables: {
+      id: parseInt(file.id, 10),
+    },
+    onCompleted: handleCompleted,
+  });
 
   return (
     <Tooltip title="Skopiuj link do pliku">
@@ -48,16 +64,42 @@ const LinkAction: React.FC<Props> = (props: Props) => {
 };
 
 const DeleteAction: React.FC<Props> = (props: Props) => {
-  const [loading, setLoading] = React.useState<boolean>();
   const { file } = props;
 
-  const handleConfirm = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      message.success(`Pomyślnie usunięto plik ${file.title}`);
-    }, 600);
-  };
+  const handleConfirm = async () => (
+    await deleteFile()
+  );
+
+  const handleCompleted = () => (
+    message.success(`Pomyślnie usunięto plik ${file.title}`)
+  );
+
+  const [deleteFile, { loading }] = useDeleteFileMutation({
+    variables: {
+      id: parseInt(file.id, 10),
+    },
+    onCompleted: handleCompleted,
+    refetchQueries: [{
+      query: ViewerStorageDocument,
+    }],
+    update: (store) => {
+      const current = store.readQuery<ViewerFilesQuery>({
+        query: ViewerFilesDocument,
+      });
+
+      if (current?.viewer?.files) {
+        store.writeQuery<ViewerFilesQuery>({
+          query: ViewerFilesDocument,
+          data: {
+            viewer: {
+              ...current.viewer,
+              files: current.viewer.files.filter(f => f.id !== file.id),
+            },
+          }
+        })
+      }
+    }
+  });
 
   const title = (
     <Text>

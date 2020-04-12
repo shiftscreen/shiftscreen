@@ -1,9 +1,9 @@
 import React from 'react';
-import { Badge } from 'antd';
+import { Badge, Tag } from 'antd';
 
 import { Role } from 'types';
 import {
-  Image,
+  Cover,
   Title,
   Card
 } from './ScreenCardStyle';
@@ -25,7 +25,7 @@ const ScreenCard: React.FC<Props> = (props: Props) => {
   const actions = CardActions(role);
 
   const cover = (
-    <Image src="https://i.imgur.com/wDfxXP5.png"/>
+    <Cover/>
   );
 
   const title = (

@@ -16,8 +16,8 @@ export const columns: ColumnsType<File> = [
   },
   {
     title: 'Wielkość',
-    dataIndex: 'sizeBytes',
-    render: (size: number) => filesize(size),
+    dataIndex: 'sizeKilobytes',
+    render: (size: number) => filesize(size * 1000),
   },
   {
     title: 'Ostatnio zmodyfikowany',
@@ -26,37 +26,7 @@ export const columns: ColumnsType<File> = [
   },
   {
     key: 'actions',
-    width: '7rem',
+    width: '8rem',
     render: (text, file: File) => <Actions file={file} />,
   },
-];
-
-export const data: File[] = [
-  {
-    id: "4",
-    createdAt: "2020-03-03T22:02:24.301Z",
-    updatedAt: "2020-03-03T22:02:24.301Z",
-    filename: "1583272944180-9ItBLKH0_400x400.jpg",
-    sizeBytes: 36819,
-    mimeType: "image/jpeg",
-    title: "Zdjecie"
-  },
-  {
-    id: "5",
-    createdAt: "2020-03-03T22:02:24.301Z",
-    updatedAt: "2020-03-03T22:02:24.301Z",
-    filename: "1583272944180-9ItBLKH0_400x400.jpg",
-    sizeBytes: 36819,
-    mimeType: "image/jpeg",
-    title: "Zdjecie"
-  },
-  {
-    id: "6",
-    createdAt: "2020-03-03T22:02:24.301Z",
-    updatedAt: "2020-03-03T22:02:24.301Z",
-    filename: "1583272944180-9ItBLKH0_400x400.jpg",
-    sizeBytes: 36819,
-    mimeType: "image/jpeg",
-    title: "Zdjecie"
-  }
 ];

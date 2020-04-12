@@ -1,0 +1,9 @@
+fragment BasicParts on File {
+    id
+    createdAt
+    updatedAt
+    title
+    filename
+    mimeType
+    sizeKilobytes
+}

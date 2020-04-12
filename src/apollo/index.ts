@@ -1,12 +1,12 @@
 import { ApolloClient } from 'apollo-client';
-import { createHttpLink } from 'apollo-link-http';
+import { createUploadLink } from 'apollo-upload-client';
 import { setContext } from 'apollo-link-context';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import resolvers from 'components';
 
 import { Api } from 'constants/index';
 
-const httpLink = createHttpLink({
+const httpLink = createUploadLink({
   uri: Api.uri,
 });
 

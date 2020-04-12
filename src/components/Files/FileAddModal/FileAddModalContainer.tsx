@@ -6,6 +6,13 @@ import { NewFileInput } from 'types';
 
 import ModalFormik from 'shared/ModalFormik';
 import FileAddForm from './FileAddForm';
+import {
+  useAddFileMutation,
+  ViewerFilesDocument,
+  ViewerFilesQuery,
+  ViewerStorageDocument,
+} from 'generated/graphql';
+import { message } from 'antd';
 
 interface Props {
   visible: boolean;
@@ -21,10 +28,37 @@ const FileAddModal: React.FC<Props> = (props: Props) => {
     onClose,
   } = props;
 
+  const [addFile] = useAddFileMutation({
+    refetchQueries: [{
+      query: ViewerStorageDocument,
+    }],
+    update: (store, { data }) => {
+      const current = store.readQuery<ViewerFilesQuery>({
+        query: ViewerFilesDocument,
+      });
+
+      if (current?.viewer?.files && data?.addFile) {
+        store.writeQuery<ViewerFilesQuery>({
+          query: ViewerFilesDocument,
+          data: {
+            viewer: {
+              ...current.viewer,
+              files: [...current.viewer.files, data.addFile],
+            },
+          }
+        })
+      }
+    }
+  });
+
   const handleSubmit = async (values: NewFileInput) => {
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    onCreate(values);
-    console.log(values)
+    try {
+      await addFile({ variables: { values } });
+      onClose();
+    } catch (e) {
+      console.error(e);
+      message.error('Wystąpił błąd przy dodawaniu pliku');
+    }
   };
 
   const modalProps: ModalProps = {
