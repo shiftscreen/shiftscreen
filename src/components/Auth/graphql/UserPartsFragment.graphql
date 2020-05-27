@@ -1,0 +1,9 @@
+fragment BasicUserParts on User {
+    id
+    createdAt
+    updatedAt
+    email
+    firstName
+    lastName
+    rulesAcceptedAt
+}

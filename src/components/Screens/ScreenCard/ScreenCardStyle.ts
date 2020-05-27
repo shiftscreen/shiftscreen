@@ -1,21 +1,22 @@
 import styled from 'styled-components';
-import { Card as AntdCard } from 'antd';
+import { Card } from 'antd';
 import { Colors } from 'constants/index';
 
-export const Card = styled(AntdCard)`
-  overflow: hidden;
-  
-  .ant-btn-link {
-    width: 75%;
-  }
+export const Container = styled(Card)`
+  padding: 0;
+  height: 10rem;
 `;
 
-export const Cover = styled.div`
-  width: 100%;
-  height: 2rem;
-  background: ${Colors.teal};
+export const Inner = styled.article`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
-export const Title = styled.div`
+export const Title = styled.h3`
+  margin: 0;
+  font-size: 1rem;
   font-weight: 600;
+  color: ${Colors.whitePure};
 `;
+

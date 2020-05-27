@@ -1,0 +1,5 @@
+query OrganizationById($id: Int!) {
+    organization(id: $id) {
+        ...BasicOrganizationParts
+    }
+}

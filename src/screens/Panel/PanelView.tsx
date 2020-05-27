@@ -5,7 +5,7 @@ import {
   Inner,
   Content
 } from './PanelStyle';
-import { ViewsConfig, View } from './PanelTypes';
+import { ViewsConfig, View } from '../../components/Panel/PanelTypes';
 
 import { Sider } from 'components/Panel';
 import { Header, ContentHeader } from 'components/Panel';

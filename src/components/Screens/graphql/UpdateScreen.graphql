@@ -1,9 +1,5 @@
 mutation UpdateScreen($id: Int!, $values: UpdateScreenInput!) {
     updateScreen(id: $id, updateScreenData: $values) {
-        id
-        createdAt
-        updatedAt
-        title
-        isActive
+        ...BasicScreenParts
     }
 }

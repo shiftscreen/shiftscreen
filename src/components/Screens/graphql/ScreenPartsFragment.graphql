@@ -1,0 +1,9 @@
+fragment BasicScreenParts on Screen {
+    id
+    createdAt
+    updatedAt
+    title
+    isActive
+    color
+    ratio
+}

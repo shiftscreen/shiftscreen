@@ -1,7 +1,7 @@
 import React from 'react';
-import { Row, Col, Menu, Dropdown, Avatar, Button } from 'antd';
+import { Row, Col, Menu, Dropdown, Avatar } from 'antd';
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
-import { Alert } from 'antd';
+import { ErrorAlert } from 'shared';
 
 import { Container, CaretDownIcon } from './UserInfoStyle';
 import { logout } from './UserInfoOperations';
@@ -26,11 +26,7 @@ const UserInfo: React.FC = () => {
   if (loading) return null;
 
   if (error || !data) return (
-    <Alert
-      message="Wystąpił błąd"
-      type="error"
-      showIcon
-    />
+    <ErrorAlert error={error}/>
   );
 
   const viewer = data.viewer;

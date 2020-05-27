@@ -10,6 +10,9 @@ generates:
     config:
       withHOC: false
       withHooks: true
+  ./fragmentTypes.json:
+    plugins:
+      - fragment-matcher
   ./graphql.schema.json:
     plugins:
       - "introspection"

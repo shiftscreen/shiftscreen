@@ -1,0 +1,8 @@
+mutation AddRole($values: NewRoleInput!) {
+    addRole(newRoleData: $values) {
+        ...BasicRolesParts
+        user {
+            ...BasicUserParts
+        }
+    }
+}

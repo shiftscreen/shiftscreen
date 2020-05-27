@@ -1,0 +1,5 @@
+mutation UpdateOrganization($id: Int!, $values: UpdateOrganizationInput!) {
+    updateOrganization(id: $id, updateOrganizationData: $values) {
+        ...BasicOrganizationParts
+    }
+}

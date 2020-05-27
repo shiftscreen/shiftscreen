@@ -3,6 +3,7 @@ import React from 'react';
 import View from './FilesStorageView';
 import { useViewerStorageQuery } from 'generated/graphql';
 import { Alert, Card } from 'antd';
+import { ErrorAlert } from '../../../shared';
 
 const FilesStorage: React.FC = () => {
   const { data, loading, error } = useViewerStorageQuery();
@@ -11,16 +12,9 @@ const FilesStorage: React.FC = () => {
     <Card loading />
   );
 
-  if (error || !data) {
-    console.error(error);
-    return (
-      <Alert
-        message="Wystąpił błąd"
-        type="error"
-        showIcon
-      />
-    );
-  }
+  if (error || !data) return (
+    <ErrorAlert error={error}/>
+  );
 
   const { usedKilobytes, maxKilobytes } = data.viewer.storage;
 

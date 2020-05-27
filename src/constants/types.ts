@@ -25,11 +25,16 @@ export enum Path {
   Auth = '/auth',
   Rules = '/rules',
   Panel = '/panel',
-  PanelElement = '/panel/:element?',
+  PanelElement = '/panel/:element?/:id?',
   NotFound = '*',
 }
 
 export interface ApiType {
   token: string;
   uri: string;
+}
+
+export interface ScreenRatio {
+  title: string;
+  value: string;
 }

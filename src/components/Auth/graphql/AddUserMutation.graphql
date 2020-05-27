@@ -1,11 +1,5 @@
 mutation AddUser($values: NewUserInput!) {
     addUser(newUserData: $values) {
-        id
-        createdAt
-        updatedAt
-        email
-        firstName
-        lastName
-        rulesAcceptedAt
+        ...BasicUserParts
     }
 }

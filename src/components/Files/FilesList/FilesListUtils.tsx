@@ -21,7 +21,7 @@ export const columns: ColumnsType<File> = [
   },
   {
     title: 'Ostatnio zmodyfikowany',
-    dataIndex: 'createdAt',
+    dataIndex: 'updatedAt',
     render: (date: string) => (new Date(date).toLocaleDateString()),
   },
   {

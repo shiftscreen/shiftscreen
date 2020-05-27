@@ -1,0 +1,6 @@
+fragment BasicRolesParts on Role {
+    id
+    createdAt
+    updatedAt
+    permissionType
+}

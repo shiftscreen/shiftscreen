@@ -10,6 +10,7 @@ interface Props {
 
 export const ItemsList: React.FC<Props> = (props: Props) => {
   const { viewsConfig } = props;
+  const itemsList = viewsConfig.filter(element => R.not(element.hideInMenu));
 
   const item = (view: PanelTypes.View): React.ReactElement => (
     <MenuItem
@@ -20,7 +21,7 @@ export const ItemsList: React.FC<Props> = (props: Props) => {
     />
   );
 
-  const list = R.map(item, viewsConfig);
+  const list = R.map(item, itemsList);
 
   return <>{list}</>;
 };

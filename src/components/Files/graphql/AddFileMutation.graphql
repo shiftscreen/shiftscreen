@@ -1,5 +1,5 @@
 mutation AddFile($values: NewFileInput!) {
     addFile(newFileData: $values) {
-        ...BasicParts
+        ...BasicFileParts
     }
 }

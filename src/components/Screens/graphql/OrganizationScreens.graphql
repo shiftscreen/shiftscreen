@@ -1,0 +1,8 @@
+query OrganizationScreens($id: Int!) {
+    organization(id: $id) {
+        id
+        screens {
+            ...BasicScreenParts
+        }
+    }
+}

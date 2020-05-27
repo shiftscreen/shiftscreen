@@ -2,13 +2,14 @@ import React from 'react';
 import { List, Card as AntdCard, Alert } from 'antd';
 import { ListGridType } from 'antd/es/list';
 
-import { Role } from 'types';
-import { Card } from 'components/Screens';
-import { useViewerRolesQuery } from 'generated/graphql';
+import { BasicScreenPartsFragment, Role, Screen } from 'types';
+import { useOrganizationScreensLazyQuery } from 'generated/graphql';
+import { ErrorAlert } from '../../../shared';
+import ScreenCard from '../../../components/Screens/ScreenCard';
 
 const ScreensContainer: React.FC = () => {
-  const { data, loading, error } = useViewerRolesQuery();
-  const roles: Role[] = data?.viewer?.roles || [];
+  const [getOrganizationScreens, { data, loading, error }] = useOrganizationScreensLazyQuery();
+  const screens = data?.organization?.screens || [];
 
   const grid: ListGridType = {
     gutter: 16,
@@ -28,24 +29,17 @@ const ScreensContainer: React.FC = () => {
     />
   );
 
-  if (error || !data) {
-    console.error(error);
-    return (
-      <Alert
-        message="Wystąpił błąd"
-        type="error"
-        showIcon
-      />
-    );
-  }
+  if (error) return (
+    <ErrorAlert error={error}/>
+  );
 
   return (
-    <List<Role>
+    <List<BasicScreenPartsFragment>
       grid={grid}
-      dataSource={roles}
-      renderItem={(role: Role) => (
-        <List.Item key={role.id}>
-          <Card role={role} />
+      dataSource={screens}
+      renderItem={(screen: BasicScreenPartsFragment) => (
+        <List.Item key={screen.id}>
+          <ScreenCard screen={screen}/>
         </List.Item>
       )}
     />

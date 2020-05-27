@@ -3,7 +3,6 @@ import { Col } from 'antd';
 
 import { Container, Inner } from './PanelHeaderStyle';
 
-import Search from './Search';
 import UserInfo from './UserInfo';
 
 const PanelHeader: React.FC = () => {
@@ -12,11 +11,8 @@ const PanelHeader: React.FC = () => {
     <Container>
       <Inner
         align="middle"
-        justify="space-between"
+        justify="end"
       >
-        <Col span={8}>
-          <Search/>
-        </Col>
         <Col>
           <UserInfo/>
         </Col>

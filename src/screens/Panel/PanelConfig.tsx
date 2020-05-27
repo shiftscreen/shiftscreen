@@ -1,10 +1,13 @@
 import React from 'react';
-import { ViewsConfig, PanelPath } from './PanelTypes';
+import { ViewsConfig, PanelPath } from '../../components/Panel/PanelTypes';
 
 import { HeaderActions as ScreensHeaderActions } from 'components/Screens';
 import { HeaderActions as FilesHeaderActions } from 'components/Files';
+import { HeaderActions as OrganizationsHeaderActions } from 'components/Organizations';
 
-import ScreensContainer from './Screens';
+import Screens from './Screens';
+import OrganizationSettings from './OrganizationSettings';
+import OrganizationsList from './OrganizationsList';
 import Files from './Files';
 
 export const viewsConfig: ViewsConfig = [
@@ -13,22 +16,38 @@ export const viewsConfig: ViewsConfig = [
     elementPathName: PanelPath.Screens,
     iconName: 'desktop',
     title: 'Ekrany',
-    component: ScreensContainer,
-    headerActions: <ScreensHeaderActions/>
+    component: Screens,
+    headerActions: <ScreensHeaderActions/>,
   },
   {
     index: 1,
+    elementPathName: PanelPath.OrganizationsList,
+    iconName: 'users',
+    title: 'Organizacje',
+    component: OrganizationsList,
+    headerActions: <OrganizationsHeaderActions/>,
+  },
+  {
+    index: 2,
     elementPathName: PanelPath.Files,
     iconName: 'folder',
     title: 'Pliki',
     component: Files,
-    headerActions: <FilesHeaderActions/>
+    headerActions: <FilesHeaderActions/>,
   },
   {
-    index: 2,
+    index: 3,
     elementPathName: PanelPath.Modules,
     iconName: 'th-large',
     title: 'Moduły',
     component: () => (<></>),
-  }
+  },
+  {
+    index: 4,
+    elementPathName: PanelPath.OrganizationSettings,
+    iconName: 'users',
+    title: 'Ustawienia organizacji',
+    component: OrganizationSettings,
+    hideInMenu: true,
+  },
 ];

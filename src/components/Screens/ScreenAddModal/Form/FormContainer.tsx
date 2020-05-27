@@ -1,9 +1,10 @@
 import React from 'react';
 import { Formik, FormikProps } from 'formik';
-import { NewScreenInput } from 'types';
+import { NewScreenInput,  } from 'types';
 
 import View from './FormView';
 import { initialValues, AddScreenSchema } from './FormUtils';
+import { ScreenColor } from '../../../../generated/graphql';
 
 interface Props {
   formikRef: React.Ref<FormikProps<NewScreenInput> | undefined>
@@ -15,6 +16,13 @@ const ScreenAddForm: React.FC<Props> = (props: Props) => {
     onSubmit,
     formikRef
   } = props;
+
+  const initialValues: NewScreenInput = {
+    title: '',
+    color: ScreenColor.Blue,
+    ratio: '16:9',
+    organizationId: 0,
+  };
 
   return (
     <Formik<NewScreenInput>

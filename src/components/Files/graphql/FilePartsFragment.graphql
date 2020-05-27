@@ -1,4 +1,4 @@
-fragment BasicParts on File {
+fragment BasicFileParts on File {
     id
     createdAt
     updatedAt

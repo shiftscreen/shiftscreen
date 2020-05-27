@@ -1,1 +1,1 @@
-export { default } from './ScreenCard';
+export { default } from './ScreenCardView';

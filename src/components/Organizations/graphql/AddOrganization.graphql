@@ -1,0 +1,5 @@
+mutation AddOrganization($values: NewOrganizationInput!) {
+    addOrganization(newOrganizationData: $values) {
+        ...BasicOrganizationParts
+    }
+}

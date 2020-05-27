@@ -1,0 +1,7 @@
+fragment BasicOrganizationParts on Organization {
+    id
+    createdAt
+    updatedAt
+    title
+    viewerPermissionType
+}

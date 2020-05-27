@@ -1,10 +1,11 @@
 import React from 'react';
 import { File } from 'types';
-import { Alert, List, Skeleton, Typography } from 'antd';
+import { List, Skeleton, Typography } from 'antd';
 
 import { Table } from './FilesListStyle';
 import { columns } from './FilesListUtils';
 import { useViewerFilesQuery } from 'generated/graphql';
+import { ErrorAlert } from '../../../shared';
 
 const { Text } = Typography;
 
@@ -25,16 +26,9 @@ const FilesList: React.FC = () => {
     />
   );
 
-  if (error || !data) {
-    console.error(error);
-    return (
-      <Alert
-        message="Wystąpił błąd"
-        type="error"
-        showIcon
-      />
-    );
-  }
+  if (error || !data) return (
+    <ErrorAlert error={error}/>
+  );
 
   const title = () => (
     <Text style={{ fontSize: '16px' }} strong>

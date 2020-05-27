@@ -2,7 +2,7 @@ query ViewerFiles {
     viewer {
         id
         files {
-            ...BasicParts
+            ...BasicFileParts
         }
     }
 }

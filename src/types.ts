@@ -1,4 +1,5 @@
-export { types as PanelTypes } from 'screens/Panel';
+export { types as PanelTypes } from 'components/Panel';
+export { types as RolesTypes } from 'components/Roles';
 export * from 'constants/types';
-
-export * from 'models';
+export * from 'apollo/types';
+export * from 'generated/graphql';

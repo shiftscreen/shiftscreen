@@ -1,9 +1,5 @@
 mutation AddScreen($values: NewScreenInput!) {
     addScreen(newScreenData: $values) {
-        id
-        createdAt
-        updatedAt
-        title
-        isActive
+        ...BasicScreenParts
     }
 }

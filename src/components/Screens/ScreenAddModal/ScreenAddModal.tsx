@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { ModalProps } from 'antd/es/modal';
 import { PlusOutlined } from '@ant-design/icons';
 import { FormikProps } from 'formik';
 import { NewScreenInput } from 'types';
-import { Alert } from 'antd';
 
 import { useAddScreenMutation, ViewerRolesDocument } from 'generated/graphql';
 import ModalFormik from 'shared/ModalFormik';
 import ScreenAddForm from './Form';
-
+import { ErrorAlert } from 'shared';
 
 interface Props {
   visible: boolean;
@@ -53,19 +52,13 @@ const ScreenAddModal: React.FC<Props> = (props: Props) => {
       onClose={onClose}
       formikRef={formikRef}
     >
-      <>
+      <Fragment>
         <ScreenAddForm
           formikRef={formikRef}
           onSubmit={handleSubmit}
         />
-        {error && (
-          <Alert
-            message="Wystąpił błąd"
-            type="error"
-            showIcon
-          />
-        )}
-      </>
+        {error && <ErrorAlert error={error}/>}
+      </Fragment>
     </ModalFormik>
   )
 };
