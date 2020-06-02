@@ -1,5 +1,5 @@
 mutation UpdateRole($id: Int!, $values: UpdateRoleInput!) {
     updateRole(id: $id, updateRoleData: $values) {
-        ...BasicRolesParts
+        ...BasicRoleParts
     }
 }

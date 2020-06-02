@@ -1,27 +1,23 @@
 import React from 'react';
 import { Formik, FormikProps } from 'formik';
-import { NewScreenInput,  } from 'types';
+import { NewScreenInput, Organization } from 'types';
+import { blue } from '@ant-design/colors';
 
 import View from './FormView';
-import { initialValues, AddScreenSchema } from './FormUtils';
-import { ScreenColor } from '../../../../generated/graphql';
+import { AddScreenSchema } from './FormUtils';
 
 interface Props {
   formikRef: React.Ref<FormikProps<NewScreenInput> | undefined>
   onSubmit(values: NewScreenInput): Promise<void>;
+  organization: Organization;
 }
 
-const ScreenAddForm: React.FC<Props> = (props: Props) => {
-  const {
-    onSubmit,
-    formikRef
-  } = props;
-
+const ScreenAddForm: React.FC<Props> = ({ onSubmit, formikRef, organization }: Props) => {
   const initialValues: NewScreenInput = {
     title: '',
-    color: ScreenColor.Blue,
+    color: blue[5],
     ratio: '16:9',
-    organizationId: 0,
+    organizationId: parseInt(organization.id, 10),
   };
 
   return (

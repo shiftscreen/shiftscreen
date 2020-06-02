@@ -10,6 +10,8 @@ const selectOrganization: Resolver = (_, { id }, { cache }) => {
     const selectedOrganization = data.organization;
 
     cache.writeData({ data: { selectedOrganization } });
+
+    return selectedOrganization;
   } catch (e) {
     console.error(e)
   }

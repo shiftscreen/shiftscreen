@@ -1,4 +1,4 @@
-fragment BasicRolesParts on Role {
+fragment BasicRoleParts on Role {
     id
     createdAt
     updatedAt

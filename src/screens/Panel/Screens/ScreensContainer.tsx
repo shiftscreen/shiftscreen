@@ -1,14 +1,15 @@
 import React from 'react';
-import { List, Card as AntdCard, Alert } from 'antd';
+import { List, Card as AntdCard } from 'antd';
 import { ListGridType } from 'antd/es/list';
 
-import { BasicScreenPartsFragment, Role, Screen } from 'types';
-import { useOrganizationScreensLazyQuery } from 'generated/graphql';
-import { ErrorAlert } from '../../../shared';
-import ScreenCard from '../../../components/Screens/ScreenCard';
+import { ScreenTypes } from 'types';
+import { useOrganizationScreensLazyQuery, useSelectedOrganizationQuery } from 'generated/graphql';
+import { ErrorAlert } from 'shared';
+import { Card } from 'components/Screens';
 
 const ScreensContainer: React.FC = () => {
   const [getOrganizationScreens, { data, loading, error }] = useOrganizationScreensLazyQuery();
+  const { data: selectedOrganization } = useSelectedOrganizationQuery();
   const screens = data?.organization?.screens || [];
 
   const grid: ListGridType = {
@@ -16,6 +17,17 @@ const ScreensContainer: React.FC = () => {
     lg: 3,
     xl: 4,
   };
+
+  React.useEffect(() => {
+    const organizationId = selectedOrganization?.selectedOrganization?.id;
+    if (organizationId) {
+      getOrganizationScreens({
+        variables: {
+          id: parseInt(organizationId, 10),
+        }
+      })
+    }
+  }, [selectedOrganization]);
 
   if (loading) return (
     <List
@@ -34,12 +46,12 @@ const ScreensContainer: React.FC = () => {
   );
 
   return (
-    <List<BasicScreenPartsFragment>
+    <List<ScreenTypes.ScreenViewerRole>
       grid={grid}
       dataSource={screens}
-      renderItem={(screen: BasicScreenPartsFragment) => (
+      renderItem={(screen: ScreenTypes.ScreenViewerRole) => (
         <List.Item key={screen.id}>
-          <ScreenCard screen={screen}/>
+          <Card screen={screen}/>
         </List.Item>
       )}
     />

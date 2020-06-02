@@ -14,7 +14,7 @@ export const viewsConfig: ViewsConfig = [
   {
     index: 0,
     elementPathName: PanelPath.Screens,
-    iconName: 'desktop',
+    iconName: 'tv',
     title: 'Ekrany',
     component: Screens,
     headerActions: <ScreensHeaderActions/>,

@@ -5,7 +5,7 @@ import { List, Skeleton, Typography } from 'antd';
 import { Table } from './FilesListStyle';
 import { columns } from './FilesListUtils';
 import { useViewerFilesQuery } from 'generated/graphql';
-import { ErrorAlert } from '../../../shared';
+import { ErrorAlert } from 'shared';
 
 const { Text } = Typography;
 

@@ -1,0 +1,5 @@
+mutation SelectOrganization($id: Int!) {
+    selectOrganization(id: $id) @client {
+        ...BasicOrganizationParts
+    }
+}

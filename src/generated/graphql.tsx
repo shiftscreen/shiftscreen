@@ -83,69 +83,28 @@ export type LoginInput = {
 
 export type Mutation = {
    __typename?: 'Mutation';
-  addUser: User;
-  login: TokenResponse;
-  addRole: Role;
-  updateRole: Role;
-  deleteRole: Scalars['Boolean'];
-  addOrganization: Organization;
-  updateOrganization: Organization;
-  deleteOrganization: Scalars['Boolean'];
   addAppInstance: AppInstance;
-  updateAppInstance: AppInstance;
-  deleteAppInstance: Scalars['Boolean'];
-  addSlide: Slide;
-  addScreen: Screen;
-  updateScreen: Screen;
-  deleteScreen: Scalars['Boolean'];
   addFile?: Maybe<File>;
-  updateFile?: Maybe<File>;
-  deleteFile: Scalars['Boolean'];
-  fileLink: FileLink;
   addFileKey: FileKey;
+  addOrganization: Organization;
+  addRole: Role;
+  addScreen: Screen;
+  addSlide: Slide;
+  addUser: User;
+  deleteAppInstance: Scalars['Boolean'];
+  deleteFile: Scalars['Boolean'];
   deleteFileKey: Scalars['Boolean'];
-};
-
-
-export type MutationAddUserArgs = {
-  newUserData: NewUserInput;
-};
-
-
-export type MutationLoginArgs = {
-  loginData: LoginInput;
-};
-
-
-export type MutationAddRoleArgs = {
-  newRoleData: NewRoleInput;
-};
-
-
-export type MutationUpdateRoleArgs = {
-  updateRoleData: UpdateRoleInput;
-  id: Scalars['Int'];
-};
-
-
-export type MutationDeleteRoleArgs = {
-  id: Scalars['Int'];
-};
-
-
-export type MutationAddOrganizationArgs = {
-  newOrganizationData: NewOrganizationInput;
-};
-
-
-export type MutationUpdateOrganizationArgs = {
-  updateOrganizationData: UpdateOrganizationInput;
-  id: Scalars['Int'];
-};
-
-
-export type MutationDeleteOrganizationArgs = {
-  id: Scalars['Int'];
+  deleteOrganization: Scalars['Boolean'];
+  deleteRole: Scalars['Boolean'];
+  deleteScreen: Scalars['Boolean'];
+  fileLink: FileLink;
+  login: TokenResponse;
+  selectOrganization?: Maybe<Organization>;
+  updateAppInstance: AppInstance;
+  updateFile?: Maybe<File>;
+  updateOrganization: Organization;
+  updateRole: Role;
+  updateScreen: Screen;
 };
 
 
@@ -154,19 +113,23 @@ export type MutationAddAppInstanceArgs = {
 };
 
 
-export type MutationUpdateAppInstanceArgs = {
-  updateAppInstanceData: UpdateAppInstanceInput;
-  id: Scalars['Int'];
+export type MutationAddFileArgs = {
+  newFileData: NewFileInput;
 };
 
 
-export type MutationDeleteAppInstanceArgs = {
-  id: Scalars['Int'];
+export type MutationAddFileKeyArgs = {
+  fileId: Scalars['Int'];
 };
 
 
-export type MutationAddSlideArgs = {
-  newSlideData: NewSlideInput;
+export type MutationAddOrganizationArgs = {
+  newOrganizationData: NewOrganizationInput;
+};
+
+
+export type MutationAddRoleArgs = {
+  newRoleData: NewRoleInput;
 };
 
 
@@ -175,24 +138,17 @@ export type MutationAddScreenArgs = {
 };
 
 
-export type MutationUpdateScreenArgs = {
-  updateScreenData: UpdateScreenInput;
-  id: Scalars['Int'];
+export type MutationAddSlideArgs = {
+  newSlideData: NewSlideInput;
 };
 
 
-export type MutationDeleteScreenArgs = {
-  id: Scalars['Int'];
+export type MutationAddUserArgs = {
+  newUserData: NewUserInput;
 };
 
 
-export type MutationAddFileArgs = {
-  newFileData: NewFileInput;
-};
-
-
-export type MutationUpdateFileArgs = {
-  updateFileData: UpdateFileInput;
+export type MutationDeleteAppInstanceArgs = {
   id: Scalars['Int'];
 };
 
@@ -202,18 +158,68 @@ export type MutationDeleteFileArgs = {
 };
 
 
+export type MutationDeleteFileKeyArgs = {
+  id: Scalars['String'];
+};
+
+
+export type MutationDeleteOrganizationArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type MutationDeleteRoleArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type MutationDeleteScreenArgs = {
+  id: Scalars['Int'];
+};
+
+
 export type MutationFileLinkArgs = {
   id: Scalars['Int'];
 };
 
 
-export type MutationAddFileKeyArgs = {
-  fileId: Scalars['Int'];
+export type MutationLoginArgs = {
+  loginData: LoginInput;
 };
 
 
-export type MutationDeleteFileKeyArgs = {
-  id: Scalars['String'];
+export type MutationSelectOrganizationArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type MutationUpdateAppInstanceArgs = {
+  updateAppInstanceData: UpdateAppInstanceInput;
+  id: Scalars['Int'];
+};
+
+
+export type MutationUpdateFileArgs = {
+  updateFileData: UpdateFileInput;
+  id: Scalars['Int'];
+};
+
+
+export type MutationUpdateOrganizationArgs = {
+  updateOrganizationData: UpdateOrganizationInput;
+  id: Scalars['Int'];
+};
+
+
+export type MutationUpdateRoleArgs = {
+  updateRoleData: UpdateRoleInput;
+  id: Scalars['Int'];
+};
+
+
+export type MutationUpdateScreenArgs = {
+  updateScreenData: UpdateScreenInput;
+  id: Scalars['Int'];
 };
 
 export type NewAppInstanceInput = {
@@ -240,7 +246,7 @@ export type NewRoleInput = {
 
 export type NewScreenInput = {
   title: Scalars['String'];
-  color: ScreenColor;
+  color: Scalars['String'];
   ratio: Scalars['String'];
   organizationId: Scalars['Int'];
 };
@@ -283,26 +289,28 @@ export enum PermissionType {
 
 export type Query = {
    __typename?: 'Query';
-  viewer: User;
-  userByEmail: User;
-  organization: Organization;
   appInstance: AppInstance;
-  screen: Screen;
   fileKey: FileKey;
-};
-
-
-export type QueryUserByEmailArgs = {
-  email: Scalars['String'];
-};
-
-
-export type QueryOrganizationArgs = {
-  id: Scalars['Int'];
+  isLoggedIn: Scalars['Boolean'];
+  organization: Organization;
+  screen: Screen;
+  selectedOrganization?: Maybe<Organization>;
+  userByEmail: User;
+  viewer: User;
 };
 
 
 export type QueryAppInstanceArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type QueryFileKeyArgs = {
+  fileKey: FileKeyInput;
+};
+
+
+export type QueryOrganizationArgs = {
   id: Scalars['Int'];
 };
 
@@ -312,8 +320,8 @@ export type QueryScreenArgs = {
 };
 
 
-export type QueryFileKeyArgs = {
-  fileKey: FileKeyInput;
+export type QueryUserByEmailArgs = {
+  email: Scalars['String'];
 };
 
 export type Role = {
@@ -333,17 +341,12 @@ export type Screen = {
   updatedAt: Scalars['DateTime'];
   title: Scalars['String'];
   isActive: Scalars['Boolean'];
-  color: ScreenColor;
+  color: Scalars['String'];
   ratio: Scalars['String'];
   organization: Organization;
   slides?: Maybe<Array<Slide>>;
+  viewerRole: Role;
 };
-
-export enum ScreenColor {
-  Red = 'RED',
-  Green = 'GREEN',
-  Blue = 'BLUE'
-}
 
 export type Slide = {
    __typename?: 'Slide';
@@ -410,7 +413,7 @@ export type UpdateRoleInput = {
 export type UpdateScreenInput = {
   title?: Maybe<Scalars['String']>;
   isActive?: Maybe<Scalars['Boolean']>;
-  color?: Maybe<ScreenColor>;
+  color?: Maybe<Scalars['String']>;
   ratio?: Maybe<Scalars['String']>;
   organizationId?: Maybe<Scalars['Int']>;
   slides?: Maybe<Array<SlideInput>>;
@@ -518,6 +521,20 @@ export type BasicFilePartsFragment = (
   & Pick<File, 'id' | 'createdAt' | 'updatedAt' | 'title' | 'filename' | 'mimeType' | 'sizeKilobytes'>
 );
 
+export type UpdateFileMutationVariables = {
+  id: Scalars['Int'];
+  values: UpdateFileInput;
+};
+
+
+export type UpdateFileMutation = (
+  { __typename?: 'Mutation' }
+  & { updateFile?: Maybe<(
+    { __typename?: 'File' }
+    & BasicFilePartsFragment
+  )> }
+);
+
 export type ViewerFilesQueryVariables = {};
 
 
@@ -589,6 +606,30 @@ export type BasicOrganizationPartsFragment = (
   & Pick<Organization, 'id' | 'createdAt' | 'updatedAt' | 'title' | 'viewerPermissionType'>
 );
 
+export type SelectOrganizationMutationVariables = {
+  id: Scalars['Int'];
+};
+
+
+export type SelectOrganizationMutation = (
+  { __typename?: 'Mutation' }
+  & { selectOrganization?: Maybe<(
+    { __typename?: 'Organization' }
+    & BasicOrganizationPartsFragment
+  )> }
+);
+
+export type SelectedOrganizationQueryVariables = {};
+
+
+export type SelectedOrganizationQuery = (
+  { __typename?: 'Query' }
+  & { selectedOrganization?: Maybe<(
+    { __typename?: 'Organization' }
+    & BasicOrganizationPartsFragment
+  )> }
+);
+
 export type UpdateOrganizationMutationVariables = {
   id: Scalars['Int'];
   values: UpdateOrganizationInput;
@@ -627,7 +668,7 @@ export type AddRoleMutation = (
       { __typename?: 'User' }
       & BasicUserPartsFragment
     ) }
-    & BasicRolesPartsFragment
+    & BasicRolePartsFragment
   ) }
 );
 
@@ -656,13 +697,13 @@ export type OrganizationRolesQuery = (
         { __typename?: 'User' }
         & BasicUserPartsFragment
       ) }
-      & BasicRolesPartsFragment
+      & BasicRolePartsFragment
     )>> }
     & BasicOrganizationPartsFragment
   ) }
 );
 
-export type BasicRolesPartsFragment = (
+export type BasicRolePartsFragment = (
   { __typename?: 'Role' }
   & Pick<Role, 'id' | 'createdAt' | 'updatedAt' | 'permissionType'>
 );
@@ -677,7 +718,7 @@ export type UpdateRoleMutation = (
   { __typename?: 'Mutation' }
   & { updateRole: (
     { __typename?: 'Role' }
-    & BasicRolesPartsFragment
+    & BasicRolePartsFragment
   ) }
 );
 
@@ -695,7 +736,7 @@ export type ViewerRolesQuery = (
         { __typename?: 'Organization' }
         & BasicOrganizationPartsFragment
       ) }
-      & BasicRolesPartsFragment
+      & BasicRolePartsFragment
     )>> }
   ) }
 );
@@ -709,6 +750,10 @@ export type AddScreenMutation = (
   { __typename?: 'Mutation' }
   & { addScreen: (
     { __typename?: 'Screen' }
+    & { viewerRole: (
+      { __typename?: 'Role' }
+      & BasicRolePartsFragment
+    ) }
     & BasicScreenPartsFragment
   ) }
 );
@@ -735,6 +780,10 @@ export type OrganizationScreensQuery = (
     & Pick<Organization, 'id'>
     & { screens?: Maybe<Array<(
       { __typename?: 'Screen' }
+      & { viewerRole: (
+        { __typename?: 'Role' }
+        & BasicRolePartsFragment
+      ) }
       & BasicScreenPartsFragment
     )>> }
   ) }
@@ -790,8 +839,8 @@ export const BasicOrganizationPartsFragmentDoc = gql`
   viewerPermissionType
 }
     `;
-export const BasicRolesPartsFragmentDoc = gql`
-    fragment BasicRolesParts on Role {
+export const BasicRolePartsFragmentDoc = gql`
+    fragment BasicRoleParts on Role {
   id
   createdAt
   updatedAt
@@ -1039,6 +1088,45 @@ export function useFileLinkMutation(baseOptions?: ApolloReactHooks.MutationHookO
 export type FileLinkMutationHookResult = ReturnType<typeof useFileLinkMutation>;
 export type FileLinkMutationResult = ApolloReactCommon.MutationResult<FileLinkMutation>;
 export type FileLinkMutationOptions = ApolloReactCommon.BaseMutationOptions<FileLinkMutation, FileLinkMutationVariables>;
+export const UpdateFileDocument = gql`
+    mutation UpdateFile($id: Int!, $values: UpdateFileInput!) {
+  updateFile(id: $id, updateFileData: $values) {
+    ...BasicFileParts
+  }
+}
+    ${BasicFilePartsFragmentDoc}`;
+export type UpdateFileMutationFn = ApolloReactCommon.MutationFunction<UpdateFileMutation, UpdateFileMutationVariables>;
+export type UpdateFileComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<UpdateFileMutation, UpdateFileMutationVariables>, 'mutation'>;
+
+    export const UpdateFileComponent = (props: UpdateFileComponentProps) => (
+      <ApolloReactComponents.Mutation<UpdateFileMutation, UpdateFileMutationVariables> mutation={UpdateFileDocument} {...props} />
+    );
+    
+
+/**
+ * __useUpdateFileMutation__
+ *
+ * To run a mutation, you first call `useUpdateFileMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateFileMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateFileMutation, { data, loading, error }] = useUpdateFileMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      values: // value for 'values'
+ *   },
+ * });
+ */
+export function useUpdateFileMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<UpdateFileMutation, UpdateFileMutationVariables>) {
+        return ApolloReactHooks.useMutation<UpdateFileMutation, UpdateFileMutationVariables>(UpdateFileDocument, baseOptions);
+      }
+export type UpdateFileMutationHookResult = ReturnType<typeof useUpdateFileMutation>;
+export type UpdateFileMutationResult = ApolloReactCommon.MutationResult<UpdateFileMutation>;
+export type UpdateFileMutationOptions = ApolloReactCommon.BaseMutationOptions<UpdateFileMutation, UpdateFileMutationVariables>;
 export const ViewerFilesDocument = gql`
     query ViewerFiles {
   viewer {
@@ -1236,6 +1324,82 @@ export function useOrganizationByIdLazyQuery(baseOptions?: ApolloReactHooks.Lazy
 export type OrganizationByIdQueryHookResult = ReturnType<typeof useOrganizationByIdQuery>;
 export type OrganizationByIdLazyQueryHookResult = ReturnType<typeof useOrganizationByIdLazyQuery>;
 export type OrganizationByIdQueryResult = ApolloReactCommon.QueryResult<OrganizationByIdQuery, OrganizationByIdQueryVariables>;
+export const SelectOrganizationDocument = gql`
+    mutation SelectOrganization($id: Int!) {
+  selectOrganization(id: $id) @client {
+    ...BasicOrganizationParts
+  }
+}
+    ${BasicOrganizationPartsFragmentDoc}`;
+export type SelectOrganizationMutationFn = ApolloReactCommon.MutationFunction<SelectOrganizationMutation, SelectOrganizationMutationVariables>;
+export type SelectOrganizationComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<SelectOrganizationMutation, SelectOrganizationMutationVariables>, 'mutation'>;
+
+    export const SelectOrganizationComponent = (props: SelectOrganizationComponentProps) => (
+      <ApolloReactComponents.Mutation<SelectOrganizationMutation, SelectOrganizationMutationVariables> mutation={SelectOrganizationDocument} {...props} />
+    );
+    
+
+/**
+ * __useSelectOrganizationMutation__
+ *
+ * To run a mutation, you first call `useSelectOrganizationMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useSelectOrganizationMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [selectOrganizationMutation, { data, loading, error }] = useSelectOrganizationMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useSelectOrganizationMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<SelectOrganizationMutation, SelectOrganizationMutationVariables>) {
+        return ApolloReactHooks.useMutation<SelectOrganizationMutation, SelectOrganizationMutationVariables>(SelectOrganizationDocument, baseOptions);
+      }
+export type SelectOrganizationMutationHookResult = ReturnType<typeof useSelectOrganizationMutation>;
+export type SelectOrganizationMutationResult = ApolloReactCommon.MutationResult<SelectOrganizationMutation>;
+export type SelectOrganizationMutationOptions = ApolloReactCommon.BaseMutationOptions<SelectOrganizationMutation, SelectOrganizationMutationVariables>;
+export const SelectedOrganizationDocument = gql`
+    query SelectedOrganization {
+  selectedOrganization @client {
+    ...BasicOrganizationParts
+  }
+}
+    ${BasicOrganizationPartsFragmentDoc}`;
+export type SelectedOrganizationComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<SelectedOrganizationQuery, SelectedOrganizationQueryVariables>, 'query'>;
+
+    export const SelectedOrganizationComponent = (props: SelectedOrganizationComponentProps) => (
+      <ApolloReactComponents.Query<SelectedOrganizationQuery, SelectedOrganizationQueryVariables> query={SelectedOrganizationDocument} {...props} />
+    );
+    
+
+/**
+ * __useSelectedOrganizationQuery__
+ *
+ * To run a query within a React component, call `useSelectedOrganizationQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSelectedOrganizationQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSelectedOrganizationQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useSelectedOrganizationQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<SelectedOrganizationQuery, SelectedOrganizationQueryVariables>) {
+        return ApolloReactHooks.useQuery<SelectedOrganizationQuery, SelectedOrganizationQueryVariables>(SelectedOrganizationDocument, baseOptions);
+      }
+export function useSelectedOrganizationLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<SelectedOrganizationQuery, SelectedOrganizationQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<SelectedOrganizationQuery, SelectedOrganizationQueryVariables>(SelectedOrganizationDocument, baseOptions);
+        }
+export type SelectedOrganizationQueryHookResult = ReturnType<typeof useSelectedOrganizationQuery>;
+export type SelectedOrganizationLazyQueryHookResult = ReturnType<typeof useSelectedOrganizationLazyQuery>;
+export type SelectedOrganizationQueryResult = ApolloReactCommon.QueryResult<SelectedOrganizationQuery, SelectedOrganizationQueryVariables>;
 export const UpdateOrganizationDocument = gql`
     mutation UpdateOrganization($id: Int!, $values: UpdateOrganizationInput!) {
   updateOrganization(id: $id, updateOrganizationData: $values) {
@@ -1322,13 +1486,13 @@ export type ViewerQueryResult = ApolloReactCommon.QueryResult<ViewerQuery, Viewe
 export const AddRoleDocument = gql`
     mutation AddRole($values: NewRoleInput!) {
   addRole(newRoleData: $values) {
-    ...BasicRolesParts
+    ...BasicRoleParts
     user {
       ...BasicUserParts
     }
   }
 }
-    ${BasicRolesPartsFragmentDoc}
+    ${BasicRolePartsFragmentDoc}
 ${BasicUserPartsFragmentDoc}`;
 export type AddRoleMutationFn = ApolloReactCommon.MutationFunction<AddRoleMutation, AddRoleMutationVariables>;
 export type AddRoleComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<AddRoleMutation, AddRoleMutationVariables>, 'mutation'>;
@@ -1402,7 +1566,7 @@ export const OrganizationRolesDocument = gql`
   organization(id: $organizationId) {
     ...BasicOrganizationParts
     roles {
-      ...BasicRolesParts
+      ...BasicRoleParts
       user {
         ...BasicUserParts
       }
@@ -1410,7 +1574,7 @@ export const OrganizationRolesDocument = gql`
   }
 }
     ${BasicOrganizationPartsFragmentDoc}
-${BasicRolesPartsFragmentDoc}
+${BasicRolePartsFragmentDoc}
 ${BasicUserPartsFragmentDoc}`;
 export type OrganizationRolesComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<OrganizationRolesQuery, OrganizationRolesQueryVariables>, 'query'> & ({ variables: OrganizationRolesQueryVariables; skip?: boolean; } | { skip: boolean; });
 
@@ -1447,10 +1611,10 @@ export type OrganizationRolesQueryResult = ApolloReactCommon.QueryResult<Organiz
 export const UpdateRoleDocument = gql`
     mutation UpdateRole($id: Int!, $values: UpdateRoleInput!) {
   updateRole(id: $id, updateRoleData: $values) {
-    ...BasicRolesParts
+    ...BasicRoleParts
   }
 }
-    ${BasicRolesPartsFragmentDoc}`;
+    ${BasicRolePartsFragmentDoc}`;
 export type UpdateRoleMutationFn = ApolloReactCommon.MutationFunction<UpdateRoleMutation, UpdateRoleMutationVariables>;
 export type UpdateRoleComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<UpdateRoleMutation, UpdateRoleMutationVariables>, 'mutation'>;
 
@@ -1488,14 +1652,14 @@ export const ViewerRolesDocument = gql`
   viewer {
     id
     roles {
-      ...BasicRolesParts
+      ...BasicRoleParts
       organization {
         ...BasicOrganizationParts
       }
     }
   }
 }
-    ${BasicRolesPartsFragmentDoc}
+    ${BasicRolePartsFragmentDoc}
 ${BasicOrganizationPartsFragmentDoc}`;
 export type ViewerRolesComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<ViewerRolesQuery, ViewerRolesQueryVariables>, 'query'>;
 
@@ -1532,9 +1696,13 @@ export const AddScreenDocument = gql`
     mutation AddScreen($values: NewScreenInput!) {
   addScreen(newScreenData: $values) {
     ...BasicScreenParts
+    viewerRole {
+      ...BasicRoleParts
+    }
   }
 }
-    ${BasicScreenPartsFragmentDoc}`;
+    ${BasicScreenPartsFragmentDoc}
+${BasicRolePartsFragmentDoc}`;
 export type AddScreenMutationFn = ApolloReactCommon.MutationFunction<AddScreenMutation, AddScreenMutationVariables>;
 export type AddScreenComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<AddScreenMutation, AddScreenMutationVariables>, 'mutation'>;
 
@@ -1608,10 +1776,14 @@ export const OrganizationScreensDocument = gql`
     id
     screens {
       ...BasicScreenParts
+      viewerRole {
+        ...BasicRoleParts
+      }
     }
   }
 }
-    ${BasicScreenPartsFragmentDoc}`;
+    ${BasicScreenPartsFragmentDoc}
+${BasicRolePartsFragmentDoc}`;
 export type OrganizationScreensComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<OrganizationScreensQuery, OrganizationScreensQueryVariables>, 'query'> & ({ variables: OrganizationScreensQueryVariables; skip?: boolean; } | { skip: boolean; });
 
     export const OrganizationScreensComponent = (props: OrganizationScreensComponentProps) => (

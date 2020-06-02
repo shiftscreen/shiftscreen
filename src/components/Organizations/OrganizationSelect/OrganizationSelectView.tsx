@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Select } from 'antd';
 import { useMutation } from '@apollo/react-hooks';
-import { useViewerRolesQuery, Organization } from 'generated/graphql';
+import { useViewerRolesQuery, Organization, useSelectOrganizationMutation } from 'generated/graphql';
 import { ErrorAlert } from 'shared';
 import * as R from 'ramda';
 
@@ -11,15 +11,23 @@ const { Option } = Select;
 
 const OrganizationSelect: React.FC = () => {
   const { data, loading, error } = useViewerRolesQuery();
-  const [toggleTodo] = useMutation(SELECT_ORGANIZATION_MUTATION);
+  const [selectOrganization] = useSelectOrganizationMutation();
   const roles = data?.viewer?.roles || [];
   const organizations = R.map((role) => role.organization, roles);
 
   const handleChange = (id: string) => (
-    toggleTodo({
-      variables: { id }
+    selectOrganization({
+      variables: {
+        id: parseInt(id, 10),
+      }
     })
   );
+
+  React.useEffect(() => {
+    if (organizations.length > 0) {
+      handleChange(organizations[0].id)
+    }
+  }, [data]);
 
   if (loading) return (
     <Card loading={loading}/>

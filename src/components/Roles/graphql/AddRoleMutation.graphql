@@ -1,6 +1,6 @@
 mutation AddRole($values: NewRoleInput!) {
     addRole(newRoleData: $values) {
-        ...BasicRolesParts
+        ...BasicRoleParts
         user {
             ...BasicUserParts
         }

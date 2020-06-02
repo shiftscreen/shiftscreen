@@ -2,12 +2,17 @@ import React, { Fragment } from 'react';
 import { ModalProps } from 'antd/es/modal';
 import { PlusOutlined } from '@ant-design/icons';
 import { FormikProps } from 'formik';
-import { NewScreenInput } from 'types';
+import { NewScreenInput, OrganizationRolesDocument, OrganizationScreensQuery } from 'types';
+import { ErrorAlert } from 'shared';
+import { Typography } from 'antd';
 
-import { useAddScreenMutation, ViewerRolesDocument } from 'generated/graphql';
+import { useAddScreenMutation, OrganizationScreensDocument, useSelectedOrganizationQuery } from 'generated/graphql';
 import ModalFormik from 'shared/ModalFormik';
 import ScreenAddForm from './Form';
-import { ErrorAlert } from 'shared';
+import { DataProxy } from 'apollo-cache';
+import { updateCache } from './ScreenAddModalUtils';
+
+const { Text } = Typography;
 
 interface Props {
   visible: boolean;
@@ -15,19 +20,23 @@ interface Props {
   onClose: () => void;
 }
 
-const ScreenAddModal: React.FC<Props> = (props: Props) => {
+const ScreenAddModal: React.FC<Props> = ({ visible, onClose }: Props) => {
   const formikRef = React.useRef<FormikProps<NewScreenInput>>();
-  const {
-    visible,
-    onClose,
-  } = props;
+  const { data } = useSelectedOrganizationQuery();
+  const selectedOrganization = data?.selectedOrganization;
 
   const [addScreen, { error }] = useAddScreenMutation({
     onCompleted: onClose,
-    refetchQueries: [{
-      query: ViewerRolesDocument,
-    }]
+    update: (cache, mutationResult) => (
+      updateCache(cache, mutationResult, selectedOrganization)
+    ),
   });
+
+
+  if (!selectedOrganization) {
+    onClose();
+    return null;
+  }
 
   const handleSubmit = async (values: NewScreenInput) => {
     try {
@@ -37,8 +46,15 @@ const ScreenAddModal: React.FC<Props> = (props: Props) => {
     }
   };
 
+  const title = (
+    <>
+      Stwórz nowy wyświetlacz dla organizacji&nbsp;
+      <Text strong>{selectedOrganization.title}</Text>
+    </>
+  );
+
   const modalProps: ModalProps = {
-    title: 'Stwórz nowy wyświetlacz',
+    title,
     okText: 'Stwórz',
     okButtonProps: {
       icon: <PlusOutlined/>,
@@ -56,6 +72,7 @@ const ScreenAddModal: React.FC<Props> = (props: Props) => {
         <ScreenAddForm
           formikRef={formikRef}
           onSubmit={handleSubmit}
+          organization={selectedOrganization}
         />
         {error && <ErrorAlert error={error}/>}
       </Fragment>

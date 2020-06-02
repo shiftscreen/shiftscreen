@@ -44,8 +44,6 @@ const RoleAddModal: React.FC<Props> = (props: Props) => {
         }
       });
 
-      console.log(current);
-
       if (current?.organization?.roles && data?.addRole) {
         store.writeQuery<OrganizationRolesQuery>({
           query: OrganizationRolesDocument,

@@ -5,6 +5,10 @@ export const Card = styled(AntdCard)`
   .ant-card-body {
     padding: 0;
   }
+  
+  .ant-card-head {
+    padding: 0.25rem 1rem;
+  }
 `;
 
 export const Descriptions = styled(AntdDescriptions)`

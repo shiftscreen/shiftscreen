@@ -2,7 +2,7 @@ query OrganizationRoles($organizationId: Int!) {
     organization(id: $organizationId) {
         ...BasicOrganizationParts
         roles {
-            ...BasicRolesParts,
+            ...BasicRoleParts,
             user {
                 ...BasicUserParts
             }

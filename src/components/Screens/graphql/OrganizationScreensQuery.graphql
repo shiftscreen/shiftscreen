@@ -3,6 +3,9 @@ query OrganizationScreens($id: Int!) {
         id
         screens {
             ...BasicScreenParts
+            viewerRole {
+                ...BasicRoleParts
+            }
         }
     }
 }

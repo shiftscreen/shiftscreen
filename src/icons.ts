@@ -1,3 +1,3 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faDesktop, faThLarge, faFolder, faUsers } from '@fortawesome/free-solid-svg-icons';
-library.add(faDesktop, faThLarge, faFolder, faUsers);
+import { faTv, faThLarge, faFolder, faUsers } from '@fortawesome/free-solid-svg-icons';
+library.add(faTv, faThLarge, faFolder, faUsers);

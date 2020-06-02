@@ -1,14 +1,47 @@
 import React from 'react';
 import filesize from 'filesize';
+import moment from 'moment';
+import { message, Typography } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import { File } from 'types';
+import { File, useUpdateFileMutation } from 'types';
 
 import Actions from './ListActions';
+
+const { Text } = Typography;
+
+interface TitleEditableProps {
+  file: File;
+}
+
+const TitleEditable: React.FC<TitleEditableProps> = ({ file }: TitleEditableProps) => {
+  const [updateFile] = useUpdateFileMutation();
+
+  const handleChange = async (title: string) => {
+    try {
+      await updateFile({
+        variables: {
+          id: parseInt(file.id, 10),
+          values: { title },
+        }
+      })
+    } catch (e) {
+      console.error(e);
+      message.error('Wystąpił błąd podczas próby aktualizacji tytułu')
+    }
+  };
+
+  return (
+    <Text editable={{ onChange: handleChange }}>
+      {file.title}
+    </Text>
+  )
+};
 
 export const columns: ColumnsType<File> = [
   {
     title: 'Tytuł',
-    dataIndex: 'title',
+    dataIndex: '',
+    render: (file: File) => (<TitleEditable file={file}/>)
   },
   {
     title: 'Nazwa pliku',
@@ -22,7 +55,7 @@ export const columns: ColumnsType<File> = [
   {
     title: 'Ostatnio zmodyfikowany',
     dataIndex: 'updatedAt',
-    render: (date: string) => (new Date(date).toLocaleDateString()),
+    render: (date: string) => moment(date).format('LLL'),
   },
   {
     key: 'actions',

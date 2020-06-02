@@ -1,0 +1,5 @@
+mutation UpdateFile($id: Int!, $values: UpdateFileInput!) {
+    updateFile(id: $id, updateFileData: $values) {
+        ...BasicFileParts
+    }
+}

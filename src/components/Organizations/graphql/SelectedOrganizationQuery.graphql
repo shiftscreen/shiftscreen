@@ -1,0 +1,5 @@
+query SelectedOrganization {
+    selectedOrganization @client {
+        ...BasicOrganizationParts
+    }
+}

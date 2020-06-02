@@ -1,0 +1,8 @@
+extend type Query {
+    isLoggedIn: Boolean!
+    selectedOrganization: Organization
+}
+
+extend type Mutation {
+    selectOrganization(id: Int!): Organization
+}

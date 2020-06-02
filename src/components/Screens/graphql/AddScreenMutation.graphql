@@ -1,5 +1,8 @@
 mutation AddScreen($values: NewScreenInput!) {
     addScreen(newScreenData: $values) {
         ...BasicScreenParts
+        viewerRole {
+            ...BasicRoleParts
+        }
     }
 }

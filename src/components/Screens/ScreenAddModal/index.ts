@@ -1,1 +1,1 @@
-export { default } from './ScreenAddModal';
+export { default } from './ScreenAddModalView';

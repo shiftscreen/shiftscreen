@@ -1,5 +1,5 @@
-import { BasicOrganizationPartsFragment, BasicRolesPartsFragment, BasicUserPartsFragment } from 'generated/graphql';
+import { BasicOrganizationPartsFragment, BasicRolePartsFragment, BasicUserPartsFragment } from 'generated/graphql';
 
-export type RoleOrganization = BasicRolesPartsFragment & { organization: BasicOrganizationPartsFragment};
+export type RoleOrganization = BasicRolePartsFragment & { organization: BasicOrganizationPartsFragment};
 
-export type RoleUser = BasicRolesPartsFragment & { user: BasicUserPartsFragment };
+export type RoleUser = BasicRolePartsFragment & { user: BasicUserPartsFragment };
