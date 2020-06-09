@@ -25,7 +25,7 @@ const ScreensContainer: React.FC = () => {
         variables: {
           id: parseInt(organizationId, 10),
         }
-      })
+      });
     }
   }, [selectedOrganization]);
 
@@ -35,7 +35,7 @@ const ScreensContainer: React.FC = () => {
       dataSource={[1, 2]}
       renderItem={(number) => (
         <List.Item key={number}>
-          <AntdCard loading />
+          <AntdCard loading/>
         </List.Item>
       )}
     />

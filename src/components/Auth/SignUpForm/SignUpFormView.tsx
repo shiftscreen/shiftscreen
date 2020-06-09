@@ -16,23 +16,23 @@ const SignUpForm: React.FC<Props> = (props: Props) => {
       <Row gutter={[24, 0]}>
         <Col span={12}>
           <Form.Item name="firstName">
-            <Input name="firstName" type="text" placeholder="Imię" />
+            <Input name="firstName" type="text" placeholder="Imię"/>
           </Form.Item>
         </Col>
         <Col span={12}>
           <Form.Item name="lastName">
-            <Input name="lastName" type="text" placeholder="Nazwisko" />
+            <Input name="lastName" type="text" placeholder="Nazwisko"/>
           </Form.Item>
         </Col>
       </Row>
       <Form.Item name="email">
-        <Input name="email" type="email" placeholder="E-mail" />
+        <Input name="email" type="email" placeholder="E-mail"/>
       </Form.Item>
       <Form.Item name="password">
-        <Input.Password name="password" type="password" placeholder="Hasło" />
+        <Input.Password name="password" type="password" placeholder="Hasło"/>
       </Form.Item>
       <Form.Item name="confirmPassword">
-        <Input.Password name="confirmPassword" type="password" placeholder="Powtórz hasło" />
+        <Input.Password name="confirmPassword" type="password" placeholder="Powtórz hasło"/>
       </Form.Item>
       <Row>
         <Col span={14}>

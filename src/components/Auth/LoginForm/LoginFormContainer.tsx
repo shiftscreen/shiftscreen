@@ -26,7 +26,7 @@ const LoginForm: React.FC = () => {
       onSubmit={handleSubmit}
       component={View}
     />
-  )
+  );
 };
 
 export default LoginForm;

@@ -53,7 +53,7 @@ const RoleAddModal: React.FC<Props> = (props: Props) => {
               roles: [...current.organization.roles, data.addRole],
             },
           }
-        })
+        });
       }
     }
   });
@@ -63,7 +63,7 @@ const RoleAddModal: React.FC<Props> = (props: Props) => {
       await addRole({ variables: { values } });
       onClose();
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
   };
 
@@ -96,7 +96,7 @@ const RoleAddModal: React.FC<Props> = (props: Props) => {
         {error && <ErrorAlert error={error}/>}
       </Fragment>
     </ModalFormik>
-  )
+  );
 };
 
 export default RoleAddModal;

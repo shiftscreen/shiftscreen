@@ -32,6 +32,6 @@ export const updateCache = (
           screens: [...current.organization.screens, data.addScreen],
         },
       }
-    })
+    });
   }
 };

@@ -258,7 +258,7 @@ export type NewSlideInput = {
   time?: Maybe<Scalars['JSON']>;
   date?: Maybe<Scalars['JSON']>;
   weekdays: Scalars['JSON'];
-  appInstanceId: Scalars['Float'];
+  appInstanceId?: Maybe<Scalars['Int']>;
   screenId: Scalars['Int'];
 };
 
@@ -360,7 +360,7 @@ export type Slide = {
   time?: Maybe<Scalars['JSON']>;
   date?: Maybe<Scalars['JSON']>;
   weekdays?: Maybe<Scalars['JSON']>;
-  appInstance: AppInstance;
+  appInstance?: Maybe<AppInstance>;
 };
 
 export type SlideInput = {
@@ -563,6 +563,11 @@ export type ViewerStorageQuery = (
       & Pick<Storage, 'id' | 'maxKilobytes' | 'usedKilobytes'>
     ) }
   ) }
+);
+
+export type BasicAppInstancePartsFragment = (
+  { __typename?: 'AppInstance' }
+  & Pick<AppInstance, 'id' | 'createdAt' | 'updatedAt' | 'appId' | 'appVersion' | 'config' | 'title'>
 );
 
 export type AddOrganizationMutationVariables = {
@@ -789,6 +794,47 @@ export type OrganizationScreensQuery = (
   ) }
 );
 
+export type ScreenByIdQueryVariables = {
+  id: Scalars['Int'];
+};
+
+
+export type ScreenByIdQuery = (
+  { __typename?: 'Query' }
+  & { screen: (
+    { __typename?: 'Screen' }
+    & BasicScreenPartsFragment
+  ) }
+);
+
+export type ScreenExtendedByIdQueryVariables = {
+  id: Scalars['Int'];
+};
+
+
+export type ScreenExtendedByIdQuery = (
+  { __typename?: 'Query' }
+  & { screen: (
+    { __typename?: 'Screen' }
+    & ExtendedScreenPartsFragment
+  ) }
+);
+
+export type ExtendedScreenPartsFragment = (
+  { __typename?: 'Screen' }
+  & { viewerRole: (
+    { __typename?: 'Role' }
+    & BasicRolePartsFragment
+  ), slides?: Maybe<Array<(
+    { __typename?: 'Slide' }
+    & BasicSlidePartsFragment
+  )>>, organization: (
+    { __typename?: 'Organization' }
+    & BasicOrganizationPartsFragment
+  ) }
+  & BasicScreenPartsFragment
+);
+
 export type BasicScreenPartsFragment = (
   { __typename?: 'Screen' }
   & Pick<Screen, 'id' | 'createdAt' | 'updatedAt' | 'title' | 'isActive' | 'color' | 'ratio'>
@@ -806,6 +852,15 @@ export type UpdateScreenMutation = (
     { __typename?: 'Screen' }
     & BasicScreenPartsFragment
   ) }
+);
+
+export type BasicSlidePartsFragment = (
+  { __typename?: 'Slide' }
+  & Pick<Slide, 'id' | 'createdAt' | 'updatedAt' | 'date' | 'durationMilliseconds' | 'index' | 'isActive' | 'time' | 'transition' | 'weekdays'>
+  & { appInstance?: Maybe<(
+    { __typename?: 'AppInstance' }
+    & BasicAppInstancePartsFragment
+  )> }
 );
 
 export const BasicUserPartsFragmentDoc = gql`
@@ -830,23 +885,6 @@ export const BasicFilePartsFragmentDoc = gql`
   sizeKilobytes
 }
     `;
-export const BasicOrganizationPartsFragmentDoc = gql`
-    fragment BasicOrganizationParts on Organization {
-  id
-  createdAt
-  updatedAt
-  title
-  viewerPermissionType
-}
-    `;
-export const BasicRolePartsFragmentDoc = gql`
-    fragment BasicRoleParts on Role {
-  id
-  createdAt
-  updatedAt
-  permissionType
-}
-    `;
 export const BasicScreenPartsFragmentDoc = gql`
     fragment BasicScreenParts on Screen {
   id
@@ -858,6 +896,68 @@ export const BasicScreenPartsFragmentDoc = gql`
   ratio
 }
     `;
+export const BasicRolePartsFragmentDoc = gql`
+    fragment BasicRoleParts on Role {
+  id
+  createdAt
+  updatedAt
+  permissionType
+}
+    `;
+export const BasicAppInstancePartsFragmentDoc = gql`
+    fragment BasicAppInstanceParts on AppInstance {
+  id
+  createdAt
+  updatedAt
+  appId
+  appVersion
+  config
+  title
+}
+    `;
+export const BasicSlidePartsFragmentDoc = gql`
+    fragment BasicSlideParts on Slide {
+  id
+  createdAt
+  updatedAt
+  date
+  durationMilliseconds
+  index
+  isActive
+  time
+  transition
+  weekdays
+  appInstance {
+    ...BasicAppInstanceParts
+  }
+}
+    ${BasicAppInstancePartsFragmentDoc}`;
+export const BasicOrganizationPartsFragmentDoc = gql`
+    fragment BasicOrganizationParts on Organization {
+  id
+  createdAt
+  updatedAt
+  title
+  viewerPermissionType
+}
+    `;
+export const ExtendedScreenPartsFragmentDoc = gql`
+    fragment ExtendedScreenParts on Screen {
+  ...BasicScreenParts
+  viewerRole {
+    ...BasicRoleParts
+  }
+  slides {
+    ...BasicSlideParts
+  }
+  organization {
+    ...BasicOrganizationParts
+  }
+}
+    ${BasicScreenPartsFragmentDoc}
+${BasicRolePartsFragmentDoc}
+${BasicSlidePartsFragmentDoc}
+${BasicOrganizationPartsFragmentDoc}`;
 export const AddUserDocument = gql`
     mutation AddUser($values: NewUserInput!) {
   addUser(newUserData: $values) {
@@ -1816,6 +1916,84 @@ export function useOrganizationScreensLazyQuery(baseOptions?: ApolloReactHooks.L
 export type OrganizationScreensQueryHookResult = ReturnType<typeof useOrganizationScreensQuery>;
 export type OrganizationScreensLazyQueryHookResult = ReturnType<typeof useOrganizationScreensLazyQuery>;
 export type OrganizationScreensQueryResult = ApolloReactCommon.QueryResult<OrganizationScreensQuery, OrganizationScreensQueryVariables>;
+export const ScreenByIdDocument = gql`
+    query ScreenById($id: Int!) {
+  screen(id: $id) {
+    ...BasicScreenParts
+  }
+}
+    ${BasicScreenPartsFragmentDoc}`;
+export type ScreenByIdComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<ScreenByIdQuery, ScreenByIdQueryVariables>, 'query'> & ({ variables: ScreenByIdQueryVariables; skip?: boolean; } | { skip: boolean; });
+
+    export const ScreenByIdComponent = (props: ScreenByIdComponentProps) => (
+      <ApolloReactComponents.Query<ScreenByIdQuery, ScreenByIdQueryVariables> query={ScreenByIdDocument} {...props} />
+    );
+    
+
+/**
+ * __useScreenByIdQuery__
+ *
+ * To run a query within a React component, call `useScreenByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useScreenByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useScreenByIdQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useScreenByIdQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<ScreenByIdQuery, ScreenByIdQueryVariables>) {
+        return ApolloReactHooks.useQuery<ScreenByIdQuery, ScreenByIdQueryVariables>(ScreenByIdDocument, baseOptions);
+      }
+export function useScreenByIdLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<ScreenByIdQuery, ScreenByIdQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<ScreenByIdQuery, ScreenByIdQueryVariables>(ScreenByIdDocument, baseOptions);
+        }
+export type ScreenByIdQueryHookResult = ReturnType<typeof useScreenByIdQuery>;
+export type ScreenByIdLazyQueryHookResult = ReturnType<typeof useScreenByIdLazyQuery>;
+export type ScreenByIdQueryResult = ApolloReactCommon.QueryResult<ScreenByIdQuery, ScreenByIdQueryVariables>;
+export const ScreenExtendedByIdDocument = gql`
+    query ScreenExtendedById($id: Int!) {
+  screen(id: $id) {
+    ...ExtendedScreenParts
+  }
+}
+    ${ExtendedScreenPartsFragmentDoc}`;
+export type ScreenExtendedByIdComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<ScreenExtendedByIdQuery, ScreenExtendedByIdQueryVariables>, 'query'> & ({ variables: ScreenExtendedByIdQueryVariables; skip?: boolean; } | { skip: boolean; });
+
+    export const ScreenExtendedByIdComponent = (props: ScreenExtendedByIdComponentProps) => (
+      <ApolloReactComponents.Query<ScreenExtendedByIdQuery, ScreenExtendedByIdQueryVariables> query={ScreenExtendedByIdDocument} {...props} />
+    );
+    
+
+/**
+ * __useScreenExtendedByIdQuery__
+ *
+ * To run a query within a React component, call `useScreenExtendedByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useScreenExtendedByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useScreenExtendedByIdQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useScreenExtendedByIdQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<ScreenExtendedByIdQuery, ScreenExtendedByIdQueryVariables>) {
+        return ApolloReactHooks.useQuery<ScreenExtendedByIdQuery, ScreenExtendedByIdQueryVariables>(ScreenExtendedByIdDocument, baseOptions);
+      }
+export function useScreenExtendedByIdLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<ScreenExtendedByIdQuery, ScreenExtendedByIdQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<ScreenExtendedByIdQuery, ScreenExtendedByIdQueryVariables>(ScreenExtendedByIdDocument, baseOptions);
+        }
+export type ScreenExtendedByIdQueryHookResult = ReturnType<typeof useScreenExtendedByIdQuery>;
+export type ScreenExtendedByIdLazyQueryHookResult = ReturnType<typeof useScreenExtendedByIdLazyQuery>;
+export type ScreenExtendedByIdQueryResult = ApolloReactCommon.QueryResult<ScreenExtendedByIdQuery, ScreenExtendedByIdQueryVariables>;
 export const UpdateScreenDocument = gql`
     mutation UpdateScreen($id: Int!, $values: UpdateScreenInput!) {
   updateScreen(id: $id, updateScreenData: $values) {

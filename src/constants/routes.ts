@@ -5,6 +5,7 @@ import Home from 'screens/Home';
 import Auth from 'screens/Auth';
 import Rules from 'screens/Rules';
 import Panel from 'screens/Panel';
+import Studio from 'screens/Studio';
 import NotFound from 'screens/NotFound';
 
 export const Paths: PathType[] = [
@@ -32,6 +33,14 @@ export const Paths: PathType[] = [
     }
   },
   {
+    path: Path.Studio,
+    exact: true,
+    component: Studio,
+    meta: {
+      protected: true,
+    }
+  },
+  {
     path: Path.NotFound,
     exact: true,
     component: NotFound,
@@ -50,4 +59,4 @@ export const Redirects: RedirectType[] = [
 
 export {
   Path,
-}
+};

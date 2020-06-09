@@ -6,10 +6,10 @@ import { Storage, List } from 'components/Files';
 const Files: React.FC = () => (
   <Row gutter={[24, 24]}>
     <Col span="6">
-      <Storage />
+      <Storage/>
     </Col>
     <Col span="18">
-      <List />
+      <List/>
     </Col>
   </Row>
 );

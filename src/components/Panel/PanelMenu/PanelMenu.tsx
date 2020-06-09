@@ -13,7 +13,7 @@ const PanelMenu: React.FC<Props> = (props: Props) => {
 
   return (
     <Container>
-      <ItemsList viewsConfig={viewsConfig} />
+      <ItemsList viewsConfig={viewsConfig}/>
     </Container>
   );
 };

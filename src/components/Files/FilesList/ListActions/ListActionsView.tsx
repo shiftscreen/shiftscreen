@@ -55,7 +55,7 @@ const LinkAction: React.FC<Props> = (props: Props) => {
   return (
     <Tooltip title="Skopiuj link do pliku">
       <Button
-        icon={<LinkOutlined />}
+        icon={<LinkOutlined/>}
         loading={loading}
         onClick={handleClick}
       />
@@ -96,7 +96,7 @@ const DeleteAction: React.FC<Props> = (props: Props) => {
               files: current.viewer.files.filter(f => f.id !== file.id),
             },
           }
-        })
+        });
       }
     }
   });
@@ -121,7 +121,7 @@ const DeleteAction: React.FC<Props> = (props: Props) => {
     >
       <Button
         danger
-        icon={<DeleteOutlined />}
+        icon={<DeleteOutlined/>}
         loading={loading}
       />
     </Popconfirm>

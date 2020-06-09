@@ -1347,13 +1347,9 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "AppInstance",
-                "ofType": null
-              }
+              "kind": "OBJECT",
+              "name": "AppInstance",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -2826,13 +2822,9 @@
             "name": "appInstanceId",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
             },
             "defaultValue": null
           },

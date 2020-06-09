@@ -61,7 +61,7 @@ const FileAddForm: React.FC<Props> = (props: Props) => {
         onRemove={handleFileRemove}
       />
     </Formik>
-  )
+  );
 };
 
 export default FileAddForm;

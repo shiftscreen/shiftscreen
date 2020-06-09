@@ -34,7 +34,7 @@ const Panel: React.FC = () => {
       viewsConfig={viewsConfig}
       selectedView={selectedView}
     />
-  )
+  );
 };
 
 export default Panel;

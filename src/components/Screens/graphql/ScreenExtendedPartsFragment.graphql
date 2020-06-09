@@ -1,0 +1,15 @@
+fragment ExtendedScreenParts on Screen {
+    ...BasicScreenParts
+
+    viewerRole {
+        ...BasicRoleParts
+    }
+
+    slides {
+        ...BasicSlideParts
+    }
+
+    organization {
+        ...BasicOrganizationParts
+    }
+}

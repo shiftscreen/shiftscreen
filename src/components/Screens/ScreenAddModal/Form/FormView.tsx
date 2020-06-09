@@ -12,13 +12,13 @@ const layout = {
 const ScreenAddForm: React.FC = () => (
   <Form name="screen-add-form" {...layout}>
     <Form.Item name="title" label="Tytuł wyświetlacza">
-      <Input name="title" placeholder="Główny korytarz" />
+      <Input name="title" placeholder="Główny korytarz"/>
     </Form.Item>
     <Form.Item name="color" label="Format ekranu">
       <Select name="ratio" defaultValue="16:9">
         <Option value="16:9">Szeroki (16:9)</Option>
-        <Option value="21:9">Bardzo szeroki (21:9)</Option>
-        <Option value="4:3">Kwadratowy (4:3)</Option>
+        <Option value="21:9" disabled>Bardzo szeroki (21:9)</Option>
+        <Option value="4:3" disabled>Kwadratowy (4:3)</Option>
       </Select>
     </Form.Item>
     <Form.Item name="color" label="Kolor karty">

@@ -18,7 +18,7 @@ const authLink = setContext((_, { headers }) => {
       ...headers,
       authorization: token ? `Bearer ${token}` : '',
     }
-  }
+  };
 });
 
 export const link = authLink.concat(httpLink);
@@ -31,4 +31,4 @@ export const client = new ApolloClient({
 
 export {
   cache,
-}
+};

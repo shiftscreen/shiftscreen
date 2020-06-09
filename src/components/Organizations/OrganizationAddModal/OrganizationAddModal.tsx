@@ -32,7 +32,7 @@ const OrganizationAddModal: React.FC<Props> = (props: Props) => {
 
   const handleSubmit = async (values: NewOrganizationInput) => {
     try {
-      await addOrganization({ variables: { values } })
+      await addOrganization({ variables: { values } });
     } catch (e) {
       message.error('Wystąpił błąd przy dodawaniu organizacji');
       console.error(e);
@@ -62,7 +62,7 @@ const OrganizationAddModal: React.FC<Props> = (props: Props) => {
         {error && <ErrorAlert error={error}/>}
       </Fragment>
     </ModalFormik>
-  )
+  );
 };
 
 export default OrganizationAddModal;

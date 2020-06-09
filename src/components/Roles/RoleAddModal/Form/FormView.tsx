@@ -45,12 +45,12 @@ const FindUser: React.FC<FindUserProps> = ({ setFieldValue }) => {
     if (user) {
       setFieldValue('userId', parseInt(user.id, 10));
     }
-}, [user]);
+  }, [user]);
 
   const handleSearch = (email: string) => (
-      getUser({
-        variables: { email }
-      })
+    getUser({
+      variables: { email }
+    })
   );
 
   const selectedUserInfo = (
@@ -84,7 +84,7 @@ const FindUser: React.FC<FindUserProps> = ({ setFieldValue }) => {
         {error && errorInfo}
       </Row>
     </>
-  )
+  );
 };
 
 export default RoleAddForm;

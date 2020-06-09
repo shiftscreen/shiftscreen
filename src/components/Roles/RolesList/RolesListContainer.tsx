@@ -81,7 +81,7 @@ const RolesListTitle: React.FC<Props> = ({ organization }: Props) => {
       <Col>
         <Button
           type="primary"
-          icon={<PlusOutlined />}
+          icon={<PlusOutlined/>}
           onClick={handleClick}
         >
           Dodaj

@@ -41,7 +41,7 @@ const SettingsAction: React.FC<Props> = ({ role }: Props) => {
 
   return (
     <Link key="settings" to={path}>
-      <SettingOutlined />
+      <SettingOutlined/>
     </Link>
   );
 };
@@ -54,7 +54,7 @@ const MenuAction: React.FC<Props> = ({ role }: Props) => {
   const menu = (
     <Menu>
       <MenuLeaveOrganization role={role}/>
-      {isAdmin && (<Menu.Divider />)}
+      {isAdmin && (<Menu.Divider/>)}
       {isAdmin && (
         <MenuDeleteOrganization role={role}/>
       )}
@@ -67,7 +67,7 @@ const MenuAction: React.FC<Props> = ({ role }: Props) => {
         <EllipsisOutlined/>
       </a>
     </Dropdown>
-  )
+  );
 };
 
 const MenuLeaveOrganization: React.FC<Props> = ({ role, ...props }: Props) => {
@@ -94,7 +94,7 @@ const MenuLeaveOrganization: React.FC<Props> = ({ role, ...props }: Props) => {
   const handleLeaveClick = () => (
     confirm({
       title: 'Czy na pewno chcesz opuścić tę organizację?',
-      icon: <UserDeleteOutlined />,
+      icon: <UserDeleteOutlined/>,
       content: 'Tej czynności nie można cofnąć',
       okText: 'Tak',
       cancelText: 'Nie',
@@ -110,7 +110,7 @@ const MenuLeaveOrganization: React.FC<Props> = ({ role, ...props }: Props) => {
     >
       <UserDeleteOutlined/> Opuść
     </Menu.Item>
-  )
+  );
 };
 
 const MenuDeleteOrganization: React.FC<Props> = ({ role, ...props }: Props) => {
@@ -132,7 +132,7 @@ const MenuDeleteOrganization: React.FC<Props> = ({ role, ...props }: Props) => {
   const handleDeleteOrganizationClick = () => (
     confirm({
       title: 'Czy na pewno chcesz trwale usunąć tę organizację?',
-      icon: <DeleteOutlined />,
+      icon: <DeleteOutlined/>,
       content: 'Tej czynności nie można cofnąć',
       okText: 'Tak',
       okType: 'danger',

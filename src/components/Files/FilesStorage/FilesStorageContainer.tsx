@@ -9,7 +9,7 @@ const FilesStorage: React.FC = () => {
   const { data, loading, error } = useViewerStorageQuery();
 
   if (loading) return (
-    <Card loading />
+    <Card loading/>
   );
 
   if (error || !data) return (

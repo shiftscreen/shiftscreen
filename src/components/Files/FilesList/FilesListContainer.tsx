@@ -19,7 +19,7 @@ const FilesList: React.FC = () => {
       pagination={false}
       renderItem={() => (
         <List.Item>
-          <Skeleton loading={loading} active />
+          <Skeleton loading={loading} active/>
         </List.Item>
       )}
       bordered

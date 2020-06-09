@@ -1,5 +1,5 @@
 import React from 'react';
-import  {LinkProps } from 'react-router-dom';
+import { LinkProps } from 'react-router-dom';
 import { Link, LinkIconWrapper, LinkTitle } from './MenuItemStyle';
 import { IconName } from '@fortawesome/fontawesome-common-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,7 +23,7 @@ const MenuItem: React.FC<MenuItemProps> = (props: MenuItemProps) => {
         {title}
       </LinkTitle>
     </Link>
-  )
+  );
 };
 
 export default MenuItem;

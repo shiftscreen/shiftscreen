@@ -11,7 +11,7 @@ const { Text } = Typography;
 
 const PermissionTag = (type: PermissionType) => (
   R.cond<any, JSX.Element>([
-    [R.equals(PermissionType.Admin),   R.always(<Tag color='red'>Administrator</Tag>)],
+    [R.equals(PermissionType.Admin), R.always(<Tag color='red'>Administrator</Tag>)],
     [R.equals(PermissionType.Editor), R.always(<Tag color='orange'>Redaktor</Tag>)],
   ])(type)
 );
@@ -26,7 +26,7 @@ export const columns = (organization: Organization): ColumnsType<RolesTypes.Role
 
       return (
         <Text strong>{fullName}</Text>
-      )
+      );
     },
   },
   {

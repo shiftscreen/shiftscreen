@@ -19,14 +19,18 @@ const OrganizationInfo: React.FC<Props> = ({ organization }: Props) => {
   const createdAtText = moment(createdAt).format('LLLL');
   const updatedAtText = moment(updatedAt).format('LLLL');
 
-  const handleTitleEdit = (title: string) => (
-    updateOrganization({
-      variables: {
-        id: parseInt(id, 10),
-        values: { title },
-      }
-    })
-  );
+  const handleTitleEdit = async (title: string) => {
+    try {
+      await updateOrganization({
+        variables: {
+          id: parseInt(id, 10),
+          values: { title },
+        }
+      })
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <Card title={(

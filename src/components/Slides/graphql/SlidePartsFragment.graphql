@@ -1,0 +1,16 @@
+fragment BasicSlideParts on Slide {
+    id
+    createdAt
+    updatedAt
+    date
+    durationMilliseconds
+    index
+    isActive
+    time
+    transition
+    weekdays
+
+    appInstance {
+        ...BasicAppInstanceParts
+    }
+}

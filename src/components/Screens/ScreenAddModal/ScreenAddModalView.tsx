@@ -40,7 +40,7 @@ const ScreenAddModal: React.FC<Props> = ({ visible, onClose }: Props) => {
 
   const handleSubmit = async (values: NewScreenInput) => {
     try {
-      await addScreen({ variables: { values } })
+      await addScreen({ variables: { values } });
     } catch (e) {
       console.error(e);
     }
@@ -77,7 +77,7 @@ const ScreenAddModal: React.FC<Props> = ({ visible, onClose }: Props) => {
         {error && <ErrorAlert error={error}/>}
       </Fragment>
     </ModalFormik>
-  )
+  );
 };
 
 export default ScreenAddModal;

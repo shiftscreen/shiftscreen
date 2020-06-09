@@ -15,10 +15,10 @@ const UserInfo: React.FC = () => {
   const menu = (
     <Menu>
       <Menu.Item>
-        <UserOutlined /> Profil
+        <UserOutlined/> Profil
       </Menu.Item>
       <Menu.Item onClick={handleLogout}>
-        <LogoutOutlined /> Wyloguj
+        <LogoutOutlined/> Wyloguj
       </Menu.Item>
     </Menu>
   );
@@ -35,15 +35,15 @@ const UserInfo: React.FC = () => {
       <Container>
         <Row align="middle" gutter={14}>
           <Col>
-            <Avatar shape="square" icon={<UserOutlined />} />
+            <Avatar shape="square" icon={<UserOutlined/>}/>
           </Col>
           <Col>
-            {viewer.firstName} {viewer.lastName} <CaretDownIcon />
+            {viewer.firstName} {viewer.lastName} <CaretDownIcon/>
           </Col>
         </Row>
       </Container>
     </Dropdown>
-  )
+  );
 };
 
 export default UserInfo;

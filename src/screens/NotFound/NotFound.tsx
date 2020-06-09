@@ -21,7 +21,7 @@ const NotFound: React.FC = () => {
         extra={extra}
       />
     </Row>
-  )
+  );
 };
 
 export default NotFound;

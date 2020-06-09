@@ -14,10 +14,10 @@ const LoginForm: React.FC<Props> = (props: Props) => {
   return (
     <Form name="login-form" size="large">
       <Form.Item name="email">
-        <Input name="email" type="email" placeholder="E-mail" />
+        <Input name="email" type="email" placeholder="E-mail"/>
       </Form.Item>
       <Form.Item name="password">
-        <Input.Password name="password" type="password" placeholder="Hasło" />
+        <Input.Password name="password" type="password" placeholder="Hasło"/>
       </Form.Item>
       <Button
         type="primary"

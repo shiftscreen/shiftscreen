@@ -23,7 +23,7 @@ const OrganizationsList: React.FC = () => {
       dataSource={[1, 2]}
       renderItem={(number) => (
         <List.Item key={number}>
-          <AntdCard loading />
+          <AntdCard loading/>
         </List.Item>
       )}
     />

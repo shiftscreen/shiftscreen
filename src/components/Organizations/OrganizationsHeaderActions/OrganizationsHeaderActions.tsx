@@ -24,7 +24,7 @@ const OrganizationsHeaderActions: React.FC = () => {
       <Button
         type="primary"
         size="large"
-        icon={<PlusOutlined />}
+        icon={<PlusOutlined/>}
         onClick={handleClick}
       >
         Stwórz nową
@@ -35,7 +35,7 @@ const OrganizationsHeaderActions: React.FC = () => {
         onClose={handleClose}
       />
     </>
-  )
+  );
 };
 
 export default OrganizationsHeaderActions;

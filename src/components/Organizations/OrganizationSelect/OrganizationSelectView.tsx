@@ -25,7 +25,7 @@ const OrganizationSelect: React.FC = () => {
 
   React.useEffect(() => {
     if (organizations.length > 0) {
-      handleChange(organizations[0].id)
+      handleChange(organizations[0].id);
     }
   }, [data]);
 
@@ -55,7 +55,7 @@ const OrganizationSelect: React.FC = () => {
     >
       {optionsList}
     </Select>
-  )
+  );
 };
 
 export default OrganizationSelect;

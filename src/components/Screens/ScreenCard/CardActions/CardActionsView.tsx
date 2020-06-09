@@ -29,7 +29,7 @@ const CardActions: React.FC<Props> = ({ screen }) => {
   return (
     <Dropdown overlay={menu}>
       <Button>
-        <MoreOutlined />
+        <MoreOutlined/>
       </Button>
     </Dropdown>
   );
@@ -67,9 +67,9 @@ const ToggleActivationItem: React.FC<ItemProps> = ({ screen, ...props }: ItemPro
       key="toggle-active"
       onClick={handleClick}
     >
-      <PoweroffOutlined /> {text}
+      <PoweroffOutlined/> {text}
     </Menu.Item>
-  )
+  );
 };
 
 const DeleteItem: React.FC<ItemProps> = ({ screen, ...props }: ItemProps) => {
@@ -100,7 +100,7 @@ const DeleteItem: React.FC<ItemProps> = ({ screen, ...props }: ItemProps) => {
   const handleClick = () => (
     confirm({
       title: confirmTitle,
-      icon: <DeleteOutlined />,
+      icon: <DeleteOutlined/>,
       content: 'Tej czynności nie można cofnąć',
       okText: 'Usuń',
       okType: 'danger',
@@ -116,7 +116,7 @@ const DeleteItem: React.FC<ItemProps> = ({ screen, ...props }: ItemProps) => {
       onClick={handleClick}
       style={{ color: red.primary }}
     >
-      <DeleteOutlined /> Usuń
+      <DeleteOutlined/> Usuń
     </Menu.Item>
   );
 };

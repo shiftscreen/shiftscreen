@@ -21,11 +21,11 @@ const Panel: React.FC<Props> = (props: Props) => {
 
   return (
     <Container>
-      <Sider viewsConfig={viewsConfig} />
+      <Sider viewsConfig={viewsConfig}/>
       <Inner>
-        <Header />
+        <Header/>
         <Content>
-          <ContentHeader title={selectedView.title} actions={selectedView.headerActions} />
+          <ContentHeader title={selectedView.title} actions={selectedView.headerActions}/>
           <PanelComponent/>
         </Content>
       </Inner>

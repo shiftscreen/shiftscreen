@@ -24,7 +24,7 @@ const FilesHeaderActions: React.FC = () => {
       <Button
         type="primary"
         size="large"
-        icon={<UploadOutlined />}
+        icon={<UploadOutlined/>}
         onClick={handleClick}
       >
         Dodaj nowy
@@ -35,7 +35,7 @@ const FilesHeaderActions: React.FC = () => {
         onClose={handleClose}
       />
     </>
-  )
+  );
 };
 
 export default FilesHeaderActions;

@@ -23,10 +23,10 @@ const TitleEditable: React.FC<TitleEditableProps> = ({ file }: TitleEditableProp
           id: parseInt(file.id, 10),
           values: { title },
         }
-      })
+      });
     } catch (e) {
       console.error(e);
-      message.error('Wystąpił błąd podczas próby aktualizacji tytułu')
+      message.error('Wystąpił błąd podczas próby aktualizacji tytułu');
     }
   };
 
@@ -34,7 +34,7 @@ const TitleEditable: React.FC<TitleEditableProps> = ({ file }: TitleEditableProp
     <Text editable={{ onChange: handleChange }}>
       {file.title}
     </Text>
-  )
+  );
 };
 
 export const columns: ColumnsType<File> = [
@@ -60,6 +60,6 @@ export const columns: ColumnsType<File> = [
   {
     key: 'actions',
     width: '8rem',
-    render: (text, file: File) => <Actions file={file} />,
+    render: (text, file: File) => <Actions file={file}/>,
   },
 ];

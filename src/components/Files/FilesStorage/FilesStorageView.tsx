@@ -37,7 +37,7 @@ const FilesStorage: React.FC<Props> = (props: Props) => {
         </Descriptions.Item>
       </Descriptions>
       <ProgressWrapper>
-        <Progress percent={percent} strokeColor={Colors.violet} />
+        <Progress percent={percent} strokeColor={Colors.violet}/>
       </ProgressWrapper>
     </Card>
   );

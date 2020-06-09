@@ -8,7 +8,9 @@ import { AddScreenSchema } from './FormUtils';
 
 interface Props {
   formikRef: React.Ref<FormikProps<NewScreenInput> | undefined>
+
   onSubmit(values: NewScreenInput): Promise<void>;
+
   organization: Organization;
 }
 
@@ -29,9 +31,9 @@ const ScreenAddForm: React.FC<Props> = ({ onSubmit, formikRef, organization }: P
       // @ts-ignore due to invalid Formik typings
       innerRef={formikRef}
     >
-      <View />
+      <View/>
     </Formik>
-  )
+  );
 };
 
 export default ScreenAddForm;

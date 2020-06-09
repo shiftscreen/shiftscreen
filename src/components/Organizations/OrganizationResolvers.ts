@@ -13,7 +13,7 @@ const selectOrganization: Resolver = (_, { id }, { cache }) => {
 
     return selectedOrganization;
   } catch (e) {
-    console.error(e)
+    console.error(e);
   }
 
   return null;

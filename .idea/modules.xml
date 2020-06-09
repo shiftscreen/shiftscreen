@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/powerdashboard.iml" filepath="$PROJECT_DIR$/.idea/powerdashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../powerdashboard-api/.idea/powerdashboard-api.iml" filepath="$PROJECT_DIR$/../powerdashboard-api/.idea/powerdashboard-api.iml" />
     </modules>
   </component>
 </project>

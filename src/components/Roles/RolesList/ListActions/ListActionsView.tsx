@@ -62,7 +62,7 @@ const DeleteAction: React.FC<Props> = ({ role, organization }: Props) => {
   const handleDeleteRoleClick = () => (
     confirm({
       title,
-      icon: <DeleteOutlined />,
+      icon: <DeleteOutlined/>,
       content: 'Tej czynności nie można cofnąć',
       okText: 'Tak',
       okType: 'danger',
@@ -73,7 +73,7 @@ const DeleteAction: React.FC<Props> = ({ role, organization }: Props) => {
 
   return (
     <Button
-      icon={<DeleteOutlined />}
+      icon={<DeleteOutlined/>}
       onClick={handleDeleteRoleClick}
       loading={loading}
       disabled={isViewerRole}

@@ -1,0 +1,5 @@
+query ScreenExtendedById($id: Int!) {
+    screen(id: $id) {
+        ...ExtendedScreenParts
+    }
+}

@@ -7,7 +7,9 @@ import { AddRoleSchema } from './FormUtils';
 
 interface Props {
   formikRef: React.Ref<FormikProps<NewRoleInput> | undefined>
+
   onSubmit(values: NewRoleInput): Promise<void>;
+
   organization: Organization;
 }
 
@@ -34,7 +36,7 @@ const RoleAddForm: React.FC<Props> = (props: Props) => {
       // @ts-ignore due to invalid Formik typings
       innerRef={formikRef}
     />
-  )
+  );
 };
 
 export default RoleAddForm;

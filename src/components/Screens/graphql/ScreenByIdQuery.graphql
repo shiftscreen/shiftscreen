@@ -1,0 +1,5 @@
+query ScreenById($id: Int!) {
+    screen(id: $id) {
+        ...BasicScreenParts
+    }
+}

@@ -6,4 +6,4 @@ export { default as HeaderActions } from './ScreensHeaderActions';
 
 export {
   types,
-}
+};

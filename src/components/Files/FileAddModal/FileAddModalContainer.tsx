@@ -46,7 +46,7 @@ const FileAddModal: React.FC<Props> = (props: Props) => {
               files: [...current.viewer.files, data.addFile],
             },
           }
-        })
+        });
       }
     }
   });
@@ -81,7 +81,7 @@ const FileAddModal: React.FC<Props> = (props: Props) => {
         onSubmit={handleSubmit}
       />
     </ModalFormik>
-  )
+  );
 };
 
 export default FileAddModal;

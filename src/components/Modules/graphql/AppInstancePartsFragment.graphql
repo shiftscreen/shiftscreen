@@ -1,0 +1,9 @@
+fragment BasicAppInstanceParts on AppInstance {
+    id
+    createdAt
+    updatedAt
+    appId
+    appVersion
+    config
+    title
+}

@@ -2,7 +2,8 @@ import React from 'react';
 import { Tag } from 'antd';
 import { green, red } from '@ant-design/colors';
 import * as R from 'ramda';
-import { PermissionType, ScreenTypes } from 'types';
+import { Link } from 'react-router-dom';
+import { PermissionType, ScreenTypes, Path } from 'types';
 
 import { BottomContainer, Container, Icon, Inner, Title, TopContainer, } from './ScreenCardStyle';
 import CardActions from './CardActions';
@@ -12,38 +13,41 @@ interface Props {
 }
 
 const ScreenCard: React.FC<Props> = ({ screen }: Props) => {
-  const { title, isActive, color, viewerRole } = screen;
+  const { id, title, isActive, color, viewerRole } = screen;
 
   const isViewerAdmin = R.equals(viewerRole.permissionType, PermissionType.Admin);
 
-  const handleClick = () => {
-    console.log('click')
-  };
+  const handleActionsClick = (e: any) => (
+    e.preventDefault()
+  );
 
   const style = {
     backgroundColor: color,
   };
 
+  const link = R.join('/', ['/studio', id]);
+
   return (
-    <Container
-      onClick={handleClick}
-      style={style}
-    >
-      <Icon icon="tv"/>
-      <Inner>
-        <TopContainer>
-          <IsActive isActive={isActive}/>
-        </TopContainer>
-        <BottomContainer>
-          <Title>
-            {title}
-          </Title>
-          {isViewerAdmin && (
-            <CardActions screen={screen}/>
-          )}
-        </BottomContainer>
-      </Inner>
-    </Container>
+    <Link to={link}>
+      <Container style={style}>
+        <Icon icon="tv"/>
+        <Inner>
+          <TopContainer>
+            <IsActive isActive={isActive}/>
+          </TopContainer>
+          <BottomContainer>
+            <Title>
+              {title}
+            </Title>
+            {isViewerAdmin && (
+              <div onClick={handleActionsClick}>
+                <CardActions screen={screen}/>
+              </div>
+            )}
+          </BottomContainer>
+        </Inner>
+      </Container>
+    </Link>
   );
 };
 

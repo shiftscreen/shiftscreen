@@ -33,7 +33,7 @@ const NewScreenAction: React.FC = () => {
       <Button
         type="primary"
         size="large"
-        icon={<PlusOutlined />}
+        icon={<PlusOutlined/>}
         onClick={handleClick}
       >
         Stwórz nowy

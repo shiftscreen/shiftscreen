@@ -25,6 +25,7 @@ export enum Path {
   Auth = '/auth',
   Rules = '/rules',
   Panel = '/panel',
+  Studio = '/studio/:id',
   PanelElement = '/panel/:element?/:id?',
   NotFound = '*',
 }
