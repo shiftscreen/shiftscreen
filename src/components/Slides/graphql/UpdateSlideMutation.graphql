@@ -1,0 +1,5 @@
+mutation UpdateSlide($id: Int!, $values: UpdateSlideInput!) {
+    updateSlide(id: $id, updateSlideData: $values) {
+        ...BasicSlideParts
+    }
+}

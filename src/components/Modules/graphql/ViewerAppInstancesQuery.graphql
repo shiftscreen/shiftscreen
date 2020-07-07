@@ -1,0 +1,8 @@
+query ViewerAppInstances {
+    viewer {
+        id
+        appsInstances {
+            ...BasicAppInstanceParts,
+        }
+    }
+}

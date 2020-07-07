@@ -1,0 +1,5 @@
+mutation UpdateAppInstance($id: Int!, $values: UpdateAppInstanceInput!) {
+    updateAppInstance(id: $id, updateAppInstanceData: $values) {
+        ...BasicAppInstanceParts
+    }
+}

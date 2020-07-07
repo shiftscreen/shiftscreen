@@ -1,7 +1,7 @@
 import React from 'react';
 import { ColumnsType } from 'antd/es/table';
 import { Tag, Typography } from 'antd';
-import { BasicUserPartsFragment, Organization, PermissionType, RolesTypes } from 'types';
+import { BasicUserPartsFragment, Organization, PermissionType, RoleTypes } from 'types';
 import * as R from 'ramda';
 import moment from 'moment';
 import ListActions from './ListActions';
@@ -16,7 +16,7 @@ const PermissionTag = (type: PermissionType) => (
   ])(type)
 );
 
-export const columns = (organization: Organization): ColumnsType<RolesTypes.RoleUser> => ([
+export const columns = (organization: Organization): ColumnsType<RoleTypes.RoleUser> => ([
   {
     title: 'Imię i nazwisko',
     dataIndex: 'user',
@@ -39,7 +39,7 @@ export const columns = (organization: Organization): ColumnsType<RolesTypes.Role
   {
     title: 'Uprawnienia',
     dataIndex: '',
-    render: (role: RolesTypes.RoleUser) => (
+    render: (role: RoleTypes.RoleUser) => (
       <ListSelectRole role={role}/>
     ),
   },
@@ -52,7 +52,7 @@ export const columns = (organization: Organization): ColumnsType<RolesTypes.Role
     key: 'actions',
     width: '4rem',
     dataIndex: '',
-    render: (role: RolesTypes.RoleUser) => (
+    render: (role: RoleTypes.RoleUser) => (
       <ListActions role={role} organization={organization}/>
     ),
   },

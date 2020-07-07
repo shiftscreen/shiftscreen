@@ -1,0 +1,3 @@
+mutation DeleteSlide($id: Int!) {
+    deleteSlide(id: $id)
+}

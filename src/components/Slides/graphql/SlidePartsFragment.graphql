@@ -3,8 +3,7 @@ fragment BasicSlideParts on Slide {
     createdAt
     updatedAt
     date
-    durationMilliseconds
-    index
+    durationSeconds
     isActive
     time
     transition

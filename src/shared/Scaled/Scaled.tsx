@@ -5,11 +5,11 @@ import { Container, ContainerProps } from './ScaledStyle';
 interface Props {
   height: number;
   width: number;
-  children: JSX.Element;
+  children: JSX.Element | undefined;
 }
 
 const Scaled: React.FC<Props> = ({ height, width, children }: Props) => {
-  let childrenRef = React.createRef<HTMLElement>();
+  let childrenRef = React.createRef<HTMLDivElement>();
   const [props, setProps] = React.useState<ContainerProps>();
 
   React.useEffect(() => {

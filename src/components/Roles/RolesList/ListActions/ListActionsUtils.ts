@@ -4,9 +4,9 @@ import {
   OrganizationRolesDocument,
   OrganizationRolesQuery,
 } from 'generated/graphql';
-import { RolesTypes } from 'types';
+import { RoleTypes } from 'types';
 
-export const updateCache = (cache: DataProxy, role: RolesTypes.RoleUser, organization: Organization) => {
+export const updateCache = (cache: DataProxy, role: RoleTypes.RoleUser, organization: Organization) => {
   const data = cache.readQuery<OrganizationRolesQuery>({
     query: OrganizationRolesDocument,
     variables: {

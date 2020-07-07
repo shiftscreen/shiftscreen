@@ -6,4 +6,5 @@ fragment BasicScreenParts on Screen {
     isActive
     color
     ratio
+    slidesOrder
 }

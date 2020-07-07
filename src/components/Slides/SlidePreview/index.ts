@@ -1,1 +1,1 @@
-export { default } from './SlidePreviewView';
+export { default } from './SlidePreview';

@@ -25,9 +25,13 @@ const UserInfo: React.FC = () => {
 
   if (loading) return null;
 
-  if (error || !data) return (
-    <ErrorAlert error={error}/>
-  );
+  if (error || !data) {
+    logout();
+
+    return (
+      <ErrorAlert error={error}/>
+    );
+  }
 
   const viewer = data.viewer;
   return (

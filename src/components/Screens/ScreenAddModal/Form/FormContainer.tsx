@@ -27,6 +27,7 @@ const ScreenAddForm: React.FC<Props> = ({ onSubmit, formikRef, organization }: P
       initialValues={initialValues}
       validationSchema={AddScreenSchema}
       onSubmit={onSubmit}
+      enableReinitialize
 
       // @ts-ignore due to invalid Formik typings
       innerRef={formikRef}

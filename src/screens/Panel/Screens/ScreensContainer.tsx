@@ -16,6 +16,7 @@ const ScreensContainer: React.FC = () => {
     gutter: 16,
     lg: 3,
     xl: 4,
+    xxl: 4,
   };
 
   React.useEffect(() => {

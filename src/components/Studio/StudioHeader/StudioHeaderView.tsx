@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Container, BackButton, Title } from './StudioHeaderStyle';
+import { Container, Inner, BackButton, Title } from './StudioHeaderStyle';
 import { ScreenTypes, useUpdateScreenMutation } from 'types';
 import { message } from 'antd';
 
@@ -24,6 +24,14 @@ const StudioHeader: React.FC<Props> = ({ screen }: Props) => {
         variables: {
           id: parseInt(id, 10),
           values: { title },
+        },
+        optimisticResponse: {
+          __typename: 'Mutation',
+          updateScreen: {
+            ...screen,
+            title,
+            __typename: 'Screen',
+          }
         }
       });
     } catch (e) {
@@ -41,12 +49,14 @@ const StudioHeader: React.FC<Props> = ({ screen }: Props) => {
 
   return (
     <Container style={style}>
-      <BackButton onClick={handleBackClick}>
-        <FontAwesomeIcon icon="chevron-left"/>
-      </BackButton>
-      <Title level={2} editable={{ onChange: handleTitleEdit }}>
-        {title}
-      </Title>
+      <Inner>
+        <BackButton onClick={handleBackClick}>
+          <FontAwesomeIcon icon="chevron-left"/>
+        </BackButton>
+        <Title level={2} editable={{ onChange: handleTitleEdit }}>
+          {title}
+        </Title>
+      </Inner>
     </Container>
   );
 };

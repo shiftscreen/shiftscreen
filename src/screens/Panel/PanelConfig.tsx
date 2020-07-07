@@ -9,6 +9,8 @@ import Screens from './Screens';
 import OrganizationSettings from './OrganizationSettings';
 import OrganizationsList from './OrganizationsList';
 import Files from './Files';
+import ModulesList from './ModulesList';
+import ModuleInstances from './ModuleInstances';
 
 export const viewsConfig: ViewsConfig = [
   {
@@ -40,10 +42,18 @@ export const viewsConfig: ViewsConfig = [
     elementPathName: PanelPath.Modules,
     iconName: 'th-large',
     title: 'Moduły',
-    component: () => (<></>),
+    component: ModulesList,
   },
   {
     index: 4,
+    elementPathName: PanelPath.ModuleInstances,
+    iconName: 'th-large',
+    title: 'Instancje modułu',
+    component: ModuleInstances,
+    hideInMenu: true,
+  },
+  {
+    index: 5,
     elementPathName: PanelPath.OrganizationSettings,
     iconName: 'users',
     title: 'Ustawienia organizacji',

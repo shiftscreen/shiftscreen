@@ -37,7 +37,7 @@ const FilesList: React.FC = () => {
   );
 
   return (
-    <Table
+    <Table<any>
       rowKey={(file: File) => file.id}
       columns={columns}
       dataSource={data?.viewer.files || []}

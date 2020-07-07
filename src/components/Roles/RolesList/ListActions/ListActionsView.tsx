@@ -1,5 +1,5 @@
 import React from 'react';
-import { Organization, PermissionType, RolesTypes } from 'types';
+import { Organization, PermissionType, RoleTypes } from 'types';
 import { Button, Col, message, Modal, Row, Typography } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import * as R from 'ramda';
@@ -12,7 +12,7 @@ const { confirm } = Modal;
 const { Text } = Typography;
 
 interface Props {
-  role: RolesTypes.RoleUser;
+  role: RoleTypes.RoleUser;
   organization: Organization;
 }
 

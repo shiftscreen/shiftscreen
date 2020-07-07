@@ -1,0 +1,5 @@
+mutation AddSlide($values: NewSlideInput!) {
+    addSlide(newSlideData: $values) {
+        ...BasicSlideParts
+    }
+}

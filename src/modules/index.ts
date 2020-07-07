@@ -1,9 +1,9 @@
 import { Module } from 'types';
 import DefaultModule from './Default';
-import HelloModule from './Hello';
+import WelcomeModule from './Welcome';
 
 const modules: Module[] = [
-  HelloModule,
+  WelcomeModule,
 ];
 
 export default modules;

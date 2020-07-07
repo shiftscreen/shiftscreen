@@ -1,6 +1,6 @@
 import React from 'react';
 import * as R from 'ramda';
-import { useParams, useLocation } from 'react-router';
+import { useParams } from 'react-router';
 
 import PanelView from './PanelView';
 import { viewsConfig } from './PanelConfig';
@@ -8,7 +8,6 @@ import { View } from 'components/Panel/PanelTypes';
 
 const Panel: React.FC = () => {
   const { element } = useParams();
-  const location = useLocation;
 
   const getViewByMatch = (): View => {
     const matchedView = R.find<View>(

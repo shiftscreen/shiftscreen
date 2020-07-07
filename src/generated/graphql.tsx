@@ -97,6 +97,7 @@ export type Mutation = {
   deleteOrganization: Scalars['Boolean'];
   deleteRole: Scalars['Boolean'];
   deleteScreen: Scalars['Boolean'];
+  deleteSlide: Scalars['Boolean'];
   fileLink: FileLink;
   login: TokenResponse;
   selectOrganization?: Maybe<Organization>;
@@ -105,6 +106,7 @@ export type Mutation = {
   updateOrganization: Organization;
   updateRole: Role;
   updateScreen: Screen;
+  updateSlide: Slide;
 };
 
 
@@ -178,6 +180,11 @@ export type MutationDeleteScreenArgs = {
 };
 
 
+export type MutationDeleteSlideArgs = {
+  id: Scalars['Int'];
+};
+
+
 export type MutationFileLinkArgs = {
   id: Scalars['Int'];
 };
@@ -222,6 +229,12 @@ export type MutationUpdateScreenArgs = {
   id: Scalars['Int'];
 };
 
+
+export type MutationUpdateSlideArgs = {
+  updateSlideData: UpdateSlideInput;
+  id: Scalars['Int'];
+};
+
 export type NewAppInstanceInput = {
   title: Scalars['String'];
   appId: Scalars['String'];
@@ -252,8 +265,7 @@ export type NewScreenInput = {
 };
 
 export type NewSlideInput = {
-  index: Scalars['Int'];
-  durationMilliseconds: Scalars['Int'];
+  durationSeconds: Scalars['Int'];
   transition?: Maybe<Scalars['JSON']>;
   time?: Maybe<Scalars['JSON']>;
   date?: Maybe<Scalars['JSON']>;
@@ -290,6 +302,7 @@ export enum PermissionType {
 export type Query = {
    __typename?: 'Query';
   appInstance: AppInstance;
+  appInstancesByAppId: Array<AppInstance>;
   fileKey: FileKey;
   isLoggedIn: Scalars['Boolean'];
   organization: Organization;
@@ -302,6 +315,11 @@ export type Query = {
 
 export type QueryAppInstanceArgs = {
   id: Scalars['Int'];
+};
+
+
+export type QueryAppInstancesByAppIdArgs = {
+  appId: Scalars['String'];
 };
 
 
@@ -343,6 +361,7 @@ export type Screen = {
   isActive: Scalars['Boolean'];
   color: Scalars['String'];
   ratio: Scalars['String'];
+  slidesOrder: Scalars['JSON'];
   organization: Organization;
   slides?: Maybe<Array<Slide>>;
   viewerRole: Role;
@@ -354,8 +373,7 @@ export type Slide = {
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
   isActive: Scalars['Boolean'];
-  index: Scalars['Int'];
-  durationMilliseconds: Scalars['Int'];
+  durationSeconds: Scalars['Int'];
   transition?: Maybe<Scalars['JSON']>;
   time?: Maybe<Scalars['JSON']>;
   date?: Maybe<Scalars['JSON']>;
@@ -366,8 +384,7 @@ export type Slide = {
 export type SlideInput = {
   id?: Maybe<Scalars['Int']>;
   isActive: Scalars['Boolean'];
-  index: Scalars['Int'];
-  durationMilliseconds: Scalars['Int'];
+  durationSeconds: Scalars['Int'];
   transition?: Maybe<Scalars['JSON']>;
   time?: Maybe<Scalars['JSON']>;
   date?: Maybe<Scalars['JSON']>;
@@ -415,8 +432,19 @@ export type UpdateScreenInput = {
   isActive?: Maybe<Scalars['Boolean']>;
   color?: Maybe<Scalars['String']>;
   ratio?: Maybe<Scalars['String']>;
+  slidesOrder?: Maybe<Scalars['JSON']>;
   organizationId?: Maybe<Scalars['Int']>;
   slides?: Maybe<Array<SlideInput>>;
+};
+
+export type UpdateSlideInput = {
+  isActive?: Maybe<Scalars['Boolean']>;
+  durationSeconds?: Maybe<Scalars['Int']>;
+  transition?: Maybe<Scalars['JSON']>;
+  time?: Maybe<Scalars['JSON']>;
+  date?: Maybe<Scalars['JSON']>;
+  weekdays?: Maybe<Scalars['JSON']>;
+  appInstanceId?: Maybe<Scalars['Int']>;
 };
 
 
@@ -433,7 +461,6 @@ export type User = {
   roles?: Maybe<Array<Role>>;
   files?: Maybe<Array<File>>;
   appsInstances?: Maybe<Array<AppInstance>>;
-  appInstances: Array<AppInstance>;
 };
 
 export type AddUserMutationVariables = {
@@ -503,6 +530,27 @@ export type DeleteFileMutation = (
   & Pick<Mutation, 'deleteFile'>
 );
 
+export type FileLinkByKeyQueryVariables = {
+  fileKey: FileKeyInput;
+};
+
+
+export type FileLinkByKeyQuery = (
+  { __typename?: 'Query' }
+  & { fileKey: (
+    { __typename?: 'FileKey' }
+    & Pick<FileKey, 'id'>
+    & { file: (
+      { __typename?: 'File' }
+      & Pick<File, 'id'>
+      & { link: (
+        { __typename?: 'FileLink' }
+        & Pick<FileLink, 'url' | 'expiryTime'>
+      ) }
+    ) }
+  ) }
+);
+
 export type FileLinkMutationVariables = {
   id: Scalars['Int'];
 };
@@ -568,6 +616,58 @@ export type ViewerStorageQuery = (
 export type BasicAppInstancePartsFragment = (
   { __typename?: 'AppInstance' }
   & Pick<AppInstance, 'id' | 'createdAt' | 'updatedAt' | 'appId' | 'appVersion' | 'config' | 'title'>
+);
+
+export type AppInstancesByAppIdQueryVariables = {
+  appId: Scalars['String'];
+};
+
+
+export type AppInstancesByAppIdQuery = (
+  { __typename?: 'Query' }
+  & { appInstancesByAppId: Array<(
+    { __typename?: 'AppInstance' }
+    & BasicAppInstancePartsFragment
+  )> }
+);
+
+export type DeleteAppInstanceMutationVariables = {
+  id: Scalars['Int'];
+};
+
+
+export type DeleteAppInstanceMutation = (
+  { __typename?: 'Mutation' }
+  & Pick<Mutation, 'deleteAppInstance'>
+);
+
+export type UpdateAppInstanceMutationVariables = {
+  id: Scalars['Int'];
+  values: UpdateAppInstanceInput;
+};
+
+
+export type UpdateAppInstanceMutation = (
+  { __typename?: 'Mutation' }
+  & { updateAppInstance: (
+    { __typename?: 'AppInstance' }
+    & BasicAppInstancePartsFragment
+  ) }
+);
+
+export type ViewerAppInstancesQueryVariables = {};
+
+
+export type ViewerAppInstancesQuery = (
+  { __typename?: 'Query' }
+  & { viewer: (
+    { __typename?: 'User' }
+    & Pick<User, 'id'>
+    & { appsInstances?: Maybe<Array<(
+      { __typename?: 'AppInstance' }
+      & BasicAppInstancePartsFragment
+    )>> }
+  ) }
 );
 
 export type AddOrganizationMutationVariables = {
@@ -837,7 +937,7 @@ export type ExtendedScreenPartsFragment = (
 
 export type BasicScreenPartsFragment = (
   { __typename?: 'Screen' }
-  & Pick<Screen, 'id' | 'createdAt' | 'updatedAt' | 'title' | 'isActive' | 'color' | 'ratio'>
+  & Pick<Screen, 'id' | 'createdAt' | 'updatedAt' | 'title' | 'isActive' | 'color' | 'ratio' | 'slidesOrder'>
 );
 
 export type UpdateScreenMutationVariables = {
@@ -854,13 +954,50 @@ export type UpdateScreenMutation = (
   ) }
 );
 
+export type AddSlideMutationVariables = {
+  values: NewSlideInput;
+};
+
+
+export type AddSlideMutation = (
+  { __typename?: 'Mutation' }
+  & { addSlide: (
+    { __typename?: 'Slide' }
+    & BasicSlidePartsFragment
+  ) }
+);
+
+export type DeleteSlideMutationVariables = {
+  id: Scalars['Int'];
+};
+
+
+export type DeleteSlideMutation = (
+  { __typename?: 'Mutation' }
+  & Pick<Mutation, 'deleteSlide'>
+);
+
 export type BasicSlidePartsFragment = (
   { __typename?: 'Slide' }
-  & Pick<Slide, 'id' | 'createdAt' | 'updatedAt' | 'date' | 'durationMilliseconds' | 'index' | 'isActive' | 'time' | 'transition' | 'weekdays'>
+  & Pick<Slide, 'id' | 'createdAt' | 'updatedAt' | 'date' | 'durationSeconds' | 'isActive' | 'time' | 'transition' | 'weekdays'>
   & { appInstance?: Maybe<(
     { __typename?: 'AppInstance' }
     & BasicAppInstancePartsFragment
   )> }
+);
+
+export type UpdateSlideMutationVariables = {
+  id: Scalars['Int'];
+  values: UpdateSlideInput;
+};
+
+
+export type UpdateSlideMutation = (
+  { __typename?: 'Mutation' }
+  & { updateSlide: (
+    { __typename?: 'Slide' }
+    & BasicSlidePartsFragment
+  ) }
 );
 
 export const BasicUserPartsFragmentDoc = gql`
@@ -894,6 +1031,7 @@ export const BasicScreenPartsFragmentDoc = gql`
   isActive
   color
   ratio
+  slidesOrder
 }
     `;
 export const BasicRolePartsFragmentDoc = gql`
@@ -921,8 +1059,7 @@ export const BasicSlidePartsFragmentDoc = gql`
   createdAt
   updatedAt
   date
-  durationMilliseconds
-  index
+  durationSeconds
   isActive
   time
   transition
@@ -1149,6 +1286,52 @@ export function useDeleteFileMutation(baseOptions?: ApolloReactHooks.MutationHoo
 export type DeleteFileMutationHookResult = ReturnType<typeof useDeleteFileMutation>;
 export type DeleteFileMutationResult = ApolloReactCommon.MutationResult<DeleteFileMutation>;
 export type DeleteFileMutationOptions = ApolloReactCommon.BaseMutationOptions<DeleteFileMutation, DeleteFileMutationVariables>;
+export const FileLinkByKeyDocument = gql`
+    query FileLinkByKey($fileKey: FileKeyInput!) {
+  fileKey(fileKey: $fileKey) {
+    id
+    file {
+      id
+      link {
+        url
+        expiryTime
+      }
+    }
+  }
+}
+    `;
+export type FileLinkByKeyComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<FileLinkByKeyQuery, FileLinkByKeyQueryVariables>, 'query'> & ({ variables: FileLinkByKeyQueryVariables; skip?: boolean; } | { skip: boolean; });
+
+    export const FileLinkByKeyComponent = (props: FileLinkByKeyComponentProps) => (
+      <ApolloReactComponents.Query<FileLinkByKeyQuery, FileLinkByKeyQueryVariables> query={FileLinkByKeyDocument} {...props} />
+    );
+    
+
+/**
+ * __useFileLinkByKeyQuery__
+ *
+ * To run a query within a React component, call `useFileLinkByKeyQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFileLinkByKeyQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFileLinkByKeyQuery({
+ *   variables: {
+ *      fileKey: // value for 'fileKey'
+ *   },
+ * });
+ */
+export function useFileLinkByKeyQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<FileLinkByKeyQuery, FileLinkByKeyQueryVariables>) {
+        return ApolloReactHooks.useQuery<FileLinkByKeyQuery, FileLinkByKeyQueryVariables>(FileLinkByKeyDocument, baseOptions);
+      }
+export function useFileLinkByKeyLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<FileLinkByKeyQuery, FileLinkByKeyQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<FileLinkByKeyQuery, FileLinkByKeyQueryVariables>(FileLinkByKeyDocument, baseOptions);
+        }
+export type FileLinkByKeyQueryHookResult = ReturnType<typeof useFileLinkByKeyQuery>;
+export type FileLinkByKeyLazyQueryHookResult = ReturnType<typeof useFileLinkByKeyLazyQuery>;
+export type FileLinkByKeyQueryResult = ApolloReactCommon.QueryResult<FileLinkByKeyQuery, FileLinkByKeyQueryVariables>;
 export const FileLinkDocument = gql`
     mutation FileLink($id: Int!) {
   fileLink(id: $id) {
@@ -1311,6 +1494,161 @@ export function useViewerStorageLazyQuery(baseOptions?: ApolloReactHooks.LazyQue
 export type ViewerStorageQueryHookResult = ReturnType<typeof useViewerStorageQuery>;
 export type ViewerStorageLazyQueryHookResult = ReturnType<typeof useViewerStorageLazyQuery>;
 export type ViewerStorageQueryResult = ApolloReactCommon.QueryResult<ViewerStorageQuery, ViewerStorageQueryVariables>;
+export const AppInstancesByAppIdDocument = gql`
+    query AppInstancesByAppId($appId: String!) {
+  appInstancesByAppId(appId: $appId) {
+    ...BasicAppInstanceParts
+  }
+}
+    ${BasicAppInstancePartsFragmentDoc}`;
+export type AppInstancesByAppIdComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<AppInstancesByAppIdQuery, AppInstancesByAppIdQueryVariables>, 'query'> & ({ variables: AppInstancesByAppIdQueryVariables; skip?: boolean; } | { skip: boolean; });
+
+    export const AppInstancesByAppIdComponent = (props: AppInstancesByAppIdComponentProps) => (
+      <ApolloReactComponents.Query<AppInstancesByAppIdQuery, AppInstancesByAppIdQueryVariables> query={AppInstancesByAppIdDocument} {...props} />
+    );
+    
+
+/**
+ * __useAppInstancesByAppIdQuery__
+ *
+ * To run a query within a React component, call `useAppInstancesByAppIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAppInstancesByAppIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAppInstancesByAppIdQuery({
+ *   variables: {
+ *      appId: // value for 'appId'
+ *   },
+ * });
+ */
+export function useAppInstancesByAppIdQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<AppInstancesByAppIdQuery, AppInstancesByAppIdQueryVariables>) {
+        return ApolloReactHooks.useQuery<AppInstancesByAppIdQuery, AppInstancesByAppIdQueryVariables>(AppInstancesByAppIdDocument, baseOptions);
+      }
+export function useAppInstancesByAppIdLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<AppInstancesByAppIdQuery, AppInstancesByAppIdQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<AppInstancesByAppIdQuery, AppInstancesByAppIdQueryVariables>(AppInstancesByAppIdDocument, baseOptions);
+        }
+export type AppInstancesByAppIdQueryHookResult = ReturnType<typeof useAppInstancesByAppIdQuery>;
+export type AppInstancesByAppIdLazyQueryHookResult = ReturnType<typeof useAppInstancesByAppIdLazyQuery>;
+export type AppInstancesByAppIdQueryResult = ApolloReactCommon.QueryResult<AppInstancesByAppIdQuery, AppInstancesByAppIdQueryVariables>;
+export const DeleteAppInstanceDocument = gql`
+    mutation DeleteAppInstance($id: Int!) {
+  deleteAppInstance(id: $id)
+}
+    `;
+export type DeleteAppInstanceMutationFn = ApolloReactCommon.MutationFunction<DeleteAppInstanceMutation, DeleteAppInstanceMutationVariables>;
+export type DeleteAppInstanceComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<DeleteAppInstanceMutation, DeleteAppInstanceMutationVariables>, 'mutation'>;
+
+    export const DeleteAppInstanceComponent = (props: DeleteAppInstanceComponentProps) => (
+      <ApolloReactComponents.Mutation<DeleteAppInstanceMutation, DeleteAppInstanceMutationVariables> mutation={DeleteAppInstanceDocument} {...props} />
+    );
+    
+
+/**
+ * __useDeleteAppInstanceMutation__
+ *
+ * To run a mutation, you first call `useDeleteAppInstanceMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteAppInstanceMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteAppInstanceMutation, { data, loading, error }] = useDeleteAppInstanceMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useDeleteAppInstanceMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<DeleteAppInstanceMutation, DeleteAppInstanceMutationVariables>) {
+        return ApolloReactHooks.useMutation<DeleteAppInstanceMutation, DeleteAppInstanceMutationVariables>(DeleteAppInstanceDocument, baseOptions);
+      }
+export type DeleteAppInstanceMutationHookResult = ReturnType<typeof useDeleteAppInstanceMutation>;
+export type DeleteAppInstanceMutationResult = ApolloReactCommon.MutationResult<DeleteAppInstanceMutation>;
+export type DeleteAppInstanceMutationOptions = ApolloReactCommon.BaseMutationOptions<DeleteAppInstanceMutation, DeleteAppInstanceMutationVariables>;
+export const UpdateAppInstanceDocument = gql`
+    mutation UpdateAppInstance($id: Int!, $values: UpdateAppInstanceInput!) {
+  updateAppInstance(id: $id, updateAppInstanceData: $values) {
+    ...BasicAppInstanceParts
+  }
+}
+    ${BasicAppInstancePartsFragmentDoc}`;
+export type UpdateAppInstanceMutationFn = ApolloReactCommon.MutationFunction<UpdateAppInstanceMutation, UpdateAppInstanceMutationVariables>;
+export type UpdateAppInstanceComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<UpdateAppInstanceMutation, UpdateAppInstanceMutationVariables>, 'mutation'>;
+
+    export const UpdateAppInstanceComponent = (props: UpdateAppInstanceComponentProps) => (
+      <ApolloReactComponents.Mutation<UpdateAppInstanceMutation, UpdateAppInstanceMutationVariables> mutation={UpdateAppInstanceDocument} {...props} />
+    );
+    
+
+/**
+ * __useUpdateAppInstanceMutation__
+ *
+ * To run a mutation, you first call `useUpdateAppInstanceMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateAppInstanceMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateAppInstanceMutation, { data, loading, error }] = useUpdateAppInstanceMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      values: // value for 'values'
+ *   },
+ * });
+ */
+export function useUpdateAppInstanceMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<UpdateAppInstanceMutation, UpdateAppInstanceMutationVariables>) {
+        return ApolloReactHooks.useMutation<UpdateAppInstanceMutation, UpdateAppInstanceMutationVariables>(UpdateAppInstanceDocument, baseOptions);
+      }
+export type UpdateAppInstanceMutationHookResult = ReturnType<typeof useUpdateAppInstanceMutation>;
+export type UpdateAppInstanceMutationResult = ApolloReactCommon.MutationResult<UpdateAppInstanceMutation>;
+export type UpdateAppInstanceMutationOptions = ApolloReactCommon.BaseMutationOptions<UpdateAppInstanceMutation, UpdateAppInstanceMutationVariables>;
+export const ViewerAppInstancesDocument = gql`
+    query ViewerAppInstances {
+  viewer {
+    id
+    appsInstances {
+      ...BasicAppInstanceParts
+    }
+  }
+}
+    ${BasicAppInstancePartsFragmentDoc}`;
+export type ViewerAppInstancesComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<ViewerAppInstancesQuery, ViewerAppInstancesQueryVariables>, 'query'>;
+
+    export const ViewerAppInstancesComponent = (props: ViewerAppInstancesComponentProps) => (
+      <ApolloReactComponents.Query<ViewerAppInstancesQuery, ViewerAppInstancesQueryVariables> query={ViewerAppInstancesDocument} {...props} />
+    );
+    
+
+/**
+ * __useViewerAppInstancesQuery__
+ *
+ * To run a query within a React component, call `useViewerAppInstancesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useViewerAppInstancesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useViewerAppInstancesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useViewerAppInstancesQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<ViewerAppInstancesQuery, ViewerAppInstancesQueryVariables>) {
+        return ApolloReactHooks.useQuery<ViewerAppInstancesQuery, ViewerAppInstancesQueryVariables>(ViewerAppInstancesDocument, baseOptions);
+      }
+export function useViewerAppInstancesLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<ViewerAppInstancesQuery, ViewerAppInstancesQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<ViewerAppInstancesQuery, ViewerAppInstancesQueryVariables>(ViewerAppInstancesDocument, baseOptions);
+        }
+export type ViewerAppInstancesQueryHookResult = ReturnType<typeof useViewerAppInstancesQuery>;
+export type ViewerAppInstancesLazyQueryHookResult = ReturnType<typeof useViewerAppInstancesLazyQuery>;
+export type ViewerAppInstancesQueryResult = ApolloReactCommon.QueryResult<ViewerAppInstancesQuery, ViewerAppInstancesQueryVariables>;
 export const AddOrganizationDocument = gql`
     mutation AddOrganization($values: NewOrganizationInput!) {
   addOrganization(newOrganizationData: $values) {
@@ -2033,3 +2371,116 @@ export function useUpdateScreenMutation(baseOptions?: ApolloReactHooks.MutationH
 export type UpdateScreenMutationHookResult = ReturnType<typeof useUpdateScreenMutation>;
 export type UpdateScreenMutationResult = ApolloReactCommon.MutationResult<UpdateScreenMutation>;
 export type UpdateScreenMutationOptions = ApolloReactCommon.BaseMutationOptions<UpdateScreenMutation, UpdateScreenMutationVariables>;
+export const AddSlideDocument = gql`
+    mutation AddSlide($values: NewSlideInput!) {
+  addSlide(newSlideData: $values) {
+    ...BasicSlideParts
+  }
+}
+    ${BasicSlidePartsFragmentDoc}`;
+export type AddSlideMutationFn = ApolloReactCommon.MutationFunction<AddSlideMutation, AddSlideMutationVariables>;
+export type AddSlideComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<AddSlideMutation, AddSlideMutationVariables>, 'mutation'>;
+
+    export const AddSlideComponent = (props: AddSlideComponentProps) => (
+      <ApolloReactComponents.Mutation<AddSlideMutation, AddSlideMutationVariables> mutation={AddSlideDocument} {...props} />
+    );
+    
+
+/**
+ * __useAddSlideMutation__
+ *
+ * To run a mutation, you first call `useAddSlideMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddSlideMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addSlideMutation, { data, loading, error }] = useAddSlideMutation({
+ *   variables: {
+ *      values: // value for 'values'
+ *   },
+ * });
+ */
+export function useAddSlideMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<AddSlideMutation, AddSlideMutationVariables>) {
+        return ApolloReactHooks.useMutation<AddSlideMutation, AddSlideMutationVariables>(AddSlideDocument, baseOptions);
+      }
+export type AddSlideMutationHookResult = ReturnType<typeof useAddSlideMutation>;
+export type AddSlideMutationResult = ApolloReactCommon.MutationResult<AddSlideMutation>;
+export type AddSlideMutationOptions = ApolloReactCommon.BaseMutationOptions<AddSlideMutation, AddSlideMutationVariables>;
+export const DeleteSlideDocument = gql`
+    mutation DeleteSlide($id: Int!) {
+  deleteSlide(id: $id)
+}
+    `;
+export type DeleteSlideMutationFn = ApolloReactCommon.MutationFunction<DeleteSlideMutation, DeleteSlideMutationVariables>;
+export type DeleteSlideComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<DeleteSlideMutation, DeleteSlideMutationVariables>, 'mutation'>;
+
+    export const DeleteSlideComponent = (props: DeleteSlideComponentProps) => (
+      <ApolloReactComponents.Mutation<DeleteSlideMutation, DeleteSlideMutationVariables> mutation={DeleteSlideDocument} {...props} />
+    );
+    
+
+/**
+ * __useDeleteSlideMutation__
+ *
+ * To run a mutation, you first call `useDeleteSlideMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteSlideMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteSlideMutation, { data, loading, error }] = useDeleteSlideMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useDeleteSlideMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<DeleteSlideMutation, DeleteSlideMutationVariables>) {
+        return ApolloReactHooks.useMutation<DeleteSlideMutation, DeleteSlideMutationVariables>(DeleteSlideDocument, baseOptions);
+      }
+export type DeleteSlideMutationHookResult = ReturnType<typeof useDeleteSlideMutation>;
+export type DeleteSlideMutationResult = ApolloReactCommon.MutationResult<DeleteSlideMutation>;
+export type DeleteSlideMutationOptions = ApolloReactCommon.BaseMutationOptions<DeleteSlideMutation, DeleteSlideMutationVariables>;
+export const UpdateSlideDocument = gql`
+    mutation UpdateSlide($id: Int!, $values: UpdateSlideInput!) {
+  updateSlide(id: $id, updateSlideData: $values) {
+    ...BasicSlideParts
+  }
+}
+    ${BasicSlidePartsFragmentDoc}`;
+export type UpdateSlideMutationFn = ApolloReactCommon.MutationFunction<UpdateSlideMutation, UpdateSlideMutationVariables>;
+export type UpdateSlideComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<UpdateSlideMutation, UpdateSlideMutationVariables>, 'mutation'>;
+
+    export const UpdateSlideComponent = (props: UpdateSlideComponentProps) => (
+      <ApolloReactComponents.Mutation<UpdateSlideMutation, UpdateSlideMutationVariables> mutation={UpdateSlideDocument} {...props} />
+    );
+    
+
+/**
+ * __useUpdateSlideMutation__
+ *
+ * To run a mutation, you first call `useUpdateSlideMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateSlideMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateSlideMutation, { data, loading, error }] = useUpdateSlideMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      values: // value for 'values'
+ *   },
+ * });
+ */
+export function useUpdateSlideMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<UpdateSlideMutation, UpdateSlideMutationVariables>) {
+        return ApolloReactHooks.useMutation<UpdateSlideMutation, UpdateSlideMutationVariables>(UpdateSlideDocument, baseOptions);
+      }
+export type UpdateSlideMutationHookResult = ReturnType<typeof useUpdateSlideMutation>;
+export type UpdateSlideMutationResult = ApolloReactCommon.MutationResult<UpdateSlideMutation>;
+export type UpdateSlideMutationOptions = ApolloReactCommon.BaseMutationOptions<UpdateSlideMutation, UpdateSlideMutationVariables>;

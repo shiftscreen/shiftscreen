@@ -22,6 +22,7 @@ const OrganizationAddForm: React.FC<Props> = (props: Props) => {
       initialValues={initialValues}
       validationSchema={AddOrganizationSchema}
       onSubmit={onSubmit}
+      enableReinitialize
 
       // @ts-ignore due to invalid Formik typings
       innerRef={formikRef}

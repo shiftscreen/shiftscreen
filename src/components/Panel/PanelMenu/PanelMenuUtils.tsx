@@ -1,8 +1,9 @@
 import React from 'react';
 import * as R from 'ramda';
-import { PanelTypes } from 'types';
+import { PanelTypes, Path } from 'types';
 
 import MenuItem from './MenuItem';
+import { generatePath } from 'react-router';
 
 interface Props {
   viewsConfig: PanelTypes.ViewsConfig;
@@ -10,14 +11,19 @@ interface Props {
 
 export const ItemsList: React.FC<Props> = (props: Props) => {
   const { viewsConfig } = props;
-  const itemsList = viewsConfig.filter(element => R.not(element.hideInMenu));
+  const isNotHidden = (element: PanelTypes.View) => R.not(element.hideInMenu);
+  const itemsList = R.filter(isNotHidden, viewsConfig);
+
+  const getLink = (element: string) => (
+    generatePath(Path.PanelElement, { element })
+  );
 
   const item = (view: PanelTypes.View): React.ReactElement => (
     <MenuItem
       key={view.index}
       iconname={view.iconName}
       title={view.title}
-      to={`/panel/${view.elementPathName}`}
+      to={getLink(view.elementPathName)}
     />
   );
 

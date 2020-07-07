@@ -32,6 +32,7 @@ const RoleAddForm: React.FC<Props> = (props: Props) => {
       validationSchema={AddRoleSchema}
       onSubmit={onSubmit}
       children={View}
+      enableReinitialize
 
       // @ts-ignore due to invalid Formik typings
       innerRef={formikRef}

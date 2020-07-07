@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Typography } from 'antd';
-import { RolesTypes } from 'types';
+import { RoleTypes } from 'types';
 
 import { Avatar } from 'components/Organizations';
 import { Container, Wrapper } from './OrganizationCardStyle';
@@ -9,7 +9,7 @@ import CardActions from './CardActions';
 const { Title } = Typography;
 
 interface Props {
-  role: RolesTypes.RoleOrganization;
+  role: RoleTypes.RoleOrganization;
 }
 
 const OrganizationCard: React.FC<Props> = ({ role }: Props) => {

@@ -2,8 +2,8 @@ import React from 'react';
 import { Tag } from 'antd';
 import { green, red } from '@ant-design/colors';
 import * as R from 'ramda';
-import { Link } from 'react-router-dom';
-import { PermissionType, ScreenTypes, Path } from 'types';
+import { generatePath, Link } from 'react-router-dom';
+import { PermissionType, ScreenTypes, Path, PanelTypes } from 'types';
 
 import { BottomContainer, Container, Icon, Inner, Title, TopContainer, } from './ScreenCardStyle';
 import CardActions from './CardActions';
@@ -21,15 +21,11 @@ const ScreenCard: React.FC<Props> = ({ screen }: Props) => {
     e.preventDefault()
   );
 
-  const style = {
-    backgroundColor: color,
-  };
-
-  const link = R.join('/', ['/studio', id]);
+  const link = generatePath(Path.Studio, { id });
 
   return (
     <Link to={link}>
-      <Container style={style}>
+      <Container backgroundColor={color} isActive={isActive}>
         <Icon icon="tv"/>
         <Inner>
           <TopContainer>

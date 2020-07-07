@@ -1,5 +1,5 @@
 import React from 'react';
-import { Organization, RolesTypes } from 'types';
+import { Organization, RoleTypes } from 'types';
 import { Button, Col, List, Row, Skeleton, Typography } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
@@ -21,7 +21,7 @@ const RolesList: React.FC<Props> = ({ organization }: Props) => {
       organizationId: parseInt(organization.id, 10),
     }
   });
-  const roles: RolesTypes.RoleUser[] = data?.organization.roles || [];
+  const roles: RoleTypes.RoleUser[] = data?.organization.roles || [];
   const title = () => (
     <RolesListTitle organization={organization}/>
   );
@@ -45,8 +45,8 @@ const RolesList: React.FC<Props> = ({ organization }: Props) => {
   );
 
   return (
-    <Table
-      rowKey={(role: RolesTypes.RoleUser) => role.id}
+    <Table<any>
+      rowKey={(role: RoleTypes.RoleUser) => role.id}
       columns={columns(organization)}
       dataSource={roles}
       title={title}

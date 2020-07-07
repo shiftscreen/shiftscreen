@@ -25,6 +25,14 @@ const OrganizationInfo: React.FC<Props> = ({ organization }: Props) => {
         variables: {
           id: parseInt(id, 10),
           values: { title },
+        },
+        optimisticResponse: {
+          __typename: 'Mutation',
+          updateOrganization: {
+            ...organization,
+            title,
+            __typename: 'Organization',
+          }
         }
       })
     } catch (e) {

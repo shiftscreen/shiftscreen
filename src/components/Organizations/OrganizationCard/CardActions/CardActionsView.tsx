@@ -1,9 +1,9 @@
 import React from 'react';
 import { DeleteOutlined, EllipsisOutlined, SettingOutlined, UserDeleteOutlined } from '@ant-design/icons';
 import { red } from '@ant-design/colors';
-import { RolesTypes, PanelTypes, PermissionType } from 'types';
+import { RoleTypes, PanelTypes, PermissionType, Path } from 'types';
 import { Dropdown, Menu, message, Modal } from 'antd';
-import { Link } from 'react-router-dom';
+import { generatePath, Link } from 'react-router-dom';
 import * as R from 'ramda';
 import { DataProxy } from 'apollo-cache';
 
@@ -13,7 +13,7 @@ import { updateCache } from './CardActionsUtils';
 const { confirm } = Modal;
 
 interface Props {
-  role: RolesTypes.RoleOrganization;
+  role: RoleTypes.RoleOrganization;
 }
 
 const CardActions = ({ role }: Props): JSX.Element[] => {
@@ -37,7 +37,11 @@ const CardActions = ({ role }: Props): JSX.Element[] => {
 const SettingsAction: React.FC<Props> = ({ role }: Props) => {
   const { organization } = role;
   const { id } = organization;
-  const path = `/panel/${PanelTypes.PanelPath.OrganizationSettings}/${id}`;
+
+  const path = generatePath(Path.PanelElement, {
+    element: PanelTypes.PanelPath.OrganizationSettings,
+    id,
+  });
 
   return (
     <Link key="settings" to={path}>

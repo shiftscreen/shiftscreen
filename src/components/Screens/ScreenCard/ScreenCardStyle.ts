@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 import { Card } from 'antd';
+import { setSaturation } from 'polished';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Colors } from 'constants/index';
 
-export const Container = styled(Card)`
+interface ContainerProps {
+  isActive: boolean;
+  backgroundColor: string;
+}
+
+export const Container = styled(Card)<ContainerProps>`
   height: 15rem;
   transition: 0.2s ease-in-out;
   cursor: pointer;
@@ -16,6 +22,12 @@ export const Container = styled(Card)`
   &:hover {
     filter: brightness(90%);
   }
+  
+  ${({ backgroundColor, isActive }: ContainerProps) => (
+    isActive
+      ? `background: ${backgroundColor};`
+      : `background: ${setSaturation(0, backgroundColor)};`
+  )}
 `;
 
 export const Inner = styled.article`

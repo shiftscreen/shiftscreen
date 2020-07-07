@@ -1,0 +1,3 @@
+mutation DeleteAppInstance($id: Int!) {
+    deleteAppInstance(id: $id)
+}

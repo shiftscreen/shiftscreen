@@ -19,4 +19,5 @@ export enum PanelPath {
   OrganizationSettings = 'organization',
   Files = 'files',
   Modules = 'modules',
+  ModuleInstances = 'module',
 }

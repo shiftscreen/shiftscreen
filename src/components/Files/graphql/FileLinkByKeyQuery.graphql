@@ -1,0 +1,12 @@
+query FileLinkByKey($fileKey: FileKeyInput!) {
+    fileKey(fileKey: $fileKey) {
+        id
+        file {
+            id
+            link {
+                url
+                expiryTime
+            }
+        }
+    }
+}

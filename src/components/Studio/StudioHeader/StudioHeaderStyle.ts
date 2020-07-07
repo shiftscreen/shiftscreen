@@ -2,10 +2,15 @@ import styled from 'styled-components';
 import { Typography } from 'antd';
 
 export const Container = styled.header`
+  padding: 1.5rem;
+`;
+
+export const Inner = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
+  max-width: calc(1920px - 3rem);
+  margin: auto;
 `;
 
 export const BackButton = styled.button`

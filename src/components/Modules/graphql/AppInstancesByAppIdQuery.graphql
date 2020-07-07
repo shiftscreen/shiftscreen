@@ -1,0 +1,5 @@
+query AppInstancesByAppId($appId: String!) {
+    appInstancesByAppId(appId: $appId) {
+        ...BasicAppInstanceParts,
+    }
+}

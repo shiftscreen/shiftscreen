@@ -1,17 +1,14 @@
-import React from 'react';
+import { IconName } from '@fortawesome/fontawesome-common-types';
 
 export interface Module {
   id: string
   title: string;
-  versions: ModuleVersion<any>[];
-}
-
-export interface ModuleVersion<T> {
-  name: string;
-  View: React.FC<{ config: T }>;
-  ConfigView: React.FC<ModuleConfigProps<T>>;
+  icon: IconName;
+  color: string;
+  versions: string[];
 }
 
 export interface ModuleConfigProps<T> {
   onChange(config: T): T;
+  config: T;
 }

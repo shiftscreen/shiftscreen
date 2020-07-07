@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export interface ContainerProps {
-  height: number;
-  width: number;
-  scale: number;
+  height?: number;
+  width?: number;
+  scale?: number;
 }
 
 export const Container = styled.div<ContainerProps>`

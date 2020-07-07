@@ -1,5 +1,5 @@
 import React from 'react';
-import { PermissionType, RolesTypes, useViewerQuery } from 'types';
+import { PermissionType, RoleTypes, useViewerQuery } from 'types';
 import { Select } from 'antd';
 import * as R from 'ramda';
 import { useUpdateRoleMutation } from 'generated/graphql';
@@ -7,7 +7,7 @@ import { useUpdateRoleMutation } from 'generated/graphql';
 const { Option } = Select;
 
 interface Props {
-  role: RolesTypes.RoleUser;
+  role: RoleTypes.RoleUser;
 }
 
 const ListSelectRole: React.FC<Props> = ({ role }: Props) => {
@@ -22,6 +22,14 @@ const ListSelectRole: React.FC<Props> = ({ role }: Props) => {
         id: parseInt(id, 10),
         values: {
           permissionType: type,
+        }
+      },
+      optimisticResponse: {
+        __typename: 'Mutation',
+        updateRole: {
+          ...role,
+          permissionType: type,
+          __typename: 'Role',
         }
       }
     })

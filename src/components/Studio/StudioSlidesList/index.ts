@@ -1,1 +1,1 @@
-export { default } from './StudioSlidesListView';
+export { default } from './StudioSlidesListContainer';

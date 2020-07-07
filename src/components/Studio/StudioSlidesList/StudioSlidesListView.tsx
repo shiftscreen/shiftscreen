@@ -1,66 +1,49 @@
 import React from 'react';
 import * as R from 'ramda';
+import { Draggable } from 'react-beautiful-dnd';
 
-import { BasicSlidePartsFragment } from 'generated/graphql';
-import { Container } from './StudioSlidesListStyle';
-import ListElementView from './ListElement';
+import { BasicScreenPartsFragment, BasicSlidePartsFragment } from 'generated/graphql';
+import { Card as SlideCard } from 'components/Slides';
 
-// MOCKUP
+interface SlidesListProps {
+  slides: BasicSlidePartsFragment[];
+  screen: BasicScreenPartsFragment;
+  selectedSlide: BasicSlidePartsFragment | undefined;
+  onSlideSelect(slide: BasicSlidePartsFragment): void;
+}
 
-const slide: BasicSlidePartsFragment = {
-  id: '1',
-  createdAt: '',
-  updatedAt: '',
-  date: '',
-  durationMilliseconds: 200,
-  index: 0,
-  isActive: true,
-  time: '',
-  transition: '',
-  weekdays: '',
-  appInstance: {
-    id: '11',
-    createdAt: '',
-    updatedAt: '',
-    appId: 'hello',
-    appVersion: 'v1',
-    config: '{"name":"lesie","color":"#FDB827","imageKey":{"key":"fdsfdsf","id":"fdsfdsafdsa"}}',
-    title: 'Hello',
+class SlidesList extends React.Component<SlidesListProps> {
+  shouldComponentUpdate(nextProps: Readonly<SlidesListProps>): boolean {
+    const { slides, selectedSlide } = this.props;
+    const slidesUpdated = R.not(R.equals(nextProps.slides, slides));
+    const selectedSlideUpdated = R.not(R.equals(nextProps?.selectedSlide?.id, selectedSlide?.id));
+
+    return R.or(slidesUpdated, selectedSlideUpdated);
   }
-};
 
-const slide2: BasicSlidePartsFragment = {
-  id: '2',
-  createdAt: '',
-  updatedAt: '',
-  date: '',
-  durationMilliseconds: 200,
-  index: 0,
-  isActive: true,
-  time: '',
-  transition: '',
-  weekdays: '',
-  appInstance: null,
-};
+  render() {
+    const { selectedSlide, onSlideSelect, slides, screen } = this.props;
 
-const list = [slide, slide2];
+    const toListElement = (slide: BasicSlidePartsFragment, index: number) => (
+      <Draggable
+        key={slide.id}
+        draggableId={slide.id}
+        index={index}
+      >
+        {(provided) => (
+          <SlideCard
+            slide={slide}
+            selected={R.equals(slide.id, selectedSlide?.id)}
+            onSlideSelect={onSlideSelect}
+            provided={provided}
+            screen={screen}
+          />
+        )}
+      </Draggable>
+    );
+    const mapIndexed = R.addIndex<any>(R.map);
+    return mapIndexed(toListElement, slides);
+  }
+}
 
-const StudioSlidesList: React.FC = () => {
-
-  const toListElement = (slide: BasicSlidePartsFragment) => (
-    <ListElementView
-      key={slide.id}
-      slide={slide}
-      selected={slide.id === '1'}
-    />
-  );
-  const slidesList = R.map(toListElement, list);
-
-  return (
-    <Container>
-      {slidesList}
-    </Container>
-  );
-};
-
-export default StudioSlidesList;
+export default SlidesList;

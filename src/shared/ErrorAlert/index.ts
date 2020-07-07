@@ -1,1 +1,1 @@
-export { default } from './ErrorAlertView';
+export { default } from './ErrorAlert';

@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 960px;
-  height: 480px;
+  height: 540px;
   
   background: linear-gradient(270deg, ${Colors.teal}, ${Colors.violet});
   background-size: 400% 400%;
