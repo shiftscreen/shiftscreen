@@ -65,6 +65,7 @@ const SlideTransition: React.FC<Props> = ({ slide }: Props) => {
         value={transition.durationMilliseconds}
         style={{ width: '6rem' }}
         onChange={v => handleChange(v, 'durationMilliseconds')}
+        formNoValidate
       />
       <Addon className="ant-input-group-addon">ms</Addon>
     </Input.Group>

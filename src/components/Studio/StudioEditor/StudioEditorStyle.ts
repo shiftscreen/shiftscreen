@@ -10,7 +10,9 @@ export const Container = styled.div`
 `;
 
 export const Inner = styled.div`
-
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 2rem;
 `;
 
 export const LeftContainer = styled.div`

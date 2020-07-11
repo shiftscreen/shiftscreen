@@ -22,7 +22,7 @@ export const Container = styled.article<ContainerProps>`
 
   ${({ bordered }: ContainerProps) => (
     bordered && `
-      box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.15);
+     box-shadow: 0px 0px 0px 3px #c1c1c1;
     `
   )}
   

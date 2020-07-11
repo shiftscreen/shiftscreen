@@ -11,9 +11,12 @@ interface Props {
 }
 
 const SlideSettingsView: React.FC<Props> = ({ slide }: Props) => {
+  const handleSubmit = (e: any) => (
+    e.preventDefault()
+  );
 
   return (
-    <Container>
+    <Container onSubmit={handleSubmit} noValidate>
       <SlideDuration slide={slide}/>
       <SlideTransition slide={slide}/>
       <SlideAdvanced slide={slide}/>

@@ -1,0 +1,6 @@
+mutation AddFileKey($fileId: Int!) {
+    addFileKey(fileId: $fileId) {
+        id
+        key
+    }
+}

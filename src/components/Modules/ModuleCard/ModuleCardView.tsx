@@ -13,18 +13,32 @@ import {
 
 interface Props {
   module: Module;
+  onClick?(module: Module): void;
+  disableLink?: boolean;
 }
 
-const ModuleCard: React.FC<Props> = ({ module}: Props) => {
+const ModuleCard: React.FC<Props> = ({
+  module,
+  onClick,
+  disableLink = false,
+}: Props) => {
   const { id, icon, title, color } = module;
 
-  const link = generatePath(Path.PanelElement, {
+  const path = generatePath(Path.PanelElement, {
     element: PanelTypes.PanelPath.ModuleInstances,
     id,
   });
 
+  const link = disableLink ? '#' : path;
+
+  const handleClick = () => {
+    if (onClick !== undefined) {
+      onClick(module)
+    }
+  };
+
   return (
-    <Link to={link}>
+    <Link to={link} onClick={handleClick}>
       <Container
         style={{
           backgroundColor: color,

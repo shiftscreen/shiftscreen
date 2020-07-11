@@ -5,10 +5,14 @@ export interface Module {
   title: string;
   icon: IconName;
   color: string;
-  versions: string[];
+  versions: ModuleVersion[];
 }
 
-export interface ModuleConfigProps<T> {
-  onChange(config: T): T;
-  config: T;
+export interface ModuleVersion {
+  name: string;
+  defaultConfig: any;
+}
+
+export interface ModuleConfigProps {
+  submitForm(): void;
 }

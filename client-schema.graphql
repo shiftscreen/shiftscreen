@@ -1,6 +1,7 @@
 extend type Query {
     isLoggedIn: Boolean!
     selectedOrganization: Organization
+    slide(id: Int!): Slide
 }
 
 extend type Mutation {

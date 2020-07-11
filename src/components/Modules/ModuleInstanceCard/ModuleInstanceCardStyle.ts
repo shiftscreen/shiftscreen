@@ -3,12 +3,35 @@ import { Card } from 'antd';
 
 import { Colors } from 'constants/index';
 
-export const Container = styled(Card)`
+interface ContainerProps {
+  bottomBorder: boolean;
+  clickable: boolean;
+}
+
+export const Container = styled(Card)<ContainerProps>`
   .ant-card-body {
     padding: 0;
     overflow: hidden;
     border-top-right-radius: 7px;
     border-top-left-radius: 7px;
+    
+    ${({ bottomBorder }: ContainerProps) => (
+      bottomBorder && `
+        border-bottom-right-radius: 7px;
+        border-bottom-left-radius: 7px;
+      ` 
+    )}
+    
+    ${({ clickable }: ContainerProps) => (
+      clickable && `
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+          filter: brightness(95%);
+        }
+      `
+    )}
   }
 `;
 

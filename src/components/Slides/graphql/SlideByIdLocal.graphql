@@ -1,0 +1,5 @@
+query SlideByIdLocal($id: Int!) {
+    slide(id: $id) @client {
+        ...BasicSlideParts
+    }
+}

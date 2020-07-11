@@ -42,6 +42,10 @@ export const Title = styled(Typography.Title)`
     }
   }
   
+  &.ant-typography-edit-content {
+    left: 0;
+  }
+  
   .ant-input {
     resize: none;
     padding: 0;

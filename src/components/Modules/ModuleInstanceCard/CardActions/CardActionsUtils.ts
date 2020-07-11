@@ -13,6 +13,7 @@ export const updateCache = (cache: DataProxy, instance: BasicAppInstancePartsFra
     }
   });
   const updatedInstances = data && data?.appInstancesByAppId?.filter(i => i.id !== instance.id);
+
   const updatedData: AppInstancesByAppIdQuery = {
     appInstancesByAppId: [
       ...updatedInstances || [],
@@ -22,5 +23,8 @@ export const updateCache = (cache: DataProxy, instance: BasicAppInstancePartsFra
   cache.writeQuery({
     query: AppInstancesByAppIdDocument,
     data: updatedData,
+    variables: {
+      appId: instance.appId
+    }
   });
 };

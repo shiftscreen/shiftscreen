@@ -6,7 +6,7 @@ export const defaultConfig: ConfigType = {
     highlightedColor: '#7265FC',
   },
   border: {
-    width: 48,
+    width: 16,
     color: '#7265FC',
   },
   image: {

@@ -7,9 +7,7 @@ import { AddRoleSchema } from './FormUtils';
 
 interface Props {
   formikRef: React.Ref<FormikProps<NewRoleInput> | undefined>
-
   onSubmit(values: NewRoleInput): Promise<void>;
-
   organization: Organization;
 }
 

@@ -4,7 +4,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Scaled } from 'shared';
 import { Preview } from 'components/Slides';
 import { BasicSlidePartsFragment } from 'generated/graphql';
-import { Info } from './SlidePreviewStyle';
+import { Info, Container } from './SlidePreviewStyle';
 
 interface Props {
   slide?: BasicSlidePartsFragment;
@@ -23,11 +23,11 @@ const SlidePreview: React.FC<Props> = ({ slide, size }: Props) => {
         timeout={200}
         classNames="fade"
       >
-        <div>
+        <Container>
           <Scaled {...size}>
             <Preview slide={slide}/>
           </Scaled>
-        </div>
+        </Container>
       </CSSTransition>
     </TransitionGroup>
   );

@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { generatePath, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Container, Inner, BackButton, Title } from './StudioHeaderStyle';
-import { ScreenTypes, useUpdateScreenMutation } from 'types';
+import { PanelTypes, Path, ScreenTypes, useUpdateScreenMutation } from 'types';
 import { message } from 'antd';
 
 interface Props {
@@ -39,9 +39,14 @@ const StudioHeader: React.FC<Props> = ({ screen }: Props) => {
     }
   };
 
-  const handleBackClick = () => (
-    history.goBack()
-  );
+  const handleBackClick = () => {
+    const path = generatePath(Path.PanelElement, {
+      element: PanelTypes.PanelPath.Screens,
+      id,
+    });
+
+    history.push(path);
+  };
 
   const style = {
     backgroundColor: color,

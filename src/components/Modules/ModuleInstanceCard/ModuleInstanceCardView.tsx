@@ -12,20 +12,39 @@ import CardActions from './CardActions';
 
 interface Props {
   instance: BasicAppInstancePartsFragment;
+  hideActions?: boolean;
+  clickable?: boolean;
+  onClick?(instance: BasicAppInstancePartsFragment): void;
 }
 
-const ModuleInstanceCardView: React.FC<Props> = ({ instance }: Props) => {
+const ModuleInstanceCardView: React.FC<Props> = ({
+  instance,
+  hideActions = false,
+  clickable = false,
+  onClick,
+}: Props) => {
   const { title } = instance;
 
-  const actions = CardActions({ instance });
+  const actions = hideActions ? undefined : CardActions({ instance });
 
   const size = {
     height: 180,
     width: 320,
   };
 
+  const handleClick = () => {
+    if (onClick !== undefined) {
+      onClick(instance)
+    }
+  };
+
   return (
-    <Container actions={actions}>
+    <Container
+      actions={actions}
+      onClick={handleClick}
+      bottomBorder={hideActions}
+      clickable={clickable}
+    >
       <Inner>
         <Scaled {...size}>
           <InstancePreview instance={instance}/>

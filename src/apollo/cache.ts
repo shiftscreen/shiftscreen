@@ -11,6 +11,7 @@ export const cache = new InMemoryCache({
   cacheRedirects: {
     Query: {
       organization: (_, args) => getById('Organization', args.id),
+      slide: (_, args) => getById('Slide', args.id),
     },
   },
 });

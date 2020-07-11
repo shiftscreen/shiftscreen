@@ -1,0 +1,8 @@
+query FileByKey($fileKey: FileKeyInput!) {
+    fileKey(fileKey: $fileKey) {
+        id
+        file {
+            ...BasicFileParts,
+        }
+    }
+}

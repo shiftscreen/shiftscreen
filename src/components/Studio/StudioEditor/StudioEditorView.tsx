@@ -10,6 +10,7 @@ import {
 } from './StudioEditorStyle';
 import SlidePreview from './SlidePreview';
 import SlideSettings from './SlideSettings';
+import SlideModuleConfig from './SlideModuleConfig';
 
 interface Props {
   slide: BasicSlidePartsFragment | undefined;
@@ -54,7 +55,9 @@ const StudioEditor: React.FC<Props> = ({ slide }: Props) => {
           )}
         </LeftContainer>
         <RightContainer>
-
+          {slide && (
+            <SlideModuleConfig slide={slide}/>
+          )}
         </RightContainer>
       </Inner>
     </Container>

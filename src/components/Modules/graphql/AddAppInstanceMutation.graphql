@@ -1,0 +1,5 @@
+mutation AddAppInstance($values: NewAppInstanceInput!) {
+    addAppInstance(newAppInstanceData: $values) {
+        ...BasicAppInstanceParts
+    }
+}

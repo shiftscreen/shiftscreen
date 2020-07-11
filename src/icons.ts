@@ -6,7 +6,8 @@ import {
   faUsers,
   faChevronLeft,
   faHandshake,
-  faPlus
+  faPlus,
+  faUnlink,
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faTv, faThLarge, faFolder, faUsers, faChevronLeft, faHandshake, faPlus);
+library.add(faTv, faThLarge, faFolder, faUsers, faChevronLeft, faHandshake, faPlus, faUnlink);
