@@ -1,0 +1,3 @@
+mutation DeleteUser($id: Int!, $password: String!) {
+    deleteUser(id: $id, password: $password)
+}

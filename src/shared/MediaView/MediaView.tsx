@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { useFileLinkByKeyLazyQuery } from 'generated/graphql';
 
 import { MediaType, MediaSource } from './MediaViewTypes';
@@ -7,10 +7,13 @@ interface Props {
   type: MediaType;
   source: MediaSource;
   alt?: string;
+  muted?: boolean;
   className?: string;
+  style?: CSSProperties;
+  onVideoEnded?(): void;
 }
 
-const MediaView: React.FC<Props> = ({ type, source, ...props }: Props) => {
+const MediaView: React.FC<Props> = ({ type, source, onVideoEnded, ...props }: Props) => {
   const [url, setUrl] = React.useState<string | undefined>();
   const [fileLink] = useFileLinkByKeyLazyQuery({
     onCompleted: (data) => setUrl(data.fileKey.file.link.url)
@@ -44,9 +47,22 @@ const MediaView: React.FC<Props> = ({ type, source, ...props }: Props) => {
     return null;
   }
 
+  if (type === 'image') return (
+    <img
+      src={url}
+      alt={url}
+      {...props}
+    />
+  );
+
   return (
-    <img src={url} alt={url} {...props}/>
-  )
+    <video
+      src={url}
+      autoPlay
+      onEnded={onVideoEnded}
+      {...props}
+    />
+  );
 };
 
 export default MediaView;

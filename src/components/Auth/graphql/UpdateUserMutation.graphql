@@ -1,0 +1,5 @@
+mutation UpdateUser($id: Int!, $values: UpdateUserInput!) {
+    updateUser(id: $id, updateUserData: $values) {
+        ...BasicUserParts
+    }
+}

@@ -1,16 +1,15 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 export const TIME_FORMAT = 'HH:mm:ss';
 
-export const getMomentDuration = (seconds: number): moment.Moment => {
-  const duration = moment.duration(seconds,'seconds').as('milliseconds');
-  const formatted = moment.utc(duration).format(TIME_FORMAT);
-  return moment(formatted, TIME_FORMAT);
+export const getDayjsDuration = (seconds: number): any => {
+  const duration = dayjs.duration(seconds,'seconds').as('milliseconds');
+  const formatted = dayjs.utc(duration).format(TIME_FORMAT);
+  return dayjs(formatted, TIME_FORMAT);
 };
 
-export const getSecondsDuration = (duration: moment.Moment): number => (
+export const getSecondsDuration = (duration: any): number => (
   duration.diff(
-    moment().startOf('day'),
-    'seconds',
+    dayjs().startOf('day'),'second',
   )
 );

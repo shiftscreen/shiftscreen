@@ -3,13 +3,8 @@ import { Module, Path, PanelTypes } from 'types';
 import { Link } from 'react-router-dom';
 import { generatePath } from 'react-router';
 
-import {
-  Container,
-  LogoWrapper,
-  LogoInner,
-  Title,
-  Icon,
-} from './ModuleCardStyle';
+import { Container } from './ModuleCardStyle';
+import { ModuleLogo } from 'shared';
 
 interface Props {
   module: Module;
@@ -22,7 +17,7 @@ const ModuleCard: React.FC<Props> = ({
   onClick,
   disableLink = false,
 }: Props) => {
-  const { id, icon, title, color } = module;
+  const { id, color } = module;
 
   const path = generatePath(Path.PanelElement, {
     element: PanelTypes.PanelPath.ModuleInstances,
@@ -39,19 +34,8 @@ const ModuleCard: React.FC<Props> = ({
 
   return (
     <Link to={link} onClick={handleClick}>
-      <Container
-        style={{
-          backgroundColor: color,
-        }}
-      >
-        <LogoWrapper>
-          <LogoInner>
-            <Icon icon={icon}/>
-            <Title>
-              {title}
-            </Title>
-          </LogoInner>
-        </LogoWrapper>
+      <Container style={{ backgroundColor: color }}>
+        <ModuleLogo module={module}/>
       </Container>
     </Link>
   );

@@ -1,6 +1,10 @@
 export { default as MediaView, types as MediaTypes } from './MediaView';
+export { default as Scaled, types as ScaledTypes } from './Scaled';
 export { default as ErrorAlert } from './ErrorAlert';
-export { default as Scaled } from './Scaled';
 export { default as ModalFormik } from './ModalFormik';
 export { default as ColorInput } from './ColorInput';
 export { default as MediaInput } from './MediaInput';
+export { default as LoadingIndicator } from './LoadingIndicator';
+export { default as Logo } from './Logo';
+export { default as ReCaptchaInput } from './ReCaptchaInput';
+export { default as ModuleLogo } from './ModuleLogo';

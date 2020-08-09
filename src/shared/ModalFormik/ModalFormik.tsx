@@ -4,8 +4,6 @@ import { Modal, Typography } from 'antd';
 import { ModalProps } from 'antd/es/modal';
 import { FormikProps } from 'formik';
 
-const { Text } = Typography;
-
 interface Props<T> {
   visible: boolean;
   modalProps: ModalProps;

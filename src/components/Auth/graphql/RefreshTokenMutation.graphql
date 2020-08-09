@@ -1,0 +1,7 @@
+mutation RefreshToken {
+    refreshToken {
+        accessToken
+        tokenType
+        expiresIn
+    }
+}

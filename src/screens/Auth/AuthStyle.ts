@@ -42,6 +42,10 @@ export const Inner = styled.section`
   .ant-tabs-bar {
     margin-bottom: 2rem;
   }
+  
+  .ant-tabs-content {
+    margin: auto !important;
+  }
 `;
 
 export const LogoWrapper = styled.div`

@@ -2,7 +2,9 @@ import { ApiType } from 'types';
 
 const Api: ApiType = {
   token: 'shiftscreen-token',
-  uri: 'http://localhost:5000/graphql',
+  tokenExpiration: 'shiftscreen-token-expires-on',
+  recaptchaKey: '6LfgoLIZAAAAAPz7AQy1wxxwkcJsH6ebhlf9D5zd',
+  uri: '/graphql',
 };
 
 export default Api;

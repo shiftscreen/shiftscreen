@@ -5,7 +5,7 @@ import { Form, TimePicker } from 'antd';
 import { DatePicker } from 'formik-antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import moment from 'moment';
+import dayjs, { Dayjs } from 'dayjs';
 
 import { Container, PickerContainer } from './ListInputStyle';
 
@@ -42,7 +42,7 @@ const ListInputView: React.FC<Props> = ({ fieldName, RangePicker }) => {
     })
   };
 
-  const handleChange = (value: [moment.MomentInput, moment.MomentInput] | null, name: string) => (
+  const handleChange = (value: [any, any] | null, name: string) => (
     field.onChange({
       target: {
         name,
@@ -58,14 +58,14 @@ const ListInputView: React.FC<Props> = ({ fieldName, RangePicker }) => {
 
     const picker = (
       // @ts-ignore due to ts compiler limits
-      <RangePicker
+      <RangePicker<Dayjs>
         name={name}
         value={[
-          moment(field.value[index][0]),
-          moment(field.value[index][1]),
+          dayjs(field.value[index][0]),
+          dayjs(field.value[index][1]),
         ]}
         allowClear={false}
-        onChange={(value) => handleChange(value, name)}
+        onChange={(value: any) => handleChange(value, name)}
         {...timePickerProps}
       />
     );

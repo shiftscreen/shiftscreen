@@ -1,1 +1,1 @@
-export { default } from './StudioView';
+export { default } from './StudioContainer';

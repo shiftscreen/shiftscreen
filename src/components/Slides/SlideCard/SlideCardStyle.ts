@@ -64,10 +64,18 @@ interface PreviewContainerProps {
 }
 
 export const PreviewContainer = styled.div<PreviewContainerProps>`
-  //pointer-events: none;
   transition: 0.2s ease-in-out;
+  height: 100%;
   
   ${({ isActive }: PreviewContainerProps) => (
     !isActive && `filter: grayscale(1);`  
   )}
+`;
+
+export const HiddenPreview = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

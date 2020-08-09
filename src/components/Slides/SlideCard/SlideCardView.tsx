@@ -4,21 +4,24 @@ import { DeleteOutlined, EyeInvisibleOutlined, EyeOutlined } from '@ant-design/i
 import * as R from 'ramda';
 
 import {
-  Container,
-  ActionsWrapper,
-  Action,
-  PreviewContainer,
-} from './SlideCardStyle';
-import {
   BasicScreenPartsFragment,
-  BasicSlidePartsFragment,
+  BasicSlidePartsFragment, Slide,
   useDeleteSlideMutation,
   useUpdateScreenMutation,
   useUpdateSlideMutation
 } from 'generated/graphql';
-import { Preview as SlidePreview } from 'components/Slides/index';
-import { Scaled } from 'shared';
+import { Preview as SlidePreview } from 'components/Slides';
+import { ModuleLogo, Scaled } from 'shared';
+import { Module } from 'types';
+import {
+  Container,
+  ActionsWrapper,
+  Action,
+  PreviewContainer,
+  HiddenPreview,
+} from './SlideCardStyle';
 import { updateCache } from './SlideCardUtils';
+import modules from 'modules';
 
 interface Props {
   onSlideSelect(slide: BasicSlidePartsFragment): void;
@@ -28,15 +31,14 @@ interface Props {
   provided: DraggableProvided;
 }
 
-const SlideCard: React.FC<Props> = (props: Props) => {
-  const {
-    slide,
-    selected,
-    onSlideSelect,
-    provided,
-    screen
-  } = props;
-  const { isActive } = slide;
+const SlideCard: React.FC<Props> = ({
+  slide,
+  selected,
+  onSlideSelect,
+  provided,
+  screen,
+}) => {
+  const { isActive, appInstance } = slide;
 
   const handleElementClick = () => (
     onSlideSelect(slide)
@@ -46,6 +48,11 @@ const SlideCard: React.FC<Props> = (props: Props) => {
     height: 216,
     width: 384,
   };
+
+  const module = R.find<Module>(
+    R.propEq('id', appInstance?.appId)
+  )(modules);
+  const hiddenPreview = module?.hiddenPreview;
 
   return (
     <Container
@@ -63,9 +70,16 @@ const SlideCard: React.FC<Props> = (props: Props) => {
         onClick={handleElementClick}
         isActive={isActive}
       >
-        <Scaled {...size}>
-          <SlidePreview slide={slide}/>
-        </Scaled>
+        {!hiddenPreview && (
+          <Scaled {...size}>
+            <SlidePreview slide={slide}/>
+          </Scaled>
+        )}
+        {module && hiddenPreview && (
+          <HiddenPreview style={{ backgroundColor: module.color }}>
+            <ModuleLogo module={module}/>
+          </HiddenPreview>
+        )}
       </PreviewContainer>
     </Container>
   );

@@ -23,7 +23,7 @@ export const updateCache = (
     const updatedData = {
       screen: {
         ...current.screen,
-        roles: updatedSlides,
+        slides: updatedSlides,
       }
     };
 

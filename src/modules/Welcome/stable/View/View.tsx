@@ -1,8 +1,6 @@
 import React from 'react';
-import * as R from 'ramda';
 
 import { ConfigType } from '../WelcomeTypes';
-import { defaultConfig } from '../WelcomeUtils';
 
 import {
   Container,
@@ -16,8 +14,7 @@ interface Props {
   config: ConfigType;
 }
 
-const View: React.FC<Props> = (props: Props) => {
-  const config: any = R.mergeLeft(props.config, defaultConfig);
+const View: React.FC<Props> = ({ config }: Props) => {
   const { name, text, border, image } = config;
 
   return (

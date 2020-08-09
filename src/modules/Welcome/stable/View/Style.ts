@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { BorderType } from '../WelcomeTypes';
 import { MediaView } from 'shared';
+import { Slides } from 'constants/index';
 
 interface ContainerProps {
   border: BorderType;
@@ -11,10 +12,12 @@ export const Inner = styled.div`
   align-items: center;
 `;
 
+const size = Slides.size.base;
+
 export const Container = styled.div<ContainerProps>`
   position: relative;
-  width: 960px;
-  height: 540px;
+  width: ${size.width}px;
+  height: ${size.height}px;
   background: #FAFAFA;
   display: flex;
   justify-content: center;

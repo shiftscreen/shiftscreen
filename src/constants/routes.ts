@@ -1,12 +1,12 @@
-import { generatePath } from 'react-router';
+import loadable from '@loadable/component';
 import { PathType, RedirectType, Path } from './types';
 
-import Home from 'screens/Home';
-import Auth from 'screens/Auth';
-import Rules from 'screens/Rules';
-import Panel from 'screens/Panel';
-import Studio from 'screens/Studio';
-import NotFound from 'screens/NotFound';
+const Home = loadable(() => import('screens/Home'));
+const Auth = loadable(() => import('screens/Auth'));
+const Rules = loadable(() => import('screens/Home'));
+const Panel = loadable(() => import('screens/Panel'));
+const Studio = loadable(() => import('screens/Studio'));
+const NotFound = loadable(() => import('screens/NotFound'));
 
 export const Paths: PathType[] = [
   {
@@ -27,7 +27,7 @@ export const Paths: PathType[] = [
   {
     path: Path.PanelElement,
     exact: true,
-    component: () => Panel({}),
+    component: Panel,
     meta: {
       protected: true,
     }
@@ -47,15 +47,7 @@ export const Paths: PathType[] = [
   },
 ];
 
-export const Redirects: RedirectType[] = [
-  {
-    exact: true,
-    from: Path.Panel,
-    to: generatePath(Path.PanelElement, {
-      element: 'screens'
-    }),
-  }
-];
+export const Redirects: RedirectType[] = [];
 
 export {
   Path,

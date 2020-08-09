@@ -1,13 +1,15 @@
 import styled from 'styled-components';
-import { Colors } from 'constants/index';
+import { Colors, Slides } from 'constants/index';
+
+const size = Slides.size.base;
 
 export const Container = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 960px;
-  height: 540px;
+  width: ${size.width}px;
+  height: ${size.height}px;
   
   background: linear-gradient(270deg, ${Colors.teal}, ${Colors.violet});
   background-size: 400% 400%;

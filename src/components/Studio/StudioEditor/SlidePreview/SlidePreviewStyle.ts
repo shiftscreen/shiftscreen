@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+  border: 1px solid #f0f0f0;
+  border-radius: 7px;
+  overflow: hidden;
+  position: relative;
 `;
 
 export const Info = styled.div`

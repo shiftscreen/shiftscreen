@@ -1,7 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router';
-import { Spin } from 'antd';
-import { LoadingOutlined } from '@ant-design/icons';
 import * as R from 'ramda';
 
 import {
@@ -11,8 +9,8 @@ import {
   useUpdateScreenMutation,
 } from 'generated/graphql';
 import { Header, SlidesList, Editor, SlideConfig } from 'components/Studio';
-import { ErrorAlert } from 'shared';
-import { Container, Inner, LoadingContainer } from './StudioStyle';
+import { ErrorAlert, LoadingIndicator } from 'shared';
+import { Container, Inner } from './StudioStyle';
 import WebFont from 'webfontloader';
 
 WebFont.load({
@@ -106,14 +104,8 @@ const Studio: React.FC = () => {
     setSelectedSlideId(slide.id)
   );
 
-  const loadingIndicator = (
-    <LoadingOutlined style={{ fontSize: 48 }} spin />
-  );
-
   if (loading) return (
-    <LoadingContainer>
-      <Spin indicator={loadingIndicator} />
-    </LoadingContainer>
+    <LoadingIndicator fullHeight/>
   );
 
   if (!data || error) return (
@@ -124,7 +116,7 @@ const Studio: React.FC = () => {
     <Container>
       <Header screen={data.screen}/>
       <Inner>
-        <Editor slide={selectedSlide}/>
+        <Editor slide={selectedSlide} slides={orderedSlides}/>
         <SlidesList
           slides={orderedSlides}
           screen={data.screen}

@@ -14,7 +14,7 @@ export const getDefaultValues = (screen: BasicScreenPartsFragment): NewSlideInpu
   date: [],
   time: [],
   transition: {
-    type: 'fade',
+    type: 'across',
     durationMilliseconds: 300,
   },
   weekdays: [0, 1, 2, 3, 4, 5, 6],

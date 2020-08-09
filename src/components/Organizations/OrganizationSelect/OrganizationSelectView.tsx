@@ -1,11 +1,13 @@
 import React from 'react';
-import { Card, Select } from 'antd';
-import { useMutation } from '@apollo/react-hooks';
-import { useViewerRolesQuery, Organization, useSelectOrganizationMutation } from 'generated/graphql';
-import { ErrorAlert } from 'shared';
 import * as R from 'ramda';
+import { Button, Card, Select } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+import { generatePath } from 'react-router';
+import { Link } from 'react-router-dom';
+import { ErrorAlert } from 'shared';
 
-import { SELECT_ORGANIZATION_MUTATION } from './OrganizationSelectUtils';
+import { useViewerRolesQuery, Organization, useSelectOrganizationMutation } from 'generated/graphql';
+import { Path, PanelTypes } from 'types';
 
 const { Option } = Select;
 
@@ -14,6 +16,7 @@ const OrganizationSelect: React.FC = () => {
   const [selectOrganization] = useSelectOrganizationMutation();
   const roles = data?.viewer?.roles || [];
   const organizations = R.map((role) => role.organization, roles);
+  const noOrganizations = organizations.length === 0;
 
   const handleChange = (id: string) => (
     selectOrganization({
@@ -30,11 +33,23 @@ const OrganizationSelect: React.FC = () => {
   }, [data]);
 
   if (loading) return (
-    <Card loading={loading}/>
+    <Card loading={loading} style={{ width: 200, height: 30 }}/>
   );
 
   if (error || !data) return (
     <ErrorAlert error={error}/>
+  );
+
+  const path = generatePath(Path.PanelElement, {
+    element: PanelTypes.PanelPath.OrganizationsList,
+  });
+
+  if (noOrganizations) return (
+    <Link to={path}>
+      <Button size="large" type="primary" icon={<PlusOutlined/>}>
+        Stwórz organizację
+      </Button>
+    </Link>
   );
 
   const toOption = (organization: Organization): React.ReactElement => (
@@ -49,8 +64,9 @@ const OrganizationSelect: React.FC = () => {
 
   return (
     <Select
-      defaultValue={organizations[0].id}
+      defaultValue={organizations[0]?.id}
       onChange={handleChange}
+      disabled={noOrganizations}
       size="large"
     >
       {optionsList}

@@ -12,4 +12,6 @@ export const LoginSchema = Yup.object<LoginInput>().shape({
     .required('Pole jest wymagane'),
   password: Yup.string()
     .required('Pole jest wymagane'),
+  recaptcha: Yup.string()
+    .required('Werfyikacja jest wymagana'),
 });

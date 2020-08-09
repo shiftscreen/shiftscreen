@@ -1,10 +1,14 @@
 import React from 'react';
+import * as R from 'ramda';
 import filesize from 'filesize';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { message, Typography } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import { File, useUpdateFileMutation } from 'types';
 
+import { File } from 'types';
+import { useUpdateFileMutation } from 'generated/graphql';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FAIcon } from './FilesListStyle';
 import Actions from './ListActions';
 
 const { Text } = Typography;
@@ -13,7 +17,7 @@ interface TitleEditableProps {
   file: File;
 }
 
-const TitleEditable: React.FC<TitleEditableProps> = ({ file }: TitleEditableProps) => {
+const TitleEditable: React.FC<TitleEditableProps> = ({ file }) => {
   const [updateFile] = useUpdateFileMutation();
 
   const handleChange = async (title: string) => {
@@ -37,7 +41,29 @@ const TitleEditable: React.FC<TitleEditableProps> = ({ file }: TitleEditableProp
   );
 };
 
+interface IconProps {
+  mimeType: string;
+}
+
+const Icon: React.FC<IconProps> = ({ mimeType }) => {
+  const icon = R.cond<string, IconProp>([
+    [R.includes('image'), R.always('file-image')],
+    [R.includes('video'), R.always('file-video')],
+    [R.T, R.always('file')]
+  ])(mimeType);
+
+  return (
+    <FAIcon icon={icon} />
+  )
+};
+
 export const columns: ColumnsType<File> = [
+  {
+    title: '',
+    width: '1rem',
+    dataIndex: 'mimeType',
+    render: (mimeType: string) => (<Icon mimeType={mimeType}/>)
+  },
   {
     title: 'Tytuł',
     dataIndex: '',
@@ -55,7 +81,7 @@ export const columns: ColumnsType<File> = [
   {
     title: 'Ostatnio zmodyfikowany',
     dataIndex: 'updatedAt',
-    render: (date: string) => moment(date).format('LLL'),
+    render: (date: string) => dayjs(date).format('LLL'),
   },
   {
     key: 'actions',

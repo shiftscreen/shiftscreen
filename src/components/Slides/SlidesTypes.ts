@@ -1,4 +1,4 @@
-export type SlideTransitionType = 'none' | 'fade';
+export type SlideTransitionType = 'none' | 'across' | 'acrossOverlay';
 
 export interface SlideTransition {
   type: SlideTransitionType;

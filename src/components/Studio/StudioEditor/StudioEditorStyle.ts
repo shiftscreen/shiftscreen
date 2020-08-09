@@ -20,12 +20,3 @@ export const LeftContainer = styled.div`
   grid-gap: 2rem;
 `;
 
-export const RightContainer = styled.div`
-  
-`;
-
-export const PreviewContainer = styled.div`
-  border: 1px solid #f0f0f0;
-  border-radius: 7px;
-  overflow: hidden;
-`;

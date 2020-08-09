@@ -16,17 +16,8 @@ interface Props {
 }
 
 const CardActions = ({ instance }: Props): JSX.Element[] => [
-  <SettingsAction instance={instance}/>,
   <DeleteAction instance={instance}/>,
 ];
-
-const SettingsAction: React.FC<Props> = ({ instance }: Props) => {
-
-
-  return (
-    <SettingOutlined key="settings"/>
-  );
-};
 
 const DeleteAction: React.FC<Props> = ({ instance }: Props) => {
   const [deleteAppInstance] = useDeleteAppInstanceMutation({

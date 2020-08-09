@@ -3,14 +3,15 @@ import { Input } from 'formik-antd';
 import { ColorResult } from 'react-color';
 import { Picker } from './ColorInputStyle';
 import { useField } from 'formik';
-import { colors } from './ColorInputUtils';
+import { defaultColors } from './ColorInputUtils';
 
 interface Props {
   name: string;
-  onAfterChange(): void;
+  colors?: string[];
+  onAfterChange?(): void;
 }
 
-const ColorInput: React.FC<Props> = ({ onAfterChange, ...props }: Props) => {
+const ColorInput: React.FC<Props> = ({ onAfterChange, colors = defaultColors, ...props }: Props) => {
   const [showPicker, setShowPicker] = React.useState<boolean>(false);
   const [{ onChange, value, name }] = useField(props);
 
@@ -23,7 +24,7 @@ const ColorInput: React.FC<Props> = ({ onAfterChange, ...props }: Props) => {
         }
       });
       setShowPicker(false);
-      onAfterChange();
+      onAfterChange && onAfterChange();
     }
   };
 

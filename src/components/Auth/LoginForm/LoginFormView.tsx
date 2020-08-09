@@ -2,8 +2,10 @@ import React from 'react';
 import { Form, Input } from 'formik-antd';
 import { Button } from 'antd';
 import { FormikProps } from 'formik';
-import { LoginInput } from 'types';
 import * as R from 'ramda';
+
+import { LoginInput } from 'types';
+import { ReCaptchaInput } from 'shared';
 
 type Props = FormikProps<LoginInput>;
 
@@ -18,6 +20,11 @@ const LoginForm: React.FC<Props> = (props: Props) => {
       </Form.Item>
       <Form.Item name="password">
         <Input.Password name="password" type="password" placeholder="Hasło"/>
+      </Form.Item>
+      <Form.Item name="recaptcha">
+        <ReCaptchaInput
+          name="recaptcha"
+        />
       </Form.Item>
       <Button
         type="primary"

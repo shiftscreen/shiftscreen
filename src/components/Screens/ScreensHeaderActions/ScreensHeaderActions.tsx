@@ -3,7 +3,8 @@ import { Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 import { AddModal } from 'components/Screens';
-import { Select as OrganizationSelect } from '../../Organizations';
+import { useSelectedOrganizationQuery } from 'generated/graphql';
+import { Select as OrganizationSelect } from 'components/Organizations';
 
 const ScreensHeaderActions: React.FC = () => (
   <>
@@ -14,6 +15,7 @@ const ScreensHeaderActions: React.FC = () => (
 
 
 const NewScreenAction: React.FC = () => {
+  const { data } = useSelectedOrganizationQuery();
   const [visible, setVisible] = React.useState<boolean>(false);
 
   const handleClick = (): void => (
@@ -27,6 +29,10 @@ const NewScreenAction: React.FC = () => {
   const handleClose = () => (
     setVisible(false)
   );
+
+  if (!data?.selectedOrganization) {
+    return null;
+  }
 
   return (
     <>

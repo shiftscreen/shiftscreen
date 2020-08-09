@@ -1,11 +1,10 @@
 import React from 'react';
 
 import { Container, ContainerProps } from './ScaledStyle';
+import { SizeType } from './ScaledTypes';
 
-interface Props {
-  height: number;
-  width: number;
-  children: JSX.Element | undefined;
+interface Props extends SizeType {
+  children?: React.ReactNode;
 }
 
 const Scaled: React.FC<Props> = ({ height, width, children }: Props) => {
@@ -25,7 +24,7 @@ const Scaled: React.FC<Props> = ({ height, width, children }: Props) => {
         height,
       });
     }
-  }, [childrenRef.current]);
+  }, [childrenRef.current, height, width]);
 
   return (
     <Container {...props} ref={childrenRef}>
@@ -34,4 +33,4 @@ const Scaled: React.FC<Props> = ({ height, width, children }: Props) => {
   );
 };
 
-export default Scaled;
+export default React.memo(Scaled);

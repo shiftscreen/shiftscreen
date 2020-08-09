@@ -1,18 +1,28 @@
 import React from 'react';
-import { ViewsConfig, PanelPath } from '../../components/Panel/PanelTypes';
+import loadable from '@loadable/component';
 
+// nested export enums are not available at runtime
+import { PanelPath } from 'components/Panel/PanelTypes';
+import { PanelTypes } from 'types';
 import { HeaderActions as ScreensHeaderActions } from 'components/Screens';
 import { HeaderActions as FilesHeaderActions } from 'components/Files';
 import { HeaderActions as OrganizationsHeaderActions } from 'components/Organizations';
 
-import Screens from './Screens';
+/*import Screens from './Screens';
 import OrganizationSettings from './OrganizationSettings';
 import OrganizationsList from './OrganizationsList';
 import Files from './Files';
 import ModulesList from './ModulesList';
-import ModuleInstances from './ModuleInstances';
+import ModuleInstances from './ModuleInstances';*/
 
-export const viewsConfig: ViewsConfig = [
+const Screens = loadable(() => import('./Screens'));
+const OrganizationSettings = loadable(() => import('./OrganizationSettings'));
+const OrganizationsList = loadable(() => import('./OrganizationsList'));
+const Files = loadable(() => import('./Files'));
+const ModulesList = loadable(() => import('./ModulesList'));
+const ModuleInstances = loadable(() => import('./ModuleInstances'));
+
+export const viewsConfig: PanelTypes.ViewsConfig = [
   {
     index: 0,
     elementPathName: PanelPath.Screens,
@@ -20,6 +30,7 @@ export const viewsConfig: ViewsConfig = [
     title: 'Ekrany',
     component: Screens,
     headerActions: <ScreensHeaderActions/>,
+    selectedPath: 'screen',
   },
   {
     index: 1,
@@ -28,6 +39,7 @@ export const viewsConfig: ViewsConfig = [
     title: 'Organizacje',
     component: OrganizationsList,
     headerActions: <OrganizationsHeaderActions/>,
+    selectedPath: 'organization',
   },
   {
     index: 2,
@@ -36,6 +48,7 @@ export const viewsConfig: ViewsConfig = [
     title: 'Pliki',
     component: Files,
     headerActions: <FilesHeaderActions/>,
+    selectedPath: 'file',
   },
   {
     index: 3,
@@ -43,6 +56,7 @@ export const viewsConfig: ViewsConfig = [
     iconName: 'th-large',
     title: 'Moduły',
     component: ModulesList,
+    selectedPath: 'module',
   },
   {
     index: 4,

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Col } from 'antd';
 
+import { UserInfo } from 'components/Auth';
 import { Container, Inner } from './PanelHeaderStyle';
-
-import UserInfo from './UserInfo';
 
 const PanelHeader: React.FC = () => {
 

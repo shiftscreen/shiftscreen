@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Logo from 'components/Logo';
+import { Logo } from 'shared';
 import { Colors } from 'constants/index';
 
 export const Container = styled.aside`

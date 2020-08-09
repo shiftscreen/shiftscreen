@@ -6,11 +6,10 @@ import { Form } from 'formik-antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import loadable, { LoadableComponent } from '@loadable/component';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
-import useConstant from 'use-constant';
 
+import { getDefaultConfig } from 'utils';
 import { BasicAppInstancePartsFragment } from 'generated/graphql';
 import { SpinnerContainer } from './ModuleInstanceConfigStyle';
-import { getDefaultConfig } from './ModuleInstanceConfigUtils';
 
 const { ErrorBoundary } = Alert;
 

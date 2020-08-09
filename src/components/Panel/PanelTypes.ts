@@ -1,5 +1,6 @@
 import React from 'react';
 import { IconName } from '@fortawesome/fontawesome-common-types';
+import { LoadableComponent } from '@loadable/component';
 
 export interface View {
   index: number;
@@ -7,7 +8,8 @@ export interface View {
   iconName: IconName;
   title: string;
   headerActions?: React.ReactElement;
-  component: React.FC;
+  component: LoadableComponent<any>;
+  selectedPath?: string;
   hideInMenu?: boolean;
 }
 

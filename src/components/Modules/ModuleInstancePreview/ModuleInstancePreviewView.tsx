@@ -1,9 +1,11 @@
 import React from 'react';
 import { Alert } from 'antd';
 import loadable from '@loadable/component';
+import * as R from 'ramda';
 
 import { BasicAppInstancePartsFragment } from 'generated/graphql';
 import { DefaultModule } from 'modules';
+import { getDefaultConfig } from 'utils';
 import { Container } from './ModuleInstancePreviewStyle';
 
 const { ErrorBoundary } = Alert;
@@ -29,13 +31,16 @@ const ModuleInstancePreview: React.FC<Props> = ({ instance }: Props) => {
     }
   );
 
+  const defaultConfig = getDefaultConfig(instance);
+  const mergedConfig = R.mergeLeft(config, defaultConfig);
+
   return (
     <ErrorBoundary>
       <Container>
         <ModuleView
           fallback={<DefaultModule/>}
           instance={instance}
-          config={config}
+          config={mergedConfig}
         />
       </Container>
     </ErrorBoundary>

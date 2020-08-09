@@ -1,7 +1,7 @@
 import React from 'react';
 import { Organization, useUpdateOrganizationMutation } from 'generated/graphql';
 import { message, Typography } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 import { Card, Descriptions, TitleWrapper } from './OrganizationInfoStyle';
 
@@ -16,8 +16,8 @@ const OrganizationInfo: React.FC<Props> = ({ organization }: Props) => {
   const [updateOrganization] = useUpdateOrganizationMutation({
     onError: () => message.error('Wystąpił błąd podczas próby aktualizacji organizacji'),
   });
-  const createdAtText = moment(createdAt).format('LLLL');
-  const updatedAtText = moment(updatedAt).format('LLLL');
+  const createdAtText = dayjs(createdAt).format('LLLL');
+  const updatedAtText = dayjs(updatedAt).format('LLLL');
 
   const handleTitleEdit = async (title: string) => {
     try {

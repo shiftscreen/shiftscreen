@@ -29,4 +29,4 @@ class SlidePreview extends React.Component<Props> {
   }
 }
 
-export default SlidePreview;
+export default React.memo(SlidePreview);

@@ -2,17 +2,15 @@ import React from 'react';
 import { Tabs } from 'antd';
 
 import { LoginForm, SignUpForm } from 'components/Auth';
-import Logo from 'components/Logo';
+import { Logo } from 'shared';
 import { Container, Inner, LogoWrapper, Overlay, Image } from './AuthStyle';
-
-import boardroom from 'assets/images/boardroom.jpg';
 
 const { TabPane } = Tabs;
 
 const Auth: React.FC = () => {
   return (
     <Container>
-      <Image src={boardroom} alt="boardroom"/>
+      <Image src="images/boardroom.jpg" alt="boardroom"/>
       <Overlay/>
       <Inner>
         <LogoWrapper>

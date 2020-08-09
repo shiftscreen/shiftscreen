@@ -21,7 +21,7 @@ const MediaInput: React.FC<ExtendedProps> = ({ onAfterChange, ...props }) => {
   return (
     <Container>
       <Radio.Group name={`${name}.type`}>
-        <Radio.Button value="url">URL</Radio.Button>
+        <Radio.Button value="url">Link</Radio.Button>
         <Radio.Button value="key">Pliki</Radio.Button>
       </Radio.Group>
       {urlSelected && (

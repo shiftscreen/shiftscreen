@@ -26,5 +26,7 @@ export const SignUpSchema = Yup.object<NewUserInput>().shape({
     .required('Pole jest wymagane'),
   rulesAccepted: Yup.mixed()
     .oneOf([true], 'Musisz zaakceptować regulamin'),
+  recaptcha: Yup.string()
+    .required('Werfyikacja jest wymagana'),
 });
 

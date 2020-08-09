@@ -1,4 +1,5 @@
 import { RedirectProps, RouteProps } from 'react-router';
+import { ScaledTypes } from 'types';
 
 export interface ColorsType {
   whitePure: string;
@@ -33,9 +34,17 @@ export enum Path {
 export interface ApiType {
   token: string;
   uri: string;
+  recaptchaKey: string;
+  tokenExpiration: string;
 }
 
 export interface ScreenRatio {
   title: string;
   value: string;
+}
+
+export interface SlidesType {
+  size: {
+    base: ScaledTypes.SizeType
+  }
 }

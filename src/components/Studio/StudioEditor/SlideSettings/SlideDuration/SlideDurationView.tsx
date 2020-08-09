@@ -1,9 +1,9 @@
 import React from 'react';
-import moment from 'moment';
-import { TimePicker, Typography } from 'antd';
+import dayjs, { Dayjs } from 'dayjs';
+import { Typography, TimePicker } from 'antd';
 
 import { BasicSlidePartsFragment, useUpdateSlideMutation } from 'generated/graphql';
-import { getMomentDuration, getSecondsDuration, TIME_FORMAT } from './SlideDurationUtils';
+import { getDayjsDuration, getSecondsDuration, TIME_FORMAT } from './SlideDurationUtils';
 
 const { Text } = Typography;
 
@@ -13,9 +13,9 @@ interface Props {
 
 const SlideDuration: React.FC<Props> = ({ slide }: Props) => {
   const [updateSlide] = useUpdateSlideMutation();
-  const value = getMomentDuration(slide.durationSeconds);
+  const value = getDayjsDuration(slide.durationSeconds);
 
-  const handleChange = async (duration: moment.Moment | null) => {
+  const handleChange = async (duration: any | null) => {
     if (!duration) {
       return;
     }

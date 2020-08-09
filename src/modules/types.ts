@@ -1,11 +1,12 @@
-import { IconName } from '@fortawesome/fontawesome-common-types';
+import { IconName, IconLookup } from '@fortawesome/fontawesome-common-types';
 
 export interface Module {
   id: string
   title: string;
-  icon: IconName;
+  icon: IconName | IconLookup;
   color: string;
   versions: ModuleVersion[];
+  hiddenPreview?: boolean;
 }
 
 export interface ModuleVersion {

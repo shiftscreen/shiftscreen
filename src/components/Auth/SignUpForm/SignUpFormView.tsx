@@ -2,8 +2,10 @@ import React from 'react';
 import * as R from 'ramda';
 import { Form, Input, Checkbox, SubmitButton } from 'formik-antd';
 import { FormikProps } from 'formik';
+import { Row, Col } from 'antd';
+
 import { NewUserInput } from 'types';
-import { Row, Col, Button } from 'antd';
+import { ReCaptchaInput } from 'shared';
 
 type Props = FormikProps<NewUserInput>;
 
@@ -33,6 +35,11 @@ const SignUpForm: React.FC<Props> = (props: Props) => {
       </Form.Item>
       <Form.Item name="confirmPassword">
         <Input.Password name="confirmPassword" type="password" placeholder="Powtórz hasło"/>
+      </Form.Item>
+      <Form.Item name="recaptcha">
+        <ReCaptchaInput
+          name="recaptcha"
+        />
       </Form.Item>
       <Row>
         <Col span={14}>

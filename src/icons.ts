@@ -5,9 +5,24 @@ import {
   faFolder,
   faUsers,
   faChevronLeft,
-  faHandshake,
   faPlus,
   faUnlink,
+  faFile,
+  faFileImage,
+  faFileVideo,
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faTv, faThLarge, faFolder, faUsers, faChevronLeft, faHandshake, faPlus, faUnlink);
+const icons = [
+  faTv,
+  faThLarge,
+  faFolder,
+  faUsers,
+  faChevronLeft,
+  faPlus,
+  faUnlink,
+  faFile,
+  faFileImage,
+  faFileVideo,
+];
+
+library.add(...icons);

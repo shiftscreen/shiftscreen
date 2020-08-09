@@ -54,20 +54,25 @@ const SlideTransition: React.FC<Props> = ({ slide }: Props) => {
         value={transition.type}
         onChange={v => handleChange(v, 'type')}
       >
-        <Option value="none">Brak przejścia</Option>
-        <Option value="fade">Zanikanie</Option>
+        <Option value="none">Brak animacji</Option>
+        <Option value="across">Przesunięcie</Option>
+        <Option value="acrossOverlay">Nałożenie</Option>
       </Select>
-      <InputNumber
-        name="durationMilliseconds"
-        type="number"
-        size="large"
-        step={100}
-        value={transition.durationMilliseconds}
-        style={{ width: '6rem' }}
-        onChange={v => handleChange(v, 'durationMilliseconds')}
-        formNoValidate
-      />
-      <Addon className="ant-input-group-addon">ms</Addon>
+      {transition.type !== 'none' && (
+        <>
+          <InputNumber
+            name="durationMilliseconds"
+            type="number"
+            size="large"
+            step={100}
+            value={transition.durationMilliseconds}
+            style={{ width: '6rem' }}
+            onChange={v => handleChange(v, 'durationMilliseconds')}
+            formNoValidate
+          />
+          <Addon className="ant-input-group-addon">ms</Addon>
+        </>
+      )}
     </Input.Group>
   );
 };

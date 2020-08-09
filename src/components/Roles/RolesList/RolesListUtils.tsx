@@ -3,7 +3,7 @@ import { ColumnsType } from 'antd/es/table';
 import { Tag, Typography } from 'antd';
 import { BasicUserPartsFragment, Organization, PermissionType, RoleTypes } from 'types';
 import * as R from 'ramda';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import ListActions from './ListActions';
 import ListSelectRole from './ListSelectRole';
 
@@ -46,7 +46,7 @@ export const columns = (organization: Organization): ColumnsType<RoleTypes.RoleU
   {
     title: 'Ostatnio zmodyfikowany',
     dataIndex: 'updatedAt',
-    render: (date: string) => moment(date).format('LLL'),
+    render: (date: string) => dayjs(date).format('LLL'),
   },
   {
     key: 'actions',

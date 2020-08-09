@@ -98,8 +98,11 @@ export type Mutation = {
   deleteRole: Scalars['Boolean'];
   deleteScreen: Scalars['Boolean'];
   deleteSlide: Scalars['Boolean'];
+  deleteUser: Scalars['Boolean'];
   fileLink: FileLink;
   login: TokenResponse;
+  refreshToken?: Maybe<TokenResponse>;
+  revokeToken: Scalars['Boolean'];
   selectOrganization?: Maybe<Organization>;
   updateAppInstance: AppInstance;
   updateFile?: Maybe<File>;
@@ -107,6 +110,7 @@ export type Mutation = {
   updateRole: Role;
   updateScreen: Screen;
   updateSlide: Slide;
+  updateUser: User;
 };
 
 
@@ -185,6 +189,12 @@ export type MutationDeleteSlideArgs = {
 };
 
 
+export type MutationDeleteUserArgs = {
+  password: Scalars['String'];
+  id: Scalars['Int'];
+};
+
+
 export type MutationFileLinkArgs = {
   id: Scalars['Int'];
 };
@@ -232,6 +242,12 @@ export type MutationUpdateScreenArgs = {
 
 export type MutationUpdateSlideArgs = {
   updateSlideData: UpdateSlideInput;
+  id: Scalars['Int'];
+};
+
+
+export type MutationUpdateUserArgs = {
+  updateUserData: UpdateUserInput;
   id: Scalars['Int'];
 };
 
@@ -410,9 +426,9 @@ export type Storage = {
 
 export type TokenResponse = {
    __typename?: 'TokenResponse';
-  accessToken: Scalars['String'];
   tokenType: Scalars['String'];
-  expiresIn: Scalars['String'];
+  accessToken: Scalars['String'];
+  expiresIn: Scalars['Int'];
 };
 
 export type UpdateAppInstanceInput = {
@@ -453,6 +469,14 @@ export type UpdateSlideInput = {
   appInstanceId?: Maybe<Scalars['Int']>;
 };
 
+export type UpdateUserInput = {
+  email?: Maybe<Scalars['String']>;
+  oldPassword?: Maybe<Scalars['String']>;
+  password?: Maybe<Scalars['String']>;
+  firstName?: Maybe<Scalars['String']>;
+  lastName?: Maybe<Scalars['String']>;
+};
+
 
 export type User = {
    __typename?: 'User';
@@ -482,6 +506,17 @@ export type AddUserMutation = (
   ) }
 );
 
+export type DeleteUserMutationVariables = {
+  id: Scalars['Int'];
+  password: Scalars['String'];
+};
+
+
+export type DeleteUserMutation = (
+  { __typename?: 'Mutation' }
+  & Pick<Mutation, 'deleteUser'>
+);
+
 export type LoginMutationVariables = {
   values: LoginInput;
 };
@@ -492,6 +527,39 @@ export type LoginMutation = (
   & { login: (
     { __typename?: 'TokenResponse' }
     & Pick<TokenResponse, 'tokenType' | 'accessToken' | 'expiresIn'>
+  ) }
+);
+
+export type RefreshTokenMutationVariables = {};
+
+
+export type RefreshTokenMutation = (
+  { __typename?: 'Mutation' }
+  & { refreshToken?: Maybe<(
+    { __typename?: 'TokenResponse' }
+    & Pick<TokenResponse, 'accessToken' | 'tokenType' | 'expiresIn'>
+  )> }
+);
+
+export type RevokeTokenMutationVariables = {};
+
+
+export type RevokeTokenMutation = (
+  { __typename?: 'Mutation' }
+  & Pick<Mutation, 'revokeToken'>
+);
+
+export type UpdateUserMutationVariables = {
+  id: Scalars['Int'];
+  values: UpdateUserInput;
+};
+
+
+export type UpdateUserMutation = (
+  { __typename?: 'Mutation' }
+  & { updateUser: (
+    { __typename?: 'User' }
+    & BasicUserPartsFragment
   ) }
 );
 
@@ -511,6 +579,17 @@ export type UserByEmailQueryQuery = (
 export type BasicUserPartsFragment = (
   { __typename?: 'User' }
   & Pick<User, 'id' | 'createdAt' | 'updatedAt' | 'email' | 'firstName' | 'lastName' | 'rulesAcceptedAt'>
+);
+
+export type ViewerQueryVariables = {};
+
+
+export type ViewerQuery = (
+  { __typename?: 'Query' }
+  & { viewer: (
+    { __typename?: 'User' }
+    & Pick<User, 'id' | 'createdAt' | 'updatedAt' | 'email' | 'firstName' | 'lastName' | 'rulesAcceptedAt'>
+  ) }
 );
 
 export type AddFileKeyMutationVariables = {
@@ -795,17 +874,6 @@ export type UpdateOrganizationMutation = (
   & { updateOrganization: (
     { __typename?: 'Organization' }
     & BasicOrganizationPartsFragment
-  ) }
-);
-
-export type ViewerQueryVariables = {};
-
-
-export type ViewerQuery = (
-  { __typename?: 'Query' }
-  & { viewer: (
-    { __typename?: 'User' }
-    & Pick<User, 'id' | 'createdAt' | 'updatedAt' | 'email' | 'firstName' | 'lastName' | 'rulesAcceptedAt'>
   ) }
 );
 
@@ -1195,6 +1263,43 @@ export function useAddUserMutation(baseOptions?: ApolloReactHooks.MutationHookOp
 export type AddUserMutationHookResult = ReturnType<typeof useAddUserMutation>;
 export type AddUserMutationResult = ApolloReactCommon.MutationResult<AddUserMutation>;
 export type AddUserMutationOptions = ApolloReactCommon.BaseMutationOptions<AddUserMutation, AddUserMutationVariables>;
+export const DeleteUserDocument = gql`
+    mutation DeleteUser($id: Int!, $password: String!) {
+  deleteUser(id: $id, password: $password)
+}
+    `;
+export type DeleteUserMutationFn = ApolloReactCommon.MutationFunction<DeleteUserMutation, DeleteUserMutationVariables>;
+export type DeleteUserComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<DeleteUserMutation, DeleteUserMutationVariables>, 'mutation'>;
+
+    export const DeleteUserComponent = (props: DeleteUserComponentProps) => (
+      <ApolloReactComponents.Mutation<DeleteUserMutation, DeleteUserMutationVariables> mutation={DeleteUserDocument} {...props} />
+    );
+    
+
+/**
+ * __useDeleteUserMutation__
+ *
+ * To run a mutation, you first call `useDeleteUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteUserMutation, { data, loading, error }] = useDeleteUserMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      password: // value for 'password'
+ *   },
+ * });
+ */
+export function useDeleteUserMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<DeleteUserMutation, DeleteUserMutationVariables>) {
+        return ApolloReactHooks.useMutation<DeleteUserMutation, DeleteUserMutationVariables>(DeleteUserDocument, baseOptions);
+      }
+export type DeleteUserMutationHookResult = ReturnType<typeof useDeleteUserMutation>;
+export type DeleteUserMutationResult = ApolloReactCommon.MutationResult<DeleteUserMutation>;
+export type DeleteUserMutationOptions = ApolloReactCommon.BaseMutationOptions<DeleteUserMutation, DeleteUserMutationVariables>;
 export const LoginDocument = gql`
     mutation Login($values: LoginInput!) {
   login(loginData: $values) {
@@ -1235,6 +1340,119 @@ export function useLoginMutation(baseOptions?: ApolloReactHooks.MutationHookOpti
 export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
 export type LoginMutationResult = ApolloReactCommon.MutationResult<LoginMutation>;
 export type LoginMutationOptions = ApolloReactCommon.BaseMutationOptions<LoginMutation, LoginMutationVariables>;
+export const RefreshTokenDocument = gql`
+    mutation RefreshToken {
+  refreshToken {
+    accessToken
+    tokenType
+    expiresIn
+  }
+}
+    `;
+export type RefreshTokenMutationFn = ApolloReactCommon.MutationFunction<RefreshTokenMutation, RefreshTokenMutationVariables>;
+export type RefreshTokenComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<RefreshTokenMutation, RefreshTokenMutationVariables>, 'mutation'>;
+
+    export const RefreshTokenComponent = (props: RefreshTokenComponentProps) => (
+      <ApolloReactComponents.Mutation<RefreshTokenMutation, RefreshTokenMutationVariables> mutation={RefreshTokenDocument} {...props} />
+    );
+    
+
+/**
+ * __useRefreshTokenMutation__
+ *
+ * To run a mutation, you first call `useRefreshTokenMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRefreshTokenMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [refreshTokenMutation, { data, loading, error }] = useRefreshTokenMutation({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useRefreshTokenMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<RefreshTokenMutation, RefreshTokenMutationVariables>) {
+        return ApolloReactHooks.useMutation<RefreshTokenMutation, RefreshTokenMutationVariables>(RefreshTokenDocument, baseOptions);
+      }
+export type RefreshTokenMutationHookResult = ReturnType<typeof useRefreshTokenMutation>;
+export type RefreshTokenMutationResult = ApolloReactCommon.MutationResult<RefreshTokenMutation>;
+export type RefreshTokenMutationOptions = ApolloReactCommon.BaseMutationOptions<RefreshTokenMutation, RefreshTokenMutationVariables>;
+export const RevokeTokenDocument = gql`
+    mutation RevokeToken {
+  revokeToken
+}
+    `;
+export type RevokeTokenMutationFn = ApolloReactCommon.MutationFunction<RevokeTokenMutation, RevokeTokenMutationVariables>;
+export type RevokeTokenComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<RevokeTokenMutation, RevokeTokenMutationVariables>, 'mutation'>;
+
+    export const RevokeTokenComponent = (props: RevokeTokenComponentProps) => (
+      <ApolloReactComponents.Mutation<RevokeTokenMutation, RevokeTokenMutationVariables> mutation={RevokeTokenDocument} {...props} />
+    );
+    
+
+/**
+ * __useRevokeTokenMutation__
+ *
+ * To run a mutation, you first call `useRevokeTokenMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRevokeTokenMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [revokeTokenMutation, { data, loading, error }] = useRevokeTokenMutation({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useRevokeTokenMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<RevokeTokenMutation, RevokeTokenMutationVariables>) {
+        return ApolloReactHooks.useMutation<RevokeTokenMutation, RevokeTokenMutationVariables>(RevokeTokenDocument, baseOptions);
+      }
+export type RevokeTokenMutationHookResult = ReturnType<typeof useRevokeTokenMutation>;
+export type RevokeTokenMutationResult = ApolloReactCommon.MutationResult<RevokeTokenMutation>;
+export type RevokeTokenMutationOptions = ApolloReactCommon.BaseMutationOptions<RevokeTokenMutation, RevokeTokenMutationVariables>;
+export const UpdateUserDocument = gql`
+    mutation UpdateUser($id: Int!, $values: UpdateUserInput!) {
+  updateUser(id: $id, updateUserData: $values) {
+    ...BasicUserParts
+  }
+}
+    ${BasicUserPartsFragmentDoc}`;
+export type UpdateUserMutationFn = ApolloReactCommon.MutationFunction<UpdateUserMutation, UpdateUserMutationVariables>;
+export type UpdateUserComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<UpdateUserMutation, UpdateUserMutationVariables>, 'mutation'>;
+
+    export const UpdateUserComponent = (props: UpdateUserComponentProps) => (
+      <ApolloReactComponents.Mutation<UpdateUserMutation, UpdateUserMutationVariables> mutation={UpdateUserDocument} {...props} />
+    );
+    
+
+/**
+ * __useUpdateUserMutation__
+ *
+ * To run a mutation, you first call `useUpdateUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateUserMutation, { data, loading, error }] = useUpdateUserMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      values: // value for 'values'
+ *   },
+ * });
+ */
+export function useUpdateUserMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<UpdateUserMutation, UpdateUserMutationVariables>) {
+        return ApolloReactHooks.useMutation<UpdateUserMutation, UpdateUserMutationVariables>(UpdateUserDocument, baseOptions);
+      }
+export type UpdateUserMutationHookResult = ReturnType<typeof useUpdateUserMutation>;
+export type UpdateUserMutationResult = ApolloReactCommon.MutationResult<UpdateUserMutation>;
+export type UpdateUserMutationOptions = ApolloReactCommon.BaseMutationOptions<UpdateUserMutation, UpdateUserMutationVariables>;
 export const UserByEmailQueryDocument = gql`
     query UserByEmailQuery($email: String!) {
   userByEmail(email: $email) {
@@ -1274,6 +1492,50 @@ export function useUserByEmailQueryLazyQuery(baseOptions?: ApolloReactHooks.Lazy
 export type UserByEmailQueryQueryHookResult = ReturnType<typeof useUserByEmailQueryQuery>;
 export type UserByEmailQueryLazyQueryHookResult = ReturnType<typeof useUserByEmailQueryLazyQuery>;
 export type UserByEmailQueryQueryResult = ApolloReactCommon.QueryResult<UserByEmailQueryQuery, UserByEmailQueryQueryVariables>;
+export const ViewerDocument = gql`
+    query Viewer {
+  viewer {
+    id
+    createdAt
+    updatedAt
+    email
+    firstName
+    lastName
+    rulesAcceptedAt
+  }
+}
+    `;
+export type ViewerComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<ViewerQuery, ViewerQueryVariables>, 'query'>;
+
+    export const ViewerComponent = (props: ViewerComponentProps) => (
+      <ApolloReactComponents.Query<ViewerQuery, ViewerQueryVariables> query={ViewerDocument} {...props} />
+    );
+    
+
+/**
+ * __useViewerQuery__
+ *
+ * To run a query within a React component, call `useViewerQuery` and pass it any options that fit your needs.
+ * When your component renders, `useViewerQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useViewerQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useViewerQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<ViewerQuery, ViewerQueryVariables>) {
+        return ApolloReactHooks.useQuery<ViewerQuery, ViewerQueryVariables>(ViewerDocument, baseOptions);
+      }
+export function useViewerLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<ViewerQuery, ViewerQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<ViewerQuery, ViewerQueryVariables>(ViewerDocument, baseOptions);
+        }
+export type ViewerQueryHookResult = ReturnType<typeof useViewerQuery>;
+export type ViewerLazyQueryHookResult = ReturnType<typeof useViewerLazyQuery>;
+export type ViewerQueryResult = ApolloReactCommon.QueryResult<ViewerQuery, ViewerQueryVariables>;
 export const AddFileKeyDocument = gql`
     mutation AddFileKey($fileId: Int!) {
   addFileKey(fileId: $fileId) {
@@ -2058,50 +2320,6 @@ export function useUpdateOrganizationMutation(baseOptions?: ApolloReactHooks.Mut
 export type UpdateOrganizationMutationHookResult = ReturnType<typeof useUpdateOrganizationMutation>;
 export type UpdateOrganizationMutationResult = ApolloReactCommon.MutationResult<UpdateOrganizationMutation>;
 export type UpdateOrganizationMutationOptions = ApolloReactCommon.BaseMutationOptions<UpdateOrganizationMutation, UpdateOrganizationMutationVariables>;
-export const ViewerDocument = gql`
-    query Viewer {
-  viewer {
-    id
-    createdAt
-    updatedAt
-    email
-    firstName
-    lastName
-    rulesAcceptedAt
-  }
-}
-    `;
-export type ViewerComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<ViewerQuery, ViewerQueryVariables>, 'query'>;
-
-    export const ViewerComponent = (props: ViewerComponentProps) => (
-      <ApolloReactComponents.Query<ViewerQuery, ViewerQueryVariables> query={ViewerDocument} {...props} />
-    );
-    
-
-/**
- * __useViewerQuery__
- *
- * To run a query within a React component, call `useViewerQuery` and pass it any options that fit your needs.
- * When your component renders, `useViewerQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useViewerQuery({
- *   variables: {
- *   },
- * });
- */
-export function useViewerQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<ViewerQuery, ViewerQueryVariables>) {
-        return ApolloReactHooks.useQuery<ViewerQuery, ViewerQueryVariables>(ViewerDocument, baseOptions);
-      }
-export function useViewerLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<ViewerQuery, ViewerQueryVariables>) {
-          return ApolloReactHooks.useLazyQuery<ViewerQuery, ViewerQueryVariables>(ViewerDocument, baseOptions);
-        }
-export type ViewerQueryHookResult = ReturnType<typeof useViewerQuery>;
-export type ViewerLazyQueryHookResult = ReturnType<typeof useViewerLazyQuery>;
-export type ViewerQueryResult = ApolloReactCommon.QueryResult<ViewerQuery, ViewerQueryVariables>;
 export const AddRoleDocument = gql`
     mutation AddRole($values: NewRoleInput!) {
   addRole(newRoleData: $values) {

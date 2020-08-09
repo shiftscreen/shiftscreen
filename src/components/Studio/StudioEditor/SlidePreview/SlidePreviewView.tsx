@@ -1,35 +1,35 @@
 import React from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import { Scaled } from 'shared';
-import { Preview } from 'components/Slides';
+import { ScaledTypes } from 'types';
+import { Show } from 'components/Slides';
 import { BasicSlidePartsFragment } from 'generated/graphql';
 import { Info, Container } from './SlidePreviewStyle';
 
 interface Props {
-  slide?: BasicSlidePartsFragment;
-  size: { height: number; width: number };
+  selectedSlide?: BasicSlidePartsFragment;
+  slides: BasicSlidePartsFragment[];
 }
 
-const SlidePreview: React.FC<Props> = ({ slide, size }: Props) => {
-  if (!slide) return (
-    <Info>Wybierz slajd</Info>
+const size: ScaledTypes.SizeType = {
+  width: 720,
+  height: 405,
+};
+
+const SlidePreview: React.FC<Props> = ({ selectedSlide, slides }: Props) => {
+  if (!selectedSlide) return (
+    <Container style={{ ...size }}>
+      <Info>Wybierz slajd</Info>
+    </Container>
   );
 
   return (
-    <TransitionGroup>
-      <CSSTransition
-        key={slide.id}
-        timeout={200}
-        classNames="fade"
-      >
-        <Container>
-          <Scaled {...size}>
-            <Preview slide={slide}/>
-          </Scaled>
-        </Container>
-      </CSSTransition>
-    </TransitionGroup>
+    <Container style={{ ...size }}>
+      <Show
+        size={size}
+        slides={slides}
+        selectedId={selectedSlide.id}
+      />
+    </Container>
   );
 };
 

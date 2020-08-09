@@ -1,4 +1,4 @@
-export const colors: string[] = [
+export const defaultColors: string[] = [
   '#FF6900',
   '#FCB900',
   '#7BDCB5',

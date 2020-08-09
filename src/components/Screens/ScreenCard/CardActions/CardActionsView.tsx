@@ -16,10 +16,8 @@ interface Props {
 }
 
 const CardActions: React.FC<Props> = ({ screen }) => {
-  const handleMenuClick = (e: any) => console.log(e);
-
   const menu = (
-    <Menu onClick={handleMenuClick}>
+    <Menu>
       <ToggleActivationItem screen={screen}/>
       <Menu.Divider/>
       <DeleteItem screen={screen}/>

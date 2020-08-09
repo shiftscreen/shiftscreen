@@ -17,14 +17,16 @@ const AppRouter: React.FC = () => {
   const { data } = useQuery(IS_LOGGED_IN);
   const { Paths, Redirects } = Routes;
 
-  const toPathElement = ({ meta, children, ...props }: PathType) => {
+  const toPathElement = ({ meta, component, ...props }: PathType) => {
     const notAuthorized = meta && meta.protected && !data.isLoggedIn;
     const redirectToAuth = () => (<Redirect to={Routes.Path.Auth}/>);
+    const key = `${props.path}`;
 
     return (
       <Route
         {...props}
-        children={notAuthorized ? redirectToAuth : children}
+        key={key}
+        component={notAuthorized ? redirectToAuth : component}
       />
     );
   };

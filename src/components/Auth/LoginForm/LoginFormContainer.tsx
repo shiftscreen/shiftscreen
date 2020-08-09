@@ -1,17 +1,15 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { LoginInput } from 'types';
-import { useHistory } from 'react-router-dom';
 
 import View from './LoginFormView';
 import { initialValues, LoginSchema } from './LoginFormUtils';
 import { handleCompleted, handleError } from './LoginFormOperations';
-import { useLoginMutation, LoginMutation } from 'generated/graphql';
+import { useLoginMutation } from 'generated/graphql';
 
 const LoginForm: React.FC = () => {
-  const history = useHistory();
   const [login] = useLoginMutation({
-    onCompleted: (data: LoginMutation) => handleCompleted(data, history),
+    onCompleted: handleCompleted,
     onError: handleError,
   });
 

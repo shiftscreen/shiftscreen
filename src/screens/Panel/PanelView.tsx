@@ -1,18 +1,19 @@
 import React from 'react';
 
+import { LoadingIndicator } from 'shared';
+import { PanelTypes } from 'types';
+import { Sider } from 'components/Panel';
+import { Header, ContentHeader } from 'components/Panel';
+
 import {
   Container,
   Inner,
   Content
 } from './PanelStyle';
-import { ViewsConfig, View } from '../../components/Panel/PanelTypes';
-
-import { Sider } from 'components/Panel';
-import { Header, ContentHeader } from 'components/Panel';
 
 interface Props {
-  viewsConfig: ViewsConfig;
-  selectedView: View;
+  viewsConfig: PanelTypes.ViewsConfig;
+  selectedView: PanelTypes.View;
 }
 
 const Panel: React.FC<Props> = (props: Props) => {
@@ -26,7 +27,7 @@ const Panel: React.FC<Props> = (props: Props) => {
         <Header/>
         <Content>
           <ContentHeader title={selectedView.title} actions={selectedView.headerActions}/>
-          <PanelComponent/>
+          <PanelComponent fallback={<LoadingIndicator/>}/>
         </Content>
       </Inner>
     </Container>
