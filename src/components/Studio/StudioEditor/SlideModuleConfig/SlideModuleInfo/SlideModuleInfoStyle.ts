@@ -43,7 +43,7 @@ export const InstanceTitle = styled(Typography.Text)`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 20rem;
+  max-width: 25rem;
   
   &.ant-typography-edit-content {
     left: 0;

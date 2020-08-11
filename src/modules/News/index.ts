@@ -10,7 +10,7 @@ const NewsModule: Module = {
   icon: faNewspaper,
   title: 'Gazetka',
   color: '#51768F',
-  hiddenPreview: false,
+  hiddenPreview: true,
   versions: [
     {
       name: 'stable',

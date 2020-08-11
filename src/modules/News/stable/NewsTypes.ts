@@ -4,7 +4,7 @@ export interface NewsInstance {
   id: string;
   title: string;
   description: string;
-  image: MediaTypes.MediaSource;
+  image?: MediaTypes.MediaSource;
 }
 
 export type SourceType = 'config' | 'rss';

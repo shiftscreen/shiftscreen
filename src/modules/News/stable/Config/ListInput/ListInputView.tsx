@@ -1,7 +1,7 @@
 import React from 'react';
 import * as R from 'ramda';
 import { useField } from 'formik';
-import { Form, Button } from 'antd';
+import { Form, Button, Checkbox } from 'antd';
 import { Input } from 'formik-antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import randomstring from 'randomstring';
@@ -9,6 +9,7 @@ import randomstring from 'randomstring';
 import { Container, ElementContainer, ElementCard } from './ListInputStyle';
 import { NewsInstance } from '../../NewsTypes';
 import { MediaInput } from '../../../../../shared';
+import AwesomeDebouncePromise from 'awesome-debounce-promise';
 
 interface Props {
   fieldName: string;
@@ -17,6 +18,11 @@ interface Props {
 
 const ListInputView: React.FC<Props> = ({ fieldName, onAfterChange }) => {
   const [field] = useField<NewsInstance[]>({ name: fieldName });
+
+  const debouncedOnAfterChange = React.useCallback(() =>
+    AwesomeDebouncePromise(onAfterChange, 500),
+    [field.value],
+  );
 
   const handleAddClick = () => {
     const newValue = R.concat<any>(field.value, [{
@@ -37,7 +43,7 @@ const ListInputView: React.FC<Props> = ({ fieldName, onAfterChange }) => {
       }
     });
 
-    onAfterChange();
+    debouncedOnAfterChange();
   };
 
   const handleRemoveClick = (value: NewsInstance) => {
@@ -50,7 +56,7 @@ const ListInputView: React.FC<Props> = ({ fieldName, onAfterChange }) => {
       }
     });
 
-    onAfterChange();
+    debouncedOnAfterChange();
   };
 
   const toElement = (value: NewsInstance, index: number) => {
