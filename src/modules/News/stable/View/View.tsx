@@ -1,5 +1,6 @@
 import React from 'react';
 import * as R from 'ramda';
+import ReactHtmlParser from 'react-html-parser';
 import { ConfigType, NewsInstance } from '../NewsTypes';
 import { getFeedNewsList } from './Utils';
 import { LoadingIndicator } from 'shared';
@@ -74,7 +75,13 @@ const View: React.FC<Props> = ({ config }) => {
             <Description
               ellipsis={{ rows: 5 }}
             >
-              {description}
+              {ReactHtmlParser(
+                description,
+                {
+                  transform: (node) => (
+                    (node.type === 'tag' && node.name === 'img') ? null : undefined
+                  )
+                })}
             </Description>
           </Header>
           {domain && (

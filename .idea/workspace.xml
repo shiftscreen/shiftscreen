@@ -2,15 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ede6dee5-7508-463f-a001-18b0a69ec626" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/modules/News/stable/View/Style.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/assets/holidays.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/assets/names-days.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/custom.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/utils.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/utils.resolver.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/utils.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Calendar/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/CalendarTypes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/CalendarUtils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/Config/Config.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/Config/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/View/Style.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/View/View.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/View/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/schema.gql" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/schema.gql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleInfoStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleInfoStyle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/News/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/Config/ListInput/ListInputView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/Config/ListInput/ListInputView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/NewsTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/NewsTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/View/Utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/View/Utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/News/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/View/View.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Studio/StudioContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Studio/StudioContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/index.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +35,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../powerdashboard-api" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="ProjectId" id="1Xr1uMUskClXVmqyw3SVs1k6iH4" />
@@ -30,25 +46,25 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/modules/News/stable/Config" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
-    <property name="ts.external.directory.path" value="E:\Projekty\GitHub\commercial\powerdashboard-api\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="E:\Projekty\GitHub\commercial\powerdashboard\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\News\stable\Config" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\News" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\shared\ModuleLogo" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\YouTube\stable\View" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\assets" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\Website\stable" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\auth\strategies" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\auth\entities" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\public" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Auth\graphql" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\utils" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\News\stable\Config" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\News" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\shared\ModuleLogo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -138,7 +154,11 @@
       <workItem from="1596979409868" duration="9937000" />
       <workItem from="1597047918538" duration="227000" />
       <workItem from="1597048305821" duration="633000" />
-      <workItem from="1597160223605" duration="9376000" />
+      <workItem from="1597160223605" duration="9455000" />
+      <workItem from="1597216898075" duration="244000" />
+      <workItem from="1597249159338" duration="10306000" />
+      <workItem from="1597305450041" duration="394000" />
+      <workItem from="1597351409378" duration="3678000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1591736676262</created>
@@ -175,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597010515807</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add News module">
+      <created>1597184502801</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1597184502801</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +226,7 @@
     <MESSAGE value="Bag of code" />
     <MESSAGE value="Update" />
     <MESSAGE value="Many changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Many changes" />
+    <MESSAGE value="Add News module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add News module" />
   </component>
 </project>

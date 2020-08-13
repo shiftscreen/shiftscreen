@@ -5,6 +5,7 @@ import Website from './Website';
 import YouTube from './YouTube';
 import Video from './Video';
 import News from './News';
+import Calendar from './Calendar';
 
 const modules: Module[] = [
   Welcome,
@@ -12,6 +13,7 @@ const modules: Module[] = [
   YouTube,
   Video,
   News,
+  Calendar,
 ];
 
 export default modules;

@@ -53,6 +53,7 @@
     "react-beautiful-dnd": "^13.0.0",
     "react-color": "^2.18.1",
     "react-dom": "^16.13.1",
+    "react-html-parser": "^2.0.2",
     "react-iframe": "^1.8.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0",
@@ -95,6 +96,7 @@
     "@graphql-codegen/typescript-operations": "^1.13.2",
     "@graphql-codegen/typescript-react-apollo": "^1.13.2",
     "@types/randomstring": "^1.1.6",
+    "@types/react-html-parser": "^2.0.1",
     "react-app-rewired": "^2.1.6",
     "webpack-bundle-analyzer": "^3.8.0"
   }
