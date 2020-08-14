@@ -79,6 +79,7 @@ export type FileLink = {
 export type LoginInput = {
   email: Scalars['String'];
   password: Scalars['String'];
+  recaptcha: Scalars['String'];
 };
 
 export type Mutation = {
@@ -297,6 +298,7 @@ export type NewUserInput = {
   lastName: Scalars['String'];
   rulesAccepted: Scalars['Boolean'];
   picture?: Maybe<Scalars['Upload']>;
+  recaptcha: Scalars['String'];
 };
 
 export type Organization = {
@@ -315,13 +317,21 @@ export enum PermissionType {
   Editor = 'Editor'
 }
 
+export enum PredefinedQuotesType {
+  Motivational = 'Motivational',
+  Bussiness = 'Bussiness'
+}
+
 export type Query = {
    __typename?: 'Query';
   appInstance: AppInstance;
   appInstancesByAppId: Array<AppInstance>;
+  calendarTodayDayNames: Scalars['String'];
+  calendarTodayHoliday: Scalars['String'];
   fileKey: FileKey;
   isLoggedIn: Scalars['Boolean'];
   organization: Organization;
+  quotePredefinedQuotes: Array<Quote>;
   screen: Screen;
   selectedOrganization?: Maybe<Organization>;
   slide?: Maybe<Slide>;
@@ -350,6 +360,11 @@ export type QueryOrganizationArgs = {
 };
 
 
+export type QueryQuotePredefinedQuotesArgs = {
+  type: PredefinedQuotesType;
+};
+
+
 export type QueryScreenArgs = {
   id: Scalars['Int'];
 };
@@ -362,6 +377,13 @@ export type QuerySlideArgs = {
 
 export type QueryUserByEmailArgs = {
   email: Scalars['String'];
+};
+
+export type Quote = {
+   __typename?: 'Quote';
+  id: Scalars['String'];
+  content: Scalars['String'];
+  author: Scalars['String'];
 };
 
 export type Role = {
@@ -1128,6 +1150,27 @@ export type UpdateSlideMutation = (
     { __typename?: 'Slide' }
     & BasicSlidePartsFragment
   ) }
+);
+
+export type CalendarUtilsStableQueryVariables = {};
+
+
+export type CalendarUtilsStableQuery = (
+  { __typename?: 'Query' }
+  & Pick<Query, 'calendarTodayDayNames' | 'calendarTodayHoliday'>
+);
+
+export type QuotePredefinedQuotesQueryVariables = {
+  type: PredefinedQuotesType;
+};
+
+
+export type QuotePredefinedQuotesQuery = (
+  { __typename?: 'Query' }
+  & { quotePredefinedQuotes: Array<(
+    { __typename?: 'Quote' }
+    & Pick<Quote, 'id' | 'content' | 'author'>
+  )> }
 );
 
 export const BasicUserPartsFragmentDoc = gql`
@@ -2922,3 +2965,81 @@ export function useUpdateSlideMutation(baseOptions?: ApolloReactHooks.MutationHo
 export type UpdateSlideMutationHookResult = ReturnType<typeof useUpdateSlideMutation>;
 export type UpdateSlideMutationResult = ApolloReactCommon.MutationResult<UpdateSlideMutation>;
 export type UpdateSlideMutationOptions = ApolloReactCommon.BaseMutationOptions<UpdateSlideMutation, UpdateSlideMutationVariables>;
+export const CalendarUtilsStableDocument = gql`
+    query CalendarUtilsStable {
+  calendarTodayDayNames
+  calendarTodayHoliday
+}
+    `;
+export type CalendarUtilsStableComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<CalendarUtilsStableQuery, CalendarUtilsStableQueryVariables>, 'query'>;
+
+    export const CalendarUtilsStableComponent = (props: CalendarUtilsStableComponentProps) => (
+      <ApolloReactComponents.Query<CalendarUtilsStableQuery, CalendarUtilsStableQueryVariables> query={CalendarUtilsStableDocument} {...props} />
+    );
+    
+
+/**
+ * __useCalendarUtilsStableQuery__
+ *
+ * To run a query within a React component, call `useCalendarUtilsStableQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCalendarUtilsStableQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCalendarUtilsStableQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useCalendarUtilsStableQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<CalendarUtilsStableQuery, CalendarUtilsStableQueryVariables>) {
+        return ApolloReactHooks.useQuery<CalendarUtilsStableQuery, CalendarUtilsStableQueryVariables>(CalendarUtilsStableDocument, baseOptions);
+      }
+export function useCalendarUtilsStableLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<CalendarUtilsStableQuery, CalendarUtilsStableQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<CalendarUtilsStableQuery, CalendarUtilsStableQueryVariables>(CalendarUtilsStableDocument, baseOptions);
+        }
+export type CalendarUtilsStableQueryHookResult = ReturnType<typeof useCalendarUtilsStableQuery>;
+export type CalendarUtilsStableLazyQueryHookResult = ReturnType<typeof useCalendarUtilsStableLazyQuery>;
+export type CalendarUtilsStableQueryResult = ApolloReactCommon.QueryResult<CalendarUtilsStableQuery, CalendarUtilsStableQueryVariables>;
+export const QuotePredefinedQuotesDocument = gql`
+    query QuotePredefinedQuotes($type: PredefinedQuotesType!) {
+  quotePredefinedQuotes(type: $type) {
+    id
+    content
+    author
+  }
+}
+    `;
+export type QuotePredefinedQuotesComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<QuotePredefinedQuotesQuery, QuotePredefinedQuotesQueryVariables>, 'query'> & ({ variables: QuotePredefinedQuotesQueryVariables; skip?: boolean; } | { skip: boolean; });
+
+    export const QuotePredefinedQuotesComponent = (props: QuotePredefinedQuotesComponentProps) => (
+      <ApolloReactComponents.Query<QuotePredefinedQuotesQuery, QuotePredefinedQuotesQueryVariables> query={QuotePredefinedQuotesDocument} {...props} />
+    );
+    
+
+/**
+ * __useQuotePredefinedQuotesQuery__
+ *
+ * To run a query within a React component, call `useQuotePredefinedQuotesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useQuotePredefinedQuotesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useQuotePredefinedQuotesQuery({
+ *   variables: {
+ *      type: // value for 'type'
+ *   },
+ * });
+ */
+export function useQuotePredefinedQuotesQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<QuotePredefinedQuotesQuery, QuotePredefinedQuotesQueryVariables>) {
+        return ApolloReactHooks.useQuery<QuotePredefinedQuotesQuery, QuotePredefinedQuotesQueryVariables>(QuotePredefinedQuotesDocument, baseOptions);
+      }
+export function useQuotePredefinedQuotesLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<QuotePredefinedQuotesQuery, QuotePredefinedQuotesQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<QuotePredefinedQuotesQuery, QuotePredefinedQuotesQueryVariables>(QuotePredefinedQuotesDocument, baseOptions);
+        }
+export type QuotePredefinedQuotesQueryHookResult = ReturnType<typeof useQuotePredefinedQuotesQuery>;
+export type QuotePredefinedQuotesLazyQueryHookResult = ReturnType<typeof useQuotePredefinedQuotesLazyQuery>;
+export type QuotePredefinedQuotesQueryResult = ApolloReactCommon.QueryResult<QuotePredefinedQuotesQuery, QuotePredefinedQuotesQueryVariables>;

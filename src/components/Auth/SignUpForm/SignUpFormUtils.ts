@@ -7,6 +7,7 @@ export const initialValues: NewUserInput = {
   firstName: '',
   lastName: '',
   rulesAccepted: false,
+  recaptcha: '',
 };
 
 export const SignUpSchema = Yup.object<NewUserInput>().shape({

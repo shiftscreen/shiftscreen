@@ -3,7 +3,8 @@ import { LoginInput } from 'types';
 
 export const initialValues: LoginInput = {
   email: '',
-  password: ''
+  password: '',
+  recaptcha: '',
 };
 
 export const LoginSchema = Yup.object<LoginInput>().shape({
