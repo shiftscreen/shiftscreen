@@ -16,7 +16,9 @@ interface Props {
 const MediaView: React.FC<Props> = ({ type, source, onVideoEnded, ...props }: Props) => {
   const [url, setUrl] = React.useState<string | undefined>();
   const [fileLink] = useFileLinkByKeyLazyQuery({
-    onCompleted: (data) => setUrl(data.fileKey.file.link.url)
+    onCompleted: (data) => setUrl(data.fileKey.file.link.url),
+    pollInterval: 1000 * 60 * 14, // 14 minutes
+    notifyOnNetworkStatusChange: true,
   });
 
   const getUrlByKey = async () => {
@@ -27,7 +29,7 @@ const MediaView: React.FC<Props> = ({ type, source, onVideoEnded, ...props }: Pr
         await fileLink({
           variables: {
             fileKey: { id, key },
-          }
+          },
         })
       } catch (e) {
         console.error(e)

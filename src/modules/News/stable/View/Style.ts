@@ -5,14 +5,6 @@ import { Typography } from 'antd';
 
 const size = Slides.size.base;
 
-export const LoadingContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: ${size.width}px;
-  height: ${size.height}px;
-`;
-
 export const Image = styled(MediaView)`
   width: 100%;
   min-width: 100%;

@@ -319,7 +319,7 @@ export enum PermissionType {
 
 export enum PredefinedQuotesType {
   Motivational = 'Motivational',
-  Bussiness = 'Bussiness'
+  Business = 'Business'
 }
 
 export type Query = {

@@ -1,12 +1,11 @@
 import React from 'react';
 import * as R from 'ramda';
 import ReactHtmlParser from 'react-html-parser';
+import { SlideLoading } from 'shared';
 import { ConfigType, NewsInstance } from '../NewsTypes';
 import { getFeedNewsList } from './Utils';
-import { LoadingIndicator } from 'shared';
 import {
   Container,
-  LoadingContainer,
   Image,
   Title,
   Header,
@@ -50,9 +49,7 @@ const View: React.FC<Props> = ({ config }) => {
   }, [config.newsList, rssUrl]);
 
   if (loading || !randomNews) return (
-    <LoadingContainer>
-      <LoadingIndicator/>
-    </LoadingContainer>
+    <SlideLoading/>
   );
 
   const { title, description, image } = randomNews;

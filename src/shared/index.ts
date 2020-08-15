@@ -8,3 +8,4 @@ export { default as LoadingIndicator } from './LoadingIndicator';
 export { default as Logo } from './Logo';
 export { default as ReCaptchaInput } from './ReCaptchaInput';
 export { default as ModuleLogo } from './ModuleLogo';
+export { default as SlideLoading } from './SlideLoading';

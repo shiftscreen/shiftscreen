@@ -1,5 +1,9 @@
 import React from 'react';
-import { ConfigType } from '../QuotesTypes';
+import { ConfigType, QuoteInstance } from '../QuotesTypes';
+import * as R from 'ramda';
+import { useQuotePredefinedQuotesLazyQuery } from 'generated/graphql';
+import { getRandomImage } from './Utils';
+import { Author, Container, Content, Inner, Wrapper, Image } from './Style';
 
 interface Props {
   config: ConfigType;
@@ -7,13 +11,50 @@ interface Props {
 }
 
 const View: React.FC<Props> = ({ config }) => {
+  const [getPredefinedQuotes, { data: predefinedQuotes }] = useQuotePredefinedQuotesLazyQuery({
+    variables: {
+      type: config.predefinedList,
+    },
+  });
+  const quotesList = predefinedQuotes?.quotePredefinedQuotes || config.quotesList;
+  const randomIndex = Math.floor(quotesList.length * Math.random());
+  const randomQuote: QuoteInstance = {
+    image: getRandomImage(config.predefinedList),
+    imageType: 'background',
+    ...quotesList[randomIndex],
+  };
 
+  React.useEffect(() => {
+    const sourceIsPredefined = R.equals(config.sourceType, 'predefined');
+
+    if (sourceIsPredefined) {
+      getPredefinedQuotes();
+    }
+  }, [config.sourceType, config.predefinedList]);
+
+  const showImage = randomQuote.imageType !== 'none';
+  const imageBeside = randomQuote.imageType === 'beside';
 
   return (
-    <div>
-
-    </div>
+    <Container imageBeside={imageBeside}>
+      {showImage && randomQuote.image && (
+        <Image
+          type="image"
+          source={randomQuote.image}
+        />
+      )}
+      <Wrapper showDarkBackground={showImage}>
+        <Inner>
+          <Content>
+            „{randomQuote.content}”
+          </Content>
+          <Author>
+            {randomQuote.author}
+          </Author>
+        </Inner>
+      </Wrapper>
+    </Container>
   );
 };
 
-export default View;
+export default React.memo(View);

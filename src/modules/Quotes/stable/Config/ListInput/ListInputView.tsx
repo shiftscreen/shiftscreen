@@ -68,14 +68,14 @@ const ListInputView: React.FC<Props> = ({ fieldName, onAfterChange }) => {
       <ElementContainer key={value.id}>
         <ElementCard>
           <Input
-            name={`${name}.content`}
-            placeholder="Cytat"
-          />
-          <Input.TextArea
             name={`${name}.author`}
             placeholder="Author"
           />
-          <Radio.Group name={`${name}.imageType`}>
+          <Input.TextArea
+            name={`${name}.content`}
+            placeholder="Cytat"
+          />
+          <Radio.Group name={`${name}.imageType`} size="small">
             <Radio.Button value="beside">Obok</Radio.Button>
             <Radio.Button value="background">Tło</Radio.Button>
             <Radio.Button value="none">Brak</Radio.Button>

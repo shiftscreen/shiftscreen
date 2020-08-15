@@ -2,38 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ede6dee5-7508-463f-a001-18b0a69ec626" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/assets/quotes/bussiness.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/assets/quotes/motivational.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/entities/quote.entity.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/enums/predefined-quotes.enum.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/View/Utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/graphql/CalendarUtilsStableQuery.graphql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/Config.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/ListInput/ListInputStyle.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/ListInput/ListInputView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/ListInput/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/QuotesTypes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/QuotesUtils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/View/Style.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/View/View.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/View/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/graphql/QuotePredefinedQuotesQuery.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/quotes/business/business-0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/quotes/business/business-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/quotes/business/business-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/quotes/motivational/motivational-0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/quotes/motivational/motivational-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/quotes/motivational/motivational-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Clock/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/ClockTypes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/ClockUtils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/Config/Config.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/Config/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/View/Style.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/View/Utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/View/View.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/View/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Counter/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/Config/Config.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/Config/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/CounterTypes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/CounterUtils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/Style.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/Utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/View.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/View/Utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/SlideLoading/SlideLoading.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/SlideLoading/SlideLoadingStyle.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/SlideLoading/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../powerdashboard-api/schema.gql" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/schema.gql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/assets/holidays.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/assets/holidays.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/utils.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/utils.resolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/enums/predefined-quotes.enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/enums/predefined-quotes.enum.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/utils.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/utils.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphql.schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/graphql.schema.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUpForm/SignUpFormUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUpForm/SignUpFormUtils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/generated/graphql.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/graphql.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Calendar/stable/CalendarTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/CalendarTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Calendar/stable/CalendarUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/CalendarUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Calendar/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/Config/Config.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Calendar/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/View/Style.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Calendar/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/Config.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/ListInput/ListInputView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/ListInput/ListInputView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/MediaView/MediaView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/MediaView/MediaView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/index.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,25 +64,25 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/modules/Quotes/stable/graphql" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/modules" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="ts.external.directory.path" value="E:\Projekty\GitHub\commercial\powerdashboard-api\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\Quotes\stable\graphql" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\utils" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\News\stable\Config" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\News" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\assets" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\Website\stable" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\auth\strategies" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\Quotes\stable\graphql" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\utils" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\News\stable\Config" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\News" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -167,7 +178,8 @@
       <workItem from="1597305450041" duration="394000" />
       <workItem from="1597351409378" duration="3703000" />
       <workItem from="1597390652296" duration="147000" />
-      <workItem from="1597417838387" duration="14565000" />
+      <workItem from="1597417838387" duration="14972000" />
+      <workItem from="1597482875792" duration="21640000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1591736676262</created>
@@ -218,7 +230,21 @@
       <option name="project" value="LOCAL" />
       <updated>1597357139688</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add Quotes module">
+      <created>1597445212018</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1597445212018</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add SlideShow">
+      <created>1597445247587</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1597445247587</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +270,8 @@
     <MESSAGE value="Many changes" />
     <MESSAGE value="Add News module" />
     <MESSAGE value="Update News module" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update News module" />
+    <MESSAGE value="Add Quotes module" />
+    <MESSAGE value="Add SlideShow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add SlideShow" />
   </component>
 </project>

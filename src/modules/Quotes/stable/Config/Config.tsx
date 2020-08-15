@@ -16,7 +16,7 @@ const Config: React.FC<ModuleConfigProps> = ({ submitForm }) => {
     <>
       <Alert
         type="info"
-        message="Przy każdym pokazaniu slajdu wyświetlony zostanie jeden losowy cytat"
+        message="Przy każdym wyświetleniu slajdu pokazany zostanie jeden losowy cytat"
       />
       <Divider/>
       <Form.Item
@@ -29,20 +29,25 @@ const Config: React.FC<ModuleConfigProps> = ({ submitForm }) => {
         </Radio.Group>
       </Form.Item>
       {predefinedSelected && (
-        <Radio.Group name="predefinedList">
-          <Radio
-            name="predefinedList"
-            value={PredefinedQuotesType.Motivational}
-          >
-            Motywacyjne
-          </Radio>
-          <Radio
-            name="predefinedList"
-            value={PredefinedQuotesType.Bussiness}
-          >
-            O biznesie
-          </Radio>
-        </Radio.Group>
+        <Form.Item
+          name="predefinedList"
+          label="Rodzaj"
+        >
+          <Radio.Group name="predefinedList">
+            <Radio
+              name="predefinedList"
+              value={PredefinedQuotesType.Motivational}
+            >
+              Motywacyjne
+            </Radio>
+            <Radio
+              name="predefinedList"
+              value={PredefinedQuotesType.Business}
+            >
+              O biznesie
+            </Radio>
+          </Radio.Group>
+        </Form.Item>
       )}
       {!predefinedSelected && (
         <Form.Item

@@ -6,6 +6,9 @@ import YouTube from './YouTube';
 import Video from './Video';
 import News from './News';
 import Calendar from './Calendar';
+import Quotes from './Quotes';
+import Clock from './Clock';
+import Counter from './Counter';
 
 const modules: Module[] = [
   Welcome,
@@ -14,6 +17,9 @@ const modules: Module[] = [
   Video,
   News,
   Calendar,
+  Quotes,
+  Clock,
+  Counter,
 ];
 
 export default modules;
