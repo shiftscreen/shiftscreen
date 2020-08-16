@@ -7,4 +7,5 @@ fragment BasicScreenParts on Screen {
     color
     ratio
     slidesOrder
+    publicKey
 }

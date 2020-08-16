@@ -11,6 +11,7 @@ const YouTubeModule: Module = {
   title: 'Wideo',
   color: '#2C3861',
   hiddenPreview: true,
+  blockDuration: true,
   versions: [
     {
       name: 'stable',

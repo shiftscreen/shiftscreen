@@ -14,12 +14,6 @@ const Config: React.FC<ModuleConfigProps> = ({ submitForm }) => (
         onAfterChange={submitForm}
       />
     </Form.Item>
-    <Form.Item
-      name="mute"
-      label="Wycisz"
-    >
-      <Checkbox name="mute" />
-    </Form.Item>
   </>
 );
 

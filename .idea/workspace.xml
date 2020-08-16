@@ -2,49 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ede6dee5-7508-463f-a001-18b0a69ec626" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/quotes/business/business-0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/quotes/business/business-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/quotes/business/business-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/quotes/motivational/motivational-0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/quotes/motivational/motivational-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/quotes/motivational/motivational-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Clock/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/ClockTypes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/ClockUtils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/Config/Config.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/Config/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/View/Style.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/View/Utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/View/View.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Clock/stable/View/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Counter/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/Config/Config.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/Config/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/CounterTypes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/CounterUtils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/Style.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/Utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/View.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/View/Utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/SlideLoading/SlideLoading.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/SlideLoading/SlideLoadingStyle.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/SlideLoading/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/dto/screen-key.input.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.resolver.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/utils/generate-random-key.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Screens/ScreenAddKeyModal/ScreenAddKeyModalStyle.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Screens/ScreenAddKeyModal/ScreenAddKeyModalView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Screens/ScreenAddKeyModal/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Screens/graphql/AddScreenKeyMutation.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Screens/graphql/ScreenExtendedByKeyQuery.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Gallery/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/Config/Config.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/Config/ListInput/ListInputStyle.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/Config/ListInput/ListInputView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/Config/ListInput/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/Config/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/GalleryTypes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/GalleryUtils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/View/Style.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/View/View.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/View/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowStyle.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/useWindowDimensions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../powerdashboard-api/schema.gql" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/schema.gql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/enums/predefined-quotes.enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/enums/predefined-quotes.enum.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/utils.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/utils.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/config/typeorm.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/config/typeorm.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.resolver.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphql.schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/graphql.schema.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleInstancePreview/ModuleInstancePreviewView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleInstancePreview/ModuleInstancePreviewView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/graphql/ScreenPartsFragment.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/graphql/ScreenPartsFragment.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Slides/SlidePreview/SlidePreview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlidePreview/SlidePreview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Slides/SlideShow/SlideShowContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlideShow/SlideShowContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Slides/SlideShow/SlideShowView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlideShow/SlideShowView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideDuration/SlideDurationView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideDuration/SlideDurationView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioHeader/StudioHeaderStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioHeader/StudioHeaderStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioHeader/StudioHeaderView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioHeader/StudioHeaderView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/generated/graphql.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/graphql.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/View/Style.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/View/View.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/Config.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Clock/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Clock/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Counter/stable/View/Utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/Utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Counter/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/Config/ListInput/ListInputView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/Config/ListInput/ListInputView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/ListInput/ListInputView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/ListInput/ListInputView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/View/Style.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Video/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Video/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Video/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Video/stable/Config/Config.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Video/stable/VideoTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Video/stable/VideoTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Video/stable/VideoUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Video/stable/VideoUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Video/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Video/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/YouTube/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/YouTube/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/YouTube/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/YouTube/stable/View/View.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/MediaView/MediaView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/MediaView/MediaView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,25 +85,25 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Screens/graphql" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="ts.external.directory.path" value="E:\Projekty\GitHub\commercial\powerdashboard-api\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens\graphql" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Show\graphql" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\screen-keys\dto" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\screens\utils" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens\graphql" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\assets" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\Website\stable" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\auth\strategies" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\Quotes\stable\graphql" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\utils" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\News\stable\Config" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\modules\News" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -179,7 +200,8 @@
       <workItem from="1597351409378" duration="3703000" />
       <workItem from="1597390652296" duration="147000" />
       <workItem from="1597417838387" duration="14972000" />
-      <workItem from="1597482875792" duration="21640000" />
+      <workItem from="1597482875792" duration="22311000" />
+      <workItem from="1597569221720" duration="25272000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1591736676262</created>
@@ -244,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597445247587</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add Counter module">
+      <created>1597530320465</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1597530320465</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,6 +301,7 @@
     <MESSAGE value="Update News module" />
     <MESSAGE value="Add Quotes module" />
     <MESSAGE value="Add SlideShow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add SlideShow" />
+    <MESSAGE value="Add Counter module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Counter module" />
   </component>
 </project>

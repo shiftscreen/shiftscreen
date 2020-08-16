@@ -30,6 +30,7 @@ const SlideAdvanced: React.FC<Props> = ({ slide }: Props) => {
         size="large"
         onClick={handleClick}
         icon={<SettingOutlined />}
+        disabled
       >
         Zaawansowane
       </Button>

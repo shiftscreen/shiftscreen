@@ -1,0 +1,9 @@
+query ScreenExtendedByKey($screenKey: ScreenKeyInput!) {
+    screenByKey(screenKey: $screenKey) {
+        ...BasicScreenParts
+
+        slides {
+            ...BasicSlideParts
+        }
+    }
+}

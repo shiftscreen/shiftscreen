@@ -13,6 +13,7 @@ interface Props {
   size: ScaledTypes.SizeType;
   slides: BasicSlidePartsFragment[];
   selectedIndex: number;
+  onEnd?(): void;
 }
 
 class SlideShow extends React.Component<Props> {
@@ -27,7 +28,7 @@ class SlideShow extends React.Component<Props> {
   }
 
   render() {
-    const { bannerRef, slides, size, selectedIndex } = this.props;
+    const { bannerRef, slides, size, selectedIndex, onEnd } = this.props;
 
     const selectedSlide = slides[selectedIndex];
     const transition: SlideTypes.SlideTransition = selectedSlide.transition;
@@ -37,7 +38,10 @@ class SlideShow extends React.Component<Props> {
       <Element key={slide.id}>
         <TweenOne>
           <Scaled key={slide.id} {...size}>
-            <Preview slide={slide}/>
+            <Preview
+              slide={slide}
+              onEnd={onEnd}
+            />
           </Scaled>
         </TweenOne>
       </Element>

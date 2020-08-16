@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Container, Inner, BackButton, Title } from './StudioHeaderStyle';
 import { PanelTypes, Path, ScreenTypes, useUpdateScreenMutation } from 'types';
-import { message } from 'antd';
+import { Button, message } from 'antd';
+import ScreenAddKeyModal from '../../Screens/ScreenAddKeyModal';
 
 interface Props {
   screen: ScreenTypes.ScreenExtended;
@@ -61,9 +62,41 @@ const StudioHeader: React.FC<Props> = ({ screen }: Props) => {
         <Title level={2} editable={{ onChange: handleTitleEdit }}>
           {title}
         </Title>
+        <ScreenAuthModal
+          screen={screen}
+        />
       </Inner>
     </Container>
   );
+};
+
+const ScreenAuthModal: React.FC<Props> = ({ screen }) => {
+  const [modalVisible, setModalVisible] = React.useState<boolean>(false);
+
+  const handleClose = () => (
+    setModalVisible(false)
+  );
+
+  const handleButtonClick = () => (
+    setModalVisible(true)
+  );
+
+  return (
+    <>
+      <Button
+        onClick={handleButtonClick}
+        size="large"
+        ghost
+      >
+        Skonfiguruj wyświetlacz
+      </Button>
+      <ScreenAddKeyModal
+        visible={modalVisible}
+        onClose={handleClose}
+        screen={screen}
+      />
+    </>
+  )
 };
 
 export default StudioHeader;

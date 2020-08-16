@@ -10,7 +10,7 @@ interface Props {
 }
 
 const View: React.FC<Props> = ({ config, onEnd }: Props) => {
-  const { file, mute } = config;
+  const { file } = config;
   const size: ScaledTypes.SizeType = Slides.size.base;
 
   if (!file) {
@@ -21,10 +21,10 @@ const View: React.FC<Props> = ({ config, onEnd }: Props) => {
     <div style={{...size}}>
       <MediaView
         type='video'
-        muted={mute}
         source={config.file}
         onVideoEnded={onEnd}
         style={{ ...size }}
+        muted
       />
     </div>
   );

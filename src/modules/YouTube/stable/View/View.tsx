@@ -5,6 +5,7 @@ import { ConfigType } from '../YouTubeTypes';
 import { Slides } from 'constants/index';
 import { getIdFromUrl } from './Utils';
 import { Scaled, ScaledTypes } from 'shared';
+import { useLocation } from 'react-router-dom';
 import * as R from 'ramda';
 
 interface Props {
@@ -13,10 +14,12 @@ interface Props {
 }
 
 const View: React.FC<Props> = ({ config, onEnd }: Props) => {
+  const location = useLocation();
+  const isShow = R.includes('show', location.pathname);
   const id = getIdFromUrl(config.url);
 
   const size: ScaledTypes.SizeType = Slides.size.base;
-  const MULTIPLIER = 1.5;
+  const MULTIPLIER = isShow ? 2 : 1;
   const multiply = R.curry(R.multiply(MULTIPLIER));
   const iframeSize: Record<string, string> = {
     width: multiply(size.width).toString(),

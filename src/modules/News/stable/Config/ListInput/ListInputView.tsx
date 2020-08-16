@@ -56,7 +56,7 @@ const ListInputView: React.FC<Props> = ({ fieldName, onAfterChange }) => {
       }
     });
 
-    debouncedOnAfterChange();
+    onAfterChange();
   };
 
   const toElement = (value: NewsInstance, index: number) => {

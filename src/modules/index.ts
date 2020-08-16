@@ -9,6 +9,7 @@ import Calendar from './Calendar';
 import Quotes from './Quotes';
 import Clock from './Clock';
 import Counter from './Counter';
+import Gallery from './Gallery';
 
 const modules: Module[] = [
   Welcome,
@@ -20,6 +21,7 @@ const modules: Module[] = [
   Quotes,
   Clock,
   Counter,
+  Gallery,
 ];
 
 export default modules;

@@ -90,6 +90,7 @@ export type Mutation = {
   addOrganization: Organization;
   addRole: Role;
   addScreen: Screen;
+  addScreenKey: ScreenKey;
   addSlide: Slide;
   addUser: User;
   deleteAppInstance: Scalars['Boolean'];
@@ -98,6 +99,7 @@ export type Mutation = {
   deleteOrganization: Scalars['Boolean'];
   deleteRole: Scalars['Boolean'];
   deleteScreen: Scalars['Boolean'];
+  deleteScreenKey: Scalars['Boolean'];
   deleteSlide: Scalars['Boolean'];
   deleteUser: Scalars['Boolean'];
   fileLink: FileLink;
@@ -145,6 +147,12 @@ export type MutationAddScreenArgs = {
 };
 
 
+export type MutationAddScreenKeyArgs = {
+  privateKey: Scalars['String'];
+  screenId: Scalars['Int'];
+};
+
+
 export type MutationAddSlideArgs = {
   newSlideData: NewSlideInput;
 };
@@ -181,6 +189,11 @@ export type MutationDeleteRoleArgs = {
 
 
 export type MutationDeleteScreenArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type MutationDeleteScreenKeyArgs = {
   id: Scalars['Int'];
 };
 
@@ -333,6 +346,7 @@ export type Query = {
   organization: Organization;
   quotePredefinedQuotes: Array<Quote>;
   screen: Screen;
+  screenByKey: Screen;
   selectedOrganization?: Maybe<Organization>;
   slide?: Maybe<Slide>;
   userByEmail: User;
@@ -367,6 +381,11 @@ export type QueryQuotePredefinedQuotesArgs = {
 
 export type QueryScreenArgs = {
   id: Scalars['Int'];
+};
+
+
+export type QueryScreenByKeyArgs = {
+  screenKey: ScreenKeyInput;
 };
 
 
@@ -405,10 +424,28 @@ export type Screen = {
   isActive: Scalars['Boolean'];
   color: Scalars['String'];
   ratio: Scalars['String'];
+  publicKey: Scalars['String'];
   slidesOrder: Scalars['JSON'];
   organization: Organization;
+  keys?: Maybe<Array<ScreenKey>>;
   slides?: Maybe<Array<Slide>>;
   viewerRole: Role;
+};
+
+export type ScreenKey = {
+   __typename?: 'ScreenKey';
+  id: Scalars['ID'];
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
+  privateKey?: Maybe<Scalars['String']>;
+  screen: Screen;
+  user: User;
+};
+
+export type ScreenKeyInput = {
+  screenId: Scalars['Int'];
+  publicKey: Scalars['String'];
+  privateKey: Scalars['String'];
 };
 
 export type Slide = {
@@ -985,6 +1022,20 @@ export type ViewerRolesQuery = (
   ) }
 );
 
+export type AddScreenKeyMutationVariables = {
+  screenId: Scalars['Int'];
+  privateKey: Scalars['String'];
+};
+
+
+export type AddScreenKeyMutation = (
+  { __typename?: 'Mutation' }
+  & { addScreenKey: (
+    { __typename?: 'ScreenKey' }
+    & Pick<ScreenKey, 'id' | 'privateKey'>
+  ) }
+);
+
 export type AddScreenMutationVariables = {
   values: NewScreenInput;
 };
@@ -1059,6 +1110,23 @@ export type ScreenExtendedByIdQuery = (
   ) }
 );
 
+export type ScreenExtendedByKeyQueryVariables = {
+  screenKey: ScreenKeyInput;
+};
+
+
+export type ScreenExtendedByKeyQuery = (
+  { __typename?: 'Query' }
+  & { screenByKey: (
+    { __typename?: 'Screen' }
+    & { slides?: Maybe<Array<(
+      { __typename?: 'Slide' }
+      & BasicSlidePartsFragment
+    )>> }
+    & BasicScreenPartsFragment
+  ) }
+);
+
 export type ExtendedScreenPartsFragment = (
   { __typename?: 'Screen' }
   & { viewerRole: (
@@ -1076,7 +1144,7 @@ export type ExtendedScreenPartsFragment = (
 
 export type BasicScreenPartsFragment = (
   { __typename?: 'Screen' }
-  & Pick<Screen, 'id' | 'createdAt' | 'updatedAt' | 'title' | 'isActive' | 'color' | 'ratio' | 'slidesOrder'>
+  & Pick<Screen, 'id' | 'createdAt' | 'updatedAt' | 'title' | 'isActive' | 'color' | 'ratio' | 'slidesOrder' | 'publicKey'>
 );
 
 export type UpdateScreenMutationVariables = {
@@ -1205,6 +1273,7 @@ export const BasicScreenPartsFragmentDoc = gql`
   color
   ratio
   slidesOrder
+  publicKey
 }
     `;
 export const BasicRolePartsFragmentDoc = gql`
@@ -2572,6 +2641,46 @@ export function useViewerRolesLazyQuery(baseOptions?: ApolloReactHooks.LazyQuery
 export type ViewerRolesQueryHookResult = ReturnType<typeof useViewerRolesQuery>;
 export type ViewerRolesLazyQueryHookResult = ReturnType<typeof useViewerRolesLazyQuery>;
 export type ViewerRolesQueryResult = ApolloReactCommon.QueryResult<ViewerRolesQuery, ViewerRolesQueryVariables>;
+export const AddScreenKeyDocument = gql`
+    mutation AddScreenKey($screenId: Int!, $privateKey: String!) {
+  addScreenKey(screenId: $screenId, privateKey: $privateKey) {
+    id
+    privateKey
+  }
+}
+    `;
+export type AddScreenKeyMutationFn = ApolloReactCommon.MutationFunction<AddScreenKeyMutation, AddScreenKeyMutationVariables>;
+export type AddScreenKeyComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<AddScreenKeyMutation, AddScreenKeyMutationVariables>, 'mutation'>;
+
+    export const AddScreenKeyComponent = (props: AddScreenKeyComponentProps) => (
+      <ApolloReactComponents.Mutation<AddScreenKeyMutation, AddScreenKeyMutationVariables> mutation={AddScreenKeyDocument} {...props} />
+    );
+    
+
+/**
+ * __useAddScreenKeyMutation__
+ *
+ * To run a mutation, you first call `useAddScreenKeyMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddScreenKeyMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addScreenKeyMutation, { data, loading, error }] = useAddScreenKeyMutation({
+ *   variables: {
+ *      screenId: // value for 'screenId'
+ *      privateKey: // value for 'privateKey'
+ *   },
+ * });
+ */
+export function useAddScreenKeyMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<AddScreenKeyMutation, AddScreenKeyMutationVariables>) {
+        return ApolloReactHooks.useMutation<AddScreenKeyMutation, AddScreenKeyMutationVariables>(AddScreenKeyDocument, baseOptions);
+      }
+export type AddScreenKeyMutationHookResult = ReturnType<typeof useAddScreenKeyMutation>;
+export type AddScreenKeyMutationResult = ApolloReactCommon.MutationResult<AddScreenKeyMutation>;
+export type AddScreenKeyMutationOptions = ApolloReactCommon.BaseMutationOptions<AddScreenKeyMutation, AddScreenKeyMutationVariables>;
 export const AddScreenDocument = gql`
     mutation AddScreen($values: NewScreenInput!) {
   addScreen(newScreenData: $values) {
@@ -2774,6 +2883,49 @@ export function useScreenExtendedByIdLazyQuery(baseOptions?: ApolloReactHooks.La
 export type ScreenExtendedByIdQueryHookResult = ReturnType<typeof useScreenExtendedByIdQuery>;
 export type ScreenExtendedByIdLazyQueryHookResult = ReturnType<typeof useScreenExtendedByIdLazyQuery>;
 export type ScreenExtendedByIdQueryResult = ApolloReactCommon.QueryResult<ScreenExtendedByIdQuery, ScreenExtendedByIdQueryVariables>;
+export const ScreenExtendedByKeyDocument = gql`
+    query ScreenExtendedByKey($screenKey: ScreenKeyInput!) {
+  screenByKey(screenKey: $screenKey) {
+    ...BasicScreenParts
+    slides {
+      ...BasicSlideParts
+    }
+  }
+}
+    ${BasicScreenPartsFragmentDoc}
+${BasicSlidePartsFragmentDoc}`;
+export type ScreenExtendedByKeyComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<ScreenExtendedByKeyQuery, ScreenExtendedByKeyQueryVariables>, 'query'> & ({ variables: ScreenExtendedByKeyQueryVariables; skip?: boolean; } | { skip: boolean; });
+
+    export const ScreenExtendedByKeyComponent = (props: ScreenExtendedByKeyComponentProps) => (
+      <ApolloReactComponents.Query<ScreenExtendedByKeyQuery, ScreenExtendedByKeyQueryVariables> query={ScreenExtendedByKeyDocument} {...props} />
+    );
+    
+
+/**
+ * __useScreenExtendedByKeyQuery__
+ *
+ * To run a query within a React component, call `useScreenExtendedByKeyQuery` and pass it any options that fit your needs.
+ * When your component renders, `useScreenExtendedByKeyQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useScreenExtendedByKeyQuery({
+ *   variables: {
+ *      screenKey: // value for 'screenKey'
+ *   },
+ * });
+ */
+export function useScreenExtendedByKeyQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<ScreenExtendedByKeyQuery, ScreenExtendedByKeyQueryVariables>) {
+        return ApolloReactHooks.useQuery<ScreenExtendedByKeyQuery, ScreenExtendedByKeyQueryVariables>(ScreenExtendedByKeyDocument, baseOptions);
+      }
+export function useScreenExtendedByKeyLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<ScreenExtendedByKeyQuery, ScreenExtendedByKeyQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<ScreenExtendedByKeyQuery, ScreenExtendedByKeyQueryVariables>(ScreenExtendedByKeyDocument, baseOptions);
+        }
+export type ScreenExtendedByKeyQueryHookResult = ReturnType<typeof useScreenExtendedByKeyQuery>;
+export type ScreenExtendedByKeyLazyQueryHookResult = ReturnType<typeof useScreenExtendedByKeyLazyQuery>;
+export type ScreenExtendedByKeyQueryResult = ApolloReactCommon.QueryResult<ScreenExtendedByKeyQuery, ScreenExtendedByKeyQueryVariables>;
 export const UpdateScreenDocument = gql`
     mutation UpdateScreen($id: Int!, $values: UpdateScreenInput!) {
   updateScreen(id: $id, updateScreenData: $values) {

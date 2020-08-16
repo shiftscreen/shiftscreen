@@ -1,8 +1,10 @@
 import React from 'react';
-import dayjs, { Dayjs } from 'dayjs';
+import * as R from 'ramda';
 import { Typography, TimePicker } from 'antd';
 
 import { BasicSlidePartsFragment, useUpdateSlideMutation } from 'generated/graphql';
+import { Module } from 'types';
+import modules from 'modules';
 import { getDayjsDuration, getSecondsDuration, TIME_FORMAT } from './SlideDurationUtils';
 
 const { Text } = Typography;
@@ -44,11 +46,18 @@ const SlideDuration: React.FC<Props> = ({ slide }: Props) => {
     }
   };
 
+  const module = R.find<Module>(
+    R.propEq('id', slide?.appInstance?.appId)
+  )(modules);
+  const blockDuration = module?.blockDuration;
+
   const footer = () => (
     <Text>
       Czas trwania
     </Text>
   );
+
+  if (blockDuration) return null;
 
   return (
     <TimePicker

@@ -1,0 +1,6 @@
+mutation AddScreenKey($screenId: Int!, $privateKey: String!) {
+    addScreenKey(screenId: $screenId, privateKey: $privateKey) {
+        id
+        privateKey
+    }
+}

@@ -6,6 +6,7 @@ export interface Module {
   icon: IconName | IconLookup;
   color: string;
   versions: ModuleVersion[];
+  blockDuration?: boolean;
   hiddenPreview?: boolean;
 }
 

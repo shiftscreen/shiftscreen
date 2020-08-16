@@ -7,6 +7,7 @@ import { InstancePreview as ModuleInstancePreview } from 'components/Modules';
 
 interface Props {
   slide: BasicSlidePartsFragment;
+  onEnd?(): void;
 }
 
 class SlidePreview extends React.Component<Props> {
@@ -17,6 +18,7 @@ class SlidePreview extends React.Component<Props> {
   }
 
   render() {
+    const { onEnd } = this.props;
     const { appInstance } = this.props.slide;
 
     if (!appInstance) return (
@@ -24,7 +26,10 @@ class SlidePreview extends React.Component<Props> {
     );
 
     return (
-      <ModuleInstancePreview instance={appInstance}/>
+      <ModuleInstancePreview
+        instance={appInstance}
+        onEnd={onEnd}
+      />
     )
   }
 }

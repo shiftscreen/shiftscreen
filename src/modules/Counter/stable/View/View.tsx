@@ -14,7 +14,7 @@ import {
   LabelContainer,
   LabelInner
 } from './Style';
-import { getFormattedDiff } from './Utils';
+import { countAndGetFormattedDiff, getFormattedDiff } from './Utils';
 
 library.add(faCheckCircle);
 
@@ -23,27 +23,21 @@ interface Props {
 }
 
 const View: React.FC<Props> = ({ config }: Props) => {
-  const { label, completionMessage } = config;
-  const [[value, text], setValueText] = React.useState<[string, string]>(['', '']);
+  const { label, date, completionMessage } = config;
+  const [[value, text], setValueText] = React.useState<[string, string]>(
+    countAndGetFormattedDiff(date),
+  );
   const completed = R.lt(parseInt(value, 10), 0);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
       if (!completed) {
-        const now = dayjs();
-        const date = dayjs(config.date);
-        const diffSeconds = dayjs.duration(date.diff(now)).asSeconds();
-
-        setValueText(getFormattedDiff(diffSeconds))
+        setValueText(countAndGetFormattedDiff(date))
       }
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
-
-  if (!value) return (
-    <SlideLoading/>
-  );
 
   if (completed) return (
     <CompletedContainer>

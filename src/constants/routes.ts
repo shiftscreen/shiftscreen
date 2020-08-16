@@ -6,6 +6,7 @@ const Auth = loadable(() => import('screens/Auth'));
 const Rules = loadable(() => import('screens/Home'));
 const Panel = loadable(() => import('screens/Panel'));
 const Studio = loadable(() => import('screens/Studio'));
+const Show = loadable(() => import('screens/Show'));
 const NotFound = loadable(() => import('screens/NotFound'));
 
 export const Paths: PathType[] = [
@@ -39,6 +40,11 @@ export const Paths: PathType[] = [
     meta: {
       protected: true,
     }
+  },
+  {
+    path: Path.Show,
+    exact: true,
+    component: Show,
   },
   {
     path: Path.NotFound,

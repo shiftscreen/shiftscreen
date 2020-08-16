@@ -12,13 +12,14 @@ const { ErrorBoundary } = Alert;
 
 interface Props {
   instance: BasicAppInstancePartsFragment;
+  onEnd?(): void;
 }
 
 interface ModuleViewProps extends Props {
   config: any;
 }
 
-const ModuleInstancePreview: React.FC<Props> = ({ instance }: Props) => {
+const ModuleInstancePreview: React.FC<Props> = ({ instance, onEnd }: Props) => {
   const config = JSON.parse(instance.config);
 
   const ModuleView = loadable(({ instance }: ModuleViewProps) => (
@@ -41,6 +42,7 @@ const ModuleInstancePreview: React.FC<Props> = ({ instance }: Props) => {
           fallback={<DefaultModule/>}
           instance={instance}
           config={mergedConfig}
+          onEnd={onEnd}
         />
       </Container>
     </ErrorBoundary>

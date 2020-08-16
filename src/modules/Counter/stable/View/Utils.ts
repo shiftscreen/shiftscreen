@@ -1,4 +1,5 @@
 import * as R from 'ramda';
+import dayjs from 'dayjs';
 
 type TextType = 's' | 'm' | 'h' | 'd';
 
@@ -46,6 +47,15 @@ export const getFormattedDiff = (diff: number): [string, string] => (
       R.always([
         formatValue(R.divide(diff, 86400)),
         getInflectedText(Math.round(R.divide(diff, 86400)), 'd'),
-      ])],
+      ]),
+    ],
   ])(diff)
 );
+
+export const countAndGetFormattedDiff = (dateValue: string): [string, string] => {
+  const now = dayjs();
+  const date = dayjs(dateValue);
+  const diffSeconds = dayjs.duration(date.diff(now)).asSeconds();
+
+  return getFormattedDiff(diffSeconds);
+};

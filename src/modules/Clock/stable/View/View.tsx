@@ -10,7 +10,9 @@ import {
   ClockDigitalInner,
   ClockDigitalText,
   ClockFace,
-  ClockFaceContainer, ClockHandMinute, ClockHandHour,
+  ClockFaceContainer,
+  ClockHandMinute,
+  ClockHandHour,
 } from './Style';
 import { monthNames } from './Utils';
 
@@ -84,8 +86,8 @@ export const Clock = () => {
 
   return (
     <ClockFace>
-      <ClockHandMinute rotate={minuteHandRotate}/>
       <ClockHandHour rotate={hourHandRotate}/>
+      <ClockHandMinute rotate={minuteHandRotate}/>
     </ClockFace>
   )
 };

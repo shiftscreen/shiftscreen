@@ -8,9 +8,10 @@ interface Props {
   size: ScaledTypes.SizeType;
   slides: BasicSlidePartsFragment[];
   selectedId: string;
+  onEnd?(): void;
 }
 
-const SlideShow: React.FC<Props> = ({ slides, selectedId, size }: Props) => {
+const SlideShow: React.FC<Props> = ({ slides, selectedId, size, onEnd }: Props) => {
   const ref = React.useRef<any>();
 
   const getSelectedIndex = React.useCallback(() => (
@@ -36,6 +37,7 @@ const SlideShow: React.FC<Props> = ({ slides, selectedId, size }: Props) => {
       selectedIndex={selectedIndex}
       slides={slides}
       size={size}
+      onEnd={onEnd}
     />
   )
 };

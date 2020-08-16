@@ -33,9 +33,9 @@ export const Title = styled(Typography.Title)`
   &.ant-typography {
     color: #fff;
     font-size: 1.5rem;
-    margin: auto;
     background: rgba(255,255,255,0.1);
     border-radius: 7px;
+    margin-bottom: 0;
     
     .anticon {
       color: rgba(255,255,255,0.25);

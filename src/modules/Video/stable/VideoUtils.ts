@@ -5,5 +5,4 @@ export const defaultConfig: ConfigType = {
     type: 'url',
     url: '',
   },
-  mute: false,
 };
