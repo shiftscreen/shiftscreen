@@ -6,7 +6,7 @@ import 'normalize.min.css';
 import 'react-app-polyfill/ie11';
 
 import App from 'components/App';
-import 'index.css';
+import './index.css';
 import './icons';
 
 import duration from 'dayjs/plugin/duration';
