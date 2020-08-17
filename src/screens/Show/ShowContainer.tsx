@@ -1,9 +1,13 @@
 import React from 'react';
-import { bootstrap, PRIVATE_KEY_TOKEN } from './ShowUtils';
-import { useParams } from 'react-router';
-import { useScreenExtendedByKeyQuery } from '../../generated/graphql';
-import { KeyContainer } from './ShowStyle';
 import WebFont from 'webfontloader';
+import * as R from 'ramda';
+import { useParams } from 'react-router';
+import {
+  useOnScreenKeyAddedSubscription,
+  useScreenExtendedByKeyLazyQuery,
+} from 'generated/graphql';
+import { bootstrap, getFilteredOrderedSlides, useScreenKey } from './ShowUtils';
+import { KeyContainer } from './ShowStyle';
 import ShowView from './ShowView';
 
 WebFont.load({
@@ -13,30 +17,29 @@ WebFont.load({
 });
 
 const Show: React.FC = () => {
-  const [authorized, setAuthorized] = React.useState<boolean>(false);
-  const { publicKey, id } = useParams();
-  const privateKey = localStorage.getItem(PRIVATE_KEY_TOKEN);
-  const { data, error } = useScreenExtendedByKeyQuery({
-    variables: {
-      screenKey: {
-        publicKey,
-        privateKey: privateKey || '',
-        screenId: parseInt(id, 10),
-      }
-    },
-    onCompleted: () => setAuthorized(true),
-    pollInterval: authorized ? 1000 * 60 * 5 : 1000, // 5 min or 1 s
-    notifyOnNetworkStatusChange: true,
+  const screenKey = useScreenKey();
+  const [getScreen, { data: slidesData, error }] = useScreenExtendedByKeyLazyQuery({
+    variables: { screenKey },
   });
-  const slides = (data?.screenByKey.slides || []).filter(slide => slide.isActive);
+  const { data: keyData } = useOnScreenKeyAddedSubscription({
+    variables: { screenKey },
+  });
+  const slides = getFilteredOrderedSlides(slidesData);
+
+  React.useEffect(() => {
+    if (keyData) {
+      getScreen();
+    }
+  }, [keyData]);
 
   React.useEffect(() => {
     bootstrap();
+    getScreen();
   }, []);
 
-  if (!data || error) return (
+  if (!slidesData || error) return (
     <KeyContainer>
-      {privateKey}
+      {screenKey.privateKey}
     </KeyContainer>
   );
 

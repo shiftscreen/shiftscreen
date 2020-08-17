@@ -1,7 +1,8 @@
 import * as R from 'ramda';
 import loadable from '@loadable/component';
-import { Module } from 'types';
+import { BasicSlidePartsFragment, Module, ScreenExtendedByKeyQuery, ScreenKeyInput, Slide } from 'types';
 import modules from 'modules';
+import { useParams } from 'react-router';
 
 export const PRIVATE_KEY_TOKEN = 'shiftscreen-private-key';
 
@@ -35,4 +36,36 @@ const createPrivateKeyIfNotExists = () => {
 export const bootstrap = () => {
   preloadModules();
   createPrivateKeyIfNotExists();
+};
+
+export const getFilteredOrderedSlides = (data?: ScreenExtendedByKeyQuery): BasicSlidePartsFragment[] => {
+  const screen = data?.screenByKey;
+  const slides = screen?.slides || [];
+  const slidesOrder: number[] = screen?.slidesOrder;
+
+  if (R.isNil(screen)) {
+    return [];
+  }
+
+  const toSlide = (id: number) => (
+    R.find<Slide>(
+      R.propEq('id', id.toString())
+    )(slides)
+  );
+  const list = R.map(toSlide, slidesOrder);
+  const orderedList: any = R.reject(R.isNil, list);
+
+  return orderedList.filter((slide: BasicSlidePartsFragment) => slide.isActive);
+};
+
+export const useScreenKey = (): ScreenKeyInput => {
+  const { publicKey, id } = useParams();
+  const privateKey = localStorage.getItem(PRIVATE_KEY_TOKEN) || '';
+  const screenId = parseInt(id, 10);
+
+  return {
+    publicKey,
+    privateKey,
+    screenId,
+  }
 };

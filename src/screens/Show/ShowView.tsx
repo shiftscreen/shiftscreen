@@ -1,11 +1,11 @@
 import React from 'react';
+import * as R from 'ramda';
 import { BasicSlidePartsFragment } from 'generated/graphql';
 import { useWindowDimensions } from 'utils';
 import { Show as SlideShow } from 'components/Slides';
 import { Container } from './ShowStyle';
-import * as R from 'ramda';
-import { Module } from '../../modules/types';
-import modules from '../../modules';
+import { Module } from 'types';
+import modules from 'modules';
 
 interface Props {
   slides: BasicSlidePartsFragment[];
@@ -20,16 +20,22 @@ const ShowView: React.FC<Props> = ({ slides }) => {
   )(modules);
   const blockDuration = module?.blockDuration;
 
+  const getNextIndex = () => (
+    (selectedIndex + 1) % slides.length
+  );
+
   React.useEffect(() => {
     if (!blockDuration) {
+      const durationMiliseconds = selectedSlide.durationSeconds * 1000;
+
       setTimeout(() => {
-        setSelectedIndex((selectedIndex + 1) % slides.length)
-      }, selectedSlide.durationSeconds * 1000)
+        setSelectedIndex(getNextIndex())
+      }, durationMiliseconds)
     }
   }, [selectedSlide]);
 
   const handleEnd = () => (
-    setSelectedIndex((selectedIndex + 1) % slides.length)
+    setSelectedIndex(getNextIndex())
   );
 
   return (

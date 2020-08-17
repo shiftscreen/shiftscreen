@@ -1,0 +1,5 @@
+subscription onScreenKeyAdded($screenKey: ScreenKeyInput!) {
+    screenKeyAdded(screenKey: $screenKey) {
+        privateKey
+    }
+}

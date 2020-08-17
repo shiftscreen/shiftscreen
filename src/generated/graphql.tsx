@@ -448,6 +448,13 @@ export type ScreenKeyInput = {
   privateKey: Scalars['String'];
 };
 
+export type ScreenKeyInputSubscription = {
+   __typename?: 'ScreenKeyInputSubscription';
+  screenId: Scalars['Int'];
+  publicKey: Scalars['String'];
+  privateKey: Scalars['String'];
+};
+
 export type Slide = {
    __typename?: 'Slide';
   id: Scalars['ID'];
@@ -481,6 +488,16 @@ export type Storage = {
   usedKilobytes: Scalars['Int'];
   maxKilobytes: Scalars['Int'];
   user: User;
+};
+
+export type Subscription = {
+   __typename?: 'Subscription';
+  screenKeyAdded: ScreenKeyInputSubscription;
+};
+
+
+export type SubscriptionScreenKeyAddedArgs = {
+  screenKey: ScreenKeyInput;
 };
 
 export type TokenResponse = {
@@ -1140,6 +1157,19 @@ export type ExtendedScreenPartsFragment = (
     & BasicOrganizationPartsFragment
   ) }
   & BasicScreenPartsFragment
+);
+
+export type OnScreenKeyAddedSubscriptionVariables = {
+  screenKey: ScreenKeyInput;
+};
+
+
+export type OnScreenKeyAddedSubscription = (
+  { __typename?: 'Subscription' }
+  & { screenKeyAdded: (
+    { __typename?: 'ScreenKeyInputSubscription' }
+    & Pick<ScreenKeyInputSubscription, 'privateKey'>
+  ) }
 );
 
 export type BasicScreenPartsFragment = (
@@ -2926,6 +2956,41 @@ export function useScreenExtendedByKeyLazyQuery(baseOptions?: ApolloReactHooks.L
 export type ScreenExtendedByKeyQueryHookResult = ReturnType<typeof useScreenExtendedByKeyQuery>;
 export type ScreenExtendedByKeyLazyQueryHookResult = ReturnType<typeof useScreenExtendedByKeyLazyQuery>;
 export type ScreenExtendedByKeyQueryResult = ApolloReactCommon.QueryResult<ScreenExtendedByKeyQuery, ScreenExtendedByKeyQueryVariables>;
+export const OnScreenKeyAddedDocument = gql`
+    subscription onScreenKeyAdded($screenKey: ScreenKeyInput!) {
+  screenKeyAdded(screenKey: $screenKey) {
+    privateKey
+  }
+}
+    `;
+export type OnScreenKeyAddedComponentProps = Omit<ApolloReactComponents.SubscriptionComponentOptions<OnScreenKeyAddedSubscription, OnScreenKeyAddedSubscriptionVariables>, 'subscription'>;
+
+    export const OnScreenKeyAddedComponent = (props: OnScreenKeyAddedComponentProps) => (
+      <ApolloReactComponents.Subscription<OnScreenKeyAddedSubscription, OnScreenKeyAddedSubscriptionVariables> subscription={OnScreenKeyAddedDocument} {...props} />
+    );
+    
+
+/**
+ * __useOnScreenKeyAddedSubscription__
+ *
+ * To run a query within a React component, call `useOnScreenKeyAddedSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useOnScreenKeyAddedSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useOnScreenKeyAddedSubscription({
+ *   variables: {
+ *      screenKey: // value for 'screenKey'
+ *   },
+ * });
+ */
+export function useOnScreenKeyAddedSubscription(baseOptions?: ApolloReactHooks.SubscriptionHookOptions<OnScreenKeyAddedSubscription, OnScreenKeyAddedSubscriptionVariables>) {
+        return ApolloReactHooks.useSubscription<OnScreenKeyAddedSubscription, OnScreenKeyAddedSubscriptionVariables>(OnScreenKeyAddedDocument, baseOptions);
+      }
+export type OnScreenKeyAddedSubscriptionHookResult = ReturnType<typeof useOnScreenKeyAddedSubscription>;
+export type OnScreenKeyAddedSubscriptionResult = ApolloReactCommon.SubscriptionResult<OnScreenKeyAddedSubscription>;
 export const UpdateScreenDocument = gql`
     mutation UpdateScreen($id: Int!, $values: UpdateScreenInput!) {
   updateScreen(id: $id, updateScreenData: $values) {
