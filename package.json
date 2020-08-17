@@ -77,6 +77,7 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
+    "postinstall": "react-app-rewired build",
     "generate-init": "graphql-codegen init",
     "generate": "graphql-codegen --config codegen.yml"
   },

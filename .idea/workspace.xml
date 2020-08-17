@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ede6dee5-7508-463f-a001-18b0a69ec626" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Screens/graphql/ScreenKeyAddedSubscription.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/.env.sample" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/.env.sample" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/schema.gql" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/schema.gql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/config/graphql.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/config/graphql.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/dto/screen-key.input.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/dto/screen-key.input.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.resolver.ts" afterDir="false" />
+    <list default="true" id="ede6dee5-7508-463f-a001-18b0a69ec626" name="Default Changelist" comment="Fixes">
+      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql.schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/graphql.schema.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apollo/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apollo/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/graphql.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/graphql.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Show/ShowContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Show/ShowContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Show/ShowUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Show/ShowView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Show/ShowView.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +142,7 @@
       <workItem from="1597482875792" duration="22311000" />
       <workItem from="1597569221720" duration="25852000" />
       <workItem from="1597650537237" duration="903000" />
-      <workItem from="1597675974598" duration="16768000" />
+      <workItem from="1597675974598" duration="17706000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1591736676262</created>
@@ -236,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597617504143</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fixes">
+      <created>1597698443237</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1597698443237</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,6 +258,7 @@
     <MESSAGE value="Add SlideShow" />
     <MESSAGE value="Add Counter module" />
     <MESSAGE value="Add Show page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Show page" />
+    <MESSAGE value="Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes" />
   </component>
 </project>
