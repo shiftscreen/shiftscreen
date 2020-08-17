@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ede6dee5-7508-463f-a001-18b0a69ec626" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/config/typeorm.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/config/typeorm.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
@@ -142,7 +143,7 @@
       <workItem from="1597482875792" duration="22311000" />
       <workItem from="1597569221720" duration="25852000" />
       <workItem from="1597650537237" duration="903000" />
-      <workItem from="1597675974598" duration="20402000" />
+      <workItem from="1597675974598" duration="21790000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1591736676262</created>
@@ -263,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597701780214</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Add @babel/compat-data">
+      <created>1597702622158</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1597702622158</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +306,7 @@
     <MESSAGE value="Fix module link" />
     <MESSAGE value="Add index.css" />
     <MESSAGE value="Remove bundle analyzer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove bundle analyzer" />
+    <MESSAGE value="Add @babel/compat-data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add @babel/compat-data" />
   </component>
 </project>
