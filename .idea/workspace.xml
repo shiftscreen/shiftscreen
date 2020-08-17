@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ede6dee5-7508-463f-a001-18b0a69ec626" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-overrides.js" beforeDir="false" afterPath="$PROJECT_DIR$/config-overrides.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../powerdashboard-api" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="ProjectId" id="1Xr1uMUskClXVmqyw3SVs1k6iH4" />
@@ -141,7 +142,7 @@
       <workItem from="1597482875792" duration="22311000" />
       <workItem from="1597569221720" duration="25852000" />
       <workItem from="1597650537237" duration="903000" />
-      <workItem from="1597675974598" duration="19616000" />
+      <workItem from="1597675974598" duration="20402000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1591736676262</created>
@@ -255,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597701305157</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Remove bundle analyzer">
+      <created>1597701780214</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1597701780214</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,6 +297,7 @@
     <MESSAGE value="Add Procfile" />
     <MESSAGE value="Fix module link" />
     <MESSAGE value="Add index.css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add index.css" />
+    <MESSAGE value="Remove bundle analyzer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove bundle analyzer" />
   </component>
 </project>
