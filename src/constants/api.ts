@@ -6,7 +6,7 @@ const Api: ApiType = {
   recaptchaKey: '6LfgoLIZAAAAAPz7AQy1wxxwkcJsH6ebhlf9D5zd',
   uri: '/graphql',
   wsUri: process.env.NODE_ENV === 'production'
-    ? 'ws://api.shiftscreen.pl/graphql'
+    ? 'wss://api.shiftscreen.pl/graphql'
     : 'ws://localhost:5000/graphql',
 };
 
