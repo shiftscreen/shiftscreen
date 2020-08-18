@@ -144,7 +144,7 @@ const DeleteAction: React.FC<DeleteActionProps> = ({ slide, screen }: DeleteActi
 
   const handleClick = async () => {
     const withoutDeleted = (num: number) => R.not(R.equals(num, parseInt(slide.id, 10)));
-    const newOrder = R.filter(withoutDeleted, screen.slidesOrder);
+    const newOrder = R.filter(withoutDeleted, screen.slidesOrder || []);
 
     try {
       await deleteSlide();

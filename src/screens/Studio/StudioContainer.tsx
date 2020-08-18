@@ -32,7 +32,7 @@ const Studio: React.FC = () => {
   const [selectedSlideId, setSelectedSlideId] = React.useState<string | undefined>();
   const screen = data?.screen;
   const slides = screen?.slides || [];
-  const slidesOrder: number[] = screen?.slidesOrder;
+  const slidesOrder: number[] = screen?.slidesOrder || [];;
   const selectedSlide = R.find<Slide>(
     R.propEq('id', selectedSlideId)
   )(slides);
@@ -85,7 +85,7 @@ const Studio: React.FC = () => {
         R.propEq('id', id.toString())
       )(slides)
     );
-    const list = R.map(toSlide, screen.slidesOrder);
+    const list = R.map(toSlide, slidesOrder);
     const filteredList: any = R.reject(R.isNil, list);
     const listHaveUndefinedSlides = R.not(R.equals(list, filteredList));
     const shouldUpdate = R.and(listHaveUndefinedSlides, R.not(updateScreenLoading));

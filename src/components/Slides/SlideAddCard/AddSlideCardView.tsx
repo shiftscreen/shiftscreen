@@ -26,7 +26,7 @@ const AddSlideCard: React.FC<Props> = ({ screen }: Props) => {
     }
 
     const newSlideId = parseInt(newSlideData.id, 10);
-    const currentOrder: number[] = screen.slidesOrder;
+    const currentOrder: number[] = screen.slidesOrder || [];
     const newOrder = currentOrder.concat(newSlideId);
 
     try {

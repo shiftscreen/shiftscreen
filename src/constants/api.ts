@@ -5,6 +5,9 @@ const Api: ApiType = {
   tokenExpiration: 'shiftscreen-token-expires-on',
   recaptchaKey: '6LfgoLIZAAAAAPz7AQy1wxxwkcJsH6ebhlf9D5zd',
   uri: '/graphql',
+  wsUri: process.env.NODE_ENV === 'production'
+    ? 'ws://api.shiftscreen.pl/graphql'
+    : 'ws://localhost:5000/graphql',
 };
 
 export default Api;

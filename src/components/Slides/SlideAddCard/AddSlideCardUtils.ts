@@ -9,7 +9,7 @@ import { DataProxy } from 'apollo-cache';
 import { FetchResult } from 'apollo-link';
 
 export const getDefaultValues = (screen: BasicScreenPartsFragment): NewSlideInput => ({
-  durationSeconds: 60,
+  durationSeconds: 10,
   screenId: parseInt(screen.id, 10),
   date: [],
   time: [],

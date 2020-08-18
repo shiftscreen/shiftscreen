@@ -35,6 +35,7 @@ export enum Path {
 export interface ApiType {
   token: string;
   uri: string;
+  wsUri: string;
   recaptchaKey: string;
   tokenExpiration: string;
 }

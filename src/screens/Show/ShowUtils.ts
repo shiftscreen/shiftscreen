@@ -41,7 +41,7 @@ export const bootstrap = () => {
 export const getFilteredOrderedSlides = (data?: ScreenExtendedByKeyQuery): BasicSlidePartsFragment[] => {
   const screen = data?.screenByKey;
   const slides = screen?.slides || [];
-  const slidesOrder: number[] = screen?.slidesOrder;
+  const slidesOrder: number[] = screen?.slidesOrder || [];
 
   if (R.isNil(screen)) {
     return [];
@@ -54,6 +54,7 @@ export const getFilteredOrderedSlides = (data?: ScreenExtendedByKeyQuery): Basic
   );
   const list = R.map(toSlide, slidesOrder);
   const orderedList: any = R.reject(R.isNil, list);
+  console.log({ slidesOrder });
 
   return orderedList.filter((slide: BasicSlidePartsFragment) => slide.isActive);
 };
