@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ede6dee5-7508-463f-a001-18b0a69ec626" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/storages/storages.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/storages/storages.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/users/users.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/users/users.resolver.ts" afterDir="false" />
+    <list default="true" id="ede6dee5-7508-463f-a001-18b0a69ec626" name="Default Changelist" comment="Secure websocket">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apollo/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apollo/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Slides/SlideCard/SlideCardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlideCard/SlideCardView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Show/ShowUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Studio/StudioContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Studio/StudioContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupProxy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Calendar/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Clock/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Clock/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Counter/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Show/ShowStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Show/ShowStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Show/ShowView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Show/ShowView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/Logo/Logo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/Logo/Logo.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,19 +36,19 @@
     <property name="ts.external.directory.path" value="E:\Projekty\GitHub\commercial\powerdashboard\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens\graphql" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Show\graphql" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\screen-keys\dto" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\screens\utils" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens\graphql" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\assets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens\graphql" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Show\graphql" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\screen-keys\dto" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -154,7 +149,10 @@
       <workItem from="1597569221720" duration="25852000" />
       <workItem from="1597650537237" duration="903000" />
       <workItem from="1597675974598" duration="23362000" />
-      <workItem from="1597737974923" duration="7798000" />
+      <workItem from="1597737974923" duration="13291000" />
+      <workItem from="1597833029784" duration="718000" />
+      <workItem from="1597861393685" duration="1199000" />
+      <workItem from="1597917840222" duration="3551000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1591736676262</created>
@@ -296,7 +294,21 @@
       <option name="project" value="LOCAL" />
       <updated>1597740683736</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Fixes">
+      <created>1597747233540</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1597747233540</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Secure websocket">
+      <created>1597748362875</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1597748362875</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +338,6 @@
     <MESSAGE value="Add SlideShow" />
     <MESSAGE value="Add Counter module" />
     <MESSAGE value="Add Show page" />
-    <MESSAGE value="Fixes" />
     <MESSAGE value="Add Procfile" />
     <MESSAGE value="Fix module link" />
     <MESSAGE value="Add index.css" />
@@ -334,6 +345,8 @@
     <MESSAGE value="Add @babel/compat-data" />
     <MESSAGE value="Update packages" />
     <MESSAGE value="Fix slidesOrder column config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix slidesOrder column config" />
+    <MESSAGE value="Fixes" />
+    <MESSAGE value="Secure websocket" />
+    <option name="LAST_COMMIT_MESSAGE" value="Secure websocket" />
   </component>
 </project>

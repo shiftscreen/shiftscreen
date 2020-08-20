@@ -13,9 +13,22 @@ export const Image = styled(MediaView)`
 `;
 
 export const Inner = styled.div`
-  display: grid;
-  grid-gap: 32px;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  
+  & > div:not(:last-child) {
+    margin-bottom: 32px;
+  }
+  
+  /*@supports (display: grid) {
+    display: grid;
+    grid-gap: 32px;
+    
+    & > div:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }*/
 `;
 
 export const Header = styled.div`
@@ -74,13 +87,48 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   width: ${size.width}px;
   height: ${size.height}px;
   
+  & > img:first-child {
+    flex-basis: 50%;
+    width: 50%;
+    min-width: 50%;
+  }
+
+  & > div:last-child {
+    flex-basis: 50%;
+  }
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    & > div, & > img {
+      flex: 1;
+    }
+  }
+  
   ${({ noImage }) => noImage && css`
-    grid-template-columns: 100%;
+    & > div:last-child {
+      flex-basis: 100%;
+    }
+
+    @supports (display: grid) {
+      grid-template-columns: 100%;
+    
+      & > img:first-child {
+        width: 100%;
+        min-width: 100%;
+      }
+
+      & > img, & > div {
+        flex: 1;
+      }
+    }
+
     ${Content} {
       background: #51768F;
       padding: 96px;

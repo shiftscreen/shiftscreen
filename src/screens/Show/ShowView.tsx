@@ -3,8 +3,9 @@ import * as R from 'ramda';
 import { BasicSlidePartsFragment } from 'generated/graphql';
 import { useWindowDimensions } from 'utils';
 import { Show as SlideShow } from 'components/Slides';
-import { Container } from './ShowStyle';
+import { Container, LogoWatermarkWrapper } from './ShowStyle';
 import { Module } from 'types';
+import { Logo } from 'shared';
 import modules from 'modules';
 
 interface Props {
@@ -46,6 +47,9 @@ const ShowView: React.FC<Props> = ({ slides }) => {
         selectedId={selectedSlide.id}
         onEnd={handleEnd}
       />
+      <LogoWatermarkWrapper>
+        <Logo color="white" />
+      </LogoWatermarkWrapper>
     </Container>
   );
 };

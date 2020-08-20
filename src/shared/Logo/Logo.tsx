@@ -5,12 +5,13 @@ import { ReactComponent as LogoWhite } from 'assets/vectors/logo-white.svg';
 
 interface Props {
   color: 'white' | 'full';
+  className?: string;
 }
 
-const Logo: React.FC<Props> = (props: Props) => {
-  const { color } = props;
-
-  return color === 'white' ? <LogoWhite/> : <LogoColor/>;
-};
+const Logo: React.FC<Props> = ({ color, ...props }) => (
+  color === 'white'
+    ? <LogoWhite {...props} />
+    : <LogoColor {...props} />
+);
 
 export default Logo;

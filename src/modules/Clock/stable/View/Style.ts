@@ -4,11 +4,28 @@ import { Slides } from 'constants/index';
 const size = Slides.size.base;
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  display: flex;
+  flex-wrap: wrap;
   width: ${size.width}px;
   height: ${size.height}px;
   background: #FAFAFA;
+
+  & > div:first-child {
+    flex-basis: 40%;
+  }
+
+  & > div:last-child {
+    flex-basis: 60%;
+  }
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+
+    & > div {
+      flex: 1;
+    }
+  }
 `;
 
 export const ClockFaceContainer = styled.div`

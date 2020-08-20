@@ -4,10 +4,27 @@ import { Slides } from 'constants/index';
 const size = Slides.size.base;
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 4fr 6fr;
+  display: flex;
+  flex-wrap: wrap;
   width: ${size.width}px;
   height: ${size.height}px;
+  
+  & > div:first-child {
+    flex-basis: 40%;
+  }
+  
+  & > div:last-child {
+    flex-basis: 60%;
+  }
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+
+    & > div {
+      flex: 1;
+    }
+  }
 `;
 
 interface CardContainerProps {
@@ -86,12 +103,31 @@ export const ListContainer = styled.div<ListContainerProps>`
 `;
 
 export const List = styled.div`
-  display: grid;
-  grid-template-columns: repeat(7, auto);
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
-  grid-gap: 8px;
   height: 100%;
   max-height: 400px;
+  margin-bottom: -8px;
+  margin-right: -8px;
+
+  & > div {
+    flex-basis: calc(100% / 7 - 8px);
+    margin-bottom: 8px;
+    margin-right: 8px;
+  }
+  
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    grid-gap: 8px;
+    margin: auto;
+
+    & > div {
+      flex: 1;
+      margin: 0;
+    }
+  }
 `;
 
 export const NameDay = styled.div`

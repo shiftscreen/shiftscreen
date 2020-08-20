@@ -77,9 +77,35 @@ export const Container = styled.div<ContainerProps>`
   position: relative;
   
   ${({ imageBeside }) => imageBeside && css`
-    display: grid;
-    grid-template-rows: 100%;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    
+    & > div:first-child,
+    & > img:first-child {
+      flex-basis: 34%;
+      width: 34%;
+    }
+
+    & > div:last-child,
+    & > img:last-child {
+      flex-basis: 66%;
+    }
+    
+    @supports (display: grid) {
+      display: grid;
+      grid-template-rows: 100%;
+      grid-template-columns: 1fr 2fr;
+  
+      & > div,
+      & > img {
+        flex: 1;
+      }
+
+      & > img:first-child {
+        width: 100%;
+        flex: 1;
+      }
+    }
     
     ${Image} {
       position: relative;
