@@ -6,12 +6,7 @@ import { NewFileInput } from 'types';
 
 import ModalFormik from 'shared/ModalFormik';
 import FileAddForm from './FileAddForm';
-import {
-  useAddFileMutation,
-  ViewerFilesDocument,
-  ViewerFilesQuery,
-  ViewerStorageDocument,
-} from 'generated/graphql';
+import { useAddFileMutation, ViewerFilesDocument, ViewerFilesQuery, ViewerStorageDocument, } from 'generated/graphql';
 import { message } from 'antd';
 
 interface Props {

@@ -1,10 +1,9 @@
 import React from 'react';
 import * as R from 'ramda';
 import { useField } from 'formik';
-import { Form, TimePicker } from 'antd';
+import { Button, Form, TimePicker } from 'antd';
 import { DatePicker } from 'formik-antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
 import dayjs, { Dayjs } from 'dayjs';
 
 import { Container, PickerContainer } from './ListInputStyle';

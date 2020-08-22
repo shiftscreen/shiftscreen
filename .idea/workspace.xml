@@ -1,16 +1,295 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ede6dee5-7508-463f-a001-18b0a69ec626" name="Default Changelist" comment="Secure websocket">
+    <list default="true" id="ede6dee5-7508-463f-a001-18b0a69ec626" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils/constants.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils/createPrivateKeyIfNotExists.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils/generateRandomKey.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils/getFilteredOrderedSlides.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils/preloadModules.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils/preloadScreen.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils/screenPersist.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils/useScreenKey.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/serviceWorker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/apps-instances/apps-instances.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/apps-instances/apps-instances.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/entities/token.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/entities/token.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/files-keys/files-keys.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/files-keys/files-keys.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/files/files.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/files/files.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/minio/minio.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/minio/minio.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/organizations/organizations.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/organizations/organizations.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/roles/roles.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/roles/roles.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/slides/slides.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/slides/slides.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/slides/slides.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/slides/slides.resolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/storages/storages.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/storages/storages.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/users/users.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/users/users.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/utils.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/utils/utils.resolver.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apollo/cache.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apollo/cache.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apollo/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apollo/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apollo/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apollo/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/vectors/logo-color.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/vectors/logo-color.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/vectors/logo-white.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/vectors/logo-white.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/AppAuthLayer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/AppAuthLayer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/AppRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/AppRouter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/AuthResolvers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/AuthResolvers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormOperations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormOperations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUpForm/SignUpFormContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUpForm/SignUpFormContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUpForm/SignUpFormOperations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUpForm/SignUpFormOperations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUpForm/SignUpFormUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUpForm/SignUpFormUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUpForm/SignUpFormView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUpForm/SignUpFormView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/UserEditModal/Form/FormContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/UserEditModal/Form/FormContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/UserEditModal/Form/FormUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/UserEditModal/Form/FormUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/UserEditModal/Form/FormView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/UserEditModal/Form/FormView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/UserEditModal/UserEditModalView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/UserEditModal/UserEditModalView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/UserInfo/UserInfoView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/UserInfo/UserInfoView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddForm/FileAddFormContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddForm/FileAddFormContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddForm/FileAddFormUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddForm/FileAddFormUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddForm/FileAddFormView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddForm/FileAddFormView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddModalContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddModalContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FileSelectModal/FileSelectModalStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FileSelectModal/FileSelectModalStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FileSelectModal/FileSelectModalUtils.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FileSelectModal/FileSelectModalUtils.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FileSelectModal/FileSelectModalView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FileSelectModal/FileSelectModalView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FileSelectModal/FilesList/FilesListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FileSelectModal/FilesList/FilesListView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FileSelectModal/ModalFooter/ModalFooterView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FileSelectModal/ModalFooter/ModalFooterView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FilesHeaderActions/FilesHeaderActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FilesHeaderActions/FilesHeaderActions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FilesList/FilesListContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FilesList/FilesListContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FilesList/FilesListStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FilesList/FilesListStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FilesList/FilesListUtils.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FilesList/FilesListUtils.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FilesList/ListActions/ListActionsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FilesList/ListActions/ListActionsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FilesStorage/FilesStorageContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FilesStorage/FilesStorageContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FilesStorage/FilesStorageStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FilesStorage/FilesStorageStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FilesStorage/FilesStorageView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FilesStorage/FilesStorageView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleCard/ModuleCardStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleCard/ModuleCardStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleCard/ModuleCardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleCard/ModuleCardView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceAddCard/ModuleInstanceAddCardUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceAddCard/ModuleInstanceAddCardUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceAddCard/ModuleInstanceAddCardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceAddCard/ModuleInstanceAddCardView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceCard/CardActions/CardActionsUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceCard/CardActions/CardActionsUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceCard/CardActions/CardActionsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceCard/CardActions/CardActionsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceCard/ModuleInstanceCardStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceCard/ModuleInstanceCardStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceCard/ModuleInstanceCardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceCard/ModuleInstanceCardView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceConfig/ModuleInstanceConfigContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceConfig/ModuleInstanceConfigContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceConfig/ModuleInstanceConfigStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceConfig/ModuleInstanceConfigStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleInstancePreview/ModuleInstancePreviewStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleInstancePreview/ModuleInstancePreviewStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleInstancePreview/ModuleInstancePreviewView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleInstancePreview/ModuleInstancePreviewView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleSelectModal/ModuleInstancesList/ModuleInstancesListStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleSelectModal/ModuleInstancesList/ModuleInstancesListStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleSelectModal/ModuleInstancesList/ModuleInstancesListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleSelectModal/ModuleInstancesList/ModuleInstancesListView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleSelectModal/ModuleSelectModalView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleSelectModal/ModuleSelectModalView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleSelectModal/ModulesList/ModulesListStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleSelectModal/ModulesList/ModulesListStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleSelectModal/ModulesList/ModulesListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleSelectModal/ModulesList/ModulesListView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationAddModal/Form/FormContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationAddModal/Form/FormContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationAddModal/Form/FormUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationAddModal/Form/FormUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationAddModal/Form/FormView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationAddModal/Form/FormView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationAddModal/OrganizationAddModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationAddModal/OrganizationAddModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationAvatar/OrganizationAvatarUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationAvatar/OrganizationAvatarUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationAvatar/OrganizationAvatarView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationAvatar/OrganizationAvatarView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationCard/CardActions/CardActionsUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationCard/CardActions/CardActionsUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationCard/CardActions/CardActionsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationCard/CardActions/CardActionsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationCard/OrganizationCardStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationCard/OrganizationCardStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationCard/OrganizationCardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationCard/OrganizationCardView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationInfo/OrganizationInfoStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationInfo/OrganizationInfoStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationInfo/OrganizationInfoView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationInfo/OrganizationInfoView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationResolvers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationResolvers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationSelect/OrganizationSelectUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationSelect/OrganizationSelectUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationSelect/OrganizationSelectView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationSelect/OrganizationSelectView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationsHeaderActions/OrganizationsHeaderActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationsHeaderActions/OrganizationsHeaderActions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Panel/PanelContentHeader/PanelContentHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Panel/PanelContentHeader/PanelContentHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Panel/PanelContentHeader/PanelContentHeaderStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Panel/PanelContentHeader/PanelContentHeaderStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Panel/PanelHeader/PanelHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Panel/PanelHeader/PanelHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Panel/PanelHeader/PanelHeaderStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Panel/PanelHeader/PanelHeaderStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Panel/PanelMenu/MenuItem/MenuItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Panel/PanelMenu/MenuItem/MenuItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Panel/PanelMenu/MenuItem/MenuItemStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Panel/PanelMenu/MenuItem/MenuItemStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Panel/PanelMenu/PanelMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Panel/PanelMenu/PanelMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Panel/PanelMenu/PanelMenuStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Panel/PanelMenu/PanelMenuStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Panel/PanelMenu/PanelMenuUtils.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Panel/PanelMenu/PanelMenuUtils.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Panel/PanelSider/PanelSider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Panel/PanelSider/PanelSider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Panel/PanelSider/PanelSiderStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Panel/PanelSider/PanelSiderStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Panel/PanelTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Panel/PanelTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Panel/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Panel/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Roles/RoleAddModal/Form/FormView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Roles/RoleAddModal/Form/FormView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Roles/RoleAddModal/RoleAddModalContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Roles/RoleAddModal/RoleAddModalContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Roles/RolesList/ListActions/ListActionsUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Roles/RolesList/ListActions/ListActionsUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Roles/RolesList/ListActions/ListActionsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Roles/RolesList/ListActions/ListActionsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Roles/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Roles/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenAddKeyModal/ScreenAddKeyModalStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenAddKeyModal/ScreenAddKeyModalStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenAddKeyModal/ScreenAddKeyModalView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenAddKeyModal/ScreenAddKeyModalView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenAddModal/Form/FormContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenAddModal/Form/FormContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenAddModal/Form/FormUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenAddModal/Form/FormUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenAddModal/Form/FormView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenAddModal/Form/FormView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenAddModal/ScreenAddModalUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenAddModal/ScreenAddModalUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenAddModal/ScreenAddModalView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenAddModal/ScreenAddModalView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenCard/CardActions/CardActionsUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenCard/CardActions/CardActionsUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenCard/CardActions/CardActionsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenCard/CardActions/CardActionsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenCard/ScreenCardStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenCard/ScreenCardStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenCard/ScreenCardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenCard/ScreenCardView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreensHeaderActions/ScreensHeaderActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreensHeaderActions/ScreensHeaderActions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Slides/SlideCard/SlideCardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlideCard/SlideCardView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Slides/SlidePreview/SlidePreview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlidePreview/SlidePreview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleConfigStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleConfigStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleConfigView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleConfigView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleInfoStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleInfoStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleInfoView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleInfoView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleSelect/SlideModuleSelectStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleSelect/SlideModuleSelectStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleSelect/SlideModuleSelectView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleSelect/SlideModuleSelectView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInstanceConfig/SlideModuleInstanceConfigStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInstanceConfig/SlideModuleInstanceConfigStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInstanceConfig/SlideModuleInstanceConfigView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInstanceConfig/SlideModuleInstanceConfigView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlidePreview/SlidePreviewStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlidePreview/SlidePreviewStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlidePreview/SlidePreviewView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlidePreview/SlidePreviewView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/Form/FormContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/Form/FormContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/Form/FormView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/Form/FormView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/Form/ListInput/ListInputStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/Form/ListInput/ListInputStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/Form/ListInput/ListInputView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/Form/ListInput/ListInputView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/Form/WeekdaysInput/WeekdaysInputStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/Form/WeekdaysInput/WeekdaysInputStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/Form/WeekdaysInput/WeekdaysInputView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/Form/WeekdaysInput/WeekdaysInputView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/SlideAdvancedModalContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/SlideAdvancedModalContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/SlideAdvancedModalTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/SlideAdvancedModalTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideDuration/SlideDurationUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideDuration/SlideDurationUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideDuration/SlideDurationView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideDuration/SlideDurationView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideSettingsStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideSettingsStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideSettingsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideSettingsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideTransition/SlideTransitionStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideTransition/SlideTransitionStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideTransition/SlideTransitionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideTransition/SlideTransitionView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/StudioEditorStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/StudioEditorStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/StudioEditorView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/StudioEditorView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioHeader/StudioHeaderStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioHeader/StudioHeaderStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioHeader/StudioHeaderView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioHeader/StudioHeaderView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioSlideConfig/StudioSlideConfigStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioSlideConfig/StudioSlideConfigStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioSlideConfig/StudioSlideConfigView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioSlideConfig/StudioSlideConfigView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioSlidesList/StudioSlidesListContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioSlidesList/StudioSlidesListContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioSlidesList/StudioSlidesListStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioSlidesList/StudioSlidesListStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioSlidesList/StudioSlidesListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioSlidesList/StudioSlidesListView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/screenRatios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/screenRatios.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/slides.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/slides.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/graphql.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/graphql.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/icons.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/Calendar/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Calendar/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Calendar/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Clock/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Clock/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Clock/stable/ClockUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Clock/stable/ClockUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Clock/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Clock/stable/Config/Config.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/Clock/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Clock/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Clock/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Clock/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Counter/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Counter/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Counter/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Counter/stable/Config/Config.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Counter/stable/CounterUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Counter/stable/CounterUtils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/Counter/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Counter/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Default/Default.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Default/Default.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Default/DefaultStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Default/DefaultStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Gallery/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Gallery/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Gallery/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/Config/Config.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Gallery/stable/Config/ListInput/ListInputStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/Config/ListInput/ListInputStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Gallery/stable/Config/ListInput/ListInputView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/Config/ListInput/ListInputView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Gallery/stable/GalleryTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/GalleryTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Gallery/stable/GalleryUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/GalleryUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Gallery/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Gallery/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Gallery/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/News/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/Config/Config.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/Config/ListInput/ListInputStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/Config/ListInput/ListInputStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/Config/ListInput/ListInputView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/Config/ListInput/ListInputView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/NewsTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/NewsTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/NewsUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/NewsUtils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/News/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/View/Utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/View/Utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/Config.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/ListInput/ListInputStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/ListInput/ListInputStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/ListInput/ListInputView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/Config/ListInput/ListInputView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/QuotesTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/QuotesTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/QuotesUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/QuotesUtils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/View/Utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/View/Utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Quotes/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Quotes/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Video/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Video/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Video/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Video/stable/Config/Config.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Video/stable/VideoTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Video/stable/VideoTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Video/stable/VideoUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Video/stable/VideoUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Video/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Video/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Website/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Website/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Website/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Website/stable/Config/Config.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Website/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Website/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Website/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Website/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Website/stable/WebsiteUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Website/stable/WebsiteUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Welcome/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Welcome/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Welcome/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Welcome/stable/Config/Config.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Welcome/stable/View/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Welcome/stable/View/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Welcome/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Welcome/stable/View/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Welcome/stable/WelcomeTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Welcome/stable/WelcomeTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Welcome/stable/WelcomeUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Welcome/stable/WelcomeUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/YouTube/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/YouTube/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/YouTube/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/YouTube/stable/Config/Config.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Auth/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Auth/Auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/NotFound/NotFound.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/NotFound/NotFound.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/Files/FilesContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/Files/FilesContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/ModuleInstances/ModuleInstancesStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/ModuleInstances/ModuleInstancesStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/ModuleInstances/ModuleInstancesView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/ModuleInstances/ModuleInstancesView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/ModulesList/ModulesListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/ModulesList/ModulesListView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/OrganizationSettings/OrganizationSettingsOperations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/OrganizationSettings/OrganizationSettingsOperations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/OrganizationSettings/OrganizationSettingsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/OrganizationSettings/OrganizationSettingsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/OrganizationsList/OrganizationsListContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/OrganizationsList/OrganizationsListContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/PanelConfig.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/PanelConfig.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/PanelContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/PanelContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/PanelStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/PanelStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/PanelView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/PanelView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/Screens/ScreensContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/Screens/ScreensContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/Screens/ScreensStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/Screens/ScreensStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Rules/Rules.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Rules/Rules.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Rules/RulesStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Rules/RulesStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Show/ShowContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Show/ShowContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Show/ShowStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Show/ShowStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Show/ShowUtils.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Show/ShowView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Show/ShowView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Studio/StudioContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Studio/StudioContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Studio/StudioStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Studio/StudioStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ColorInput/ColorInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ColorInput/ColorInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ColorInput/ColorInputStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ColorInput/ColorInputStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ErrorAlert/ErrorAlert.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ErrorAlert/ErrorAlert.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/LoadingIndicator/LoadingIndicator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/LoadingIndicator/LoadingIndicator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/LoadingIndicator/LoadingIndicatorStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/LoadingIndicator/LoadingIndicatorStyle.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/Logo/Logo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/Logo/Logo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/MediaInput/MediaInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/MediaInput/MediaInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/MediaInput/MediaInputStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/MediaInput/MediaInputStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/MediaView/MediaView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/MediaView/MediaView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/MediaView/MediaViewTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/MediaView/MediaViewTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/MediaView/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/MediaView/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ModalFormik/ModalFormik.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ModalFormik/ModalFormik.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ModuleLogo/ModuleLogo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ModuleLogo/ModuleLogo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ModuleLogo/ModuleLogoStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ModuleLogo/ModuleLogoStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ReCaptchaInput/ReCaptchaInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ReCaptchaInput/ReCaptchaInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/Scaled/Scaled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/Scaled/Scaled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/Scaled/ScaledStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/Scaled/ScaledStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/Scaled/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/Scaled/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/SlideLoading/SlideLoading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/SlideLoading/SlideLoading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/SlideLoading/SlideLoadingStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/SlideLoading/SlideLoadingStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/getDefaultConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getDefaultConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/useWindowDimensions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/useWindowDimensions.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,25 +309,25 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Screens/graphql" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
-    <property name="ts.external.directory.path" value="E:\Projekty\GitHub\commercial\powerdashboard\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="E:\Projekty\GitHub\commercial\powerdashboard-api\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens\graphql" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Show\graphql" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\screen-keys\dto" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\screens\utils" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens\graphql" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\assets" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens\graphql" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Show\graphql" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\screen-keys\dto" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -152,7 +431,10 @@
       <workItem from="1597737974923" duration="13291000" />
       <workItem from="1597833029784" duration="718000" />
       <workItem from="1597861393685" duration="1199000" />
-      <workItem from="1597917840222" duration="3551000" />
+      <workItem from="1597917840222" duration="4700000" />
+      <workItem from="1597951484838" duration="2949000" />
+      <workItem from="1598014382410" duration="606000" />
+      <workItem from="1598094181013" duration="16315000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1591736676262</created>
@@ -308,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597748362875</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Add styles for browsers without grid support">
+      <created>1597921872711</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1597921872711</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,6 +636,7 @@
     <MESSAGE value="Fix slidesOrder column config" />
     <MESSAGE value="Fixes" />
     <MESSAGE value="Secure websocket" />
-    <option name="LAST_COMMIT_MESSAGE" value="Secure websocket" />
+    <MESSAGE value="Add styles for browsers without grid support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add styles for browsers without grid support" />
   </component>
 </project>

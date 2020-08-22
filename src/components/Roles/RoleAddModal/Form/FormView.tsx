@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Select } from 'formik-antd';
 import { FormikBag, FormikProps } from 'formik';
 import { NewRoleInput, PermissionType, useUserByEmailQueryLazyQuery } from 'generated/graphql';
-import { Input, Form as DefaultForm, Typography, Alert, Row } from 'antd';
+import { Alert, Form as DefaultForm, Input, Row, Typography } from 'antd';
 import * as R from 'ramda';
 
 const { Option } = Select;

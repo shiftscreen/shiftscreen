@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Logo } from 'shared';
 
 export const KeyContainer = styled.div`
   display: flex;

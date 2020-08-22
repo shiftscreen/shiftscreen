@@ -6,8 +6,8 @@ import { generatePath } from 'react-router';
 import { Link } from 'react-router-dom';
 import { ErrorAlert } from 'shared';
 
-import { useViewerRolesQuery, Organization, useSelectOrganizationMutation } from 'generated/graphql';
-import { Path, PanelTypes } from 'types';
+import { Organization, useSelectOrganizationMutation, useViewerRolesQuery } from 'generated/graphql';
+import { PanelTypes, Path } from 'types';
 
 const { Option } = Select;
 

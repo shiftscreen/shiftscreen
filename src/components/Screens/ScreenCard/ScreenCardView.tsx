@@ -3,7 +3,7 @@ import { Tag } from 'antd';
 import { green, red } from '@ant-design/colors';
 import * as R from 'ramda';
 import { generatePath, Link } from 'react-router-dom';
-import { PermissionType, ScreenTypes, Path, PanelTypes } from 'types';
+import { Path, PermissionType, ScreenTypes } from 'types';
 
 import { BottomContainer, Container, Icon, Inner, Title, TopContainer, } from './ScreenCardStyle';
 import CardActions from './CardActions';

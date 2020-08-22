@@ -1,5 +1,5 @@
 import React from 'react';
-import { Result, Button, Row } from 'antd';
+import { Button, Result, Row } from 'antd';
 import { Link } from 'react-router-dom';
 
 const NotFound: React.FC = () => {

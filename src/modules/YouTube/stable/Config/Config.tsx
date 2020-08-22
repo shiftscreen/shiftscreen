@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Checkbox } from 'formik-antd';
+import { Checkbox, Form, Input } from 'formik-antd';
 import { ModuleConfigProps } from 'types';
 import { Alert, Divider } from 'antd';
 

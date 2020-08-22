@@ -1,5 +1,5 @@
 import { IdValue, toIdValue } from 'apollo-utilities';
-import { InMemoryCache, defaultDataIdFromObject } from 'apollo-cache-inmemory';
+import { defaultDataIdFromObject, InMemoryCache } from 'apollo-cache-inmemory';
 import { GraphQLCache } from './types';
 import { Api } from '../constants';
 

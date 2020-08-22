@@ -2,7 +2,7 @@ import React from 'react';
 import { generatePath, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Container, Inner, BackButton, Title } from './StudioHeaderStyle';
+import { BackButton, Container, Inner, Title } from './StudioHeaderStyle';
 import { PanelTypes, Path, ScreenTypes, useUpdateScreenMutation } from 'types';
 import { Button, message } from 'antd';
 import ScreenAddKeyModal from '../../Screens/ScreenAddKeyModal';

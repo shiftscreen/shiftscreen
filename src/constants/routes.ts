@@ -1,5 +1,5 @@
 import loadable from '@loadable/component';
-import { PathType, RedirectType, Path } from './types';
+import { Path, PathType, RedirectType } from './types';
 
 const Home = loadable(() => import('screens/Home'));
 const Auth = loadable(() => import('screens/Auth'));

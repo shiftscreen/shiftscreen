@@ -1,7 +1,7 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import { Col, Row } from 'antd';
 
-import { Storage, List } from 'components/Files';
+import { List, Storage } from 'components/Files';
 
 const Files: React.FC = () => (
   <Row gutter={[24, 24]}>

@@ -1,14 +1,14 @@
 import React from 'react';
 import * as R from 'ramda';
 import { useField } from 'formik';
-import { Form, Button } from 'antd';
+import { Button, Form } from 'antd';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 import { Input, Radio } from 'formik-antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import randomstring from 'randomstring';
 
 import { MediaInput } from 'shared';
-import { Container, ElementContainer, ElementCard } from './ListInputStyle';
+import { Container, ElementCard, ElementContainer } from './ListInputStyle';
 import { QuoteInstance } from '../../QuotesTypes';
 
 interface Props {
@@ -31,8 +31,7 @@ const ListInputView: React.FC<Props> = ({ fieldName, onAfterChange }) => {
       author: '',
       type: 'none',
       image: {
-        type: 'image',
-        key: 'url',
+        type: 'url',
         url: '',
       },
     }]);

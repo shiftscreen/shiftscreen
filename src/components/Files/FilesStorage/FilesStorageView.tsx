@@ -1,13 +1,9 @@
 import React from 'react';
-import { Typography, Progress } from 'antd';
+import { Progress, Typography } from 'antd';
 import fileSize from 'filesize';
 
 import { Colors } from 'constants/index';
-import {
-  Card,
-  Descriptions,
-  ProgressWrapper
-} from './FilesStorageStyle';
+import { Card, Descriptions, ProgressWrapper } from './FilesStorageStyle';
 
 const { Text } = Typography;
 

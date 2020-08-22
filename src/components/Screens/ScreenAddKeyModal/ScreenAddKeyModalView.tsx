@@ -1,11 +1,10 @@
 import React from 'react';
-import { Alert, Modal } from 'antd';
+import { Alert, Input, Modal } from 'antd';
 import { useAddScreenKeyMutation } from 'generated/graphql';
-import { Input } from 'antd';
 import { Path, ScreenTypes } from 'types';
 import { generatePath } from 'react-router';
 import { ErrorAlert } from '../../../shared';
-import { Inner, Text, Card } from './ScreenAddKeyModalStyle';
+import { Card, Inner, Text } from './ScreenAddKeyModalStyle';
 
 const { Search } = Input;
 

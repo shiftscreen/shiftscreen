@@ -2,13 +2,7 @@ import React from 'react';
 
 import { ConfigType } from '../WelcomeTypes';
 
-import {
-  Container,
-  Inner,
-  Text,
-  Name,
-  Image,
-} from './Style';
+import { Container, Image, Inner, Name, Text, } from './Style';
 
 interface Props {
   config: ConfigType;

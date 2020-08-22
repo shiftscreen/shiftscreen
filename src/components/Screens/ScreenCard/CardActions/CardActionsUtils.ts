@@ -2,7 +2,9 @@ import { DataProxy } from 'apollo-cache';
 import {
   OrganizationScreensDocument,
   OrganizationScreensQuery,
-  ScreenTypes, SelectedOrganizationDocument, SelectedOrganizationQuery,
+  ScreenTypes,
+  SelectedOrganizationDocument,
+  SelectedOrganizationQuery,
 } from 'types';
 
 export const updateCacheAfterScreenDelete = (cache: DataProxy, screen: ScreenTypes.ScreenViewerRole) => {

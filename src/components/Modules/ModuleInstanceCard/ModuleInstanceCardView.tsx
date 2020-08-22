@@ -3,11 +3,7 @@ import { BasicAppInstancePartsFragment } from 'generated/graphql';
 import { Scaled } from 'shared';
 import { InstancePreview } from 'components/Modules';
 
-import {
-  Container,
-  Inner,
-  Title,
-} from './ModuleInstanceCardStyle';
+import { Container, Inner, Title, } from './ModuleInstanceCardStyle';
 import CardActions from './CardActions';
 
 interface Props {

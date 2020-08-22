@@ -1,6 +1,6 @@
 import React from 'react';
-import { Menu, Dropdown, Button } from 'antd';
-import { LogoutOutlined, UserOutlined, DownOutlined } from '@ant-design/icons';
+import { Button, Dropdown, Menu } from 'antd';
+import { DownOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { ErrorAlert } from 'shared';
 
 import { BasicUserPartsFragment, useViewerQuery } from 'generated/graphql';

@@ -5,7 +5,7 @@ import { NewFileInput } from 'types';
 import { RcFile, UploadChangeParam, UploadFile } from 'antd/lib/upload/interface';
 
 import View from './FileAddFormView';
-import { initialValues, AddFileSchema } from './FileAddFormUtils';
+import { AddFileSchema, initialValues } from './FileAddFormUtils';
 
 interface Props {
   formikRef: React.MutableRefObject<FormikProps<NewFileInput> | undefined>;

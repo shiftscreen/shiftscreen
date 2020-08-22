@@ -4,17 +4,7 @@ import ReactHtmlParser from 'react-html-parser';
 import { SlideLoading } from 'shared';
 import { ConfigType, NewsInstance } from '../NewsTypes';
 import { getFeedNewsList } from './Utils';
-import {
-  Container,
-  Image,
-  Title,
-  Header,
-  Content,
-  Divider,
-  Description,
-  Domain,
-  Inner
-} from './Style';
+import { Container, Content, Description, Divider, Domain, Header, Image, Inner, Title } from './Style';
 
 interface Props {
   config: ConfigType;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Card as AntdCard } from 'antd';
+import { Card as AntdCard, List } from 'antd';
 import { ListGridType } from 'antd/es/list';
 
 import { ScreenTypes } from 'types';

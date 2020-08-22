@@ -1,14 +1,14 @@
 import React from 'react';
 import { File } from 'types';
-import { Button, Popconfirm, Row, Col, Typography, Tooltip, message } from 'antd';
+import { Button, Col, message, Popconfirm, Row, Tooltip, Typography } from 'antd';
 import { DeleteOutlined, LinkOutlined } from '@ant-design/icons';
 
 import {
-  useFileLinkMutation,
   FileLinkMutation,
   useDeleteFileMutation,
-  ViewerFilesQuery,
+  useFileLinkMutation,
   ViewerFilesDocument,
+  ViewerFilesQuery,
   ViewerStorageDocument,
 } from 'generated/graphql';
 
@@ -63,22 +63,17 @@ const LinkAction: React.FC<Props> = (props: Props) => {
   );
 };
 
-const DeleteAction: React.FC<Props> = (props: Props) => {
-  const { file } = props;
-
-  const handleConfirm = async () => (
-    await deleteFile()
-  );
-
-  const handleCompleted = () => (
-    message.success(`Pomyślnie usunięto plik ${file.title}`)
-  );
-
+const DeleteAction: React.FC<Props> = ({ file }) => {
   const [deleteFile, { loading }] = useDeleteFileMutation({
     variables: {
       id: parseInt(file.id, 10),
     },
-    onCompleted: handleCompleted,
+    onCompleted: () => (
+      message.success(`Pomyślnie usunięto plik ${file.title}`)
+    ),
+    onError: () => (
+      message.error('Wystąpił błąd przy usuwaniu pliku')
+    ),
     refetchQueries: [{
       query: ViewerStorageDocument,
     }],
@@ -100,6 +95,14 @@ const DeleteAction: React.FC<Props> = (props: Props) => {
       }
     }
   });
+
+  const handleConfirm = async () => {
+    try {
+      await deleteFile();
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   const title = (
     <Text>

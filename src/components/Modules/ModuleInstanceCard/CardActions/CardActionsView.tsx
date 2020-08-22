@@ -1,5 +1,5 @@
 import React from 'react';
-import { DeleteOutlined, SettingOutlined } from '@ant-design/icons';
+import { DeleteOutlined } from '@ant-design/icons';
 import { red } from '@ant-design/colors';
 import { BasicAppInstancePartsFragment } from 'types';
 import { message, Modal, Typography } from 'antd';

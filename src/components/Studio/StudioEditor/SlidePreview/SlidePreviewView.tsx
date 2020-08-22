@@ -3,7 +3,7 @@ import React from 'react';
 import { ScaledTypes } from 'types';
 import { Show } from 'components/Slides';
 import { BasicSlidePartsFragment } from 'generated/graphql';
-import { Info, Container } from './SlidePreviewStyle';
+import { Container, Info } from './SlidePreviewStyle';
 
 interface Props {
   selectedSlide?: BasicSlidePartsFragment;

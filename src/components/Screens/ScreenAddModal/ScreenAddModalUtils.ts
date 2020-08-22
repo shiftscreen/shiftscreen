@@ -1,8 +1,4 @@
-import {
-  AddScreenMutation,
-  OrganizationScreensDocument,
-  OrganizationScreensQuery
-} from 'generated/graphql';
+import { AddScreenMutation, OrganizationScreensDocument, OrganizationScreensQuery } from 'generated/graphql';
 import { DataProxy } from 'apollo-cache';
 import { BasicOrganizationPartsFragment } from 'types';
 import { FetchResult } from 'apollo-link';

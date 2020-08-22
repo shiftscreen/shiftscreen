@@ -1,7 +1,7 @@
 import React from 'react';
 import { DeleteOutlined, EllipsisOutlined, SettingOutlined, UserDeleteOutlined } from '@ant-design/icons';
 import { red } from '@ant-design/colors';
-import { RoleTypes, PanelTypes, PermissionType, Path } from 'types';
+import { PanelTypes, Path, PermissionType, RoleTypes } from 'types';
 import { Dropdown, Menu, message, Modal } from 'antd';
 import { generatePath, Link } from 'react-router-dom';
 import * as R from 'ramda';

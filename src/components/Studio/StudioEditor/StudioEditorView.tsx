@@ -1,11 +1,7 @@
 import React from 'react';
 import { BasicSlidePartsFragment } from 'generated/graphql';
 
-import {
-  Container,
-  Inner,
-  LeftContainer,
-} from './StudioEditorStyle';
+import { Container, Inner, LeftContainer, } from './StudioEditorStyle';
 import SlidePreview from './SlidePreview';
 import SlideSettings from './SlideSettings';
 import SlideModuleConfig from './SlideModuleConfig';

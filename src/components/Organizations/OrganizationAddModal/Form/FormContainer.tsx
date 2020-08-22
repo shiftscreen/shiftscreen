@@ -3,7 +3,7 @@ import { Formik, FormikProps } from 'formik';
 import { NewOrganizationInput } from 'types';
 
 import View from './FormView';
-import { initialValues, AddOrganizationSchema } from './FormUtils';
+import { AddOrganizationSchema, initialValues } from './FormUtils';
 
 interface Props {
   formikRef: React.Ref<FormikProps<NewOrganizationInput> | undefined>

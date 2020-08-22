@@ -5,16 +5,17 @@ import { ConfigType } from '../CalendarTypes';
 import dayjs from 'dayjs';
 import { useCalendarUtilsStableQuery } from 'generated/graphql';
 import {
-  Container,
   Card,
-  List,
   CardContainer,
   CardDay,
   CardMonth,
+  Container,
   Holiday,
+  List,
   ListContainer,
-  NameDay,
-  ListHeaderElement, ListElement
+  ListElement,
+  ListHeaderElement,
+  NameDay
 } from './Style';
 import { dayNames, monthNames } from './Utils';
 

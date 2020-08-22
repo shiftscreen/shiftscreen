@@ -1,8 +1,4 @@
-import {
-  BasicOrganizationPartsFragment,
-  OrganizationByIdDocument,
-  OrganizationByIdQuery,
-} from 'generated/graphql';
+import { BasicOrganizationPartsFragment, OrganizationByIdDocument, OrganizationByIdQuery, } from 'generated/graphql';
 import { cache } from 'apollo';
 
 export const getOrganization = (id: string): BasicOrganizationPartsFragment | null => {

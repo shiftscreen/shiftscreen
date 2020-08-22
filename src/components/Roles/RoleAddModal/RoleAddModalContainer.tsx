@@ -5,12 +5,11 @@ import { FormikProps } from 'formik';
 import { Typography } from 'antd';
 import {
   NewRoleInput,
-  Organization, OrganizationRolesDocument,
+  Organization,
+  OrganizationRolesDocument,
   OrganizationRolesQuery,
   Role,
-  useAddRoleMutation,
-  ViewerFilesDocument,
-  ViewerFilesQuery
+  useAddRoleMutation
 } from 'types';
 
 import ModalFormik from 'shared/ModalFormik';

@@ -1,4 +1,4 @@
-import { red, green, blue, cyan, volcano } from '@ant-design/colors';
+import { blue, cyan, green, red, volcano } from '@ant-design/colors';
 
 const colors = [red, green, blue, cyan, volcano];
 

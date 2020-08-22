@@ -3,7 +3,7 @@ import { ConfigType, QuoteInstance } from '../QuotesTypes';
 import * as R from 'ramda';
 import { useQuotePredefinedQuotesLazyQuery } from 'generated/graphql';
 import { getRandomImage } from './Utils';
-import { Author, Container, Content, Inner, Wrapper, Image } from './Style';
+import { Author, Container, Content, Image, Inner, Wrapper } from './Style';
 
 interface Props {
   config: ConfigType;

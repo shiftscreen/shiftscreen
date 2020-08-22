@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import {
-  Card as AntdCard,
-  Descriptions as AntdDescriptions
-} from 'antd';
+import { Card as AntdCard, Descriptions as AntdDescriptions } from 'antd';
 
 export const Card = styled(AntdCard)`
   .ant-card-body {

@@ -2,11 +2,7 @@ import React from 'react';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 import useConstant from 'use-constant';
 
-import {
-  BasicAppInstancePartsFragment,
-  BasicAppInstancePartsFragmentDoc,
-  useUpdateAppInstanceMutation
-} from 'types';
+import { BasicAppInstancePartsFragment, BasicAppInstancePartsFragmentDoc, useUpdateAppInstanceMutation } from 'types';
 import { client } from 'apollo';
 import { InstanceConfig as ModuleInstanceConfig } from 'components/Modules';
 import { Container } from './SlideModuleInstanceConfigStyle';

@@ -3,7 +3,7 @@ import { useDeleteScreenMutation, useUpdateScreenMutation } from 'generated/grap
 import { MenuItemProps } from 'antd/lib/menu/MenuItem';
 import { Button, Dropdown, Menu, message, Modal, Typography } from 'antd';
 import { red } from '@ant-design/colors';
-import { MoreOutlined, PoweroffOutlined, DeleteOutlined } from '@ant-design/icons';
+import { DeleteOutlined, MoreOutlined, PoweroffOutlined } from '@ant-design/icons';
 import { ScreenTypes } from 'types';
 import { DataProxy } from 'apollo-cache';
 import { updateCacheAfterScreenDelete } from './CardActionsUtils';

@@ -1,4 +1,4 @@
-import { IconName, IconLookup } from '@fortawesome/fontawesome-common-types';
+import { IconLookup, IconName } from '@fortawesome/fontawesome-common-types';
 
 export interface Module {
   id: string

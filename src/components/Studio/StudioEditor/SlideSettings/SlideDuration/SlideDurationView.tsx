@@ -1,6 +1,6 @@
 import React from 'react';
 import * as R from 'ramda';
-import { Typography, TimePicker } from 'antd';
+import { TimePicker, Typography } from 'antd';
 
 import { BasicSlidePartsFragment, useUpdateSlideMutation } from 'generated/graphql';
 import { Module } from 'types';

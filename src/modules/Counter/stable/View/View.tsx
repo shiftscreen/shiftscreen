@@ -3,18 +3,20 @@ import * as R from 'ramda';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { SlideLoading } from 'shared';
 
 import { ConfigType } from '../CounterTypes';
-import dayjs from 'dayjs';
 import {
-  CompletedContainer, CompletedIconWrapper, CompletedInner, CompletedText,
+  CompletedContainer,
+  CompletedIconWrapper,
+  CompletedInner,
+  CompletedText,
   Container,
-  DateContainer, DateInner,
+  DateContainer,
+  DateInner,
   LabelContainer,
   LabelInner
 } from './Style';
-import { countAndGetFormattedDiff, getFormattedDiff } from './Utils';
+import { countAndGetFormattedDiff } from './Utils';
 
 library.add(faCheckCircle);
 
@@ -28,6 +30,7 @@ const View: React.FC<Props> = ({ config }: Props) => {
     countAndGetFormattedDiff(date),
   );
   const completed = R.lt(parseInt(value, 10), 0);
+  const labelText = parseInt(value, 10) === 1 ? 'pozostał' : 'pozostało';
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -56,7 +59,7 @@ const View: React.FC<Props> = ({ config }: Props) => {
     <Container>
       <LabelContainer>
         <LabelInner>
-          do&nbsp;<span>{label}</span>&nbsp;pozostało
+          do&nbsp;<span>{label}</span>&nbsp;{labelText}
         </LabelInner>
       </LabelContainer>
       <DateContainer>

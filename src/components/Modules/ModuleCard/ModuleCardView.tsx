@@ -1,5 +1,5 @@
 import React from 'react';
-import { Module, Path, PanelTypes } from 'types';
+import { Module, PanelTypes, Path } from 'types';
 import { Link } from 'react-router-dom';
 import { generatePath } from 'react-router';
 

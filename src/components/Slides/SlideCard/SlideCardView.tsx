@@ -5,7 +5,8 @@ import * as R from 'ramda';
 
 import {
   BasicScreenPartsFragment,
-  BasicSlidePartsFragment, Slide,
+  BasicSlidePartsFragment,
+  Slide,
   useDeleteSlideMutation,
   useUpdateScreenMutation,
   useUpdateSlideMutation
@@ -13,13 +14,7 @@ import {
 import { Preview as SlidePreview } from 'components/Slides';
 import { ModuleLogo, Scaled } from 'shared';
 import { Module } from 'types';
-import {
-  Container,
-  ActionsWrapper,
-  Action,
-  PreviewContainer,
-  HiddenPreview,
-} from './SlideCardStyle';
+import { Action, ActionsWrapper, Container, HiddenPreview, PreviewContainer, } from './SlideCardStyle';
 import { updateCache } from './SlideCardUtils';
 import modules from 'modules';
 

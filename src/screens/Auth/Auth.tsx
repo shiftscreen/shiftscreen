@@ -3,7 +3,7 @@ import { Tabs } from 'antd';
 
 import { LoginForm, SignUpForm } from 'components/Auth';
 import { Logo } from 'shared';
-import { Container, Inner, LogoWrapper, Overlay, Image } from './AuthStyle';
+import { Container, Image, Inner, LogoWrapper, Overlay } from './AuthStyle';
 
 const { TabPane } = Tabs;
 

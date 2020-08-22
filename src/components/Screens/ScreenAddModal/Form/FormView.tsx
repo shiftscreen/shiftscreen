@@ -1,6 +1,6 @@
 import React from 'react';
-import { Form, Input, Select, Radio } from 'formik-antd';
-import { purple, cyan, blue, magenta, volcano, red } from '@ant-design/colors';
+import { Form, Input, Select } from 'formik-antd';
+import { blue, cyan, magenta, purple, red, volcano } from '@ant-design/colors';
 import { ColorInput } from 'shared';
 
 const { Option } = Select;

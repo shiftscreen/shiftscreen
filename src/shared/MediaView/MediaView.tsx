@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { useFileLinkByKeyLazyQuery } from 'generated/graphql';
 
-import { MediaType, MediaSource } from './MediaViewTypes';
+import { MediaSource, MediaType } from './MediaViewTypes';
 
 interface Props {
   type: MediaType;

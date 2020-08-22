@@ -1,11 +1,7 @@
 import React from 'react';
-import { User, PanelTypes } from 'types';
+import { PanelTypes } from 'types';
 
-import {
-  Container,
-  LogoWrapper,
-  Logo
-} from './PanelSiderStyle';
+import { Container, Logo, LogoWrapper } from './PanelSiderStyle';
 
 import Menu from '../PanelMenu';
 

@@ -1,9 +1,5 @@
 import { DataProxy } from 'apollo-cache';
-import {
-  Organization,
-  OrganizationRolesDocument,
-  OrganizationRolesQuery,
-} from 'generated/graphql';
+import { Organization, OrganizationRolesDocument, OrganizationRolesQuery, } from 'generated/graphql';
 import { RoleTypes } from 'types';
 
 export const updateCache = (cache: DataProxy, role: RoleTypes.RoleUser, organization: Organization) => {

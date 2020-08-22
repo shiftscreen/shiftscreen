@@ -7,7 +7,7 @@ import * as R from 'ramda';
 import { BasicAppInstancePartsFragment, useAppInstancesByAppIdQuery } from 'generated/graphql';
 import { ErrorAlert } from 'shared';
 import { InstanceCard as ModuleInstanceCard } from 'components/Modules';
-import { List, ListElement } from './ModuleInstancesStyle'
+import { List, ListElement } from './ModuleInstancesStyle';
 
 const ModuleInstances: React.FC = () => {
   const { id = '' } = useParams();

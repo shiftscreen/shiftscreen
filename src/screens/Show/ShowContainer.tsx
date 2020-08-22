@@ -1,12 +1,8 @@
 import React from 'react';
-import WebFont from 'webfontloader';
 import * as R from 'ramda';
-import { useParams } from 'react-router';
-import {
-  useOnScreenKeyAddedSubscription,
-  useScreenExtendedByKeyLazyQuery,
-} from 'generated/graphql';
-import { bootstrap, getFilteredOrderedSlides, useScreenKey } from './ShowUtils';
+import WebFont from 'webfontloader';
+import { useOnScreenKeyAddedSubscription, useScreenExtendedByKeyLazyQuery, } from 'generated/graphql';
+import { bootstrap, getFilteredOrderedSlides, persistScreen, useScreenKey } from './ShowUtils';
 import { KeyContainer } from './ShowStyle';
 import ShowView from './ShowView';
 
@@ -18,28 +14,45 @@ WebFont.load({
 
 const Show: React.FC = () => {
   const screenKey = useScreenKey();
-  const [getScreen, { data: slidesData, error }] = useScreenExtendedByKeyLazyQuery({
+  const [getScreen, { data: screenData, error }] = useScreenExtendedByKeyLazyQuery({
     variables: { screenKey },
   });
   const { data: keyData } = useOnScreenKeyAddedSubscription({
     variables: { screenKey },
   });
-  const slides = getFilteredOrderedSlides(slidesData);
+  const slides = getFilteredOrderedSlides(screenData);
 
   React.useEffect(() => {
-    if (keyData) {
+    const shouldGetScreenData = R.and(
+      R.not(R.empty(keyData)),
+      R.equals(keyData?.screenKeyAdded.privateKey, screenKey.privateKey),
+    );
+
+    if (shouldGetScreenData) {
       getScreen();
     }
   }, [keyData]);
 
   React.useEffect(() => {
-    bootstrap();
     getScreen();
-  }, []);
+    bootstrap(screenKey);
+  }, [screenKey]);
 
-  if (!slidesData || error) return (
+  React.useEffect(() => {
+    if (screenData) {
+      persistScreen(screenKey.publicKey, screenData);
+    }
+  }, [screenData]);
+
+  if (!screenData || error) return (
     <KeyContainer>
       {screenKey.privateKey}
+    </KeyContainer>
+  );
+
+  if (!screenData.screenByKey.isActive) return (
+    <KeyContainer>
+      Dezaktywowany
     </KeyContainer>
   );
 

@@ -1,10 +1,6 @@
 import React from 'react';
 
-import {
-  Container,
-  Title,
-  ActionsWrapper
-} from './PanelContentHeaderStyle';
+import { ActionsWrapper, Container, Title } from './PanelContentHeaderStyle';
 
 interface Props {
   title: string;

@@ -1,8 +1,8 @@
 import React from 'react';
 import * as R from 'ramda';
-import { Form, Input, Checkbox, SubmitButton } from 'formik-antd';
+import { Checkbox, Form, Input, SubmitButton } from 'formik-antd';
 import { FormikProps } from 'formik';
-import { Row, Col } from 'antd';
+import { Col, Row } from 'antd';
 
 import { NewUserInput } from 'types';
 import { ReCaptchaInput } from 'shared';

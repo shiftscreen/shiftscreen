@@ -1,18 +1,17 @@
 import React from 'react';
-import * as R from 'ramda';
 
 import { ConfigType } from '../ClockTypes';
 import dayjs from 'dayjs';
 import {
-  Container,
   ClockDigitalContainer,
   ClockDigitalDate,
   ClockDigitalInner,
   ClockDigitalText,
   ClockFace,
   ClockFaceContainer,
-  ClockHandMinute,
   ClockHandHour,
+  ClockHandMinute,
+  Container,
 } from './Style';
 import { monthNames } from './Utils';
 

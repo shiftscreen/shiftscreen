@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Col, Row } from 'antd';
 
 import { Info as OrganizationInfo } from 'components/Organizations';

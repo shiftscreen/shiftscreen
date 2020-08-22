@@ -2,14 +2,9 @@ import React from 'react';
 
 import { LoadingIndicator } from 'shared';
 import { PanelTypes } from 'types';
-import { Sider } from 'components/Panel';
-import { Header, ContentHeader } from 'components/Panel';
+import { ContentHeader, Header, Sider } from 'components/Panel';
 
-import {
-  Container,
-  Inner,
-  Content
-} from './PanelStyle';
+import { Container, Content, Inner } from './PanelStyle';
 
 interface Props {
   viewsConfig: PanelTypes.ViewsConfig;

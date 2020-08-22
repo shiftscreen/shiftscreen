@@ -1,6 +1,5 @@
 import React from 'react';
 import loadable from '@loadable/component';
-
 // nested export enums are not available at runtime
 import { PanelPath } from 'components/Panel/PanelTypes';
 import { PanelTypes } from 'types';

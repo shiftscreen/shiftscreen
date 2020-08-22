@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Form } from 'formik-antd';
+import { Form } from 'formik-antd';
 import { ModuleConfigProps } from 'types';
 import { MediaInput } from 'shared';
 

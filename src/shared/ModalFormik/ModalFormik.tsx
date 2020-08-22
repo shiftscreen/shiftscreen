@@ -1,6 +1,6 @@
 import React from 'react';
 import * as R from 'ramda';
-import { Modal, Typography } from 'antd';
+import { Modal } from 'antd';
 import { ModalProps } from 'antd/es/modal';
 import { FormikProps } from 'formik';
 

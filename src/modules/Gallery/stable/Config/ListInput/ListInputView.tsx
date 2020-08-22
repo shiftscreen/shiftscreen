@@ -1,7 +1,7 @@
 import React from 'react';
 import * as R from 'ramda';
 import { useField } from 'formik';
-import { Form, Button } from 'antd';
+import { Button, Form } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import randomstring from 'randomstring';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
@@ -27,8 +27,7 @@ const ListInputView: React.FC<Props> = ({ fieldName, onAfterChange }) => {
     const newValue = R.concat<any>(field.value, [{
       id: randomstring.generate(7),
       image: {
-        type: 'image',
-        key: 'url',
+        type: 'url',
         url: '',
       },
     }]);

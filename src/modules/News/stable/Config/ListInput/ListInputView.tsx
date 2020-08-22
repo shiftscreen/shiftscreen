@@ -1,12 +1,12 @@
 import React from 'react';
 import * as R from 'ramda';
 import { useField } from 'formik';
-import { Form, Button, Checkbox } from 'antd';
+import { Button, Form } from 'antd';
 import { Input } from 'formik-antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import randomstring from 'randomstring';
 
-import { Container, ElementContainer, ElementCard } from './ListInputStyle';
+import { Container, ElementCard, ElementContainer } from './ListInputStyle';
 import { NewsInstance } from '../../NewsTypes';
 import { MediaInput } from '../../../../../shared';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
@@ -30,8 +30,7 @@ const ListInputView: React.FC<Props> = ({ fieldName, onAfterChange }) => {
       title: '',
       description: '',
       image: {
-        type: 'image',
-        key: 'url',
+        type: 'url',
         url: '',
       },
     }]);

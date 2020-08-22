@@ -25,8 +25,6 @@ const ReCaptchaInput: React.FC<Props> = (props) => {
     if (ref.current && value) {
       ref.current.reset();
     }
-
-    console.log(isSubmitting);
   }, [isSubmitting]);
 
   return (

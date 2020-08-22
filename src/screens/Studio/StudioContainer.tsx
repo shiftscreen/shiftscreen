@@ -8,7 +8,7 @@ import {
   useScreenExtendedByIdQuery,
   useUpdateScreenMutation,
 } from 'generated/graphql';
-import { Header, SlidesList, Editor, SlideConfig } from 'components/Studio';
+import { Editor, Header, SlideConfig, SlidesList } from 'components/Studio';
 import { ErrorAlert, LoadingIndicator } from 'shared';
 import { Container, Inner } from './StudioStyle';
 import WebFont from 'webfontloader';

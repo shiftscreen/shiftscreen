@@ -2,14 +2,13 @@ import React, { Fragment } from 'react';
 import { ModalProps } from 'antd/es/modal';
 import { PlusOutlined } from '@ant-design/icons';
 import { FormikProps } from 'formik';
-import { NewScreenInput, OrganizationRolesDocument, OrganizationScreensQuery } from 'types';
+import { NewScreenInput } from 'types';
 import { ErrorAlert } from 'shared';
 import { Typography } from 'antd';
 
-import { useAddScreenMutation, OrganizationScreensDocument, useSelectedOrganizationQuery } from 'generated/graphql';
+import { useAddScreenMutation, useSelectedOrganizationQuery } from 'generated/graphql';
 import ModalFormik from 'shared/ModalFormik';
 import ScreenAddForm from './Form';
-import { DataProxy } from 'apollo-cache';
 import { updateCache } from './ScreenAddModalUtils';
 
 const { Text } = Typography;

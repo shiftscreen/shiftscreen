@@ -4,10 +4,7 @@ import { ListGridType } from 'antd/es/list';
 import { Card as AntdCard, List as AntdList } from 'antd';
 
 import { Container, List, ListElement } from './ModuleInstancesListStyle';
-import {
-  InstanceCard as ModuleInstanceCard,
-  InstanceAddCard as ModuleInstanceAddCard,
-} from 'components/Modules';
+import { InstanceAddCard as ModuleInstanceAddCard, InstanceCard as ModuleInstanceCard, } from 'components/Modules';
 import { BasicAppInstancePartsFragment, Module, useAppInstancesByAppIdQuery } from 'types';
 import { ErrorAlert } from 'shared';
 

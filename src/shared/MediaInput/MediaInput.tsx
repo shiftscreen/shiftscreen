@@ -1,8 +1,8 @@
 import React from 'react';
-import { Radio, Input } from 'formik-antd';
+import { Input, Radio } from 'formik-antd';
 import { useField } from 'formik';
 
-import { Container, Button, KeyInputContainer, FileNameContainer } from './MediaInputStyle';
+import { Button, Container, FileNameContainer, KeyInputContainer } from './MediaInputStyle';
 import { BasicFilePartsFragment, FileKeyInput, useFileByKeyLazyQuery } from 'generated/graphql';
 import { SelectModal as FileSelectModal } from 'components/Files';
 

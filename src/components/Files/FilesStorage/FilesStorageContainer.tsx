@@ -2,7 +2,7 @@ import React from 'react';
 
 import View from './FilesStorageView';
 import { useViewerStorageQuery } from 'generated/graphql';
-import { Alert, Card } from 'antd';
+import { Card } from 'antd';
 import { ErrorAlert } from '../../../shared';
 
 const FilesStorage: React.FC = () => {

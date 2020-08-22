@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, DatePicker } from 'formik-antd';
+import { DatePicker, Form, Input } from 'formik-antd';
 import { ModuleConfigProps } from 'types';
 
 const Config: React.FC<ModuleConfigProps> = ({ submitForm }) => (
