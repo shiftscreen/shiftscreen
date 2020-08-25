@@ -4,7 +4,7 @@ import * as R from 'ramda';
 
 import {
   BasicSlidePartsFragment,
-  Slide,
+  Slide, useNotifyScreenUpdatedMutation,
   useScreenExtendedByIdQuery,
   useUpdateScreenMutation,
 } from 'generated/graphql';
@@ -12,6 +12,8 @@ import { Editor, Header, SlideConfig, SlidesList } from 'components/Studio';
 import { ErrorAlert, LoadingIndicator } from 'shared';
 import { Container, Inner } from './StudioStyle';
 import WebFont from 'webfontloader';
+import { getOrderedSlides, useUpdateOrder } from './StudioUtils';
+import AwesomeDebouncePromise from 'awesome-debounce-promise';
 
 WebFont.load({
   google: {
@@ -30,40 +32,16 @@ const Studio: React.FC = () => {
   });
 
   const [selectedSlideId, setSelectedSlideId] = React.useState<string | undefined>();
+  const [updateOrder, { loading: updateOrderLoading }] = useUpdateOrder(data?.screen);
+  const [notifyScreenUpdated] = useNotifyScreenUpdatedMutation({
+    variables: { id: parseInt(data?.screen.id || '', 10) }
+  });
   const screen = data?.screen;
   const slides = screen?.slides || [];
-  const slidesOrder: number[] = screen?.slidesOrder || [];;
+  const slidesOrder: number[] = screen?.slidesOrder || [];
   const selectedSlide = R.find<Slide>(
     R.propEq('id', selectedSlideId)
   )(slides);
-
-  const [updateScreen, { loading: updateScreenLoading }] = useUpdateScreenMutation();
-  const updateOrder = async (newOrder: number[]) => {
-    if (!screen) return;
-
-    const { slides, viewerRole, organization, ...rawScreen } = screen;
-
-    try {
-      await updateScreen({
-        variables: {
-          id: parseInt(id, 10),
-          values: {
-            slidesOrder: newOrder,
-          }
-        },
-        optimisticResponse: {
-          __typename: 'Mutation',
-          updateScreen: {
-            ...rawScreen,
-            slidesOrder: newOrder,
-            __typename: 'Screen',
-          }
-        }
-      })
-    } catch (e) {
-      console.error(e)
-    }
-  };
 
   const handleOrderChange = (startIndex: number, destinationIndex: number): void => {
     const id = slidesOrder[startIndex];
@@ -75,34 +53,26 @@ const Studio: React.FC = () => {
     updateOrder(newOrder);
   };
 
-  const getOrderedSlides = (): BasicSlidePartsFragment[] => {
-    if (R.isNil(screen)) {
-      return [];
-    }
-
-    const toSlide = (id: number) => (
-      R.find<Slide>(
-        R.propEq('id', id.toString())
-      )(slides)
-    );
-    const list = R.map(toSlide, slidesOrder);
-    const filteredList: any = R.reject(R.isNil, list);
-    const listHaveUndefinedSlides = R.not(R.equals(list, filteredList));
-    const shouldUpdate = R.and(listHaveUndefinedSlides, R.not(updateScreenLoading));
-
-    if (shouldUpdate) {
-      const toId = (s: Slide): number => parseInt(s.id, 10);
-      const newOrder = R.map(toId, filteredList);
-      updateOrder(newOrder);
-    }
-
-    return filteredList || [];
-  };
-  const orderedSlides = getOrderedSlides();
+  const orderedSlides = getOrderedSlides({
+    screen,
+    slides,
+    updateOrder,
+    slidesOrder,
+    updateOrderLoading,
+  });
 
   const handleSlideSelect = (slide: Slide) => (
     setSelectedSlideId(slide.id)
   );
+
+  const debouncedNotifyScreenUpdated = React.useCallback(
+    AwesomeDebouncePromise(notifyScreenUpdated, 3000),
+    [screen?.id],
+  );
+
+  React.useEffect(() => {
+    debouncedNotifyScreenUpdated();
+  }, [screen]);
 
   if (loading) return (
     <LoadingIndicator fullHeight/>

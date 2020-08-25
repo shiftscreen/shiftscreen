@@ -1,6 +1,8 @@
 import React from 'react';
 import { FetchResult } from 'apollo-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
 
 import { Container } from './AddSlideCardStyle';
 import {
@@ -10,6 +12,8 @@ import {
   useUpdateScreenMutation
 } from 'generated/graphql';
 import { getDefaultValues, updateCache } from './AddSlideCardUtils';
+
+library.add(faCircleNotch);
 
 interface Props {
   screen: BasicScreenPartsFragment;
@@ -74,7 +78,8 @@ const AddSlideCard: React.FC<Props> = ({ screen }: Props) => {
       onClick={handleClick}
       disabled={loading}
     >
-      <FontAwesomeIcon icon="plus"/>
+      {!loading && <FontAwesomeIcon icon="plus"/>}
+      {loading && <FontAwesomeIcon icon="circle-notch" spin />}
     </Container>
   );
 };

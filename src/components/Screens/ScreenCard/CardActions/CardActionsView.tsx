@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDeleteScreenMutation, useUpdateScreenMutation } from 'generated/graphql';
+import { useDeleteScreenMutation, useNotifyScreenUpdatedMutation, useUpdateScreenMutation } from 'generated/graphql';
 import { MenuItemProps } from 'antd/lib/menu/MenuItem';
 import { Button, Dropdown, Menu, message, Modal, Typography } from 'antd';
 import { red } from '@ant-design/colors';
@@ -37,9 +37,15 @@ type ItemProps = MenuItemProps & Props;
 
 const ToggleActivationItem: React.FC<ItemProps> = ({ screen, ...props }: ItemProps) => {
   const { id, isActive } = screen;
+  const [notifyScreenUpdated] = useNotifyScreenUpdatedMutation({
+    variables: { id: parseInt(screen.id, 10) }
+  });
   const [updateScreen] = useUpdateScreenMutation({
     onError: () => (
       message.error('Wystąpił błąd przy aktualizowaniu ekranu')
+    ),
+    onCompleted: () => (
+      notifyScreenUpdated()
     ),
     variables: {
       id: parseInt(id, 10),

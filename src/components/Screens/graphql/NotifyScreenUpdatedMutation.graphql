@@ -1,0 +1,3 @@
+mutation NotifyScreenUpdated($id: Int!) {
+    notifyScreenUpdated(id: $id)
+}

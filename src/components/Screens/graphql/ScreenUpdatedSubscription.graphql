@@ -1,0 +1,9 @@
+subscription onScreenUpdated($screenKey: ScreenKeyInput!) {
+    screenUpdated(screenKey: $screenKey) {
+        ...BasicScreenParts
+
+        slides {
+            ...BasicSlideParts
+        }
+    }
+}

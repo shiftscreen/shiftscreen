@@ -22,10 +22,11 @@ library.add(faCheckCircle);
 
 interface Props {
   config: ConfigType;
+  onEnd?(): void;
 }
 
-const View: React.FC<Props> = ({ config }: Props) => {
-  const { label, date, completionMessage } = config;
+const View: React.FC<Props> = ({ config, onEnd }: Props) => {
+  const { label, date, completionMessage, afterComplete } = config;
   const [[value, text], setValueText] = React.useState<[string, string]>(
     countAndGetFormattedDiff(date),
   );
@@ -41,6 +42,11 @@ const View: React.FC<Props> = ({ config }: Props) => {
 
     return () => clearInterval(interval);
   }, []);
+
+  if (completed && afterComplete === 'hide') {
+    onEnd && onEnd();
+    return null;
+  }
 
   if (completed) return (
     <CompletedContainer>

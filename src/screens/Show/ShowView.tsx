@@ -15,6 +15,7 @@ interface Props {
 const ShowView: React.FC<Props> = ({ slides }) => {
   const windowDimensions = useWindowDimensions();
   const [selectedIndex, setSelectedIndex] = React.useState<number>(0);
+  const [lastTimeoutId, setLastTimeoutId] = React.useState<number | undefined>(undefined);
   const selectedSlide = slides[selectedIndex];
   const module = R.find<Module>(
     R.propEq('id', selectedSlide?.appInstance?.appId)
@@ -29,15 +30,18 @@ const ShowView: React.FC<Props> = ({ slides }) => {
     if (!blockDuration) {
       const durationMiliseconds = selectedSlide.durationSeconds * 1000;
 
-      setTimeout(() => {
+      const timeoutId = setTimeout(() => {
         setSelectedIndex(getNextIndex())
-      }, durationMiliseconds)
+      }, durationMiliseconds);
+
+      setLastTimeoutId(timeoutId);
     }
   }, [selectedSlide]);
 
-  const handleEnd = () => (
-    setSelectedIndex(getNextIndex())
-  );
+  const handleEnd = () => {
+    clearTimeout(lastTimeoutId);
+    setSelectedIndex(getNextIndex());
+  };
 
   return (
     <Container style={{ ...windowDimensions }}>

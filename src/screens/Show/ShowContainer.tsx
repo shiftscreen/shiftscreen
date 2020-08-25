@@ -1,8 +1,19 @@
 import React from 'react';
 import * as R from 'ramda';
 import WebFont from 'webfontloader';
-import { useOnScreenKeyAddedSubscription, useScreenExtendedByKeyLazyQuery, } from 'generated/graphql';
-import { bootstrap, getFilteredOrderedSlides, persistScreen, useScreenKey } from './ShowUtils';
+import {
+  useOnScreenKeyAddedSubscription,
+  useOnScreenUpdatedSubscription,
+  useScreenExtendedByKeyLazyQuery,
+} from 'generated/graphql';
+import {
+  bootstrap,
+  getFilteredOrderedSlides,
+  onSubscriptionData,
+  persistScreen,
+  preloadScreen,
+  useScreenKey
+} from './ShowUtils';
 import { KeyContainer } from './ShowStyle';
 import ShowView from './ShowView';
 
@@ -14,35 +25,34 @@ WebFont.load({
 
 const Show: React.FC = () => {
   const screenKey = useScreenKey();
-  const [getScreen, { data: screenData, error }] = useScreenExtendedByKeyLazyQuery({
+  const [getScreen, { data: screenData, loading, error }] = useScreenExtendedByKeyLazyQuery({
     variables: { screenKey },
+    pollInterval: 'WebSocket' in window ? undefined : (1000 * 60 * 5), // 5 min
   });
   const { data: keyData } = useOnScreenKeyAddedSubscription({
     variables: { screenKey },
+    onSubscriptionData: () => getScreen(),
+  });
+  const { data: screenUpdatedData } = useOnScreenUpdatedSubscription({
+    variables: { screenKey },
+    onSubscriptionData: (options) => onSubscriptionData(options, screenKey),
   });
   const slides = getFilteredOrderedSlides(screenData);
-
-  React.useEffect(() => {
-    const shouldGetScreenData = R.and(
-      R.not(R.empty(keyData)),
-      R.equals(keyData?.screenKeyAdded.privateKey, screenKey.privateKey),
-    );
-
-    if (shouldGetScreenData) {
-      getScreen();
-    }
-  }, [keyData]);
-
-  React.useEffect(() => {
-    getScreen();
-    bootstrap(screenKey);
-  }, [screenKey]);
 
   React.useEffect(() => {
     if (screenData) {
       persistScreen(screenKey.publicKey, screenData);
     }
-  }, [screenData]);
+
+    if (error) {
+      preloadScreen(screenKey);
+    }
+  }, [loading]);
+
+  React.useEffect(() => {
+    bootstrap();
+    getScreen();
+  }, []);
 
   if (!screenData || error) return (
     <KeyContainer>

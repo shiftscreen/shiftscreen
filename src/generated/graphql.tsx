@@ -3,8 +3,8 @@ import * as ApolloReactCommon from '@apollo/react-common';
 import * as React from 'react';
 import * as ApolloReactComponents from '@apollo/react-components';
 import * as ApolloReactHooks from '@apollo/react-hooks';
-
 export type Maybe<T> = T | null;
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -22,7 +22,7 @@ export type Scalars = {
 };
 
 export type AppInstance = {
-   __typename?: 'AppInstance';
+  __typename?: 'AppInstance';
   id: Scalars['ID'];
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
@@ -35,7 +35,7 @@ export type AppInstance = {
 };
 
 export type BaseEntity = {
-   __typename?: 'BaseEntity';
+  __typename?: 'BaseEntity';
   id: Scalars['ID'];
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
@@ -43,7 +43,7 @@ export type BaseEntity = {
 
 
 export type File = {
-   __typename?: 'File';
+  __typename?: 'File';
   id: Scalars['ID'];
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
@@ -57,7 +57,7 @@ export type File = {
 };
 
 export type FileKey = {
-   __typename?: 'FileKey';
+  __typename?: 'FileKey';
   id: Scalars['ID'];
   createdAt: Scalars['DateTime'];
   key: Scalars['String'];
@@ -71,7 +71,7 @@ export type FileKeyInput = {
 };
 
 export type FileLink = {
-   __typename?: 'FileLink';
+  __typename?: 'FileLink';
   url: Scalars['String'];
   expiryTime: Scalars['Float'];
 };
@@ -84,7 +84,7 @@ export type LoginInput = {
 };
 
 export type Mutation = {
-   __typename?: 'Mutation';
+  __typename?: 'Mutation';
   addAppInstance: AppInstance;
   addFile?: Maybe<File>;
   addFileKey: FileKey;
@@ -105,6 +105,7 @@ export type Mutation = {
   deleteUser: Scalars['Boolean'];
   fileLink: FileLink;
   login: TokenResponse;
+  notifyScreenUpdated: Scalars['Boolean'];
   refreshToken?: Maybe<TokenResponse>;
   revokeToken: Scalars['Boolean'];
   selectOrganization?: Maybe<Organization>;
@@ -220,6 +221,11 @@ export type MutationLoginArgs = {
 };
 
 
+export type MutationNotifyScreenUpdatedArgs = {
+  id: Scalars['Int'];
+};
+
+
 export type MutationSelectOrganizationArgs = {
   id: Scalars['Int'];
 };
@@ -316,7 +322,7 @@ export type NewUserInput = {
 };
 
 export type Organization = {
-   __typename?: 'Organization';
+  __typename?: 'Organization';
   id: Scalars['ID'];
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
@@ -337,7 +343,7 @@ export enum PredefinedQuotesType {
 }
 
 export type Query = {
-   __typename?: 'Query';
+  __typename?: 'Query';
   appInstance: AppInstance;
   appInstancesByAppId: Array<AppInstance>;
   calendarTodayDayNames: Scalars['String'];
@@ -400,14 +406,14 @@ export type QueryUserByEmailArgs = {
 };
 
 export type Quote = {
-   __typename?: 'Quote';
+  __typename?: 'Quote';
   id: Scalars['String'];
   content: Scalars['String'];
   author: Scalars['String'];
 };
 
 export type Role = {
-   __typename?: 'Role';
+  __typename?: 'Role';
   id: Scalars['ID'];
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
@@ -417,7 +423,7 @@ export type Role = {
 };
 
 export type Screen = {
-   __typename?: 'Screen';
+  __typename?: 'Screen';
   id: Scalars['ID'];
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
@@ -426,7 +432,7 @@ export type Screen = {
   color: Scalars['String'];
   ratio: Scalars['String'];
   publicKey: Scalars['String'];
-  slidesOrder: Scalars['JSON'];
+  slidesOrder?: Maybe<Scalars['JSON']>;
   organization: Organization;
   keys?: Maybe<Array<ScreenKey>>;
   slides?: Maybe<Array<Slide>>;
@@ -434,7 +440,7 @@ export type Screen = {
 };
 
 export type ScreenKey = {
-   __typename?: 'ScreenKey';
+  __typename?: 'ScreenKey';
   id: Scalars['ID'];
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
@@ -450,14 +456,14 @@ export type ScreenKeyInput = {
 };
 
 export type ScreenKeyInputSubscription = {
-   __typename?: 'ScreenKeyInputSubscription';
+  __typename?: 'ScreenKeyInputSubscription';
   screenId: Scalars['Int'];
   publicKey: Scalars['String'];
   privateKey: Scalars['String'];
 };
 
 export type Slide = {
-   __typename?: 'Slide';
+  __typename?: 'Slide';
   id: Scalars['ID'];
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
@@ -482,7 +488,7 @@ export type SlideInput = {
 };
 
 export type Storage = {
-   __typename?: 'Storage';
+  __typename?: 'Storage';
   id: Scalars['ID'];
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
@@ -492,8 +498,9 @@ export type Storage = {
 };
 
 export type Subscription = {
-   __typename?: 'Subscription';
+  __typename?: 'Subscription';
   screenKeyAdded: ScreenKeyInputSubscription;
+  screenUpdated: Screen;
 };
 
 
@@ -501,8 +508,13 @@ export type SubscriptionScreenKeyAddedArgs = {
   screenKey: ScreenKeyInput;
 };
 
+
+export type SubscriptionScreenUpdatedArgs = {
+  screenKey: ScreenKeyInput;
+};
+
 export type TokenResponse = {
-   __typename?: 'TokenResponse';
+  __typename?: 'TokenResponse';
   tokenType: Scalars['String'];
   accessToken: Scalars['String'];
   expiresIn: Scalars['Int'];
@@ -556,7 +568,7 @@ export type UpdateUserInput = {
 
 
 export type User = {
-   __typename?: 'User';
+  __typename?: 'User';
   id: Scalars['ID'];
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
@@ -570,9 +582,9 @@ export type User = {
   appsInstances?: Maybe<Array<AppInstance>>;
 };
 
-export type AddUserMutationVariables = {
+export type AddUserMutationVariables = Exact<{
   values: NewUserInput;
-};
+}>;
 
 
 export type AddUserMutation = (
@@ -583,10 +595,10 @@ export type AddUserMutation = (
   ) }
 );
 
-export type DeleteUserMutationVariables = {
+export type DeleteUserMutationVariables = Exact<{
   id: Scalars['Int'];
   password: Scalars['String'];
-};
+}>;
 
 
 export type DeleteUserMutation = (
@@ -594,9 +606,9 @@ export type DeleteUserMutation = (
   & Pick<Mutation, 'deleteUser'>
 );
 
-export type LoginMutationVariables = {
+export type LoginMutationVariables = Exact<{
   values: LoginInput;
-};
+}>;
 
 
 export type LoginMutation = (
@@ -607,7 +619,7 @@ export type LoginMutation = (
   ) }
 );
 
-export type RefreshTokenMutationVariables = {};
+export type RefreshTokenMutationVariables = Exact<{ [key: string]: never; }>;
 
 
 export type RefreshTokenMutation = (
@@ -618,7 +630,7 @@ export type RefreshTokenMutation = (
   )> }
 );
 
-export type RevokeTokenMutationVariables = {};
+export type RevokeTokenMutationVariables = Exact<{ [key: string]: never; }>;
 
 
 export type RevokeTokenMutation = (
@@ -626,10 +638,10 @@ export type RevokeTokenMutation = (
   & Pick<Mutation, 'revokeToken'>
 );
 
-export type UpdateUserMutationVariables = {
+export type UpdateUserMutationVariables = Exact<{
   id: Scalars['Int'];
   values: UpdateUserInput;
-};
+}>;
 
 
 export type UpdateUserMutation = (
@@ -640,9 +652,9 @@ export type UpdateUserMutation = (
   ) }
 );
 
-export type UserByEmailQueryQueryVariables = {
+export type UserByEmailQueryQueryVariables = Exact<{
   email: Scalars['String'];
-};
+}>;
 
 
 export type UserByEmailQueryQuery = (
@@ -658,7 +670,7 @@ export type BasicUserPartsFragment = (
   & Pick<User, 'id' | 'createdAt' | 'updatedAt' | 'email' | 'firstName' | 'lastName' | 'rulesAcceptedAt'>
 );
 
-export type ViewerQueryVariables = {};
+export type ViewerQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ViewerQuery = (
@@ -669,9 +681,9 @@ export type ViewerQuery = (
   ) }
 );
 
-export type AddFileKeyMutationVariables = {
+export type AddFileKeyMutationVariables = Exact<{
   fileId: Scalars['Int'];
-};
+}>;
 
 
 export type AddFileKeyMutation = (
@@ -682,9 +694,9 @@ export type AddFileKeyMutation = (
   ) }
 );
 
-export type AddFileMutationVariables = {
+export type AddFileMutationVariables = Exact<{
   values: NewFileInput;
-};
+}>;
 
 
 export type AddFileMutation = (
@@ -695,9 +707,9 @@ export type AddFileMutation = (
   )> }
 );
 
-export type DeleteFileMutationVariables = {
+export type DeleteFileMutationVariables = Exact<{
   id: Scalars['Int'];
-};
+}>;
 
 
 export type DeleteFileMutation = (
@@ -705,9 +717,9 @@ export type DeleteFileMutation = (
   & Pick<Mutation, 'deleteFile'>
 );
 
-export type FileByKeyQueryVariables = {
+export type FileByKeyQueryVariables = Exact<{
   fileKey: FileKeyInput;
-};
+}>;
 
 
 export type FileByKeyQuery = (
@@ -722,9 +734,9 @@ export type FileByKeyQuery = (
   ) }
 );
 
-export type FileLinkByKeyQueryVariables = {
+export type FileLinkByKeyQueryVariables = Exact<{
   fileKey: FileKeyInput;
-};
+}>;
 
 
 export type FileLinkByKeyQuery = (
@@ -743,9 +755,9 @@ export type FileLinkByKeyQuery = (
   ) }
 );
 
-export type FileLinkMutationVariables = {
+export type FileLinkMutationVariables = Exact<{
   id: Scalars['Int'];
-};
+}>;
 
 
 export type FileLinkMutation = (
@@ -761,10 +773,10 @@ export type BasicFilePartsFragment = (
   & Pick<File, 'id' | 'createdAt' | 'updatedAt' | 'title' | 'filename' | 'mimeType' | 'sizeKilobytes'>
 );
 
-export type UpdateFileMutationVariables = {
+export type UpdateFileMutationVariables = Exact<{
   id: Scalars['Int'];
   values: UpdateFileInput;
-};
+}>;
 
 
 export type UpdateFileMutation = (
@@ -775,7 +787,7 @@ export type UpdateFileMutation = (
   )> }
 );
 
-export type ViewerFilesQueryVariables = {};
+export type ViewerFilesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ViewerFilesQuery = (
@@ -790,7 +802,7 @@ export type ViewerFilesQuery = (
   ) }
 );
 
-export type ViewerStorageQueryVariables = {};
+export type ViewerStorageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ViewerStorageQuery = (
@@ -805,9 +817,9 @@ export type ViewerStorageQuery = (
   ) }
 );
 
-export type AddAppInstanceMutationVariables = {
+export type AddAppInstanceMutationVariables = Exact<{
   values: NewAppInstanceInput;
-};
+}>;
 
 
 export type AddAppInstanceMutation = (
@@ -823,9 +835,9 @@ export type BasicAppInstancePartsFragment = (
   & Pick<AppInstance, 'id' | 'createdAt' | 'updatedAt' | 'appId' | 'appVersion' | 'config' | 'title'>
 );
 
-export type AppInstancesByAppIdQueryVariables = {
+export type AppInstancesByAppIdQueryVariables = Exact<{
   appId: Scalars['String'];
-};
+}>;
 
 
 export type AppInstancesByAppIdQuery = (
@@ -836,9 +848,9 @@ export type AppInstancesByAppIdQuery = (
   )> }
 );
 
-export type DeleteAppInstanceMutationVariables = {
+export type DeleteAppInstanceMutationVariables = Exact<{
   id: Scalars['Int'];
-};
+}>;
 
 
 export type DeleteAppInstanceMutation = (
@@ -846,10 +858,10 @@ export type DeleteAppInstanceMutation = (
   & Pick<Mutation, 'deleteAppInstance'>
 );
 
-export type UpdateAppInstanceMutationVariables = {
+export type UpdateAppInstanceMutationVariables = Exact<{
   id: Scalars['Int'];
   values: UpdateAppInstanceInput;
-};
+}>;
 
 
 export type UpdateAppInstanceMutation = (
@@ -860,7 +872,7 @@ export type UpdateAppInstanceMutation = (
   ) }
 );
 
-export type ViewerAppInstancesQueryVariables = {};
+export type ViewerAppInstancesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ViewerAppInstancesQuery = (
@@ -875,9 +887,9 @@ export type ViewerAppInstancesQuery = (
   ) }
 );
 
-export type AddOrganizationMutationVariables = {
+export type AddOrganizationMutationVariables = Exact<{
   values: NewOrganizationInput;
-};
+}>;
 
 
 export type AddOrganizationMutation = (
@@ -888,9 +900,9 @@ export type AddOrganizationMutation = (
   ) }
 );
 
-export type DeleteOrganizationMutationVariables = {
+export type DeleteOrganizationMutationVariables = Exact<{
   id: Scalars['Int'];
-};
+}>;
 
 
 export type DeleteOrganizationMutation = (
@@ -898,9 +910,9 @@ export type DeleteOrganizationMutation = (
   & Pick<Mutation, 'deleteOrganization'>
 );
 
-export type OrganizationByIdQueryVariables = {
+export type OrganizationByIdQueryVariables = Exact<{
   id: Scalars['Int'];
-};
+}>;
 
 
 export type OrganizationByIdQuery = (
@@ -916,9 +928,9 @@ export type BasicOrganizationPartsFragment = (
   & Pick<Organization, 'id' | 'createdAt' | 'updatedAt' | 'title' | 'viewerPermissionType'>
 );
 
-export type SelectOrganizationMutationVariables = {
+export type SelectOrganizationMutationVariables = Exact<{
   id: Scalars['Int'];
-};
+}>;
 
 
 export type SelectOrganizationMutation = (
@@ -929,7 +941,7 @@ export type SelectOrganizationMutation = (
   )> }
 );
 
-export type SelectedOrganizationQueryVariables = {};
+export type SelectedOrganizationQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type SelectedOrganizationQuery = (
@@ -940,10 +952,10 @@ export type SelectedOrganizationQuery = (
   )> }
 );
 
-export type UpdateOrganizationMutationVariables = {
+export type UpdateOrganizationMutationVariables = Exact<{
   id: Scalars['Int'];
   values: UpdateOrganizationInput;
-};
+}>;
 
 
 export type UpdateOrganizationMutation = (
@@ -954,9 +966,9 @@ export type UpdateOrganizationMutation = (
   ) }
 );
 
-export type AddRoleMutationVariables = {
+export type AddRoleMutationVariables = Exact<{
   values: NewRoleInput;
-};
+}>;
 
 
 export type AddRoleMutation = (
@@ -971,9 +983,9 @@ export type AddRoleMutation = (
   ) }
 );
 
-export type DeleteRoleMutationVariables = {
+export type DeleteRoleMutationVariables = Exact<{
   id: Scalars['Int'];
-};
+}>;
 
 
 export type DeleteRoleMutation = (
@@ -981,9 +993,9 @@ export type DeleteRoleMutation = (
   & Pick<Mutation, 'deleteRole'>
 );
 
-export type OrganizationRolesQueryVariables = {
+export type OrganizationRolesQueryVariables = Exact<{
   organizationId: Scalars['Int'];
-};
+}>;
 
 
 export type OrganizationRolesQuery = (
@@ -1007,10 +1019,10 @@ export type BasicRolePartsFragment = (
   & Pick<Role, 'id' | 'createdAt' | 'updatedAt' | 'permissionType'>
 );
 
-export type UpdateRoleMutationVariables = {
+export type UpdateRoleMutationVariables = Exact<{
   id: Scalars['Int'];
   values: UpdateRoleInput;
-};
+}>;
 
 
 export type UpdateRoleMutation = (
@@ -1021,7 +1033,7 @@ export type UpdateRoleMutation = (
   ) }
 );
 
-export type ViewerRolesQueryVariables = {};
+export type ViewerRolesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ViewerRolesQuery = (
@@ -1040,10 +1052,10 @@ export type ViewerRolesQuery = (
   ) }
 );
 
-export type AddScreenKeyMutationVariables = {
+export type AddScreenKeyMutationVariables = Exact<{
   screenId: Scalars['Int'];
   privateKey: Scalars['String'];
-};
+}>;
 
 
 export type AddScreenKeyMutation = (
@@ -1054,9 +1066,9 @@ export type AddScreenKeyMutation = (
   ) }
 );
 
-export type AddScreenMutationVariables = {
+export type AddScreenMutationVariables = Exact<{
   values: NewScreenInput;
-};
+}>;
 
 
 export type AddScreenMutation = (
@@ -1071,9 +1083,9 @@ export type AddScreenMutation = (
   ) }
 );
 
-export type DeleteScreenMutationVariables = {
+export type DeleteScreenMutationVariables = Exact<{
   id: Scalars['Int'];
-};
+}>;
 
 
 export type DeleteScreenMutation = (
@@ -1081,9 +1093,19 @@ export type DeleteScreenMutation = (
   & Pick<Mutation, 'deleteScreen'>
 );
 
-export type OrganizationScreensQueryVariables = {
+export type NotifyScreenUpdatedMutationVariables = Exact<{
   id: Scalars['Int'];
-};
+}>;
+
+
+export type NotifyScreenUpdatedMutation = (
+  { __typename?: 'Mutation' }
+  & Pick<Mutation, 'notifyScreenUpdated'>
+);
+
+export type OrganizationScreensQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
 
 
 export type OrganizationScreensQuery = (
@@ -1102,9 +1124,9 @@ export type OrganizationScreensQuery = (
   ) }
 );
 
-export type ScreenByIdQueryVariables = {
+export type ScreenByIdQueryVariables = Exact<{
   id: Scalars['Int'];
-};
+}>;
 
 
 export type ScreenByIdQuery = (
@@ -1115,9 +1137,9 @@ export type ScreenByIdQuery = (
   ) }
 );
 
-export type ScreenExtendedByIdQueryVariables = {
+export type ScreenExtendedByIdQueryVariables = Exact<{
   id: Scalars['Int'];
-};
+}>;
 
 
 export type ScreenExtendedByIdQuery = (
@@ -1128,9 +1150,9 @@ export type ScreenExtendedByIdQuery = (
   ) }
 );
 
-export type ScreenExtendedByKeyQueryVariables = {
+export type ScreenExtendedByKeyQueryVariables = Exact<{
   screenKey: ScreenKeyInput;
-};
+}>;
 
 
 export type ScreenExtendedByKeyQuery = (
@@ -1160,9 +1182,9 @@ export type ExtendedScreenPartsFragment = (
   & BasicScreenPartsFragment
 );
 
-export type OnScreenKeyAddedSubscriptionVariables = {
+export type OnScreenKeyAddedSubscriptionVariables = Exact<{
   screenKey: ScreenKeyInput;
-};
+}>;
 
 
 export type OnScreenKeyAddedSubscription = (
@@ -1178,10 +1200,27 @@ export type BasicScreenPartsFragment = (
   & Pick<Screen, 'id' | 'createdAt' | 'updatedAt' | 'title' | 'isActive' | 'color' | 'ratio' | 'slidesOrder' | 'publicKey'>
 );
 
-export type UpdateScreenMutationVariables = {
+export type OnScreenUpdatedSubscriptionVariables = Exact<{
+  screenKey: ScreenKeyInput;
+}>;
+
+
+export type OnScreenUpdatedSubscription = (
+  { __typename?: 'Subscription' }
+  & { screenUpdated: (
+    { __typename?: 'Screen' }
+    & { slides?: Maybe<Array<(
+      { __typename?: 'Slide' }
+      & BasicSlidePartsFragment
+    )>> }
+    & BasicScreenPartsFragment
+  ) }
+);
+
+export type UpdateScreenMutationVariables = Exact<{
   id: Scalars['Int'];
   values: UpdateScreenInput;
-};
+}>;
 
 
 export type UpdateScreenMutation = (
@@ -1192,9 +1231,9 @@ export type UpdateScreenMutation = (
   ) }
 );
 
-export type AddSlideMutationVariables = {
+export type AddSlideMutationVariables = Exact<{
   values: NewSlideInput;
-};
+}>;
 
 
 export type AddSlideMutation = (
@@ -1205,9 +1244,9 @@ export type AddSlideMutation = (
   ) }
 );
 
-export type DeleteSlideMutationVariables = {
+export type DeleteSlideMutationVariables = Exact<{
   id: Scalars['Int'];
-};
+}>;
 
 
 export type DeleteSlideMutation = (
@@ -1215,9 +1254,9 @@ export type DeleteSlideMutation = (
   & Pick<Mutation, 'deleteSlide'>
 );
 
-export type SlideByIdLocalQueryVariables = {
+export type SlideByIdLocalQueryVariables = Exact<{
   id: Scalars['Int'];
-};
+}>;
 
 
 export type SlideByIdLocalQuery = (
@@ -1237,10 +1276,10 @@ export type BasicSlidePartsFragment = (
   )> }
 );
 
-export type UpdateSlideMutationVariables = {
+export type UpdateSlideMutationVariables = Exact<{
   id: Scalars['Int'];
   values: UpdateSlideInput;
-};
+}>;
 
 
 export type UpdateSlideMutation = (
@@ -1251,7 +1290,7 @@ export type UpdateSlideMutation = (
   ) }
 );
 
-export type CalendarUtilsStableQueryVariables = {};
+export type CalendarUtilsStableQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type CalendarUtilsStableQuery = (
@@ -1259,9 +1298,9 @@ export type CalendarUtilsStableQuery = (
   & Pick<Query, 'calendarTodayDayNames' | 'calendarTodayHoliday'>
 );
 
-export type QuotePredefinedQuotesQueryVariables = {
+export type QuotePredefinedQuotesQueryVariables = Exact<{
   type: PredefinedQuotesType;
-};
+}>;
 
 
 export type QuotePredefinedQuotesQuery = (
@@ -1381,7 +1420,7 @@ export type AddUserComponentProps = Omit<ApolloReactComponents.MutationComponent
     export const AddUserComponent = (props: AddUserComponentProps) => (
       <ApolloReactComponents.Mutation<AddUserMutation, AddUserMutationVariables> mutation={AddUserDocument} {...props} />
     );
-
+    
 
 /**
  * __useAddUserMutation__
@@ -1417,7 +1456,7 @@ export type DeleteUserComponentProps = Omit<ApolloReactComponents.MutationCompon
     export const DeleteUserComponent = (props: DeleteUserComponentProps) => (
       <ApolloReactComponents.Mutation<DeleteUserMutation, DeleteUserMutationVariables> mutation={DeleteUserDocument} {...props} />
     );
-
+    
 
 /**
  * __useDeleteUserMutation__
@@ -1458,7 +1497,7 @@ export type LoginComponentProps = Omit<ApolloReactComponents.MutationComponentOp
     export const LoginComponent = (props: LoginComponentProps) => (
       <ApolloReactComponents.Mutation<LoginMutation, LoginMutationVariables> mutation={LoginDocument} {...props} />
     );
-
+    
 
 /**
  * __useLoginMutation__
@@ -1498,7 +1537,7 @@ export type RefreshTokenComponentProps = Omit<ApolloReactComponents.MutationComp
     export const RefreshTokenComponent = (props: RefreshTokenComponentProps) => (
       <ApolloReactComponents.Mutation<RefreshTokenMutation, RefreshTokenMutationVariables> mutation={RefreshTokenDocument} {...props} />
     );
-
+    
 
 /**
  * __useRefreshTokenMutation__
@@ -1533,7 +1572,7 @@ export type RevokeTokenComponentProps = Omit<ApolloReactComponents.MutationCompo
     export const RevokeTokenComponent = (props: RevokeTokenComponentProps) => (
       <ApolloReactComponents.Mutation<RevokeTokenMutation, RevokeTokenMutationVariables> mutation={RevokeTokenDocument} {...props} />
     );
-
+    
 
 /**
  * __useRevokeTokenMutation__
@@ -1570,7 +1609,7 @@ export type UpdateUserComponentProps = Omit<ApolloReactComponents.MutationCompon
     export const UpdateUserComponent = (props: UpdateUserComponentProps) => (
       <ApolloReactComponents.Mutation<UpdateUserMutation, UpdateUserMutationVariables> mutation={UpdateUserDocument} {...props} />
     );
-
+    
 
 /**
  * __useUpdateUserMutation__
@@ -1608,7 +1647,7 @@ export type UserByEmailQueryComponentProps = Omit<ApolloReactComponents.QueryCom
     export const UserByEmailQueryComponent = (props: UserByEmailQueryComponentProps) => (
       <ApolloReactComponents.Query<UserByEmailQueryQuery, UserByEmailQueryQueryVariables> query={UserByEmailQueryDocument} {...props} />
     );
-
+    
 
 /**
  * __useUserByEmailQueryQuery__
@@ -1653,7 +1692,7 @@ export type ViewerComponentProps = Omit<ApolloReactComponents.QueryComponentOpti
     export const ViewerComponent = (props: ViewerComponentProps) => (
       <ApolloReactComponents.Query<ViewerQuery, ViewerQueryVariables> query={ViewerDocument} {...props} />
     );
-
+    
 
 /**
  * __useViewerQuery__
@@ -1693,7 +1732,7 @@ export type AddFileKeyComponentProps = Omit<ApolloReactComponents.MutationCompon
     export const AddFileKeyComponent = (props: AddFileKeyComponentProps) => (
       <ApolloReactComponents.Mutation<AddFileKeyMutation, AddFileKeyMutationVariables> mutation={AddFileKeyDocument} {...props} />
     );
-
+    
 
 /**
  * __useAddFileKeyMutation__
@@ -1731,7 +1770,7 @@ export type AddFileComponentProps = Omit<ApolloReactComponents.MutationComponent
     export const AddFileComponent = (props: AddFileComponentProps) => (
       <ApolloReactComponents.Mutation<AddFileMutation, AddFileMutationVariables> mutation={AddFileDocument} {...props} />
     );
-
+    
 
 /**
  * __useAddFileMutation__
@@ -1767,7 +1806,7 @@ export type DeleteFileComponentProps = Omit<ApolloReactComponents.MutationCompon
     export const DeleteFileComponent = (props: DeleteFileComponentProps) => (
       <ApolloReactComponents.Mutation<DeleteFileMutation, DeleteFileMutationVariables> mutation={DeleteFileDocument} {...props} />
     );
-
+    
 
 /**
  * __useDeleteFileMutation__
@@ -1807,7 +1846,7 @@ export type FileByKeyComponentProps = Omit<ApolloReactComponents.QueryComponentO
     export const FileByKeyComponent = (props: FileByKeyComponentProps) => (
       <ApolloReactComponents.Query<FileByKeyQuery, FileByKeyQueryVariables> query={FileByKeyDocument} {...props} />
     );
-
+    
 
 /**
  * __useFileByKeyQuery__
@@ -1853,7 +1892,7 @@ export type FileLinkByKeyComponentProps = Omit<ApolloReactComponents.QueryCompon
     export const FileLinkByKeyComponent = (props: FileLinkByKeyComponentProps) => (
       <ApolloReactComponents.Query<FileLinkByKeyQuery, FileLinkByKeyQueryVariables> query={FileLinkByKeyDocument} {...props} />
     );
-
+    
 
 /**
  * __useFileLinkByKeyQuery__
@@ -1894,7 +1933,7 @@ export type FileLinkComponentProps = Omit<ApolloReactComponents.MutationComponen
     export const FileLinkComponent = (props: FileLinkComponentProps) => (
       <ApolloReactComponents.Mutation<FileLinkMutation, FileLinkMutationVariables> mutation={FileLinkDocument} {...props} />
     );
-
+    
 
 /**
  * __useFileLinkMutation__
@@ -1932,7 +1971,7 @@ export type UpdateFileComponentProps = Omit<ApolloReactComponents.MutationCompon
     export const UpdateFileComponent = (props: UpdateFileComponentProps) => (
       <ApolloReactComponents.Mutation<UpdateFileMutation, UpdateFileMutationVariables> mutation={UpdateFileDocument} {...props} />
     );
-
+    
 
 /**
  * __useUpdateFileMutation__
@@ -1973,7 +2012,7 @@ export type ViewerFilesComponentProps = Omit<ApolloReactComponents.QueryComponen
     export const ViewerFilesComponent = (props: ViewerFilesComponentProps) => (
       <ApolloReactComponents.Query<ViewerFilesQuery, ViewerFilesQueryVariables> query={ViewerFilesDocument} {...props} />
     );
-
+    
 
 /**
  * __useViewerFilesQuery__
@@ -2016,7 +2055,7 @@ export type ViewerStorageComponentProps = Omit<ApolloReactComponents.QueryCompon
     export const ViewerStorageComponent = (props: ViewerStorageComponentProps) => (
       <ApolloReactComponents.Query<ViewerStorageQuery, ViewerStorageQueryVariables> query={ViewerStorageDocument} {...props} />
     );
-
+    
 
 /**
  * __useViewerStorageQuery__
@@ -2055,7 +2094,7 @@ export type AddAppInstanceComponentProps = Omit<ApolloReactComponents.MutationCo
     export const AddAppInstanceComponent = (props: AddAppInstanceComponentProps) => (
       <ApolloReactComponents.Mutation<AddAppInstanceMutation, AddAppInstanceMutationVariables> mutation={AddAppInstanceDocument} {...props} />
     );
-
+    
 
 /**
  * __useAddAppInstanceMutation__
@@ -2092,7 +2131,7 @@ export type AppInstancesByAppIdComponentProps = Omit<ApolloReactComponents.Query
     export const AppInstancesByAppIdComponent = (props: AppInstancesByAppIdComponentProps) => (
       <ApolloReactComponents.Query<AppInstancesByAppIdQuery, AppInstancesByAppIdQueryVariables> query={AppInstancesByAppIdDocument} {...props} />
     );
-
+    
 
 /**
  * __useAppInstancesByAppIdQuery__
@@ -2130,7 +2169,7 @@ export type DeleteAppInstanceComponentProps = Omit<ApolloReactComponents.Mutatio
     export const DeleteAppInstanceComponent = (props: DeleteAppInstanceComponentProps) => (
       <ApolloReactComponents.Mutation<DeleteAppInstanceMutation, DeleteAppInstanceMutationVariables> mutation={DeleteAppInstanceDocument} {...props} />
     );
-
+    
 
 /**
  * __useDeleteAppInstanceMutation__
@@ -2168,7 +2207,7 @@ export type UpdateAppInstanceComponentProps = Omit<ApolloReactComponents.Mutatio
     export const UpdateAppInstanceComponent = (props: UpdateAppInstanceComponentProps) => (
       <ApolloReactComponents.Mutation<UpdateAppInstanceMutation, UpdateAppInstanceMutationVariables> mutation={UpdateAppInstanceDocument} {...props} />
     );
-
+    
 
 /**
  * __useUpdateAppInstanceMutation__
@@ -2209,7 +2248,7 @@ export type ViewerAppInstancesComponentProps = Omit<ApolloReactComponents.QueryC
     export const ViewerAppInstancesComponent = (props: ViewerAppInstancesComponentProps) => (
       <ApolloReactComponents.Query<ViewerAppInstancesQuery, ViewerAppInstancesQueryVariables> query={ViewerAppInstancesDocument} {...props} />
     );
-
+    
 
 /**
  * __useViewerAppInstancesQuery__
@@ -2248,7 +2287,7 @@ export type AddOrganizationComponentProps = Omit<ApolloReactComponents.MutationC
     export const AddOrganizationComponent = (props: AddOrganizationComponentProps) => (
       <ApolloReactComponents.Mutation<AddOrganizationMutation, AddOrganizationMutationVariables> mutation={AddOrganizationDocument} {...props} />
     );
-
+    
 
 /**
  * __useAddOrganizationMutation__
@@ -2284,7 +2323,7 @@ export type DeleteOrganizationComponentProps = Omit<ApolloReactComponents.Mutati
     export const DeleteOrganizationComponent = (props: DeleteOrganizationComponentProps) => (
       <ApolloReactComponents.Mutation<DeleteOrganizationMutation, DeleteOrganizationMutationVariables> mutation={DeleteOrganizationDocument} {...props} />
     );
-
+    
 
 /**
  * __useDeleteOrganizationMutation__
@@ -2321,7 +2360,7 @@ export type OrganizationByIdComponentProps = Omit<ApolloReactComponents.QueryCom
     export const OrganizationByIdComponent = (props: OrganizationByIdComponentProps) => (
       <ApolloReactComponents.Query<OrganizationByIdQuery, OrganizationByIdQueryVariables> query={OrganizationByIdDocument} {...props} />
     );
-
+    
 
 /**
  * __useOrganizationByIdQuery__
@@ -2361,7 +2400,7 @@ export type SelectOrganizationComponentProps = Omit<ApolloReactComponents.Mutati
     export const SelectOrganizationComponent = (props: SelectOrganizationComponentProps) => (
       <ApolloReactComponents.Mutation<SelectOrganizationMutation, SelectOrganizationMutationVariables> mutation={SelectOrganizationDocument} {...props} />
     );
-
+    
 
 /**
  * __useSelectOrganizationMutation__
@@ -2398,7 +2437,7 @@ export type SelectedOrganizationComponentProps = Omit<ApolloReactComponents.Quer
     export const SelectedOrganizationComponent = (props: SelectedOrganizationComponentProps) => (
       <ApolloReactComponents.Query<SelectedOrganizationQuery, SelectedOrganizationQueryVariables> query={SelectedOrganizationDocument} {...props} />
     );
-
+    
 
 /**
  * __useSelectedOrganizationQuery__
@@ -2437,7 +2476,7 @@ export type UpdateOrganizationComponentProps = Omit<ApolloReactComponents.Mutati
     export const UpdateOrganizationComponent = (props: UpdateOrganizationComponentProps) => (
       <ApolloReactComponents.Mutation<UpdateOrganizationMutation, UpdateOrganizationMutationVariables> mutation={UpdateOrganizationDocument} {...props} />
     );
-
+    
 
 /**
  * __useUpdateOrganizationMutation__
@@ -2480,7 +2519,7 @@ export type AddRoleComponentProps = Omit<ApolloReactComponents.MutationComponent
     export const AddRoleComponent = (props: AddRoleComponentProps) => (
       <ApolloReactComponents.Mutation<AddRoleMutation, AddRoleMutationVariables> mutation={AddRoleDocument} {...props} />
     );
-
+    
 
 /**
  * __useAddRoleMutation__
@@ -2516,7 +2555,7 @@ export type DeleteRoleComponentProps = Omit<ApolloReactComponents.MutationCompon
     export const DeleteRoleComponent = (props: DeleteRoleComponentProps) => (
       <ApolloReactComponents.Mutation<DeleteRoleMutation, DeleteRoleMutationVariables> mutation={DeleteRoleDocument} {...props} />
     );
-
+    
 
 /**
  * __useDeleteRoleMutation__
@@ -2561,7 +2600,7 @@ export type OrganizationRolesComponentProps = Omit<ApolloReactComponents.QueryCo
     export const OrganizationRolesComponent = (props: OrganizationRolesComponentProps) => (
       <ApolloReactComponents.Query<OrganizationRolesQuery, OrganizationRolesQueryVariables> query={OrganizationRolesDocument} {...props} />
     );
-
+    
 
 /**
  * __useOrganizationRolesQuery__
@@ -2601,7 +2640,7 @@ export type UpdateRoleComponentProps = Omit<ApolloReactComponents.MutationCompon
     export const UpdateRoleComponent = (props: UpdateRoleComponentProps) => (
       <ApolloReactComponents.Mutation<UpdateRoleMutation, UpdateRoleMutationVariables> mutation={UpdateRoleDocument} {...props} />
     );
-
+    
 
 /**
  * __useUpdateRoleMutation__
@@ -2646,7 +2685,7 @@ export type ViewerRolesComponentProps = Omit<ApolloReactComponents.QueryComponen
     export const ViewerRolesComponent = (props: ViewerRolesComponentProps) => (
       <ApolloReactComponents.Query<ViewerRolesQuery, ViewerRolesQueryVariables> query={ViewerRolesDocument} {...props} />
     );
-
+    
 
 /**
  * __useViewerRolesQuery__
@@ -2686,7 +2725,7 @@ export type AddScreenKeyComponentProps = Omit<ApolloReactComponents.MutationComp
     export const AddScreenKeyComponent = (props: AddScreenKeyComponentProps) => (
       <ApolloReactComponents.Mutation<AddScreenKeyMutation, AddScreenKeyMutationVariables> mutation={AddScreenKeyDocument} {...props} />
     );
-
+    
 
 /**
  * __useAddScreenKeyMutation__
@@ -2729,7 +2768,7 @@ export type AddScreenComponentProps = Omit<ApolloReactComponents.MutationCompone
     export const AddScreenComponent = (props: AddScreenComponentProps) => (
       <ApolloReactComponents.Mutation<AddScreenMutation, AddScreenMutationVariables> mutation={AddScreenDocument} {...props} />
     );
-
+    
 
 /**
  * __useAddScreenMutation__
@@ -2765,7 +2804,7 @@ export type DeleteScreenComponentProps = Omit<ApolloReactComponents.MutationComp
     export const DeleteScreenComponent = (props: DeleteScreenComponentProps) => (
       <ApolloReactComponents.Mutation<DeleteScreenMutation, DeleteScreenMutationVariables> mutation={DeleteScreenDocument} {...props} />
     );
-
+    
 
 /**
  * __useDeleteScreenMutation__
@@ -2790,6 +2829,42 @@ export function useDeleteScreenMutation(baseOptions?: ApolloReactHooks.MutationH
 export type DeleteScreenMutationHookResult = ReturnType<typeof useDeleteScreenMutation>;
 export type DeleteScreenMutationResult = ApolloReactCommon.MutationResult<DeleteScreenMutation>;
 export type DeleteScreenMutationOptions = ApolloReactCommon.BaseMutationOptions<DeleteScreenMutation, DeleteScreenMutationVariables>;
+export const NotifyScreenUpdatedDocument = gql`
+    mutation NotifyScreenUpdated($id: Int!) {
+  notifyScreenUpdated(id: $id)
+}
+    `;
+export type NotifyScreenUpdatedMutationFn = ApolloReactCommon.MutationFunction<NotifyScreenUpdatedMutation, NotifyScreenUpdatedMutationVariables>;
+export type NotifyScreenUpdatedComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<NotifyScreenUpdatedMutation, NotifyScreenUpdatedMutationVariables>, 'mutation'>;
+
+    export const NotifyScreenUpdatedComponent = (props: NotifyScreenUpdatedComponentProps) => (
+      <ApolloReactComponents.Mutation<NotifyScreenUpdatedMutation, NotifyScreenUpdatedMutationVariables> mutation={NotifyScreenUpdatedDocument} {...props} />
+    );
+    
+
+/**
+ * __useNotifyScreenUpdatedMutation__
+ *
+ * To run a mutation, you first call `useNotifyScreenUpdatedMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useNotifyScreenUpdatedMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [notifyScreenUpdatedMutation, { data, loading, error }] = useNotifyScreenUpdatedMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useNotifyScreenUpdatedMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<NotifyScreenUpdatedMutation, NotifyScreenUpdatedMutationVariables>) {
+        return ApolloReactHooks.useMutation<NotifyScreenUpdatedMutation, NotifyScreenUpdatedMutationVariables>(NotifyScreenUpdatedDocument, baseOptions);
+      }
+export type NotifyScreenUpdatedMutationHookResult = ReturnType<typeof useNotifyScreenUpdatedMutation>;
+export type NotifyScreenUpdatedMutationResult = ApolloReactCommon.MutationResult<NotifyScreenUpdatedMutation>;
+export type NotifyScreenUpdatedMutationOptions = ApolloReactCommon.BaseMutationOptions<NotifyScreenUpdatedMutation, NotifyScreenUpdatedMutationVariables>;
 export const OrganizationScreensDocument = gql`
     query OrganizationScreens($id: Int!) {
   organization(id: $id) {
@@ -2809,7 +2884,7 @@ export type OrganizationScreensComponentProps = Omit<ApolloReactComponents.Query
     export const OrganizationScreensComponent = (props: OrganizationScreensComponentProps) => (
       <ApolloReactComponents.Query<OrganizationScreensQuery, OrganizationScreensQueryVariables> query={OrganizationScreensDocument} {...props} />
     );
-
+    
 
 /**
  * __useOrganizationScreensQuery__
@@ -2848,7 +2923,7 @@ export type ScreenByIdComponentProps = Omit<ApolloReactComponents.QueryComponent
     export const ScreenByIdComponent = (props: ScreenByIdComponentProps) => (
       <ApolloReactComponents.Query<ScreenByIdQuery, ScreenByIdQueryVariables> query={ScreenByIdDocument} {...props} />
     );
-
+    
 
 /**
  * __useScreenByIdQuery__
@@ -2887,7 +2962,7 @@ export type ScreenExtendedByIdComponentProps = Omit<ApolloReactComponents.QueryC
     export const ScreenExtendedByIdComponent = (props: ScreenExtendedByIdComponentProps) => (
       <ApolloReactComponents.Query<ScreenExtendedByIdQuery, ScreenExtendedByIdQueryVariables> query={ScreenExtendedByIdDocument} {...props} />
     );
-
+    
 
 /**
  * __useScreenExtendedByIdQuery__
@@ -2930,7 +3005,7 @@ export type ScreenExtendedByKeyComponentProps = Omit<ApolloReactComponents.Query
     export const ScreenExtendedByKeyComponent = (props: ScreenExtendedByKeyComponentProps) => (
       <ApolloReactComponents.Query<ScreenExtendedByKeyQuery, ScreenExtendedByKeyQueryVariables> query={ScreenExtendedByKeyDocument} {...props} />
     );
-
+    
 
 /**
  * __useScreenExtendedByKeyQuery__
@@ -2969,7 +3044,7 @@ export type OnScreenKeyAddedComponentProps = Omit<ApolloReactComponents.Subscrip
     export const OnScreenKeyAddedComponent = (props: OnScreenKeyAddedComponentProps) => (
       <ApolloReactComponents.Subscription<OnScreenKeyAddedSubscription, OnScreenKeyAddedSubscriptionVariables> subscription={OnScreenKeyAddedDocument} {...props} />
     );
-
+    
 
 /**
  * __useOnScreenKeyAddedSubscription__
@@ -2992,6 +3067,45 @@ export function useOnScreenKeyAddedSubscription(baseOptions?: ApolloReactHooks.S
       }
 export type OnScreenKeyAddedSubscriptionHookResult = ReturnType<typeof useOnScreenKeyAddedSubscription>;
 export type OnScreenKeyAddedSubscriptionResult = ApolloReactCommon.SubscriptionResult<OnScreenKeyAddedSubscription>;
+export const OnScreenUpdatedDocument = gql`
+    subscription onScreenUpdated($screenKey: ScreenKeyInput!) {
+  screenUpdated(screenKey: $screenKey) {
+    ...BasicScreenParts
+    slides {
+      ...BasicSlideParts
+    }
+  }
+}
+    ${BasicScreenPartsFragmentDoc}
+${BasicSlidePartsFragmentDoc}`;
+export type OnScreenUpdatedComponentProps = Omit<ApolloReactComponents.SubscriptionComponentOptions<OnScreenUpdatedSubscription, OnScreenUpdatedSubscriptionVariables>, 'subscription'>;
+
+    export const OnScreenUpdatedComponent = (props: OnScreenUpdatedComponentProps) => (
+      <ApolloReactComponents.Subscription<OnScreenUpdatedSubscription, OnScreenUpdatedSubscriptionVariables> subscription={OnScreenUpdatedDocument} {...props} />
+    );
+    
+
+/**
+ * __useOnScreenUpdatedSubscription__
+ *
+ * To run a query within a React component, call `useOnScreenUpdatedSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useOnScreenUpdatedSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useOnScreenUpdatedSubscription({
+ *   variables: {
+ *      screenKey: // value for 'screenKey'
+ *   },
+ * });
+ */
+export function useOnScreenUpdatedSubscription(baseOptions?: ApolloReactHooks.SubscriptionHookOptions<OnScreenUpdatedSubscription, OnScreenUpdatedSubscriptionVariables>) {
+        return ApolloReactHooks.useSubscription<OnScreenUpdatedSubscription, OnScreenUpdatedSubscriptionVariables>(OnScreenUpdatedDocument, baseOptions);
+      }
+export type OnScreenUpdatedSubscriptionHookResult = ReturnType<typeof useOnScreenUpdatedSubscription>;
+export type OnScreenUpdatedSubscriptionResult = ApolloReactCommon.SubscriptionResult<OnScreenUpdatedSubscription>;
 export const UpdateScreenDocument = gql`
     mutation UpdateScreen($id: Int!, $values: UpdateScreenInput!) {
   updateScreen(id: $id, updateScreenData: $values) {
@@ -3005,7 +3119,7 @@ export type UpdateScreenComponentProps = Omit<ApolloReactComponents.MutationComp
     export const UpdateScreenComponent = (props: UpdateScreenComponentProps) => (
       <ApolloReactComponents.Mutation<UpdateScreenMutation, UpdateScreenMutationVariables> mutation={UpdateScreenDocument} {...props} />
     );
-
+    
 
 /**
  * __useUpdateScreenMutation__
@@ -3044,7 +3158,7 @@ export type AddSlideComponentProps = Omit<ApolloReactComponents.MutationComponen
     export const AddSlideComponent = (props: AddSlideComponentProps) => (
       <ApolloReactComponents.Mutation<AddSlideMutation, AddSlideMutationVariables> mutation={AddSlideDocument} {...props} />
     );
-
+    
 
 /**
  * __useAddSlideMutation__
@@ -3080,7 +3194,7 @@ export type DeleteSlideComponentProps = Omit<ApolloReactComponents.MutationCompo
     export const DeleteSlideComponent = (props: DeleteSlideComponentProps) => (
       <ApolloReactComponents.Mutation<DeleteSlideMutation, DeleteSlideMutationVariables> mutation={DeleteSlideDocument} {...props} />
     );
-
+    
 
 /**
  * __useDeleteSlideMutation__
@@ -3117,7 +3231,7 @@ export type SlideByIdLocalComponentProps = Omit<ApolloReactComponents.QueryCompo
     export const SlideByIdLocalComponent = (props: SlideByIdLocalComponentProps) => (
       <ApolloReactComponents.Query<SlideByIdLocalQuery, SlideByIdLocalQueryVariables> query={SlideByIdLocalDocument} {...props} />
     );
-
+    
 
 /**
  * __useSlideByIdLocalQuery__
@@ -3157,7 +3271,7 @@ export type UpdateSlideComponentProps = Omit<ApolloReactComponents.MutationCompo
     export const UpdateSlideComponent = (props: UpdateSlideComponentProps) => (
       <ApolloReactComponents.Mutation<UpdateSlideMutation, UpdateSlideMutationVariables> mutation={UpdateSlideDocument} {...props} />
     );
-
+    
 
 /**
  * __useUpdateSlideMutation__
@@ -3194,7 +3308,7 @@ export type CalendarUtilsStableComponentProps = Omit<ApolloReactComponents.Query
     export const CalendarUtilsStableComponent = (props: CalendarUtilsStableComponentProps) => (
       <ApolloReactComponents.Query<CalendarUtilsStableQuery, CalendarUtilsStableQueryVariables> query={CalendarUtilsStableDocument} {...props} />
     );
-
+    
 
 /**
  * __useCalendarUtilsStableQuery__
@@ -3234,7 +3348,7 @@ export type QuotePredefinedQuotesComponentProps = Omit<ApolloReactComponents.Que
     export const QuotePredefinedQuotesComponent = (props: QuotePredefinedQuotesComponentProps) => (
       <ApolloReactComponents.Query<QuotePredefinedQuotesQuery, QuotePredefinedQuotesQueryVariables> query={QuotePredefinedQuotesDocument} {...props} />
     );
-
+    
 
 /**
  * __useQuotePredefinedQuotesQuery__
