@@ -4,6 +4,7 @@ import { Input, InputNumber, Select } from 'antd';
 import { SlideTypes, useUpdateSlideMutation } from 'types';
 import { BasicSlidePartsFragment } from 'generated/graphql';
 import { Addon } from './SlideTransitionStyle';
+import { handleError } from '../../../../../utils';
 
 const { Option } = Select;
 
@@ -39,7 +40,7 @@ const SlideTransition: React.FC<Props> = ({ slide }: Props) => {
         }
       })
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

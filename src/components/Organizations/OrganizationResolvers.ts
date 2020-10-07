@@ -1,5 +1,6 @@
 import { Resolver, Resolvers } from 'apollo-client';
 import { OrganizationByIdDocument } from 'generated/graphql';
+import { handleError } from '../../utils';
 
 const selectOrganization: Resolver = (_, { id }, { cache }) => {
   try {
@@ -13,7 +14,7 @@ const selectOrganization: Resolver = (_, { id }, { cache }) => {
 
     return selectedOrganization;
   } catch (e) {
-    console.error(e);
+    handleError(e);
   }
 
   return null;

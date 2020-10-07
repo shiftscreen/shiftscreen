@@ -1,5 +1,3 @@
-import { ApolloError } from 'apollo-client';
-import { message } from 'antd';
 import { PanelTypes, Path } from 'types';
 
 import { auth } from 'utils';
@@ -18,9 +16,4 @@ export const handleCompleted = (data: LoginMutation) => {
   auth.login(accessToken, tokenExpirationTimestamp);
 
   window.location.replace(panelPath);
-};
-
-export const handleError = (error: ApolloError) => {
-  console.error(error);
-  message.error('Niepoprawne dane logowania');
 };

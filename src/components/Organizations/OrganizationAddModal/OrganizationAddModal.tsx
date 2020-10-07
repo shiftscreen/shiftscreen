@@ -9,6 +9,7 @@ import ModalFormik from 'shared/ModalFormik';
 import OrganizationAddForm from './Form';
 import { ErrorAlert } from 'shared';
 import { message } from 'antd';
+import { handleError } from '../../../utils';
 
 interface Props {
   visible: boolean;
@@ -34,8 +35,7 @@ const OrganizationAddModal: React.FC<Props> = (props: Props) => {
     try {
       await addOrganization({ variables: { values } });
     } catch (e) {
-      message.error('Wystąpił błąd przy dodawaniu organizacji');
-      console.error(e);
+      handleError(e, 'Wystąpił błąd przy dodawaniu organizacji');
     }
   };
 

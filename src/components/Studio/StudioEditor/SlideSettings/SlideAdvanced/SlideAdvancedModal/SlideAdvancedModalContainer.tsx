@@ -9,6 +9,7 @@ import ModalFormik from 'shared/ModalFormik';
 import { ErrorAlert } from 'shared';
 import { SlideAdvancedInput } from './SlideAdvancedModalTypes';
 import SlideAdvancedForm from './Form';
+import { handleError } from '../../../../../../utils';
 
 interface Props {
   visible: boolean;
@@ -46,7 +47,7 @@ const RoleAddModal: React.FC<Props> = (props: Props) => {
       });
       onClose();
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

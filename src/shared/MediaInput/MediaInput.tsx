@@ -5,6 +5,7 @@ import { useField } from 'formik';
 import { Button, Container, FileNameContainer, KeyInputContainer } from './MediaInputStyle';
 import { BasicFilePartsFragment, FileKeyInput, useFileByKeyLazyQuery } from 'generated/graphql';
 import { SelectModal as FileSelectModal } from 'components/Files';
+import { handleError } from '../../utils';
 
 interface Props {
   name: string;
@@ -79,7 +80,7 @@ const KeyInput: React.FC<ExtendedProps> = ({ onAfterChange, ...props }) => {
     try {
       await fileByKey();
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

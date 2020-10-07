@@ -4,8 +4,9 @@ import { LoginInput } from 'types';
 
 import View from './LoginFormView';
 import { initialValues, LoginSchema } from './LoginFormUtils';
-import { handleCompleted, handleError } from './LoginFormOperations';
+import { handleCompleted } from './LoginFormOperations';
 import { useLoginMutation } from 'generated/graphql';
+import { handleError } from 'utils';
 
 const LoginForm: React.FC = () => {
   const [login] = useLoginMutation({

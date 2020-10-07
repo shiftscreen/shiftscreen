@@ -2,39 +2,80 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ede6dee5-7508-463f-a001-18b0a69ec626" name="Default Changelist" comment="Update">
-      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/pubsub/pubsub.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/utils/deep-diffrence.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Screens/graphql/NotifyScreenUpdatedMutation.graphql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Screens/graphql/ScreenUpdatedSubscription.graphql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils/onSubscriptionData.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/Studio/StudioUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/dto/email-confirm.input.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/files/utils/get-file-byte-size.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../powerdashboard-api/src/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constants/errorsMessages.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/handleError.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/nest-cli.json" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/nest-cli.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../powerdashboard-api/schema.gql" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/schema.gql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/apps-instances/apps-instances.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/apps-instances/apps-instances.resolver.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/auth.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/auth.resolver.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/entities/email-confirm.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/entities/email-confirm.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/entities/password-reset.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/entities/password-reset.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/strategies/jwt.strategy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/strategies/jwt.strategy.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/strategies/local.strategy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/strategies/local.strategy.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/files-keys/files-keys.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/files-keys/files-keys.resolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/files/files.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/files/files.resolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/organizations/organizations.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/organizations/organizations.resolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/roles/roles.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/roles/roles.resolver.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.resolver.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens-keys/screens-keys.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.resolver.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/screens.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/utils/get-updated-slides.util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/screens/utils/get-updated-slides.util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/slides/slides.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/slides/slides.resolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/users/users.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/users/users.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/users/users.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/users/users.resolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/modules/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/modules/users/users.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerdashboard-api/src/templates/email-confirm.pug" beforeDir="false" afterPath="$PROJECT_DIR$/../powerdashboard-api/src/templates/email-confirm.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql.schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/graphql.schema.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/boardroom.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/boardroom.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormOperations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/LoginForm/LoginFormOperations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUpForm/SignUpFormContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUpForm/SignUpFormContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUpForm/SignUpFormOperations.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/UserEditModal/UserEditModalView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/UserEditModal/UserEditModalView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddForm/FileAddFormContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddForm/FileAddFormContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddForm/FileAddFormView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddForm/FileAddFormView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddModalContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FileAddModal/FileAddModalContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FileSelectModal/FileSelectModalView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FileSelectModal/FileSelectModalView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FilesList/FilesListUtils.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FilesList/FilesListUtils.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FilesList/ListActions/ListActionsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FilesList/ListActions/ListActionsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Files/FilesStorage/FilesStorageView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Files/FilesStorage/FilesStorageView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceAddCard/ModuleInstanceAddCardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceAddCard/ModuleInstanceAddCardView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceCard/CardActions/CardActionsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modules/ModuleInstanceCard/CardActions/CardActionsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationAddModal/OrganizationAddModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationAddModal/OrganizationAddModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationCard/CardActions/CardActionsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationCard/CardActions/CardActionsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationInfo/OrganizationInfoView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationInfo/OrganizationInfoView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organizations/OrganizationResolvers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organizations/OrganizationResolvers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Roles/RoleAddModal/RoleAddModalContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Roles/RoleAddModal/RoleAddModalContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Roles/RolesList/ListActions/ListActionsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Roles/RolesList/ListActions/ListActionsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenAddKeyModal/ScreenAddKeyModalView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenAddKeyModal/ScreenAddKeyModalView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenAddModal/ScreenAddModalView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenAddModal/ScreenAddModalView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Screens/ScreenCard/CardActions/CardActionsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screens/ScreenCard/CardActions/CardActionsView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlideAddCard/AddSlideCardView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/graphql.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/graphql.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Counter/stable/Config/Config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Counter/stable/Config/Config.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Counter/stable/CounterTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Counter/stable/CounterTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Counter/stable/CounterUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Counter/stable/CounterUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Counter/stable/View/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Counter/stable/View/View.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Show/ShowContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Show/ShowContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Show/ShowUtils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Show/ShowUtils/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Show/ShowView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Show/ShowView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Studio/StudioContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Studio/StudioContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Slides/SlideCard/SlideCardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Slides/SlideCard/SlideCardView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleInfoView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleInfoView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleSelect/SlideModuleSelectView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInfo/SlideModuleSelect/SlideModuleSelectView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInstanceConfig/SlideModuleInstanceConfigView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideModuleConfig/SlideModuleInstanceConfig/SlideModuleInstanceConfigView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/SlideAdvancedModalContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideAdvanced/SlideAdvancedModal/SlideAdvancedModalContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideDuration/SlideDurationView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideDuration/SlideDurationView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideTransition/SlideTransitionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioEditor/SlideSettings/SlideTransition/SlideTransitionView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Studio/StudioHeader/StudioHeaderView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Studio/StudioHeader/StudioHeaderView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/News/stable/View/Utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/News/stable/View/Utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Panel/OrganizationSettings/OrganizationSettingsOperations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Panel/OrganizationSettings/OrganizationSettingsOperations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Studio/StudioUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Studio/StudioUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ErrorAlert/ErrorAlert.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ErrorAlert/ErrorAlert.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/MediaInput/MediaInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/MediaInput/MediaInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/MediaView/MediaView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/MediaView/MediaView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,25 +95,25 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Screens/graphql" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../powerdashboard-api/src/modules/auth/dto" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
-    <property name="ts.external.directory.path" value="E:\Projekty\GitHub\commercial\powerdashboard\node_modules\typescript\lib" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
+    <property name="ts.external.directory.path" value="E:\Projekty\GitHub\commercial\powerdashboard-api\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\auth\dto" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\auth\entities" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens\graphql" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src" />
+      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\screens\utils" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens\graphql" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api" />
       <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\assets" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens\graphql" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Screens" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard\src\components\Show\graphql" />
-      <recent name="E:\Projekty\GitHub\commercial\powerdashboard-api\src\modules\screen-keys\dto" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -193,7 +234,26 @@
       <workItem from="1598014382410" duration="606000" />
       <workItem from="1598094181013" duration="17503000" />
       <workItem from="1598173382503" duration="185000" />
-      <workItem from="1598348408332" duration="28103000" />
+      <workItem from="1598348408332" duration="29181000" />
+      <workItem from="1598437918758" duration="6555000" />
+      <workItem from="1598524758791" duration="3471000" />
+      <workItem from="1598898539608" duration="595000" />
+      <workItem from="1598974332531" duration="2551000" />
+      <workItem from="1599148164695" duration="716000" />
+      <workItem from="1599230118439" duration="1808000" />
+      <workItem from="1599388762717" duration="230000" />
+      <workItem from="1599852176802" duration="648000" />
+      <workItem from="1600621243719" duration="5655000" />
+      <workItem from="1600715194791" duration="599000" />
+      <workItem from="1600801322264" duration="599000" />
+      <workItem from="1600962716813" duration="603000" />
+      <workItem from="1601217555489" duration="1208000" />
+      <workItem from="1601234596753" duration="1130000" />
+      <workItem from="1601300610725" duration="20465000" />
+      <workItem from="1601387822109" duration="2609000" />
+      <workItem from="1601484531033" duration="1208000" />
+      <workItem from="1601570256597" duration="587000" />
+      <workItem from="1601668648733" duration="605000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1591736676262</created>
@@ -363,7 +423,21 @@
       <option name="project" value="LOCAL" />
       <updated>1598137523083</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Update">
+      <created>1598397049355</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1598397049355</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Add mail service">
+      <created>1600641125530</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1600641125530</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,6 +477,7 @@
     <MESSAGE value="Secure websocket" />
     <MESSAGE value="Add styles for browsers without grid support" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Add mail service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add mail service" />
   </component>
 </project>

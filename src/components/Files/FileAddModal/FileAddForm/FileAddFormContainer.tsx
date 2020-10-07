@@ -12,12 +12,9 @@ interface Props {
   onSubmit(values: NewFileInput): Promise<void>;
 }
 
-const FileAddForm: React.FC<Props> = (props: Props) => {
-  const [fileList, setFileList] = React.useState<UploadFile[]>();
-  const {
-    formikRef,
-    onSubmit
-  } = props;
+const FileAddForm: React.FC<Props> = ({ formikRef, onSubmit }) => {
+  const [fileList, setFileList] = React.useState<UploadFile[]>([]);
+  const fileTooBig = fileList[0] && (fileList[0].size > 1024 * 1024 * 100); // 100 MB
 
   const handleFileUpload = (file: RcFile): boolean => {
     formikRef?.current?.setFieldValue('file', file);
@@ -56,6 +53,7 @@ const FileAddForm: React.FC<Props> = (props: Props) => {
     >
       <View
         fileList={fileList}
+        fileTooBig={fileTooBig}
         beforeUpload={handleFileUpload}
         onChange={handleFileChange}
         onRemove={handleFileRemove}

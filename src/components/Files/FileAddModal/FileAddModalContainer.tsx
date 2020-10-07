@@ -8,6 +8,7 @@ import ModalFormik from 'shared/ModalFormik';
 import FileAddForm from './FileAddForm';
 import { useAddFileMutation, ViewerFilesDocument, ViewerFilesQuery, ViewerStorageDocument, } from 'generated/graphql';
 import { message } from 'antd';
+import { handleError } from '../../../utils';
 
 interface Props {
   visible: boolean;
@@ -51,8 +52,7 @@ const FileAddModal: React.FC<Props> = (props: Props) => {
       await addFile({ variables: { values } });
       onClose();
     } catch (e) {
-      console.error(e);
-      message.error('Wystąpił błąd przy dodawaniu pliku');
+      handleError(e, 'Wystąpił błąd przy dodawaniu pliku');
     }
   };
 

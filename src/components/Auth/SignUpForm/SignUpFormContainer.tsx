@@ -6,7 +6,7 @@ import { Alert } from 'antd';
 import View from './SignUpFormView';
 import { initialValues, SignUpSchema } from './SignUpFormUtils';
 import { useAddUserMutation } from 'generated/graphql';
-import { handleError } from './SignUpFormOperations';
+import { handleError } from 'utils';
 
 const SignUpForm: React.FC = () => {
   const [addUser, { data }] = useAddUserMutation({

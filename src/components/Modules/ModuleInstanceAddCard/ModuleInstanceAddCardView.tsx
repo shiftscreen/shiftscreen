@@ -5,6 +5,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import { useAddAppInstanceMutation } from 'generated/graphql';
 import { BasicAppInstancePartsFragment, Module } from 'types';
 import { getDefaultValues, updateCache } from './ModuleInstanceAddCardUtils';
+import { handleError } from '../../../utils';
 
 interface Props {
   module: Module;
@@ -29,7 +30,7 @@ const ModuleInstanceAddCard: React.FC<Props> = ({ module, onCreate }: Props) => 
         }
       })
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

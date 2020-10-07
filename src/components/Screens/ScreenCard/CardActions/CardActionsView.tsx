@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDeleteScreenMutation, useNotifyScreenUpdatedMutation, useUpdateScreenMutation } from 'generated/graphql';
 import { MenuItemProps } from 'antd/lib/menu/MenuItem';
-import { Button, Dropdown, Menu, message, Modal, Typography } from 'antd';
+import { Button, Dropdown, Menu, Modal, Typography } from 'antd';
 import { red } from '@ant-design/colors';
 import { DeleteOutlined, MoreOutlined, PoweroffOutlined } from '@ant-design/icons';
 import { ScreenTypes } from 'types';
 import { DataProxy } from 'apollo-cache';
 import { updateCacheAfterScreenDelete } from './CardActionsUtils';
+import { handleError } from 'utils';
 
 const { confirm } = Modal;
 const { Text } = Typography;
@@ -41,8 +42,8 @@ const ToggleActivationItem: React.FC<ItemProps> = ({ screen, ...props }: ItemPro
     variables: { id: parseInt(screen.id, 10) }
   });
   const [updateScreen] = useUpdateScreenMutation({
-    onError: () => (
-      message.error('Wystąpił błąd przy aktualizowaniu ekranu')
+    onError: (error) => (
+      handleError(error, 'Wystąpił błąd przy aktualizowaniu ekranu')
     ),
     onCompleted: () => (
       notifyScreenUpdated()
@@ -59,7 +60,7 @@ const ToggleActivationItem: React.FC<ItemProps> = ({ screen, ...props }: ItemPro
     try {
       await updateScreen();
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 
@@ -89,7 +90,7 @@ const DeleteItem: React.FC<ItemProps> = ({ screen, ...props }: ItemProps) => {
     try {
       await deleteScreen();
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

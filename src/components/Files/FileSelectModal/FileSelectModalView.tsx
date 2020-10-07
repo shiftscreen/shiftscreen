@@ -4,6 +4,7 @@ import { Modal } from 'antd';
 import { BasicFilePartsFragment, FileKeyInput, useAddFileKeyMutation, } from 'generated/graphql';
 import FilesList from './FilesList';
 import ModalFooter from './ModalFooter';
+import { handleError } from '../../../utils';
 
 interface Props {
   withKey?: boolean;
@@ -27,7 +28,7 @@ const FileSelectModal: React.FC<Props> = ({ visible, onClose, withKey = false })
         }
       });
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

@@ -6,6 +6,7 @@ import { BasicSlidePartsFragment, useUpdateSlideMutation } from 'generated/graph
 import { Module } from 'types';
 import modules from 'modules';
 import { getDayjsDuration, getSecondsDuration, TIME_FORMAT } from './SlideDurationUtils';
+import { handleError } from '../../../../../utils';
 
 const { Text } = Typography;
 
@@ -42,7 +43,7 @@ const SlideDuration: React.FC<Props> = ({ slide }: Props) => {
         }
       })
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

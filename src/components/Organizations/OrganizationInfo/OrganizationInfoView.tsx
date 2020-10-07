@@ -4,6 +4,7 @@ import { message, Typography } from 'antd';
 import dayjs from 'dayjs';
 
 import { Card, Descriptions, TitleWrapper } from './OrganizationInfoStyle';
+import { handleError } from 'utils';
 
 const { Title, Text } = Typography;
 
@@ -14,7 +15,7 @@ interface Props {
 const OrganizationInfo: React.FC<Props> = ({ organization }: Props) => {
   const { id, title, createdAt, updatedAt } = organization;
   const [updateOrganization] = useUpdateOrganizationMutation({
-    onError: () => message.error('Wystąpił błąd podczas próby aktualizacji organizacji'),
+    onError: (error) => handleError(error, 'Wystąpił błąd podczas próby aktualizacji organizacji'),
   });
   const createdAtText = dayjs(createdAt).format('LLLL');
   const updatedAtText = dayjs(updatedAt).format('LLLL');
@@ -36,7 +37,7 @@ const OrganizationInfo: React.FC<Props> = ({ organization }: Props) => {
         }
       })
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

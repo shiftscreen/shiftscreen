@@ -15,6 +15,7 @@ import {
 import ModalFormik from 'shared/ModalFormik';
 import RoleAddForm from './Form';
 import { ErrorAlert } from 'shared';
+import { handleError } from '../../../utils';
 
 const { Text } = Typography;
 
@@ -62,7 +63,7 @@ const RoleAddModal: React.FC<Props> = (props: Props) => {
       await addRole({ variables: { values } });
       onClose();
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

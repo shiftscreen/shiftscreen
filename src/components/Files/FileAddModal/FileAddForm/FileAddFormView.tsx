@@ -1,5 +1,5 @@
 import React from 'react';
-import { Upload } from 'antd';
+import { Alert, Upload } from 'antd';
 import { Form, Input } from 'formik-antd';
 import { InboxOutlined } from '@ant-design/icons';
 import { RcFile, UploadChangeParam, UploadFile } from 'antd/lib/upload/interface';
@@ -8,11 +8,9 @@ const { Dragger } = Upload;
 
 interface Props {
   fileList: UploadFile[] | undefined;
-
+  fileTooBig: boolean;
   beforeUpload(file: RcFile): boolean;
-
   onChange(info: UploadChangeParam): void
-
   onRemove(): boolean;
 }
 
@@ -21,7 +19,8 @@ const FileAddForm: React.FC<Props> = (props: Props) => {
     fileList,
     beforeUpload,
     onChange,
-    onRemove
+    onRemove,
+    fileTooBig,
   } = props;
 
   return (
@@ -45,6 +44,13 @@ const FileAddForm: React.FC<Props> = (props: Props) => {
           <p className="ant-upload-text">Kliknij albo upuść plik tutaj</p>
         </Dragger>
       </Form.Item>
+      {fileTooBig && (
+        <Alert
+          message="Plik jest zbyt duży (ponad 100 MB)"
+          type="error"
+          showIcon
+        />
+      )}
     </Form>
   );
 };

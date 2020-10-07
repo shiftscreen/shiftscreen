@@ -7,6 +7,7 @@ import * as R from 'ramda';
 import { useDeleteRoleMutation, useViewerQuery } from 'generated/graphql';
 import { updateCache } from './ListActionsUtils';
 import { DataProxy } from 'apollo-cache';
+import { handleError } from 'utils';
 
 const { confirm } = Modal;
 const { Text } = Typography;
@@ -39,13 +40,9 @@ const DeleteAction: React.FC<Props> = ({ role, organization }: Props) => {
     variables: {
       id: parseInt(role.id, 10),
     },
-    onError: () => {
-      message.error('Wystąpił błąd podczas usuwania roli');
-
-      if (isAdmin) {
-        message.info('Organizacja musi posiadać minimum jednego administratora', 10);
-      }
-    },
+    onError: (error) => (
+      handleError(error, 'Wystąpił błąd podczas usuwania roli')
+    ),
     onCompleted: () => (
       message.success(`Pomyślnie usunięto rolę`)
     ),

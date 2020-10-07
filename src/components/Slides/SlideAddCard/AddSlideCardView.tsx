@@ -12,6 +12,7 @@ import {
   useUpdateScreenMutation
 } from 'generated/graphql';
 import { getDefaultValues, updateCache } from './AddSlideCardUtils';
+import { handleError } from '../../../utils';
 
 library.add(faCircleNotch);
 
@@ -51,7 +52,7 @@ const AddSlideCard: React.FC<Props> = ({ screen }: Props) => {
         }
       })
     } catch (e) {
-      console.error(e)
+      handleError(e);
     }
   };
 
@@ -69,7 +70,7 @@ const AddSlideCard: React.FC<Props> = ({ screen }: Props) => {
     try {
       await addSlide();
     } catch (e) {
-      console.error(e)
+      handleError(e);
     }
   };
 

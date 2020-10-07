@@ -5,6 +5,7 @@ import { Path, ScreenTypes } from 'types';
 import { generatePath } from 'react-router';
 import { ErrorAlert } from '../../../shared';
 import { Card, Inner, Text } from './ScreenAddKeyModalStyle';
+import { handleError } from '../../../utils';
 
 const { Search } = Input;
 
@@ -26,7 +27,7 @@ const ScreenAddKeyModal: React.FC<Props> = ({ screen, visible, onClose }: Props)
         }
       })
     } catch (e) {
-      console.error(e)
+      handleError(e);
     }
   };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { BasicAppInstancePartsFragment, BasicSlidePartsFragment, useUpdateSlideMutation } from 'generated/graphql';
 import { Button } from './SlideModuleSelectStyle';
 import { SelectModal as ModuleSelectModal } from 'components/Modules';
+import { handleError } from '../../../../../../utils';
 
 interface Props {
   slide: BasicSlidePartsFragment;
@@ -30,7 +31,7 @@ const SlideModuleSelect: React.FC<Props> = ({ slide }: Props) => {
         }
       })
     } catch (e) {
-      console.error(e)
+      handleError(e);
     }
   };
 

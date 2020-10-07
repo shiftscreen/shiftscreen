@@ -7,6 +7,7 @@ import { DataProxy } from 'apollo-cache';
 
 import { useDeleteAppInstanceMutation } from 'generated/graphql';
 import { updateCache } from './CardActionsUtils';
+import { handleError } from 'utils';
 
 const { confirm } = Modal;
 const { Text } = Typography;
@@ -24,8 +25,8 @@ const DeleteAction: React.FC<Props> = ({ instance }: Props) => {
     onCompleted: () => (
       message.success('Pomyślnie usunięto instancję')
     ),
-    onError: () => (
-      message.error('Wystąpił błąd podczas usuwania instancji')
+    onError: (error) => (
+      handleError(error, 'Wystąpił błąd podczas usuwania instancji')
     ),
     update: (cache: DataProxy) => updateCache(cache, instance),
     variables: {

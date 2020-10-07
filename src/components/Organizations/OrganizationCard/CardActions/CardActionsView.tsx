@@ -9,6 +9,7 @@ import { DataProxy } from 'apollo-cache';
 
 import { useDeleteOrganizationMutation, useDeleteRoleMutation, } from 'generated/graphql';
 import { updateCache } from './CardActionsUtils';
+import { handleError } from 'utils';
 
 const { confirm } = Modal;
 
@@ -82,13 +83,9 @@ const MenuLeaveOrganization: React.FC<Props> = ({ role, ...props }: Props) => {
     onCompleted: () => (
       message.success('Pomyślnie opuszczono organizację')
     ),
-    onError: () => {
-      message.error('Wystąpił błąd podczas opuszczania organizacji');
-
-      if (isAdmin) {
-        message.info('Organizacja musi posiadać minimum jednego administratora', 10);
-      }
-    },
+    onError: (error) => (
+      handleError(error, 'Wystąpił błąd podczas opuszczania organizacji')
+    ),
     update: (cache: DataProxy) => updateCache(cache, role),
     variables: {
       id: parseInt(role.id, 10),
@@ -124,8 +121,8 @@ const MenuDeleteOrganization: React.FC<Props> = ({ role, ...props }: Props) => {
     onCompleted: () => (
       message.success('Pomyślnie usunięto organizację')
     ),
-    onError: () => (
-      message.error('Wystąpił błąd podczas usuwania organizacji')
+    onError: (error) => (
+      handleError(error, 'Wystąpił błąd podczas usuwania organizacji')
     ),
     update: (cache: DataProxy) => updateCache(cache, role),
     variables: {

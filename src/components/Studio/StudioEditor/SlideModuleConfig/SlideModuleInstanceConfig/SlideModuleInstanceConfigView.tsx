@@ -6,6 +6,7 @@ import { BasicAppInstancePartsFragment, BasicAppInstancePartsFragmentDoc, useUpd
 import { client } from 'apollo';
 import { InstanceConfig as ModuleInstanceConfig } from 'components/Modules';
 import { Container } from './SlideModuleInstanceConfigStyle';
+import { handleError } from '../../../../../utils';
 
 interface Props {
   instance: BasicAppInstancePartsFragment;
@@ -37,7 +38,7 @@ const SlideModuleInstanceConfig: React.FC<Props> = ({ instance }: Props) => {
         }
       })
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

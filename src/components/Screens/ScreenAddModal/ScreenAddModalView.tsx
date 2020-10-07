@@ -10,6 +10,7 @@ import { useAddScreenMutation, useSelectedOrganizationQuery } from 'generated/gr
 import ModalFormik from 'shared/ModalFormik';
 import ScreenAddForm from './Form';
 import { updateCache } from './ScreenAddModalUtils';
+import { handleError } from '../../../utils';
 
 const { Text } = Typography;
 
@@ -41,7 +42,7 @@ const ScreenAddModal: React.FC<Props> = ({ visible, onClose }: Props) => {
     try {
       await addScreen({ variables: { values } });
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

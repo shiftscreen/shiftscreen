@@ -8,6 +8,7 @@ import { ModalFormik } from 'shared';
 import { BasicUserPartsFragment, UpdateUserInput } from 'types';
 import { useUpdateUserMutation } from 'generated/graphql';
 import UserEditForm from './Form';
+import { handleError } from '../../../utils';
 
 interface Props {
   user: BasicUserPartsFragment;
@@ -37,8 +38,7 @@ const UserEditModal: React.FC<Props> = (props) => {
       });
       onClose();
     } catch (e) {
-      console.error(e);
-      message.error('Wystąpił błąd przy aktualizowaniu profilu');
+      handleError(e, 'Wystąpił błąd przy aktualizowaniu profilu');
     }
   };
 

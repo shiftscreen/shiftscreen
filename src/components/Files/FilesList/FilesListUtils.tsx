@@ -10,6 +10,7 @@ import { useUpdateFileMutation } from 'generated/graphql';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FAIcon } from './FilesListStyle';
 import Actions from './ListActions';
+import { handleError } from '../../../utils';
 
 const { Text } = Typography;
 
@@ -29,8 +30,7 @@ const TitleEditable: React.FC<TitleEditableProps> = ({ file }) => {
         }
       });
     } catch (e) {
-      console.error(e);
-      message.error('Wystąpił błąd podczas próby aktualizacji tytułu');
+      handleError(e, 'Wystąpił błąd podczas próby aktualizacji tytułu');
     }
   };
 

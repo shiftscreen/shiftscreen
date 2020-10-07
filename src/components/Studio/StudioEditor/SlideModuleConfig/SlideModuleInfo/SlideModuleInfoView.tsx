@@ -12,6 +12,7 @@ import {
 import SlideModuleSelect from './SlideModuleSelect';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Container, Inner, InstanceTitle, ModuleTitle, UnlinkButton } from './SlideModuleInfoStyle';
+import { handleError } from '../../../../../utils';
 
 
 interface Props {
@@ -66,7 +67,7 @@ const SlideModuleInstanceTitle: React.FC<ActionProps> = ({ instance }: ActionPro
         }
       })
     } catch (e) {
-      console.error(e)
+      handleError(e);
     }
   };
 
@@ -99,7 +100,7 @@ const SlideModuleInstanceUnlink: React.FC<Props> = ({ slide }: Props) => {
         }
       })
     } catch (e) {
-      console.error(e)
+      handleError(e);
     }
   };
 

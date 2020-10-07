@@ -11,6 +11,7 @@ import {
   ViewerFilesQuery,
   ViewerStorageDocument,
 } from 'generated/graphql';
+import { handleError } from 'utils';
 
 const { Text } = Typography;
 
@@ -71,8 +72,8 @@ const DeleteAction: React.FC<Props> = ({ file }) => {
     onCompleted: () => (
       message.success(`Pomyślnie usunięto plik ${file.title}`)
     ),
-    onError: () => (
-      message.error('Wystąpił błąd przy usuwaniu pliku')
+    onError: (error) => (
+      handleError(error, 'Wystąpił błąd przy usuwaniu pliku')
     ),
     refetchQueries: [{
       query: ViewerStorageDocument,
@@ -100,7 +101,7 @@ const DeleteAction: React.FC<Props> = ({ file }) => {
     try {
       await deleteFile();
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

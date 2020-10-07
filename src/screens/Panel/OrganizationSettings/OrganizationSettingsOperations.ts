@@ -1,5 +1,6 @@
 import { BasicOrganizationPartsFragment, OrganizationByIdDocument, OrganizationByIdQuery, } from 'generated/graphql';
 import { cache } from 'apollo';
+import { handleError } from '../../../utils';
 
 export const getOrganization = (id: string): BasicOrganizationPartsFragment | null => {
   try {
@@ -10,7 +11,7 @@ export const getOrganization = (id: string): BasicOrganizationPartsFragment | nu
 
     return data !== null ? data.organization : data;
   } catch (e) {
-    console.error(e);
+    handleError(e);
     return null;
   }
 };

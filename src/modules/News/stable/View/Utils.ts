@@ -1,5 +1,6 @@
 import { NewsInstance } from '../NewsTypes';
 import RSSParser from 'rss-parser';
+import { handleError } from '../../../../utils';
 
 const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
 
@@ -16,7 +17,7 @@ export const getFeedNewsList = async (rssUrl: string): Promise<NewsInstance[]> =
       description: content,
     }));
   } catch (e) {
-    console.error(e)
+    handleError(e);
   }
 
   return [];

@@ -9,6 +9,7 @@ import { ScreenTypes } from '../../types';
 import * as R from 'ramda';
 import React from 'react';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
+import { handleError } from '../../utils';
 
 export const useUpdateOrder = (screen?: ScreenTypes.ScreenExtended): [
   (newOrder: number[]) => Promise<void>,
@@ -39,7 +40,7 @@ export const useUpdateOrder = (screen?: ScreenTypes.ScreenExtended): [
         }
       })
     } catch (e) {
-      console.error(e)
+      handleError(e);
     }
   };
 

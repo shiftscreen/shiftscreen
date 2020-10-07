@@ -6,6 +6,7 @@ import { BackButton, Container, Inner, Title } from './StudioHeaderStyle';
 import { PanelTypes, Path, ScreenTypes, useUpdateScreenMutation } from 'types';
 import { Button, message } from 'antd';
 import ScreenAddKeyModal from '../../Screens/ScreenAddKeyModal';
+import { handleError } from 'utils';
 
 interface Props {
   screen: ScreenTypes.ScreenExtended;
@@ -16,7 +17,7 @@ const StudioHeader: React.FC<Props> = ({ screen }: Props) => {
   const { id, title, color } = screen;
 
   const [updateScreen] = useUpdateScreenMutation({
-    onError: () => message.error('Wystąpił błąd podczas próby aktualizacji ekranu'),
+    onError: (error) => handleError(error, 'Wystąpił błąd podczas próby aktualizacji ekranu'),
   });
 
   const handleTitleEdit = async (title: string) => {
@@ -36,7 +37,7 @@ const StudioHeader: React.FC<Props> = ({ screen }: Props) => {
         }
       });
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

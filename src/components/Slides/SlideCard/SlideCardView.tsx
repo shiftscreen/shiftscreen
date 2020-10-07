@@ -17,6 +17,7 @@ import { Module } from 'types';
 import { Action, ActionsWrapper, Container, HiddenPreview, PreviewContainer, } from './SlideCardStyle';
 import { updateCache } from './SlideCardUtils';
 import modules from 'modules';
+import { handleError } from '../../../utils';
 
 interface Props {
   onSlideSelect(slide: BasicSlidePartsFragment): void;
@@ -105,7 +106,7 @@ const ToggleAction: React.FC<ToggleActionProps> = ({ slide }: ToggleActionProps)
     try {
       await updateSlide()
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 
@@ -160,7 +161,7 @@ const DeleteAction: React.FC<DeleteActionProps> = ({ slide, screen }: DeleteActi
         }
       })
     } catch (e) {
-      console.error(e);
+      handleError(e);
     }
   };
 

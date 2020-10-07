@@ -2,6 +2,7 @@ import React, { CSSProperties } from 'react';
 import { useFileLinkByKeyLazyQuery } from 'generated/graphql';
 
 import { MediaSource, MediaType } from './MediaViewTypes';
+import { handleError } from '../../utils';
 
 interface Props {
   type: MediaType;
@@ -32,7 +33,7 @@ const MediaView: React.FC<Props> = ({ type, source, onVideoEnded, ...props }: Pr
           },
         })
       } catch (e) {
-        console.error(e)
+        handleError(e);
       }
     }
   };
